@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react';
-import Navigation from './Navigation';
+import Navigation from '../components/Navigation';
 import HeaderButton from '../components/HeaderButton';
 import HeaderBurger from '../components/HeaderBurger';
 import BurgerLinks from '../components/BurgerLinks';
