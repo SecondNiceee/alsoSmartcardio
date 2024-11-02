@@ -3,6 +3,10 @@
     flex-direction: column;
     position: relative;
     background-color: black;
+    height: 100vh;
+    @media (max-width:768px) {
+        height: unset;
+    }
     .smartcardio__video{
         position: absolute;
         left: 0;
@@ -20,7 +24,10 @@
         flex-direction: column;
         align-items: center;
         padding-top: clamp(2.5rem, 1.071rem + 7.14vw, 7.5rem);
-        padding-bottom: clamp(3.125rem, 1.781rem + 5.66vw, 6.875rem);
+        padding-bottom: 0;
+        @media (max-width:768px) {
+            padding-bottom: clamp(3.125rem, 1.781rem + 5.66vw, 6.875rem);
+        }
     }
     .smarcardio__header{
         font-family: var(--third-family);

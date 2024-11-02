@@ -1,5 +1,5 @@
 import React, { FC, SetStateAction } from 'react';
-// import { Squash as Hamburger } from 'hamburger-react'
+import { Squash as Hamburger } from 'hamburger-react'
 
 interface IHeaderBurger{
     isOpen : boolean,
@@ -8,10 +8,7 @@ interface IHeaderBurger{
 const HeaderBurger:FC<IHeaderBurger> = ({isOpen, setOpen}) => {
     return (
         <div className="burger-icon">
-            <div>
-                
-            </div>
-            {/* <Hamburger color='white' toggled={isOpen} toggle={setOpen} /> */}
+            <Hamburger color='white' toggled={isOpen} toggle={setOpen} />
         </div>
     );
 };

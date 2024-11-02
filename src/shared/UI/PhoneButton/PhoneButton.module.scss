@@ -1,0 +1,27 @@
+.phoneButton{
+    padding: 20px clamp(1rem, -0.965rem + 3.07vw, 1.875rem);
+    display: flex;
+    gap: 13px;
+    width: 100%;
+    text-decoration: none;
+    align-items: center;
+    border-radius: 12px;
+    background-color: black;
+    @media (max-width:480px) {
+        padding: 14px clamp(1rem, -0.965rem + 3.07vw, 1.875rem);
+    }
+}
+.phoneButtonImage{
+    width: 31px;
+    height: 31px;
+}
+.phoneButtonText{
+    font-family: var(--font3);
+    font-weight: 600;
+    font-size: clamp(0.875rem, 0.668rem + 1.03vw, 1.625rem);
+
+    /* line-height: 44px; */ 
+    // line-height: 167%;
+    text-align: center;
+    color: #fff;
+}

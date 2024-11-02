@@ -1,4 +1,7 @@
 import React from 'react';
+import DownloadsButtons from '../components/DownloadsButtons';
+import OrderButton from '@/shared/UI/OrderButton/OrderButton';
+import DownloadsInstructions from '../components/DownloadsInstructions';
 
 const Downloads = () => {
     return (
@@ -8,6 +11,8 @@ const Downloads = () => {
                 Скачайте приложение СмартКардио®
                 для работы с прибором
                 </header>
+                <DownloadsButtons />
+                <DownloadsInstructions />
                 
             </div>
         </section>

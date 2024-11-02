@@ -9,7 +9,7 @@
 %section-title{
     font-family: var(--third-family);
     font-weight: 700;
-    font-size: 47px;
+    font-size: clamp(1.563rem, 1.183rem + 1.9vw, 2.938rem);
 
     /* line-height: 51px; */ 
     line-height: 108%;
