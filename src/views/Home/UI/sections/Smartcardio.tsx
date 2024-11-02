@@ -9,7 +9,6 @@ const Smartcardio = () => {
     return (
         <div className="smartcardio-wrapper">
             <Video darkOpacity={0.5} videoName='smartardio.mp4' className='smartcardio__video' />
-
             <Header />
             <section className='smartcardio'>
                 <div className="container">
