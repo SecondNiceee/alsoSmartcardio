@@ -1,3 +1,4 @@
+@import "@/styles/variables";
 .phoneButton{
     padding: 20px clamp(1rem, -0.965rem + 3.07vw, 1.875rem);
     display: flex;
@@ -7,6 +8,7 @@
     align-items: center;
     border-radius: 12px;
     background-color: black;
+    @extend %white-hover;
     @media (max-width:480px) {
         padding: 14px clamp(1rem, -0.965rem + 3.07vw, 1.875rem);
     }
@@ -18,7 +20,7 @@
 .phoneButtonText{
     font-family: var(--font3);
     font-weight: 600;
-    font-size: clamp(0.875rem, 0.668rem + 1.03vw, 1.625rem);
+    font-size: clamp(0.813rem, 0.692rem + 0.6vw, 1.25rem);
 
     /* line-height: 44px; */ 
     // line-height: 167%;

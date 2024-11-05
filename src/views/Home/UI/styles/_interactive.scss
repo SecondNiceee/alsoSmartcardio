@@ -1,0 +1,277 @@
+.interactive{
+    position: relative;
+    .desktop{
+        display: block;
+        @media (max-width:768px) {
+            display: none;
+        }
+    }
+    .container{
+        @extend %container;
+        align-items: center;
+        justify-content: center;
+        overflow-x: clip;
+        padding-bottom: clamp(3.125rem, 1.746rem + 6.9vw, 8.125rem);
+        
+    }
+    .interactive-wrapper{
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .interactive__image{
+        position: relative;
+        z-index: 20;
+        width: 75%;
+    }
+    .interactive__phone .interactive__lottie{
+        position: absolute;
+        bottom: 6%;
+        left: 22%;
+        opacity: 0;
+        z-index: 30;
+        
+        &.show{
+            opacity: 1;
+        }
+    }
+    .intersection__order-button{
+        padding: 20px;
+        width: 100%;
+        @extend %scale-hover;
+        .button-text{
+            color: white;
+        }
+    }
+    .interactive__cardio .interactive__lottie{
+        position: absolute;
+        bottom: -2%;
+        right: 26%;
+        opacity: 0;
+        z-index: 30;
+        &.show{
+            opacity: 1;
+        }
+    }
+    .phone-block{
+        cursor: url("../../../../assets/lastCursor.svg"), auto;
+        width: 59%;
+        border-radius: 40px;
+        height: 49%;
+        bottom: 34%;
+        left: 12%;
+        rotate: -44deg;
+        position: absolute;
+        z-index: 200;
+        
+    }
+    .cardio-block{
+        cursor: url("../../../../assets/lastCursor.svg"), auto;
+        width: 38%;
+        border-radius: 40px;
+        height: 41%;
+        bottom: 14%;
+        left: 50%;
+        rotate: -46deg;
+        position: absolute;
+        z-index: 200;
+    }
+    .phone-tblock, .cardio-tblock{
+        cursor: url("../../../../assets/lastCursor.svg"), auto;
+        padding: clamp(1.563rem, -0.123rem + 3.51vw, 3.125rem);
+        border: 1.46px solid #b200ff;
+        background: #fff;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        opacity: 0;
+        transition: 0.4s;
+        z-index: 50;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        z-index: 220;
+
+        &.show{
+            opacity: 1;
+        }
+
+        .tblock__text{
+            max-width: 480px;
+            font-family: var(--third-family);
+            font-weight: 600;
+            font-size: clamp(1.063rem, 0.658rem + 0.84vw, 1.438rem);
+            /* line-height: 51px; */ 
+            line-height: 175%;
+            text-align: center;
+            color: #202020;
+        }
+    }
+    .phone-tblock{
+        top: 19%;
+        left: 20%;
+        
+    }
+    .cardio-tblock{
+        top: 48%;
+        left: 49%;
+    }
+    .interactive__circle{
+        filter: blur(21.6363639832px);
+        position: absolute;
+        top: -15%;
+        left: 0;
+        width: clamp(16.25rem, -2.626rem + 39.33vw, 33.75rem); // 260px к 768
+        transform: translateX(-50%);
+        @media (max-width:768px) {
+            display: none;
+        }
+    }
+    .interactive__liner-block{
+        position: absolute;
+        fill: linear-gradient(90deg, #fff 0%, #f0d 50.9%, #2f00ff 100%);
+        stroke-width: 2.92px;
+        /* left: 19%; */
+        right: 10%;
+        filter: blur(1px);
+        top: 4%;
+        stroke: #000;
+        opacity: 0.7;
+        filter: blur(100.375px);
+        @media (max-width:1024px) {
+            top: 3%;
+            width: 50%;
+        }
+        @media (max-width:768px) {
+            display: none;
+        }
+    }
+
+}
+
+@media (max-width:1480px) {
+    .interactive{
+        .interactive__image{
+            width: 80%;
+        }
+    }
+}
+@media(max-width:1200px){
+    .interactive{
+        .interactive__image{
+            width: 90%;
+        }
+        .interactive__phone .interactive__lottie{
+            bottom: 10%;
+            left: 11%;
+        }
+        .interactive__cardio .interactive__lottie{
+            bottom: 1%;
+            right: 23%;
+        }
+        .phone-tblock{
+            top: 15%;
+            left: 19%;
+            max-width: 430px;
+        }
+        .cardio-tblock{
+            max-width: 430px;
+            top: 48%;
+            right: 2%;
+            left: unset;
+        }
+        .interactive__circle{
+            top: -26%;
+        }
+        
+    }
+
+
+}
+
+@media (max-width:1050px) {
+    .interactive{
+        .interactive__image{
+            width: 100%;
+        }
+
+    }
+}
+
+@media (max-width:900px){
+    .interactive{
+        .interactive__cardio .interactive__lottie{
+            bottom: -3%;
+            right: 18%;
+        }
+        .cardio-tblock{
+            max-width: 375px;
+        }
+        .phone-tblock{
+            left: 11%;
+        }
+    }
+}
+
+
+.interactive{
+    .container{
+        display: flex;
+        flex-direction: column;
+        gap: clamp(1.875rem, 1.205rem + 3.35vw, 2.813rem);
+    }
+    .mobile{
+        display: none;
+        @media (max-width:768px) {
+            display: block;
+        }
+        .interactive__m-header{
+            @extend %section-title;
+        }   
+    }
+    .interactive__m-main{
+        display: flex;
+        align-items: center;
+        border: 2px solid #000;
+        border-radius: 37px;
+        padding: 50px;
+        gap: 20px;
+        @media (max-width:660px) {
+            flex-direction: column-reverse;
+        }
+    }
+    .interactive__m-image{
+        width: 50%;
+        @media (max-width:660px) {
+            width: 100%;
+        }
+    }
+    .m-block{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+        align-items: center;
+    }
+
+    .interactive__m-button{
+        width: 100%;
+    }
+    .interactive__button-text{
+        color: white;
+    }
+
+    .interactive__m-description{
+        font-family: var(--font3);
+        font-weight: 400;
+        font-size: 18px;
+
+        /* line-height: 70px; */ 
+        line-height: 175%;
+        text-align: center;
+        color: #202020;
+    }
+}

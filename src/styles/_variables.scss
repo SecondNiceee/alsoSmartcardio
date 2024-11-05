@@ -1,3 +1,22 @@
+
+.black{
+    color: black !important;
+}
+.black-border{
+    border: 2px solid black !important;
+    background-color: white !important;
+    
+}
+
+%paragraph{
+    font-family: var(--font3);
+    font-weight: 400;
+    font-size: clamp(0.813rem, 0.657rem + 0.78vw, 1.375rem);
+    /* line-height: 70px; */
+    line-height: 175%;
+    text-align: center;
+    color: #202020;
+}
 %container{
     max-width: 1480px;
     display: flex;
@@ -6,10 +25,54 @@
     padding-left: 20px;
     padding-right: 20px;
 }
+
+%scale-hover{
+    transition: 0.4s;
+    &:hover{
+        scale: 1.1;
+    }
+}
+%white-hover{
+    transition: 0.4s;
+    border: 1px solid transparent;
+    &:hover{
+        border: 1px solid black;
+        background-color: white !important;
+        p{
+            color: black !important;
+        }
+    }
+}
+%gradient-hover{
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;  
+    &::after{
+        content: "";
+        position: absolute;
+        left: -100%;
+        transition: 0.5s;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, #40f 0%, #ff00d9 100%);
+        z-index: 2;
+    }
+    &:hover{
+        scale: 1.1;
+        &::after{
+            left: 0;
+        }
+    }
+    p{
+        position: relative;
+        z-index: 20;
+    }
+}
 %section-title{
     font-family: var(--third-family);
     font-weight: 700;
-    font-size: clamp(1.563rem, 1.183rem + 1.9vw, 2.938rem);
+    font-size: clamp(1.563rem, 1.338rem + 1.12vw, 2.375rem);
 
     /* line-height: 51px; */ 
     line-height: 108%;

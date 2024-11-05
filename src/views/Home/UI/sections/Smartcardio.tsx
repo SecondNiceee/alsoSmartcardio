@@ -1,5 +1,5 @@
 import OrderButton from '@/shared/UI/OrderButton/OrderButton';
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import SmartcardioButtons from '../components/SmartcardioButtons';
 import { ScrollArrow } from '@/features/ScrollArrow';
 import Header from './Header';
@@ -16,7 +16,7 @@ const Smartcardio = () => {
                         СмартКардио <span>®</span>
                     </h1>
                     <h3 className='smartcardio__description'>
-                    Персональное устройство для мониторинга вашего здоровья
+                    <span>Первое в мире</span>  устройство, регистрирующее одновременно ЭКГ, сатурацию и пульсовую волну без геля и проводов.
                     </h3>
                     <SmartcardioButtons  />
                     <ScrollArrow className='smartcardio-arrow' />

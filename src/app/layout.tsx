@@ -62,7 +62,13 @@ export default function RootLayout({
          ${inter.variable}
          `}
       >
+        <header>
+
+        </header>
         {children}
+        <footer>
+          
+        </footer>
       </body>
     </html>
   );

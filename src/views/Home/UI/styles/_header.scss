@@ -49,6 +49,7 @@
 
     .header__order-button{
         width: clamp(8.625rem, 3.164rem + 11.38vw, 13.688rem);
+        @extend %gradient-hover;
         @media (max-width:480px) {
             display: none;
         }
@@ -57,7 +58,7 @@
     .header__nav-li{
         font-family: var(--roboto-400);
         font-weight: 400;
-        font-size: clamp(0.875rem, 0.673rem + 0.42vw, 1.063rem);
+        font-size: clamp(0.813rem, 0.692rem + 0.6vw, 1.25rem);
         color: #fff;
         list-style-type: none;
         @media (max-width:768px) {

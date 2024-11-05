@@ -55,16 +55,20 @@
         line-height: 122%;
         text-align: center;
         color: #fff;
-        max-width: 540px;
+        max-width: 720px;
+        span{
+            color: #6cff01;
+            font-weight: 600;
+        }
     }
     .smartcardio__buttons{
         margin-top: clamp(2.188rem, 1.406rem + 3.91vw, 2.813rem);
         display: flex;
         gap: 30px;
-        @media (max-width:380px) {
+        @media (max-width:480px) {
             flex-direction: column;
             width: 80%;
-            gap: 15px;
+            gap: 12px;
         }
     }
     .smartcardio-arrow{
@@ -75,7 +79,8 @@
     }
     .smartcardio__order-button{
         width: clamp(10rem, 5.833rem + 11.57vw, 16.25rem);
-        @media (max-width:380px) {
+        @extend %gradient-hover;
+        @media (max-width:480px) {
             width: 100%;
         }
         p{
@@ -85,7 +90,8 @@
     .smartcardio__read-button{
         width: clamp(10rem, 5.833rem + 11.57vw, 16.25rem);
         background-color: white;
-        @media (max-width:380px) {
+        @extend %scale-hover;
+        @media (max-width:480px) {
             width: 100%;
         }
         p:first-of-type{
