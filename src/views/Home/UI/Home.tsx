@@ -4,6 +4,7 @@ import Smartcardio from './sections/Smartcardio';
 import Downloads from './sections/Downloads';
 import InteractiveSection from './sections/InteractiveSection';
 import Indicators from './sections/Indicators';
+import Technologys from './sections/Technologys';
 export const Home = () => {
     return (
         <>
@@ -11,6 +12,7 @@ export const Home = () => {
             <Downloads />
             <InteractiveSection />
             <Indicators />
+            <Technologys />
         </>
     );
 };

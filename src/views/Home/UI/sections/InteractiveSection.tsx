@@ -9,13 +9,15 @@ import InteractiveMobile from '../components/InteractiveMobile';
 
 
 const InteractiveSection = () => {
+
+
     return (
         <section className='interactive'>
             <div className="desktop">
                 <div className="container">
                     <div className="interactive-wrapper">
 
-                        <Image className='interactive__image' width={500} height={490} alt='#' src={"/images/interactive.png"} />
+                        <Image className='interactive__image' width={800} height={800} alt='#' src={"/images/interactive.png"} />
 
                         <InteractivePhoneBlock />
 
