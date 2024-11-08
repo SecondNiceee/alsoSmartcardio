@@ -1,4 +1,9 @@
 
+
+$container-gap :clamp(1.875rem, 1.53rem + 1.72vw, 3.125rem);
+$section-padding : clamp(3.125rem, 1.746rem + 6.9vw, 8.125rem);
+
+
 .black{
     color: black !important;
 }

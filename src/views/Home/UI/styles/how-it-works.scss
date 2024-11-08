@@ -1,0 +1,96 @@
+@keyframes rotate {
+    100% {
+      transform: rotate(135deg);
+    }
+  }
+.how-it-works{
+    .container{
+        @extend %container;
+        flex-direction: column;
+        gap: $container-gap;
+        padding-bottom: $section-padding;
+        align-items: center;
+    }
+    .how-it-works__header{
+        @extend %section-title;
+    }
+
+    .how-it-works__ellipse{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+    .how-it-works__video{
+        width: 60%;
+        height: 100%;
+        border-radius: 51px;
+        line-height: 0;
+        object-fit: cover;
+        // padding: 60px;
+        padding: 2px;
+        overflow: hidden;
+        &::before{
+            content: "";
+            position: absolute;
+            z-index: -2;
+            left: -50%;
+            top: -50%;
+            width: 200%;
+            height: 200%;
+            background-color: #ffffff;
+            background-repeat: no-repeat;
+            background-size: 70% 15%, 0% 0%;
+            background-position: 50% 50%;
+            transform: rotate(45deg);
+            background-image: linear-gradient(#000000, #000000), linear-gradient(#000000, #000000);
+
+            
+        }
+
+        @media (max-width:920px) {
+            width: 70%;
+        }
+
+        @media (max-width:768px) {
+            border-radius: 10px;
+            width: 80%;
+            padding: 0;
+            &::before{
+                display: none;
+            }
+        }
+
+    }
+
+    .how-it-works__main{
+        position: relative;
+        &.animate{
+            .how-it-works__video{
+                &::before{
+                    animation: rotate 2s ease-out both;
+                }
+            }
+        }
+    }
+
+    .border-animation{
+        padding: 20px;
+    }
+    .video{
+        // box-shadow: 40px 41px 250px 0 #6000f9;
+        border-radius: 48px;
+        border: 51px solid white;
+        @media (max-width:768px){
+            border-radius: 10px;
+            border: none;
+            
+        }
+    }
+    .how-it-works__main{
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+    }
+}

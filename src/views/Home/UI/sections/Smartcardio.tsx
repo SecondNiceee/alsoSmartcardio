@@ -8,7 +8,7 @@ import Video from '@/shared/UI/Video/Video';
 const Smartcardio = () => {
     return (
         <div className="smartcardio-wrapper">
-            <Video darkOpacity={0.5} videoName='smartardio.mp4' className='smartcardio__video' />
+            <Video poster='images/manual.png' controlsList='nodownload' playsInline autoPlay muted loop  darkOpacity={0.5} videoName='smartardio.mp4' className='smartcardio__video' />
             <Header />
             <section className='smartcardio'>
                 <div className="container">

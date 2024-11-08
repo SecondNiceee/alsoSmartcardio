@@ -6,11 +6,11 @@
         padding-bottom: clamp(3.125rem, 1.746rem + 6.9vw, 8.125rem) ;
         gap: clamp(1.875rem, 1.53rem + 1.72vw, 3.125rem);
 
-        @media (max-width:1100px) {
-            padding-left: 20px;
-            padding-right: 20px;
-        }
+        padding-left: 20px;
+        padding-right: 20px;
+        max-width: 1100px;
 
+        
     }
     .technologys__main{
         display: flex;
@@ -51,8 +51,9 @@
         }
     }
     .technologys__video{
-        width: 60%;
+        width: 70%;
         object-fit: contain;
+        margin-left: auto;
         @media (max-width:1150px) {
             width: 70%;
         }
@@ -85,6 +86,12 @@
         padding-top: 20px ;
         padding-bottom: 20px;
         width: 100%;
+        @extend %scale-hover;
+        @media (max-width:768px) {
+            padding-top: 13px;
+            padding-bottom: 13px;
+        }
     }
+    
 
 }

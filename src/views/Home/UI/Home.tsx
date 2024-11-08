@@ -5,6 +5,7 @@ import Downloads from './sections/Downloads';
 import InteractiveSection from './sections/InteractiveSection';
 import Indicators from './sections/Indicators';
 import Technologys from './sections/Technologys';
+import HowItWorks from './sections/HowItWorks';
 export const Home = () => {
     return (
         <>
@@ -13,6 +14,7 @@ export const Home = () => {
             <InteractiveSection />
             <Indicators />
             <Technologys />
+            <HowItWorks />
         </>
     );
 };

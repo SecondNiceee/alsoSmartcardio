@@ -1,4 +1,4 @@
-import OrderButton from '@/shared/UI/OrderButton/OrderButton';
+
 import Video from '@/shared/UI/Video/Video';
 import React from 'react';
 import TechnologysButton from '../components/TechnologysButton';
@@ -26,7 +26,7 @@ const Technologys = () => {
                         </div>
                         <TechnologysButton />
                     </div>
-                    <Video className='video__wrapper' videoClassName='technologys__video' videoName='normTwo.mp4' />
+                    <Video controlsList='nodownload' playsInline autoPlay muted loop  className='video__wrapper' videoClassName='technologys__video' videoName='normTwo.mp4' />
                 </div>
 
             </div>
