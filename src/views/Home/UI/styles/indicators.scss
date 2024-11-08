@@ -40,6 +40,7 @@
         align-items: center;
         border-radius: 20px;
         @media (max-width:768px) {
+            width: 100%;
             gap: 15px;
             padding: 20px;
             border: 1px solid black;
@@ -52,7 +53,10 @@
             width: 80%;
         }
         @media (max-width:768px) {
-            width: 50%;
+            width: 20%;
+        }
+        @media (max-width:480px) {
+            width: 40%;
         }
     }
     .indicators__button{
