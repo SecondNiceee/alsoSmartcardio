@@ -1,10 +1,8 @@
-
+'use client'
 import Image from 'next/image';
 import React from 'react';
 import InteractivePhoneBlock from '../components/InteractivePhoneBlock';
 import InteractiveCardioBlock from '../components/InteractiveCardioBlock';
-import InteractiveCircle from '../components/InteractiveCircle';
-import InteractiveLinerBlock from '../components/InteractiveLinerBlock';
 import InteractiveMobile from '../components/InteractiveMobile';
 
 
@@ -23,11 +21,11 @@ const InteractiveSection = () => {
 
                         <InteractiveCardioBlock />
 
-                        <InteractiveLinerBlock />
+                        <Image className='interactive__liner-block' width={910} height={927} alt='#' src={"/image/interactiveLinerBlock.svg"} />
 
                     </div>
                 </div>
-                <InteractiveCircle />
+                <Image className='interactive__circle' width={540} height={517} alt='#' src={"images/interactiveCircle.svg"} />
             </div>
 
             <InteractiveMobile />

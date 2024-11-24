@@ -1,9 +1,4 @@
-import React from "react";
-
-const InteractiveLinerBlock = () => {
-  return (
     <svg
-      className="interactive__liner-block"
       width="910"
       height="927"
       viewBox="0 0 910 927"
@@ -59,7 +54,3 @@ const InteractiveLinerBlock = () => {
         </linearGradient>
       </defs>
     </svg>
-  );
-};
-
-export default InteractiveLinerBlock;

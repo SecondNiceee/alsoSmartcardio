@@ -1,9 +1,13 @@
+'use client'
 import React from 'react';
 import { indicators } from '../../config';
 import Indicator from '../components/Indicator';
-import IndicatorsButton from '../components/IndicatorsButton';
+import OrderButton from '@/shared/UI/OrderButton/OrderButton';
 
 const Indicators = () => {
+    const onClick = () => {
+        
+    }
     return (
         <section className='indicators'>
             <div className="container">
@@ -15,7 +19,9 @@ const Indicators = () => {
                         )
                     } )}
                 </div>
-                <IndicatorsButton />
+                <OrderButton onClick={onClick} className="indicators__button">
+            <p>Заказть</p>
+        </OrderButton>
             </div>
         </section>
     );

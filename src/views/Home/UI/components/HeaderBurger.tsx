@@ -8,7 +8,7 @@ interface IHeaderBurger{
 const HeaderBurger:FC<IHeaderBurger> = ({isOpen, setOpen}) => {
     return (
         <div className="burger-icon">
-            <Hamburger color='white' toggled={isOpen} toggle={setOpen} />
+            <Hamburger  color='white' toggled={isOpen} toggle={setOpen} />
         </div>
     );
 };

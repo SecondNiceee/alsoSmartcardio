@@ -1,8 +1,4 @@
-import React from "react";
-
-const StepsArrow = () => {
-  return (
-    <svg
+<svg
       className="steps__arrows"
       width="921"
       height="152"
@@ -53,8 +49,4 @@ const StepsArrow = () => {
           />
         </filter>
       </defs>
-    </svg>
-  );
-};
-
-export default StepsArrow;
+</svg>

@@ -1,7 +1,3 @@
-import React from "react";
-
-const InteractiveCircle = () => {
-  return (
 <svg className="interactive__circle" width="540" height="517" viewBox="0 0 540 517" fill="none" xmlns="http://www.w3.org/2000/svg">
   <g filter="url(#filter0_f_78_1123)">
     <ellipse cx="270" cy="258.5" rx="248" ry="236.5" fill="url(#paint0_linear_78_1123)" fill-opacity="0.4" />
@@ -20,7 +16,3 @@ const InteractiveCircle = () => {
     </linearGradient>
   </defs>
 </svg>
-  );
-};
-
-export default InteractiveCircle;

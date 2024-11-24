@@ -1,4 +1,4 @@
-import React, { FC, SetStateAction } from 'react';
+import React, { FC } from 'react';
 import { headerNavs } from '../../config';
 import OrderButton from '@/shared/UI/OrderButton/OrderButton';
 

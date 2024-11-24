@@ -1,8 +1,8 @@
+'use client'
 import React from 'react';
-import StepsArrow from '../components/StepsArrows';
 import { steps } from '../../config';
 import Step from '../components/Step';
-import OrderButton from '@/shared/UI/OrderButton/OrderButton';
+import Image from 'next/image';
 
 const Steps = () => {
     return (
@@ -12,7 +12,7 @@ const Steps = () => {
                     Три шага для оценки Вашего здоровья
                 </div>
                 <div className="steps__main">
-                    <StepsArrow />
+                    <Image className='steps__arrows' width={921} height={152} alt='#' src={"/images/stepsArrow.svg"} />
                     <div className="steps__steps">
                         {steps.map( (e, i) => {
                             return (
