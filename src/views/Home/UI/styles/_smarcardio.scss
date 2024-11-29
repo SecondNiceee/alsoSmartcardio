@@ -19,6 +19,7 @@
 .smartcardio{
     position: relative;
     z-index: 20;
+    height: 100%;
     .container{
         @extend %container;
         flex-direction: column;
@@ -27,9 +28,12 @@
         top: 50%;
         transform: translateX(-50%) translateY(-50%);
         align-items: center;
-        padding-top: clamp(2.5rem, 1.071rem + 7.14vw, 7.5rem);
+        // padding-top: clamp(2.5rem, 1.071rem + 7.14vw, 7.5rem);
         padding-bottom: 0;
         @media (max-width:768px) {
+            transform: none;
+            position: static;
+            padding-top: clamp(2.5rem, 1.071rem + 7.14vw, 7.5rem);
             padding-bottom: clamp(3.125rem, 1.781rem + 5.66vw, 6.875rem);
         }
     }
@@ -76,7 +80,7 @@
         }
     }
     .smartcardio-arrow{
-        margin-top: 150px;
+        margin-top: 90px;
         @media (max-width:768px) {
             display: none;
         }

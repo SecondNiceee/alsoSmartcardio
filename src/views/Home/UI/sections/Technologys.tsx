@@ -42,6 +42,7 @@ const Technologys = () => {
             autoPlay
             muted
             loop
+            // className="video__wrapper"
             className="video__wrapper"
             videoClassName="technologys__video"
             videoName="normTwo.mp4"

@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const Downloads = () => {
   return (
-    <section className="downloads">
+    <section id="downloads" className="downloads">
       <div className="container">
         <header className="downloads__header">
           Скачайте приложение СмартКардио® для работы с прибором

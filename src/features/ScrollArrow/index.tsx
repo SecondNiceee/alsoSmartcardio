@@ -1,1 +1,0 @@
-export { ScrollArrow } from "./UI/ScrollArrow";

@@ -1,11 +1,18 @@
 'use client'
 import OrderButton from "@/shared/UI/OrderButton/OrderButton";
-import React from "react";
-import { ScrollArrow } from "@/features/ScrollArrow";
+import React, { useCallback, useRef } from "react";
 import Header from "./Header";
 import Video from "@/shared/UI/Video/Video";
+import { smoothScroll } from "@/shared/functions/smoothScroll";
+import { ScrollArrow } from "../components/ScrollArrow.";
 
 const Smartcardio = () => {
+  const sectionRef = useRef<HTMLDivElement | null>(null)
+  const scrollFunction = useCallback(() => {
+    if (sectionRef.current){
+      smoothScroll(sectionRef.current?.offsetHeight)
+    }
+  } , [])
   const orderFunction = () => {
     alert("Заказ");
   };
@@ -13,7 +20,7 @@ const Smartcardio = () => {
     alert("Читать дальше");
   };
   return (
-    <div className="smartcardio-wrapper">
+    <div ref={sectionRef} className="smartcardio-wrapper">
       <Video
         poster="images/manual.png"
         controlsList="nodownload"
@@ -49,9 +56,10 @@ const Smartcardio = () => {
               <p>Читать далее</p>
             </OrderButton>
           </div>
-          <ScrollArrow className="smartcardio-arrow" />
+          <ScrollArrow onClick={scrollFunction} className="smartcardio-arrow" />
         </div>
       </section>
+
     </div>
   );
 };

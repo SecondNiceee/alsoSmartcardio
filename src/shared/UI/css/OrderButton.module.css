@@ -1,0 +1,24 @@
+.orderButton {
+  border-radius: 10px;
+  background-color: #b200ff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+.orderButton p:first-of-type {
+  font-family: var(--font3);
+  font-weight: 700;
+  font-size: clamp(0.813rem, 0.692rem + 0.6vw, 1.25rem);
+  /* line-height: 44px; */
+  line-height: 143%;
+  text-align: center;
+  color: #fff;
+}
