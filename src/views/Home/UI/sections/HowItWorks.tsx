@@ -1,5 +1,7 @@
 "use client"
+import Reveal, { CHARACTER } from '@/shared/UI/Reveal/Reveal';
 import Video from '@/shared/UI/Video/Video';
+import Image from 'next/image';
 import React, { useCallback, useEffect, useRef } from 'react';
 
 const HowItWorks = () => {
@@ -29,18 +31,18 @@ const HowItWorks = () => {
 
     return (
         <section ref={observerRef} className='how-it-works'>
-            <div className="container">
-
-                <header className='how-it-works__header'>
-                    Как это работает?
-                </header>
+            <Reveal character={CHARACTER.DOWNUP} className="container">
+                  <header className='how-it-works__header'>
+                      Как это работает?
+                  </header>
                 
+                  <div ref={elementRef} className="how-it-works__main">
+                      <Video videoClassName='video'  poster = "images/manual.png" controls = {true} className='how-it-works__video' videoName='manual.mp4'  />
+                  </div>
+                  <Image className='how-it-works__logo' src={"/images/logo.png"} alt='#' width={161} height={127} />
+                  <Image className='how-it-works__logo' src={"/images/logo.png"} alt='#' width={161} height={127} />
 
-                <div ref={elementRef} className="how-it-works__main">
-                    <Video videoClassName='video'  poster = "images/manual.png" controls = {true} className='how-it-works__video' videoName='manual.mp4'  />
-                </div>
-
-            </div>
+            </Reveal>
         </section>
     );
 };

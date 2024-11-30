@@ -1,0 +1,78 @@
+@keyframes down-up-animation{
+    0%{
+        transform: translateY(10%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes left-animation{
+    0%{
+        transform: translateX(-5%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes right-animation{
+    0%{
+        transform: translateX(5%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes up-down-animation{
+    0%{
+        transform: translateY(-10%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+// @keyframes threeD-animation{
+//     0%{
+//         transform: translateX(20%);
+//         opacity: 0;
+//     }
+//     100%{
+//         transform: translateX(0%);
+//         opacity: 1;
+//     }
+// }
+
+.reveal-base{
+    opacity: 0;
+}
+
+.upDown{
+    animation: up-down-animation 1s ease-in-out both !important;
+    transition: 0.5s;
+}
+
+.downUp{
+    animation: down-up-animation 1s ease-in-out both !important;
+    transition: 0.5s;
+}
+
+.left{
+    animation: left-animation 1s ease-in-out both !important;
+    transition: 0.5s;
+}
+
+.right{
+    animation: right-animation 1s ease-in-out both !important;
+    transition: 0.5s;
+}

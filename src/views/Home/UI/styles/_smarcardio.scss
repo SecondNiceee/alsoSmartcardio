@@ -1,3 +1,21 @@
+
+@keyframes up-down{
+    0%{
+        transform: translateY(0%);
+    }
+    25%{
+        transform: translateY(20px);
+    }
+    50%{
+        transform: translateY(0px);
+    }
+    75%{
+        transform: translateY(20px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
 .smartcardio-wrapper{
     display: flex;
     flex-direction: column;
@@ -80,6 +98,7 @@
         }
     }
     .smartcardio-arrow{
+        animation: up-down 3s ease-in-out infinite both;
         margin-top: 90px;
         @media (max-width:768px) {
             display: none;

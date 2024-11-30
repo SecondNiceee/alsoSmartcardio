@@ -4,11 +4,12 @@ import OrderButton from "@/shared/UI/OrderButton/OrderButton";
 import { downloadsButtons } from "../../config";
 import PhoneButton from "@/shared/UI/PhoneButton/PhoneButton";
 import Image from "next/image";
+import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
 
 const Downloads = () => {
   return (
     <section id="downloads" className="downloads">
-      <div className="container">
+      <Reveal character={CHARACTER.LEFT} className="container">
         <header className="downloads__header">
           Скачайте приложение СмартКардио® для работы с прибором
         </header>
@@ -34,7 +35,7 @@ const Downloads = () => {
             <p>Служба поддержки</p>
           </OrderButton>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 };

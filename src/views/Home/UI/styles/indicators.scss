@@ -1,4 +1,6 @@
 .indicators{
+    padding-left: 20px;
+    padding-right: 20px;
     .container{
         @extend %container;
         flex-direction: column;
@@ -9,8 +11,7 @@
         z-index: 20;
         padding-left: 0;
         padding-right: 0;
-        margin-left: 20px;
-        margin-right: 20px;
+
     }
     .indicators__header{
         @extend %section-title;

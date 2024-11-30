@@ -4,6 +4,7 @@ import React from 'react';
 import InteractivePhoneBlock from '../components/InteractivePhoneBlock';
 import InteractiveCardioBlock from '../components/InteractiveCardioBlock';
 import InteractiveMobile from '../components/InteractiveMobile';
+import Reveal, { CHARACTER } from '@/shared/UI/Reveal/Reveal';
 
 
 const InteractiveSection = () => {
@@ -11,7 +12,7 @@ const InteractiveSection = () => {
 
     return (
         <section className='interactive'>
-            <div className="desktop">
+            <Reveal character={CHARACTER.RIGHT} className="desktop">
                 <div className="container">
                     <div className="interactive-wrapper">
 
@@ -26,7 +27,7 @@ const InteractiveSection = () => {
                     </div>
                 </div>
                 <Image className='interactive__circle' width={540} height={517} alt='#' src={"images/interactiveCircle.svg"} />
-            </div>
+            </Reveal>
 
             <InteractiveMobile />
 

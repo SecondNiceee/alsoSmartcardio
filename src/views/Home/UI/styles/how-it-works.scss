@@ -63,9 +63,28 @@
         }
 
     }
+    .how-it-works__logo{
+        position: absolute;
+        color: transparent;
+        width: 15%;
+        @media (max-width:768px) {
+            display: none;
+        }
+    }
+    .how-it-works__logo:first-of-type{
+
+        left: 5%;
+        top: 10%;
+
+    }
+    .how-it-works__logo:last-of-type{
+        right: 5%;
+        bottom: 10%;
+    }
 
     .how-it-works__main{
         position: relative;
+        
         &.animate{
             .how-it-works__video{
                 &::before{
