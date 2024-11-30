@@ -8,6 +8,7 @@ import Indicators from './sections/Indicators';
 import Technologys from './sections/Technologys';
 import HowItWorks from './sections/HowItWorks';
 import Steps from './sections/Steps';
+import HowOrder from './sections/HowOrder';
 
 export const Home = () => {
     return (
@@ -21,6 +22,7 @@ export const Home = () => {
             <Technologys />
             <HowItWorks />
             <Steps />
+            <HowOrder />
         
         </>
         
