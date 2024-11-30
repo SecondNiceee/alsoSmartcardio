@@ -1,0 +1,96 @@
+.smartcardio-slider{
+    .container{
+        @extend %container;
+        flex-direction: column;
+        padding-bottom: $section-padding;
+        gap: $container-gap;
+        align-items: center;
+        max-width: 1220px;
+    }
+    .smartcardio-slider__header{
+        @extend %section-title;
+    }
+    .slide{
+        display: flex;
+        justify-content: center;
+
+    }
+    .image{
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+    .my-slider-wrapper{
+        display: flex;
+        width:70%;
+        border: 2px solid rgb(255, 255, 255);
+        border-radius: 20px;
+    }
+    .smartcardio-slider__main{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    .circle{
+        cursor: pointer;
+        width: 80px;
+        height: 80px;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid black;
+        transition: 0.5s;
+        .arrow-path{
+            stroke: black;
+            transition: 0.5s;
+        }
+    
+        &:hover{
+            background-color: black;
+            .arrow-path{
+                stroke: rgb(255, 255, 255);
+            }
+        }
+        
+    }
+    .arrow{
+        width: 50px;
+        height: 50px;
+    }
+    .circle:first-of-type{
+        .arrow{
+            transform: rotate(180deg);
+
+        }
+    }
+
+    .smartcardio-slider__p{
+        @extend %section-title;
+        font-size: clamp(1.188rem, 0.902rem + 1.43vw, 2.188rem);
+        font-weight: 400; 
+        span{
+            color: #6cff01;
+            font-weight: 600;
+        }
+    }
+
+    .smartcardio-slider__button{
+        padding: 20px 200px;
+        @extend %gradient-hover;
+        @media (max-width:768px) {
+            padding: 13px 0px;
+            width: 70%;
+        }
+        @media (max-width:500px) {
+            padding: 13px 0px;
+            width: 100%;
+            max-width: 270px;
+        }
+    }
+
+    
+}

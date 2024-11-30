@@ -20,8 +20,8 @@ const HowOrder = () => {
                         return <HowOrderItem h={e.h} imageSrc={e.imageSrc} p={e.p} key={i} />
                     } )}
                 </div>
-                <OrderButton className='how-order__button'  onClick={() => {alert("Идет заказ")}}>
-                    <p className='how-order__button-p'>Закать</p>
+                <OrderButton className='how-order__button black-border'  onClick={() => {alert("Идет заказ")}}>
+                    <p className='how-order__button-p black'>В магазин</p>
                 </OrderButton>
             </div>
             

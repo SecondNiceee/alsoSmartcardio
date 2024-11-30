@@ -4,7 +4,7 @@ import React from "react";
 import Header from "./Header";
 import Video from "@/shared/UI/Video/Video";
 
-import { ScrollArrow } from "../components/ScrollArrow.";
+import { ScrollArrow } from "../components/ScrollArrow";
 import { scrollToDownloads } from "@/features/scrollToDownloads/scrollToDownloads";
 import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
 
@@ -15,7 +15,7 @@ const Smartcardio: React.FC = () => {
   return (
     <div className="smartcardio-wrapper">
       <Video
-        poster="images/manual.png"
+        poster="images/smartcardioStart.png"
         controlsList="nodownload"
         playsInline
         autoPlay
@@ -28,7 +28,7 @@ const Smartcardio: React.FC = () => {
       <Header />
       <section className="smartcardio">
         <div className="container">
-          <Reveal character={CHARACTER.DOWNUP} style={{alignItems : "center", display : "flex", flexDirection : "column"}}>
+          <Reveal start = {true} character={CHARACTER.DOWNUP} style={{alignItems : "center", display : "flex", flexDirection : "column"}}>
             <h1 className="smarcardio__header">
               СмартКардио <span>®</span>
             </h1>
