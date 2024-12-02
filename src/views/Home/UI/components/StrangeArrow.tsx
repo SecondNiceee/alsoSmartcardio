@@ -8,4 +8,4 @@ const StrangeArrow = () => {
     );
 };
 
-export default StrangeArrow;
+export default React.memo(StrangeArrow);

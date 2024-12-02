@@ -1,75 +1,106 @@
-import React from 'react';
-import {Swiper, SwiperSlide} from "swiper/react"
-import { smartardioSliderImage } from '../../config/smarcardioSliderImages';
-import {Navigation} from "swiper/modules"
-import Image from 'next/image';
-import OrderButton from '@/shared/UI/OrderButton/OrderButton';
+import React, { useCallback, useRef, useState } from "react";
+import { SwiperRef, SwiperSlide } from "swiper/react";
+import { smartardioSliderImage } from "../../config/smarcardioSliderImages";
+import Image from "next/image";
+import OrderButton from "@/shared/UI/OrderButton/OrderButton";
 
-import 'swiper/css';
-import StrangeArrow from '../components/StrangeArrow';
+import "swiper/css";
+import StrangeArrow from "../components/StrangeArrow";
+import SliderWrapper from "../components/SliderWrapper";
+import ZoomSlider from "@/shared/UI/ZoomSlider/ZoomSlider";
+import { Swiper as SwiperInstance } from 'swiper';
+import CssTransition from "@/shared/UI/CssTransition/CssTransition";
+
 
 const SmartcardioSlider = () => {
-    return (
-        <section className='smartcardio-slider'>
-            <div className="container">
-                <header className='smartcardio-slider__header'>Прибор СмартКардио®</header>
-                <div className="smartcardio-slider__main">
+  const [zoomSlider, setZoomSlider] = useState<boolean>(false);
+  
+  const [activeSlide, setActiveSlide] = useState<number>(1)
 
-                    <div className="circle prev">
-                        <StrangeArrow />
-                    </div>
+  const zoomRef = useRef<HTMLDivElement>(null)
 
-                    <div className="my-slider-wrapper">
-
-                            <Swiper className='smartardio-slider__swiper'
-                            centeredSlides = {true}
-                            slidesPerView={1}
-                            loop = {true}
-                            
-                            style={{
-                                width : "100%"
-                            }}
-                            modules={[Navigation]}
-                            navigation = {{
-                                nextEl : '.next',
-                                prevEl : '.prev'
-                            }}
-                            >
-                                {smartardioSliderImage.map( (e , i) => {
-                                    return (
-                                        <SwiperSlide key={i} className='slide'>
-                                            <Image className='image' width={960} height={1280} alt='#' src={e} />
-                                        </SwiperSlide>
-                                    )
-                                } )}
-                            </Swiper>
-                            
-                    </div>
-
-                    <div className="circle next">
-                        <StrangeArrow />
-                    </div>
+  const mainSwiperRef = useRef<SwiperRef>(null)
 
 
-                </div>
+  const closeZoom = useCallback( () => {
+    setZoomSlider(false)
+  }, [setZoomSlider] )
 
+  const handleSlideChange = useCallback( (swiper : SwiperInstance) => {
+    setActiveSlide(swiper.realIndex)  
+  } , [setActiveSlide] )
 
-                
-                <p style={{
-                    userSelect : "none"
-                }} className="smartcardio-slider__p">
-                    Прибор разработан и произведен в <span>России</span> 
-                </p>
-                <OrderButton className='smartcardio-slider__button' onClick={() => {alert("Пойдем в заказ!")}}>
-                    <p style={{
-                        userSelect : 'none'
-                    }}>Закать</p>
-                </OrderButton>
+  const buttonHandler = () => {
+    
+  }
 
-            </div>
+  return (
+    <section className="smartcardio-slider">
 
-        </section>
-    );
+      <div className="container">
+        <header className="smartcardio-slider__header">
+          Прибор СмартКардио®
+        </header>
+
+        <div className="smartcardio-slider__main">
+          <div className="circle prev">
+            <StrangeArrow />
+          </div>
+
+          <SliderWrapper ref={mainSwiperRef} handleSlideChange={handleSlideChange}  setZoomSlider={setZoomSlider} />
+
+          <div className="circle next">
+            <StrangeArrow />
+          </div>
+        </div>
+
+        <p
+          className="smartcardio-slider__p"
+        >
+          Прибор разработан и произведен в <span>России</span>
+        </p>
+
+        <OrderButton
+          className="smartcardio-slider__button"
+          onClick={buttonHandler}
+        >
+          <p>
+            Закать
+          </p>
+        </OrderButton>
+
+      </div>
+
+    <CssTransition wrapperRef={zoomRef}  state = {zoomSlider}>
+
+      <ZoomSlider
+        ref={zoomRef}
+        initialSlide={activeSlide}
+        closeZoom={closeZoom}
+        slides={smartardioSliderImage}
+        id="zoom-slider"
+        mainSwiperRef={mainSwiperRef}
+      
+        render={(e, i) => {
+          return (
+            <SwiperSlide  key={i} className="slide zoom-slide">
+              <Image
+                className="image-zoom image"
+                width={960}
+                height={1280}
+                alt="#"
+                src={e}
+              />
+            </SwiperSlide>
+          );
+
+        }}
+      />
+
+    </CssTransition>
+
+    </section>
+  );
 };
 
 export default SmartcardioSlider;

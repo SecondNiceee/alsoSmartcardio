@@ -4,6 +4,21 @@ $container-gap :clamp(1.875rem, 1.53rem + 1.72vw, 3.125rem);
 $section-padding : clamp(3.125rem, 1.746rem + 6.9vw, 8.125rem);
 
 
+
+
+.none{
+    display: none !important;
+}
+.show{
+    display: flex !important;
+    opacity: 0 !important;
+    transition: 0.4s !important;
+}
+  
+.show-opacity{
+opacity: 1 !important;
+}
+
 .black{
     color: black !important;
 }
@@ -11,6 +26,17 @@ $section-padding : clamp(3.125rem, 1.746rem + 6.9vw, 8.125rem);
     border: 2px solid black !important;
     background-color: white !important;
     
+}
+.circle{
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
 }
 
 %paragraph{

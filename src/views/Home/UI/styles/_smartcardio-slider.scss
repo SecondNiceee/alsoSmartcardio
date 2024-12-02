@@ -10,40 +10,47 @@
     .smartcardio-slider__header{
         @extend %section-title;
     }
+    #zoom-slider{
+        transition: 0.4s;
+        opacity: 0;
+    }
     .slide{
         display: flex;
         justify-content: center;
+        margin-bottom: auto;
+        margin-top: auto;
 
     }
     .image{
-        width: 100%;
+        width: fit-content;
         height: 500px;
         object-fit: cover;
         border-radius: 20px;
+        @media (max-width:768px) {
+            height: clamp(10.938rem, -1.471rem + 55.15vw, 25rem);
+            object-fit: contain;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
     }
     .my-slider-wrapper{
-        display: flex;
         width:70%;
         border: 2px solid rgb(255, 255, 255);
         border-radius: 20px;
+        @media (max-width:768px) {
+            width: 100%;
+        }
     }
     .smartcardio-slider__main{
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
+        position: relative;
     }
     .circle{
-        cursor: pointer;
-        width: 80px;
-        height: 80px;
-        border-radius: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: rgb(255, 255, 255);
-        border: 1px solid black;
-        transition: 0.5s;
+
         .arrow-path{
             stroke: black;
             transition: 0.5s;
@@ -57,6 +64,37 @@
         }
         
     }
+
+    .next{
+        @media (max-width:768px) {
+            position: absolute;
+            z-index: 300;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        @media (max-width:420px) {
+            zoom: 0.5;
+        }
+
+    }
+    .prev{
+        @media (max-width:768px) {
+            z-index: 300;
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        @media (max-width:480px) {
+            zoom: 0.7;
+        }
+        @media (max-width:420px) {
+            zoom: 0.5;
+        }
+    }
+
+
     .arrow{
         width: 50px;
         height: 50px;
@@ -69,6 +107,7 @@
     }
 
     .smartcardio-slider__p{
+        user-select: none;
         @extend %section-title;
         font-size: clamp(1.188rem, 0.902rem + 1.43vw, 2.188rem);
         font-weight: 400; 
@@ -79,6 +118,7 @@
     }
 
     .smartcardio-slider__button{
+        user-select: none;
         padding: 20px 200px;
         @extend %gradient-hover;
         @media (max-width:768px) {
