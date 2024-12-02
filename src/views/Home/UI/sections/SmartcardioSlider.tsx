@@ -10,6 +10,7 @@ import SliderWrapper from "../components/SliderWrapper";
 import ZoomSlider from "@/shared/UI/ZoomSlider/ZoomSlider";
 import { Swiper as SwiperInstance } from 'swiper';
 import CssTransition from "@/shared/UI/CssTransition/CssTransition";
+import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
 
 
 const SmartcardioSlider = () => {
@@ -38,36 +39,41 @@ const SmartcardioSlider = () => {
     <section className="smartcardio-slider">
 
       <div className="container">
-        <header className="smartcardio-slider__header">
+        <Reveal character={CHARACTER.LEFT} className="smartcardio-slider__header">
           Прибор СмартКардио®
-        </header>
+        </Reveal>
 
-        <div className="smartcardio-slider__main">
-          <div className="circle prev">
+        <Reveal character={CHARACTER.RIGHT} className="smartcardio-slider__main">
+          <Reveal character={CHARACTER.LEFT} className="circle prev">
             <StrangeArrow />
-          </div>
+          </Reveal>
 
           <SliderWrapper ref={mainSwiperRef} handleSlideChange={handleSlideChange}  setZoomSlider={setZoomSlider} />
 
-          <div className="circle next">
+          <Reveal character={CHARACTER.RIGHT} className="circle next">
             <StrangeArrow />
-          </div>
-        </div>
+          </Reveal>
+        </Reveal>
 
         <p
           className="smartcardio-slider__p"
         >
-          Прибор разработан и произведен в <span>России</span>
+          <Reveal character={CHARACTER.LEFT}>
+             Разработан и произведен в <span>России</span>
+          </Reveal>
         </p>
 
-        <OrderButton
-          className="smartcardio-slider__button"
-          onClick={buttonHandler}
-        >
-          <p>
-            Закать
-          </p>
-        </OrderButton>
+
+        <Reveal character={CHARACTER.RIGHT}>
+          <OrderButton
+            className="smartcardio-slider__button"
+            onClick={buttonHandler}
+          >
+            <p>
+              Закать
+            </p>
+          </OrderButton>
+        </Reveal>
 
       </div>
 

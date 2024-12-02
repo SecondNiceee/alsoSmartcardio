@@ -42,4 +42,4 @@ const SliderWrapper = ({setZoomSlider, handleSlideChange} : ISlideWrapper, ref :
     );
 };
 
-export default React.memo(forwardRef(SliderWrapper)) as (props: ISlideWrapper & React.RefAttributes<HTMLDivElement>) => JSX.Element;;
+export default React.memo(forwardRef(SliderWrapper)) as (props: ISlideWrapper & React.RefAttributes<SwiperRef>) => JSX.Element;;

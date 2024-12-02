@@ -44,7 +44,9 @@
     margin-bottom: auto;
     height: fit-content !important;
     object-fit: contain !important;
-    width: 100vw !important;
+    width: fit-content !important;
+    max-width: calc(100vw - 50px);
+    max-height: calc(100vh - 50px);
     @media (max-width:768px) {
         height: fit-content;
     }
