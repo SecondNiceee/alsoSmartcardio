@@ -3,7 +3,8 @@ import React, { useCallback, useRef, useState } from 'react';
 import { SwiperRef, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperInstance } from 'swiper';
 
-const useMySwiper = () => {
+
+const useMySwiper = ({mainImageClassNames = ""} : {mainImageClassNames?:string}) => {
     const swiperRef = useRef<SwiperRef>(null)
     const zoomRef = useRef(null)
 
@@ -21,8 +22,8 @@ const useMySwiper = () => {
 
     const renderFunction = useCallback((src:string, index:number) => {
         return (
-            <SwiperSlide key={index} className='mx-auto flex justify-center cursor-pointer'>
-                <Image className='sm:w-[80%] w-[100%] smartcardio-slider-clamp object-cover rounded-md' alt='#' src={src} width={1900} height={1300}  />
+            <SwiperSlide key={index} className={`mx-auto flex justify-center cursor-pointer`}>
+                <Image className={`sm:w-[80%] w-[100%] smartcardio-slider-clamp object-cover rounded-md ${mainImageClassNames}`} alt='#' src={src} width={1900} height={1300}  />
             </SwiperSlide>
         )
     }, [])

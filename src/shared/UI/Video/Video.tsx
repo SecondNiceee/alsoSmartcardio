@@ -20,7 +20,6 @@ const Video:FC<IVideo & VideoProps> = ({className = "" , videoClassName = "" ,st
             </div>
             <video className={`${cl.video} ${videoClassName}`} style={styles} {...props} >
                 <source type="video/mp4" src={`videos/${videoName}`}  />
-                Hello hello
             </video>
         </div>
     );

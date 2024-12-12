@@ -67,6 +67,9 @@ module.exports = {
         },
         ".smartcardio-slider-clamp":{
           "height" : "clamp(12.5rem, 7.012rem + 24.39vw, 25rem)"
+        },
+        ".green-shadow":{
+          "box-shadow" : "4px 4px 250px 42px rgba(44, 11, 255, 0.5);"
         }
       });
     })

@@ -7,6 +7,7 @@ import ZoomSlider from "@/shared/UI/ZoomSlider/ZoomSlider";
 import useMySwiper from "../hooks/useMySwiper";
 import { recorders } from "../../config/recorders";
 import { CSSTransition } from "react-transition-group";
+import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
 
 
 const Recorder = React.memo(({index, text, activeSlide, changeSlide} : {index : number, text : string, activeSlide : number, changeSlide : (index:number) => void}) => {
@@ -37,7 +38,7 @@ const RecorderExamples = () => {
     handleSlideChange,
     setZoomSlider,
     changeSlide
-  } = useMySwiper();
+  } = useMySwiper({});
 
 
   const renderSmall = useCallback((src:string, index: number) => {
@@ -53,31 +54,39 @@ const RecorderExamples = () => {
   return (
     <section className="section">
       <div className="container gap-containerGap pb-containerPb flex flex-col">
-        <h2 className="h2">Примеры записей</h2>
-        <div className="flex md:flex-row flex-col-reverse md:gap-0 gap-containerGap w-[100%] items-center">
+        <Reveal character={CHARACTER.UPDOWN}>
+            <h2 className="h2">Примеры записей</h2>
+        </Reveal>
+        <div className="flex md:flex-row flex-col-reverse md:gap-2 md:justify-between gap-containerGap w-[100%] items-center">
 
-            <div className="flex flex-col w-[100%] h-auto items-center max-w-[600px] md:max-w-full gap-5 md:gap-12 py-10 px-6 justify-between  rounded-[10px] relative white-shadow">
+            <Reveal character={CHARACTER.LEFT} className="flex flex-col w-[100%] h-auto items-center max-w-[600px] md:max-w-full gap-5 md:gap-12 py-10 px-6 justify-between  rounded-[10px] relative white-shadow">
 
                 {recorders.map( (e, index) => 
                     <Recorder changeSlide={changeSlide} text={e} index={index} key={index} activeSlide={activeSlide} />
                   )}
 
-            </div>
+            </Reveal>
+
             <div className="md:w-[60%] w-[100%] flex flex-col gap-2">
-            <Slider
-                loop = {false}
-                smallSliderStyles={{
-                    slidesPerView : 3,
-                    spaceBetween : 10
-                }}
-                handleSlideChange={handleSlideChange}
-                ref={swiperRef}
-                setZoomSlider={setZoomSlider}
-                arrowType="just"
-                render={renderFunction}
-                renderMap={recordersSliders}
-                renderSmall={renderSmall}
-            />
+
+            <Reveal character={CHARACTER.RIGHT}>
+
+                <Slider
+                    loop = {false}
+                    smallSliderStyles={{
+                        slidesPerView : 3,
+                        spaceBetween : 10
+                    }}
+                    handleSlideChange={handleSlideChange}
+                    ref={swiperRef}
+                    setZoomSlider={setZoomSlider}
+                    arrowType="just"
+                    render={renderFunction}
+                    renderMap={recordersSliders}
+                    renderSmall={renderSmall}
+                />
+
+            </Reveal>
             </div>
 
         </div>

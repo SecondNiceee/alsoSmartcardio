@@ -1,13 +1,9 @@
-import React, { useCallback, useRef, useState } from "react";
-import { SwiperRef, SwiperSlide } from "swiper/react";
+import React from "react";
 import { smartardioSliderImage } from "../../config/smarcardioSliderImages";
-import Image from "next/image";
 import OrderButton from "@/shared/UI/OrderButton/OrderButton";
 
 import "swiper/css";
 import ZoomSlider from "@/shared/UI/ZoomSlider/ZoomSlider";
-import { Swiper as SwiperInstance } from "swiper";
-import CssTransition from "@/shared/UI/CssTransition/CssTransition";
 import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
 import Slider from "../components/Slider";
 import useMySwiper from "../hooks/useMySwiper";
@@ -24,7 +20,7 @@ const SmartcardioSlider = () => {
     zoomRef,
     zoomSlider,
     setZoomSlider,
-  } = useMySwiper();
+  } = useMySwiper({});
 
   const buttonHandler = () => {};
   return (
