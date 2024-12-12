@@ -15,10 +15,10 @@
     "lottie-react": "^2.4.0",
     "mongodb": "^6.10.0",
     "mongoose": "^8.7.3",
-    "next": "15.0.1",
+    "next": "^15.1.0",
     "next-auth": "^4.24.10",
-    "react": "^18.3.1",
-    "react-dom": "^18.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-transition-group": "^4.4.5",
     "sass": "^1.80.6",
     "swiper": "^11.1.15"
