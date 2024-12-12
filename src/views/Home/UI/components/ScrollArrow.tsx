@@ -23,8 +23,8 @@ export const ScrollArrow:FC<IScrollArrow> = ({ className = "", onClick}) => {
         <path
           d="M70.5916 2.36943L36.229 28.107L2.32311 1.77068"
           stroke="white"
-          stroke-width="2.91667"
-          stroke-linecap="round"
+          strokeWidth="2.91667"
+          strokeLinecap="round"
         />
       </svg>
           <style jsx>

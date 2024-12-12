@@ -1,6 +1,8 @@
 .indicators{
     padding-left: 20px;
     padding-right: 20px;
+    overflow-x: clip;
+    max-width: 100vw;
     .container{
         @extend %container;
         flex-direction: column;

@@ -1,8 +1,8 @@
 
 
 .header{
-
-
+    overflow-x: clip;
+    max-width: 100vw;
 .header-wrapper{
     position: relative;
     z-index: 20;

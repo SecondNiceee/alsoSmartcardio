@@ -45,9 +45,7 @@ const Reveal:FC<IReveal> = ({children, character, className = "", start, ...prop
     } , [addFunction])
 
     useEffect( () => {
-        const observer = new IntersectionObserver(observerCallback, {
-            threshold : 0.25
-        })
+        const observer = new IntersectionObserver(observerCallback)
 
         if (revealRef.current){
             observer.observe(revealRef.current)

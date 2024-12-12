@@ -24,6 +24,8 @@ opacity: 1 !important;
 }
 .circle{
     cursor: pointer;
+    min-width: 80px;
+    max-height: 80px;
     width: 80px;
     height: 80px;
     border-radius: 100%;
@@ -106,3 +108,20 @@ opacity: 1 !important;
     color: #000;
 }
 
+.zoom-entry{
+    opacity: 0 !important;
+    display: none;
+}
+.zoom-entry-active{
+    opacity: 0 !important;
+    display: block;
+}
+.zoom-enter-done{
+    opacity: 1 !important;
+}
+.zoom-exit{
+    opacity: 1 !important;
+}
+.zoom-exit-active{
+    opacity: 0 !important;
+}

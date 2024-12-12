@@ -1,5 +1,7 @@
 .interactive{
     position: relative;
+    overflow-x: clip;
+    max-width: 100vw;
     .desktop{
         display: block;
         @media (max-width:768px) {

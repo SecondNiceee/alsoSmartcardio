@@ -21,7 +21,7 @@ const HowOrder = () => {
                         return <HowOrderItem index = {i} h={e.h} imageSrc={e.imageSrc} p={e.p} key={i} />
                     } )}
                 </div>  
-                <Reveal character={CHARACTER.DOWNUP} className='button-reveal'>
+                <Reveal character={CHARACTER.DOWNUP} className='button-reveal w-[100%] justify-center flex'>
                     <OrderButton className='how-order__button black-border'  onClick={() => {alert("Идет заказ")}}>
                         <p className='how-order__button-p black'>В магазин</p>
                     </OrderButton>

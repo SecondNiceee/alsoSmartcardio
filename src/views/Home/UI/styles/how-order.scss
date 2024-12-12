@@ -1,4 +1,6 @@
 .how-order{
+    overflow-x: clip;
+    max-width: 100vw;
     .container{
         @extend %container;
         padding-bottom: $section-padding;

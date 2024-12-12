@@ -10,6 +10,7 @@ import HowItWorks from './sections/HowItWorks';
 import Steps from './sections/Steps';
 import HowOrder from './sections/HowOrder';
 import SmartcardioSlider from './sections/SmartcardioSlider';
+import RecorderExamples from './sections/RecorderExamples';
 
 export const Home = () => {
     return (
@@ -24,7 +25,8 @@ export const Home = () => {
             <HowItWorks />
             <Steps />
             <HowOrder />
-            <SmartcardioSlider />
+            <SmartcardioSlider />   
+            <RecorderExamples />
         
         </>
         
