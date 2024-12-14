@@ -38,8 +38,8 @@ const SmartcardioSlider = () => {
   return (
     <section className="smartcardio-slider relative">
 
-      <Image className="w-[15%] md:block hidden absolute right-[5%] top-[10%]" src={"/images/logo.jpg"} alt='#' width={1200} height={1006} />
-      <Image className="left-[5%] md:block hidden bottom-[10%] absolute w-[15%]" src={"/images/logo.jpg"} alt='#' width={1200} height={1006} />
+      <Image className="w-[15%] md:block hidden absolute left-[5%] top-[10%] opacity-50 blur-[30px]" src={"/images/logo.jpg"} alt='#' width={1200} height={1006} />
+      <Image className="right-[5%] md:block hidden bottom-[10%] absolute w-[15%] opacity-50 blur-[30px]" src={"/images/logo.jpg"} alt='#' width={1200} height={1006} />
 
       <div className="container">
         <Reveal
