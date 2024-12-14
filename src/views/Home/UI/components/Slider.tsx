@@ -8,6 +8,7 @@ import PrevButton from '@/shared/UI/NextPrevButtons/PrevButton';
 import 'swiper/css/pagination';
 
 interface ISlider<T>{
+    id : number;
     handleSlideChange?: (swiper: SwiperInstance) => void,
     renderMap : T[],
     render : (par:T ,i:number) => ReactNode,
@@ -21,20 +22,21 @@ interface ISlider<T>{
     PrevButtonClassNames? : string
 }
 
-
-
-function SliderWrapper<T>({ handleSlideChange = () => {}, renderMap, render,  renderSmall, smallSliderStyles, arrowType, setZoomSlider, loop = true, swiperClassNames, NextButttonClassNames, PrevButtonClassNames} : ISlider<T>, ref : LegacyRef<SwiperRef> | undefined){
+function SliderWrapper<T>({ handleSlideChange = () => {}, renderMap, render,  renderSmall, smallSliderStyles, arrowType, setZoomSlider, loop = true, swiperClassNames, NextButttonClassNames, PrevButtonClassNames, id} : ISlider<T>, ref : LegacyRef<SwiperRef> | undefined){
     const [smallSlider, setSmallSlider] = useState<SwiperInstance | null>(null)
 
     return (
-        <div className="flex flex-col gap-3 w-[100%] mx-auto">
+        <div className="flex flex-col gap-3 w-[100%] mx-auto ">
 
             <div className="flex gap-3 sm:w-[90%] w-[100%] mx-auto items-center relative ">
 
 
-                <PrevButton arrowType={arrowType} className={`prev ${PrevButtonClassNames}`} />
+                <PrevButton arrowType={arrowType} className={`prev-${id} ${PrevButtonClassNames}`} />
 
-                <Swiper onClick={() => setZoomSlider && setZoomSlider(true) } ref={ref} className={`smartardio-slider__swiper w-[100%] border-black ${swiperClassNames}`}
+                <Swiper
+                id={`main-${id}`}
+                key={`main-${id}`}  
+                 onClick={() => setZoomSlider && setZoomSlider(true) } ref={ref} className={`smartardio-slider__swiper w-[100%] border-black ${swiperClassNames}`}
                 loop = {loop}
                 slidesPerView={1}
                 spaceBetween={20}
@@ -44,10 +46,10 @@ function SliderWrapper<T>({ handleSlideChange = () => {}, renderMap, render,  re
                     clickable : true
                 }}
                 // thumbs={{swiper : smallSlider}}
-                modules={[Navigation, Thumbs,Pagination]}
+                modules={[Navigation, Pagination, Thumbs]}
                 navigation = {{
-                    nextEl : '.next',
-                    prevEl : '.prev'
+                    nextEl : `.next-${id}`,
+                    prevEl : `.prev-${id}`
                 }}
                 thumbs={ renderSmall && {
                     swiper : smallSlider
@@ -56,12 +58,15 @@ function SliderWrapper<T>({ handleSlideChange = () => {}, renderMap, render,  re
                     {renderMap.map( render )}
                 </Swiper>
                 
-                <NextButton className={`next ${NextButttonClassNames}`} arrowType={arrowType} />
+                <NextButton className={`next-${id} ${NextButttonClassNames}`} arrowType={arrowType} />
 
             </div>
 
 
-            {renderSmall &&  <Swiper onSwiper={setSmallSlider} className='w-[50%]' {...smallSliderStyles}>
+
+
+
+            {renderSmall &&  <Swiper id={`thumbs-${id}`}  key={`thumbs-${id}`} onSwiper={setSmallSlider} className='w-[50%]' {...smallSliderStyles}>
                 {renderMap.map( renderSmall )}
             </Swiper>}
 

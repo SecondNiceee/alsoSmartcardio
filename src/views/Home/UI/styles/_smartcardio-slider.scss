@@ -5,6 +5,7 @@
         @extend %container;
         flex-direction: column;
         padding-bottom: $section-padding;
+        padding-top: $section-padding;
         gap: $container-gap;
         align-items: center;
         max-width: 1220px;

@@ -53,7 +53,7 @@ const RecorderExamples = () => {
 
   return (
     <section className="section">
-      <div className="container gap-containerGap pb-containerPb flex flex-col">
+      <div className="container gap-containerGap p-container flex flex-col">
         <Reveal character={CHARACTER.UPDOWN}>
             <h2 className="h2">Примеры записей</h2>
         </Reveal>
@@ -72,6 +72,7 @@ const RecorderExamples = () => {
             <Reveal character={CHARACTER.RIGHT}>
 
                 <Slider
+                    id={2}
                     loop = {false}
                     smallSliderStyles={{
                         slidesPerView : 3,

@@ -4,6 +4,7 @@
     .container{
         @extend %container;
         padding-bottom: $section-padding;
+        padding-top: $section-padding;
         gap: $container-gap;
         flex-direction: column;
         max-width: 1140px;

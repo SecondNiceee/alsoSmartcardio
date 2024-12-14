@@ -13,7 +13,8 @@
         align-items: center;
         justify-content: center;
         overflow-x: clip;
-        padding-bottom: clamp(3.125rem, 1.746rem + 6.9vw, 8.125rem);
+        padding-bottom: $section-padding;
+        padding-top: $section-padding;
         
     }
     .interactive-wrapper{

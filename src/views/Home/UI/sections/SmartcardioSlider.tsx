@@ -39,6 +39,7 @@ const SmartcardioSlider = () => {
         >
           <div className="my-slider-wrapper">
             <Slider
+              id={3}
               arrowType="circle"
               smallSliderStyles={{
                 className: "w-[50%] object-contain ",

@@ -59,8 +59,9 @@ module.exports = {
         ".white-shadow" : {
           "box-shadow" :  "0px 0px 8px 0px rgba(34, 60, 80, 0.2)"
         },
-        ".pb-containerPb": {
-          "padding-bottom": "clamp(3.125rem, 1.746rem + 6.9vw, 8.125rem)",
+        ".p-container": {
+          "padding-bottom": "clamp(1.563rem, 0.587rem + 4.88vw, 4.063rem)",
+          "padding-top" : "clamp(1.563rem, 0.587rem + 4.88vw, 4.063rem)"
         },
         ".gap-containerGap": {
           "gap": "clamp(1.875rem, 1.53rem + 1.72vw, 3.125rem)"
