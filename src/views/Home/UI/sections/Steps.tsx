@@ -10,7 +10,7 @@ const Steps = () => {
         <section className='steps'>
             <div className="container">
                 <Reveal character={CHARACTER.UPDOWN} className="steps__header">
-                    Три шага для оценки Вашего здоровья
+                    Три шага для оценки <span className='text-[#6cff01] font-bold'>Вашего здоровья</span>
                 </Reveal>
                 <Reveal character={CHARACTER.DOWNUP} className="steps__main">
                     <Image className='steps__arrows' width={921} height={152} alt='#' src={"/images/stepsArrow.svg"} />

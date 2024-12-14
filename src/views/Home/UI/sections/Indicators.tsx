@@ -10,7 +10,12 @@ const Indicators = () => {
         
     }
     return (
-        <section className='indicators'>
+        <section className='indicators relative'>
+            <div className="absolute left-[10%] z-20 top-[5%] bg-purple-500 w-[200px] h-[200px] blur-[200px]"></div>
+            <div className="absolute right-[10%] z-20 bottom-[5%] bg-purple-500 w-[200px] h-[200px] blur-[200px]"></div>
+            <div className="absolute left-[0%] z-20 bottom-[-20%] bg-purple-500 w-[200px] h-[200px] blur-[200px]"></div>
+            <div className="absolute right-[0%] z-20 top-[-20%] bg-purple-500 w-[200px] h-[200px] blur-[200px]"></div>
+            <div className="absolute left-0 top-0 w-[100%] h-[100%] bg-black"></div>
             <div className="container">
                 <Reveal character={CHARACTER.LEFT}>
                     <header className='indicators__header'>Какие показатели регистрирует СмартКардио®?</header>

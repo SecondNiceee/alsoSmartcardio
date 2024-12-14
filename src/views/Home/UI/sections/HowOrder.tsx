@@ -6,7 +6,12 @@ import Reveal, { CHARACTER } from '@/shared/UI/Reveal/Reveal';
 
 const HowOrder = () => {
     return (
-        <section className='how-order'>
+        <section className='how-order bg-black relative'>
+            <div className="absolute left-[10%] z-20 top-[5%] bg-purple-500 w-[200px] h-[200px] blur-[200px]"></div>
+            <div className="absolute right-[10%] z-20 bottom-[5%] bg-purple-500 w-[200px] h-[200px] blur-[200px]"></div>
+            <div className="absolute left-[0%] z-20 bottom-[-20%] bg-purple-500 w-[200px] h-[200px] blur-[200px]"></div>
+            <div className="absolute right-[0%] z-20 top-[-20%] bg-purple-500 w-[200px] h-[200px] blur-[200px]"></div>
+            <div className="absolute left-0 top-0 w-[100%] h-[100%] bg-black"></div>
             <div className="container">
                 <Reveal character={CHARACTER.DOWNUP} className="how-order__cap">
                 

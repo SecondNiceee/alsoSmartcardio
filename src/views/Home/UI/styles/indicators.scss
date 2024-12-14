@@ -2,6 +2,7 @@
     padding-left: 20px;
     padding-right: 20px;
     overflow-x: clip;
+    background-color: #011440;
     max-width: 100vw;
     .container{
         @extend %container;
@@ -18,13 +19,14 @@
     }
     .indicators__header{
         @extend %section-title;
+        color: white;
         text-align: center;
     }
     .indicators__main{
         margin-top: 20px;
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        // align-items: start;
         width: 100%;
         gap: clamp(0.938rem, 0.11rem + 3.68vw, 1.875rem);
         max-width: 1140px;
@@ -35,6 +37,7 @@
     }
     .indicator__description{
         @extend %paragraph;
+        color: black;
         max-width: 260px;
     }
     .indicator{
@@ -51,8 +54,7 @@
         }
     }
     .indicator__image{
-        width: 169px;
-        height: auto;
+        height: 169px;
         @media (max-width:768px) {
             width: 80%;
         }
@@ -65,7 +67,9 @@
     }
     .indicators__button{
         padding: 20px 200px;
+        background: linear-gradient(90deg, #40f 0%, #ff00d9 100%);
         @extend %gradient-hover;
+        
         @media (max-width:768px) {
             padding: 13px 0px;
             width: 70%;
