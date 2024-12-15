@@ -7,7 +7,7 @@ import Reveal, { CHARACTER } from '@/shared/UI/Reveal/Reveal';
 
 const Feedbacks = () => {
 
-const {renderFunction} = useMySwiper({mainImageClassNames : "!object-contain border-4 w-[100%] lg:px-5 lg:py-5 !w-fit"})
+const {renderFunction} = useMySwiper({mainImageClassNames : "!object-contain border-4  my-[auto] lg:px-5 lg:py-5 !w-[unset] feedbacks-slider-clamp"})
 
     return (
         <section className='section'>
@@ -18,7 +18,7 @@ const {renderFunction} = useMySwiper({mainImageClassNames : "!object-contain bor
                     <h2 className='h2'>Отзывы</h2>
                 </Reveal>
                 <Reveal character={CHARACTER.RIGHT}>
-                    <Slider id={1} NextButttonClassNames='lg:absolute right-[20px] md:right-[120px] z-30' PrevButtonClassNames='lg:absolute left-[120px] md:left-[110px] z-30' swiperClassNames='sm:p-5 white-shadow md:rounded-[50px] sm:rounded-[20px] rounded-[10px] lg:max-w-[880px] relative' arrowType='circle' render={renderFunction} renderMap={feedbacks}  />
+                    <Slider id={1} NextButttonClassNames='lg:absolute right-[20px] md:right-[120px] z-30' PrevButtonClassNames='lg:absolute left-[120px] md:left-[110px] z-30' swiperClassNames='sm:p-5 white-shadow md:rounded-[50px] sm:rounded-[20px] rounded-[10px]  relative' arrowType='circle' render={renderFunction} renderMap={feedbacks}  />
                 </Reveal>
             </div>
         </section>

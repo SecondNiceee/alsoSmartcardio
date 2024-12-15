@@ -10,10 +10,10 @@ interface IStep extends TypeSteps{
 const Step:FC<IStep> = ({imagePath, text, index}) => {
     return (
         <div className='step'>
-            <Image className='step__image' alt='#' src={imagePath} width={200} height={200} />
+            <Image className='step__image relative z-30' alt='#' src={imagePath} width={200} height={200} />
             <div className="step__text-block">
-                <h3 className='step__title'>Шаг {index}</h3>
-                <p className='step__description'>
+                <h3 className='step__title relative z-30'>Шаг {index}</h3>
+                <p className='step__description relative z-30'>
                     {text}
                 </p>
             </div>

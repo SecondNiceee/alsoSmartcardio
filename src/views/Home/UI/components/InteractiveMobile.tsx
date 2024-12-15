@@ -13,7 +13,7 @@ const InteractiveMobile = () => {
             <header className='interactive__m-header'>
                 СмартКардио - полностью беспроводной карманный прибор для мониторинга вашего здоровья
             </header>
-            <div className="interactive__m-main">
+            <div className="interactive__m-main relative z-30 bg-white">
                 <InteractiveButtons />
                 <Image className='interactive__m-image' alt='#' width={400} height={400} src={"/images/interactive.png"} />
             </div>

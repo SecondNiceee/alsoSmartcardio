@@ -28,7 +28,7 @@ function SliderWrapper<T>({ handleSlideChange = () => {}, renderMap, render,  re
     return (
         <div className="flex flex-col gap-3 w-[100%] mx-auto ">
 
-            <div className="flex gap-3 sm:w-[90%] w-[100%] mx-auto items-center relative ">
+            <div className="flex gap-3 w-[100%] mx-auto items-center relative ">
 
 
                 <PrevButton arrowType={arrowType} className={`prev-${id} ${PrevButtonClassNames}`} />
