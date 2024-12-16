@@ -37,7 +37,10 @@ const useMySwiper = ({mainImageClassNames = ""} : {mainImageClassNames?:string})
     const closeZoom = useCallback( () => {
         setZoomSlider(false)
     }, [] )
-    return {swiperRef, zoomRef, zoomSlider, activeSlide, renderFunction, renderZoomSwiper, closeZoom, handleSlideChange, setZoomSlider, changeSlide}
+    const openZoom = useCallback( () => {
+        setZoomSlider(true)
+    } ,[] )
+    return {swiperRef, zoomRef, zoomSlider, activeSlide, renderFunction, renderZoomSwiper, closeZoom, handleSlideChange, setZoomSlider, changeSlide, openZoom}
 
 }
 

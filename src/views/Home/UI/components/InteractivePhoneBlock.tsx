@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import InteractiveLottie from './InteractiveLottie';
 import OrderButton from '@/shared/UI/OrderButton/OrderButton';
 
-const InteractivePhoneBlock = () => {
+const InteractivePhoneBlock = ({openVideo} : { openVideo : () => void}) => {
     const interactiveRef = useRef<HTMLDivElement>(null)
     const textRef = useRef<HTMLDivElement>(null)
     const onMouseEnter = () => {
@@ -13,9 +13,6 @@ const InteractivePhoneBlock = () => {
     const onMouseLeave = () => {
         interactiveRef.current?.classList.add("show")
         textRef.current?.classList.remove("show")
-    }
-    const clickFunction = () => {
-        alert("Тут скролл к видео")
     }
     return (
         <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} className='interactive__phone'>
@@ -28,7 +25,7 @@ const InteractivePhoneBlock = () => {
                 <p className='tblock__text'>
                 Для того, чтобы снять показатели, достаточно приложить прибор к себе. Данные передаются по Bluetooth и отображаются на вашем смартфоне или планшете.
                 </p>
-                <OrderButton className='intersection__order-button black-border' onClick={clickFunction}>
+                <OrderButton className='intersection__order-button black-border' onClick={openVideo}>
                     <p className='button-text black'>Смотреть видео</p>
                 </OrderButton>
             </div>
@@ -37,4 +34,4 @@ const InteractivePhoneBlock = () => {
     );
 };
 
-export default InteractivePhoneBlock;
+export default React.memo(InteractivePhoneBlock);

@@ -7,7 +7,7 @@ export const enum CHARACTER{
 type DivProps = JSX.IntrinsicElements["div"]
 
 interface IReveal extends DivProps{
-    children : ReactNode,
+    children? : ReactNode,
     character : CHARACTER,
     className? : string,
     start? : boolean

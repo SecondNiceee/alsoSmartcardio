@@ -7,17 +7,17 @@ import { Navigation } from 'swiper/modules';
 import {Swiper as SwiperType} from 'swiper';
 import NextButton from '../NextPrevButtons/NextButton';
 import PrevButton from '../NextPrevButtons/PrevButton';
+import useBlockScroll from '@/shared/hooks/useBlockScroll';
 
 interface IZoomSliderProps<T> {
     slides: T[];
     render: (slide: T, index: number) => ReactNode;
-    id? : string,
     closeZoom : () => void,
     initialSlide : number,
-    mainSwiperRef : React.MutableRefObject<SwiperRef | null>
+    mainSwiperRef? : React.MutableRefObject<SwiperRef | null>
 }
 
-function ZoomSlider<T>({slides, closeZoom,initialSlide, render, id, mainSwiperRef}: IZoomSliderProps<T>, ref : LegacyRef<HTMLDivElement> | undefined, ) {
+function ZoomSlider<T>({slides, closeZoom,initialSlide, render, mainSwiperRef}: IZoomSliderProps<T>, ref : LegacyRef<HTMLDivElement> | undefined, ) {
     
     // const clickHandler:React.MouseEventHandler<HTMLDivElement>  = (e) => {
     //     const target = e.target as HTMLElement
@@ -25,16 +25,18 @@ function ZoomSlider<T>({slides, closeZoom,initialSlide, render, id, mainSwiperRe
     //         closeZoom()
     //     }
     // }
+    useBlockScroll()
 
 
     const changeSlider = (swiper : SwiperType) => {
+        if (mainSwiperRef){
             mainSwiperRef.current?.swiper.slideToLoop(swiper.realIndex, 0)
+        }
     }
     
-    console.log("РЕНДЕР ЗУМА")
 
     return (    
-        <div ref={ref}  className='slider-wrapper' id={id}>
+        <div ref={ref}  className='slider-wrapper' >
             <div  className="slider-container">
                 <div onClick={closeZoom} className="trigger-area"/>
                 
@@ -42,9 +44,9 @@ function ZoomSlider<T>({slides, closeZoom,initialSlide, render, id, mainSwiperRe
                     <Cross/>
                 </div>
 
-                <NextButton className='circle next-zoom' />
+                <NextButton arrowType='circle' className='circle next-zoom' />
 
-                <PrevButton className='circle prev-zoom' />
+                <PrevButton arrowType='circle' className='circle prev-zoom' />
 
                 <Swiper onSlideChange={changeSlider}  initialSlide={initialSlide} modules={[Navigation]} loop = {true}  navigation = {{
                     prevEl : '.prev-zoom',

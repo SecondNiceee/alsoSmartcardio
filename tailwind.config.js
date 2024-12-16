@@ -114,6 +114,9 @@ module.exports = {
           "font-size" : "clamp(0.813rem, 0.639rem + 0.77vw, 1.188rem);",
           "font-weight" : "600"
         },
+        ".icon-height":{
+          "height": "clamp(6.25rem, 4.808rem + 6.41vw, 9.375rem)"
+        }
       });
     })
   ],

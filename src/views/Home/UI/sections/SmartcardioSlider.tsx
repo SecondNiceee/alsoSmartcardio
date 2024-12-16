@@ -95,7 +95,6 @@ const SmartcardioSlider = () => {
               initialSlide={activeSlide}
               closeZoom={closeZoom}
               slides={smartardioSliderImage}
-              id="zoom-slider"
               mainSwiperRef={swiperRef}
               render={renderZoomSwiper}
             />

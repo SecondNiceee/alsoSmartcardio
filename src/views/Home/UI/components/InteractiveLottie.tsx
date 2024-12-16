@@ -21,4 +21,4 @@ const InteractiveLottie = forwardRef<HTMLDivElement, DivProps>((props, ref) => {
     </div>;
 });
 
-export default InteractiveLottie;
+export default React.memo(InteractiveLottie);

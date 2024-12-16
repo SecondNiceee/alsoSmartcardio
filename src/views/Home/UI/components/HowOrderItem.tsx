@@ -24,7 +24,7 @@ const HowOrderItem:FC<TypeOrder & indexType> = ({h, imageSrc, p, index}) => {
     } , [index])
     return (
         <Reveal character={revealCase} className="how-order__item bg-white black-shadow">
-            <Image className='how-order__item-img' src={imageSrc} alt='#' width={100} height={100} />
+            <Image className='how-order__item-img !icon-height !w-auto' src={imageSrc} alt='#' width={100} height={100} />
             <div className="how-order__tblock">
                 <h4 className='how-order__item-h !sub-title'>{h}</h4>
                 <p className='how-order__item-p'>{p}</p>

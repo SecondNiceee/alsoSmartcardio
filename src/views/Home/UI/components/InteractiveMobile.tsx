@@ -23,4 +23,4 @@ const InteractiveMobile = () => {
     );
 };
 
-export default InteractiveMobile;
+export default React.memo(InteractiveMobile);
