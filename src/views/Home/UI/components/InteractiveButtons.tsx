@@ -1,11 +1,9 @@
 "use client"
 import OrderButton from "@/shared/UI/OrderButton/OrderButton";
-import React from "react";
+import React, { FC } from "react";
+import { IInteractiveMobile } from "./InteractiveMobile";
 
-const InteractiveButtons = () => {
-  const onClick = () => {
-
-  }
+const InteractiveButtons:FC<IInteractiveMobile> = ({openZoom, openPopup}) => {
   return (
     <div className="m-block">
       <p className="interactive__m-description">
@@ -13,15 +11,15 @@ const InteractiveButtons = () => {
         Данные передаются по Bluetooth и отображаются на вашем смартфоне или
         планшете.
       </p>
-      <OrderButton onClick={onClick} className="interactive__m-button black-border">
+      <OrderButton onClick={openPopup} className="interactive__m-button black-border">
         <p className="interactive__button-text black">Смотреть видео</p>
       </OrderButton>
       <OrderButton
-        onClick={onClick}
+        onClick={openZoom}
         className="interactive__m-button black-border"
       >
         <p className="interactive__button-text black">
-          Подробнее об устройстве
+          Cхема устройства
         </p>
       </OrderButton>
     </div>

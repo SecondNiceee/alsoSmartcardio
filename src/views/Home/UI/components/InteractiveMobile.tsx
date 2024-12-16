@@ -1,12 +1,13 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { FC } from 'react';
 import InteractiveButtons from './InteractiveButtons';
 
 
-const InteractiveMobile = () => {
-    const onClick = () => {
-        
-    }
+export interface IInteractiveMobile{
+    openZoom : () => void,
+    openPopup : () => void
+}
+const InteractiveMobile:FC<IInteractiveMobile> = ({openZoom, openPopup}) => {
     return (
         <div className="mobile">
         <div className="container">
@@ -14,7 +15,7 @@ const InteractiveMobile = () => {
                 СмартКардио - полностью беспроводной карманный прибор для мониторинга вашего здоровья
             </header>
             <div className="interactive__m-main relative z-30 bg-white">
-                <InteractiveButtons />
+                <InteractiveButtons openPopup={openPopup} openZoom={openZoom} />
                 <Image className='interactive__m-image' alt='#' width={400} height={400} src={"/images/interactive.png"} />
             </div>
         </div>
