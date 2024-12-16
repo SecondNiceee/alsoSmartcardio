@@ -4,6 +4,7 @@ import { indicators } from '../../config';
 import Indicator from '../components/Indicator';
 import OrderButton from '@/shared/UI/OrderButton/OrderButton';
 import Reveal, { CHARACTER } from '@/shared/UI/Reveal/Reveal';
+import BlackThemeCircles from '@/shared/UI/BlackThemeCircles/BlackThemeCircles';
 
 const Indicators = () => {
     const onClick = () => {
@@ -11,10 +12,8 @@ const Indicators = () => {
     }
     return (
         <section className='indicators relative overflow-y-hidden'>
-            <div className="absolute left-[10%] opacity-50 md:opacity-70 lg:opacity-100 z-20 top-[20%] md:top-[5%] bg-purple-500 w-[200px] h-[200px] blur-[200px]"></div>
-            <div className="absolute right-[10%] opacity-50 md:opacity-70 lg:opacity-100 z-20 bottom-[20%] md:bottom-[5%] bg-purple-500 w-[200px] h-[200px]  blur-[200px]"></div>
-            <div className="absolute left-[0%]  z-20 bottom-[-20%] bg-purple-500 w-[200px] h-[200px] blur-[200px]"></div>
-            <div className="absolute right-[0%] z-20 top-[-20%] bg-purple-500 w-[200px] h-[200px] blur-[200px]"></div>
+
+            <BlackThemeCircles />
 
             <div className="absolute left-0 top-0 w-[100%] h-[100%] bg-black"></div>
             <div className="container">

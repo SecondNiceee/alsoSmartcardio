@@ -106,7 +106,8 @@
             max-width: 480px;
             font-family: var(--third-family);
             font-weight: 600;
-            font-size: clamp(1.063rem, 0.658rem + 0.84vw, 1.438rem);
+            // font-size: clamp(1.063rem, 0.658rem + 0.84vw, 1.438rem);
+            @extend %paragraph;
             /* line-height: 51px; */ 
             line-height: 175%;
             text-align: center;
@@ -270,8 +271,7 @@
     .interactive__m-description{
         font-family: var(--font3);
         font-weight: 400;
-        font-size: clamp(1.125rem, 1.056rem + 0.34vw, 1.375rem);
-
+        @extend %paragraph;
         /* line-height: 70px; */ 
         line-height: 175%;
         text-align: center;

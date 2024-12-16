@@ -13,6 +13,7 @@ import SmartcardioSlider from './sections/SmartcardioSlider';
 import RecorderExamples from './sections/RecorderExamples';
 import Feedbacks from './sections/Feedbacks';
 import Recomendation from './sections/Recomendation';
+import Advantages from './sections/Advantages';
 
 export const Home = () => {
     return (
@@ -31,6 +32,7 @@ export const Home = () => {
             <RecorderExamples />
             <Feedbacks />
             <Recomendation />
+            <Advantages />
         
         </>
         

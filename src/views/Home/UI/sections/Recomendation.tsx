@@ -22,7 +22,7 @@ const Recomendation = () => {
                 <Video videoClassName='rounded-[10px] z-30 relative' className='max-w-[880px] mx-auto relative z-30' controls = {true} videoName='recomendation.mp4'  />
                 <div className='relative'>
                     <Image className='absolute hidden lg:block right-[0%] bottom-[20%] w-[25%]' alt='#' width={100} height={100} src={"/images/blogArrow.svg"} />
-                    <OrderButton className='w-[100%] max-w-[70%] md:max-w-[500px] bg-[#ffffff] py-[11px] md:py-[18px] px-[14px] mx-auto border-solid border-2 '  onClick={() => {}}  >
+                    <OrderButton className='w-[100%] max-w-[70%] md:max-w-[500px] bg-[#ffffff] py-[11px] md:py-[18px] px-[14px] mx-auto border-solid border-2 scale-hover'  onClick={() => {}}  >
                         <span className='button-p'>Наш блог</span>
                     </OrderButton>
                 </div>

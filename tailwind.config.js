@@ -40,10 +40,26 @@ module.exports = {
           "overflowX": 'clip',
           "maxWidth": "100vw"
         },
+        ".big-p" : {
+          "fontFamily" : "var(--font3)",
+          "fontWeight" : "400",
+          "fontSize" : "clamp(1.125rem, 1.038rem + 0.38vw, 1.313rem)",
+          "lineHeight" : "175%",
+          "textAlign" : "center",
+          "color" : "#202020"
+        },
+        ".sub-title" : {
+          "fontFamily" : "var(--font3)",
+          "fontWeight" : "500",
+          "fontSize" : "clamp(1.125rem, 0.981rem + 0.64vw, 1.438rem)",
+          "lineHeight" : "175%",
+          "textAlign" : "center",
+          "color" : "#202020"
+        },
         ".p" : {
           "fontFamily" : "var(--font3)",
           "fontWeight" : "400",
-          "fontSize" : "clamp(1.125rem, 1.056rem + 0.34vw, 1.375rem)",
+          "fontSize" : "18px",
           "lineHeight" : "175%",
           "textAlign" : "center",
           "color" : "#202020"
@@ -58,6 +74,15 @@ module.exports = {
         }
       });
       addUtilities({
+        ".grid-gap" : {
+          "gap" : "clamp(0.625rem, -4.536rem + 10.75vw, 3.125rem)"
+        },
+        ".scale-hover" : {
+          "transition" : "0.4s",
+          "&:hover" : {
+            "transform" : "scale(1.1)"
+          }
+        },
         ".white-shadow" : {
           "box-shadow" :  "0px 0px 8px 0px rgba(34, 60, 80, 0.2)"
         },
@@ -86,8 +111,9 @@ module.exports = {
           "height" : "clamp(18.75rem, 12.981rem + 25.64vw, 31.25rem) !important;"
         },
         ".button-p":{
-          "font-size" : "clamp(0.813rem, 0.692rem + 0.6vw, 1.25rem);"
-        }
+          "font-size" : "clamp(0.813rem, 0.639rem + 0.77vw, 1.188rem);",
+          "font-weight" : "600"
+        },
       });
     })
   ],

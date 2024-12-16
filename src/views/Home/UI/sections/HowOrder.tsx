@@ -3,17 +3,12 @@ import { howOrderItems } from '../../config/howOrderItems';
 import HowOrderItem from '../components/HowOrderItem';
 import OrderButton from '@/shared/UI/OrderButton/OrderButton';
 import Reveal, { CHARACTER } from '@/shared/UI/Reveal/Reveal';
+import BlackThemeCircles from '@/shared/UI/BlackThemeCircles/BlackThemeCircles';
 
 const HowOrder = () => {
     return (
         <section className='how-order bg-black relative overflow-y-hidden'>
-            <div className="absolute left-[10%] opacity-50 md:opacity-70 lg:opacity-100 z-20 top-[5%] bg-purple-500 w-[200px] h-[200px] blur-[200px]"></div>
-            <div className="absolute right-[10%] opacity-50 md:opacity-70 lg:opacity-100 z-20 bottom-[5%] bg-purple-500 w-[200px] h-[200px] blur-[200px]"></div>
-            <div className="absolute left-[0%] z-20 bottom-[-20%] bg-purple-500 w-[200px] h-[200px] blur-[200px]"></div>
-            <div className="absolute right-[0%] z-20 top-[-20%] bg-purple-500 w-[200px] h-[200px] blur-[200px]"></div>
-
-
-            
+            <BlackThemeCircles />            
             <div className="absolute left-0 top-0 w-[100%] h-[100%] bg-black"></div>
 
             <div className="container">
