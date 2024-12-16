@@ -43,7 +43,7 @@ const InteractiveSection = () => {
                 <Image className='interactive__circle' width={540} height={517} alt='#' src={"images/interactiveCircle.svg"} />
             </Reveal>
 
-            <InteractiveMobile openPopup={openPopup} openZoom={openPopup} />
+            <InteractiveMobile openPopup={openPopup} openZoom={openZoom} />
 
             <CSSTransition classNames={"zoom"} nodeRef={videoRef} in = {isVideoOpen} timeout={{enter:50, exit : 400}} unmountOnExit mountOnEnter  >
                 <Popup ref = {videoRef} closePopup={closePopup}>
