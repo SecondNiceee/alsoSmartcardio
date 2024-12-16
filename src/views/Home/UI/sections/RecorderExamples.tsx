@@ -99,7 +99,6 @@ const RecorderExamples = () => {
             initialSlide={activeSlide}
             closeZoom={closeZoom}
             slides={recordersSliders}
-            id="zoom-slider"
             mainSwiperRef={swiperRef}
             render={renderZoomSwiper}
             />
