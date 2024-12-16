@@ -22,6 +22,7 @@ const Feedbacks = () => {
       "!object-contain border-4  my-[auto] lg:px-5 lg:py-5 !w-[unset] feedbacks-slider-clamp",
   });
 
+
   return (
     <section className="section">
       {/* <div className="green-shadow absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] border-2 border-solid border-black"></div> */}
@@ -63,7 +64,6 @@ const Feedbacks = () => {
           initialSlide={activeSlide}
           closeZoom={closeZoom}
           slides={feedbacks}
-          id="zoom-slider-4"
           mainSwiperRef={swiperRef}
           render={renderZoomSwiper}
         />
