@@ -43,11 +43,11 @@ const InteractiveSection = () => {
                 <Image className='interactive__circle' width={540} height={517} alt='#' src={"images/interactiveCircle.svg"} />
             </Reveal>
 
-            <InteractiveMobile />
+            <InteractiveMobile openPopup={openPopup} openZoom={openPopup} />
 
             <CSSTransition classNames={"zoom"} nodeRef={videoRef} in = {isVideoOpen} timeout={{enter:50, exit : 400}} unmountOnExit mountOnEnter  >
                 <Popup ref = {videoRef} closePopup={closePopup}>
-                    <Video className='!w-[90vh] aspect-squar' videoClassName='rounded-[20px]' videoName='manual.mp4'  controls = {true} poster = "images/manual.png" />
+                    <Video className='!w-[90vw] aspect-squar' videoClassName='rounded-[20px]' videoName='manual.mp4'  controls = {true} poster = "images/manual.png" />
                 </Popup>
             </CSSTransition>
             
