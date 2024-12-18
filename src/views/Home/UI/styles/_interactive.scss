@@ -136,13 +136,11 @@
     }
     .interactive__liner-block{
         position: absolute;
-        fill: linear-gradient(90deg, #fff 0%, #f0d 50.9%, #2f00ff 100%);
-        stroke-width: 2.92px;
+        background: linear-gradient(90deg, #fff 0%, #f0d 50.9%, #2f00ff 100%);
         /* left: 19%; */
         right: 10%;
         filter: blur(1px);
         top: 4%;
-        stroke: #000;
         opacity: 0.7;
         filter: blur(100.375px);
         @media (max-width:1024px) {

@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 
 export const useBlockScroll = () => {
-    
   useEffect(() => {
       // Получаем ширину полосы прокрутки
       const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
@@ -19,5 +18,5 @@ export const useBlockScroll = () => {
           document.body.style.paddingRight = `${originalPadding}px`;
       }
   }, []);
-
+  
 };

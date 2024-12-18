@@ -33,8 +33,7 @@ module.exports = {
     },
     extend: {
       backgroundSize: {
-        "full-screen": "100vw 100vh",
-        auto: "auto",
+        auto : "auto",
       },
     },
   },
@@ -69,7 +68,7 @@ module.exports = {
           lineHeight: "175%",
           textAlign: "center",
           color: "white",
-          "font-size": "clamp(1.188rem, 0.902rem + 1.43vw, 2.188rem);",
+          fontSize: "clamp(1.188rem, 0.902rem + 1.43vw, 2.188rem)",
         },
         ".sub-title": {
           fontFamily: "var(--font3)",
@@ -88,11 +87,11 @@ module.exports = {
           color: "#202020",
         },
         ".h2": {
-          "font-family": "var(--third-family)",
-          "font-weight": "700",
-          "font-size": "clamp(1.563rem, 1.338rem + 1.12vw, 2.375rem)",
-          "line-height": "108%",
-          "text-align": "center",
+          fontFamily: "var(--third-family)",
+          fontWeight: "700",
+          fontSize: "clamp(1.563rem, 1.338rem + 1.12vw, 2.375rem)",
+          lineHeight: "108%",
+          textAlign: "center",
           color: "black",
         },
       });
@@ -122,7 +121,7 @@ module.exports = {
             width: "100%",
             height: "100%",
             background: "linear-gradient(90deg, #40f 0%, #ff00d9 100%)",
-            "z-index": "2",
+            zIndex: "2",
           },
           "&:hover": {
             scale: "1.1",
@@ -132,23 +131,23 @@ module.exports = {
           },
           "& p": {
             position: "relative",
-            "z-index": "20",
+            zIndex: "20",
           },
         },
         ".white-shadow": {
-          "box-shadow": "0px 0px 8px 0px rgba(34, 60, 80, 0.2)",
+          boxShadow: "0px 0px 8px 0px rgba(34, 60, 80, 0.2)",
         },
         ".black-shadow": {
-          "box-shadow": "0px 0px 8px 7px rgba(255, 255, 255, 0.2)",
+          boxShadow: "0px 0px 8px 7px rgba(255, 255, 255, 0.2)",
           screen: {
             md: {
-              "box-shadow": "0px 0px 8px 7px rgba(255, 255, 255, 0.5)",
+              boxShadow: "0px 0px 8px 7px rgba(255, 255, 255, 0.5)",
             },
           },
         },
         ".p-container": {
-          "padding-bottom": "clamp(1.563rem, 0.587rem + 4.88vw, 4.063rem)",
-          "padding-top": "clamp(1.563rem, 0.587rem + 4.88vw, 4.063rem)",
+          paddingBottom: "clamp(1.563rem, 0.587rem + 4.88vw, 4.063rem)",
+          paddingTop: "clamp(1.563rem, 0.587rem + 4.88vw, 4.063rem)",
         },
         ".gap-containerGap": {
           gap: "clamp(1.875rem, 1.53rem + 1.72vw, 3.125rem)",
@@ -157,14 +156,14 @@ module.exports = {
           height: "clamp(12.5rem, 7.012rem + 24.39vw, 25rem)",
         },
         ".green-shadow": {
-          "box-shadow": "4px 4px 250px 42px rgba(44, 11, 255, 0.5);",
+          boxShadow: "4px 4px 250px 42px rgba(44, 11, 255, 0.5)",
         },
         ".feedbacks-slider-clamp": {
-          height: "clamp(18.75rem, 12.981rem + 25.64vw, 31.25rem) !important;",
+          height: "clamp(18.75rem, 12.981rem + 25.64vw, 31.25rem) !important",
         },
         ".button-p": {
-          "font-size": "clamp(0.813rem, 0.639rem + 0.77vw, 1.188rem);",
-          "font-weight": "600",
+          fontSize: "clamp(0.813rem, 0.639rem + 0.77vw, 1.188rem)",
+          fontWeight: "600",
         },
         ".icon-height": {
           height: "clamp(6.25rem, 4.808rem + 6.41vw, 9.375rem)",
