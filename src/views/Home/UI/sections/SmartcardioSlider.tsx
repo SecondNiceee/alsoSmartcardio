@@ -6,22 +6,16 @@ import "swiper/css";
 import ZoomSlider from "@/shared/UI/ZoomSlider/ZoomSlider";
 import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
 import Slider from "../components/Slider";
-import useMySwiper from "../hooks/useMySwiper";
 import { CSSTransition } from "react-transition-group";
 import Image from "next/image";
+import useDefaultSwiper from "../hooks/useDefaultSwiper";
+import useZoomSwiper from "../hooks/useZoomSwiper";
 
 const SmartcardioSlider = () => {
-  const {
-    activeSlide,
-    closeZoom,
-    handleSlideChange,
-    renderFunction,
-    renderZoomSwiper,
-    swiperRef,
-    zoomRef,
-    zoomSlider,
-    setZoomSlider,
-  } = useMySwiper({});
+  
+  const {activeSlide, handleSlideChange, renderFunction, swiperRef} = useDefaultSwiper({})
+
+  const {closeZoom , renderZoomSwiper, zoomRef, zoomSlider, setZoomSlider} = useZoomSwiper()
 
   const buttonHandler = () => {};
 

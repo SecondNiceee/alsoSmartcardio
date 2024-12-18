@@ -4,10 +4,11 @@ import { SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import { recordersSliders } from "../../config/smarcardioSliderImages";
 import ZoomSlider from "@/shared/UI/ZoomSlider/ZoomSlider";
-import useMySwiper from "../hooks/useMySwiper";
 import { recorders } from "../../config/recorders";
 import { CSSTransition } from "react-transition-group";
 import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
+import useZoomSwiper from "../hooks/useZoomSwiper";
+import useDefaultSwiper from "../hooks/useDefaultSwiper";
 
 
 const Recorder = React.memo(({index, text, activeSlide, changeSlide} : {index : number, text : string, activeSlide : number, changeSlide : (index:number) => void}) => {
@@ -27,26 +28,16 @@ const Recorder = React.memo(({index, text, activeSlide, changeSlide} : {index : 
 
 
 const RecorderExamples = () => {
-  const {
-    activeSlide,
-    renderFunction,
-    renderZoomSwiper,
-    swiperRef,
-    zoomRef,
-    zoomSlider,
-    closeZoom,
-    handleSlideChange,
-    setZoomSlider,
-    changeSlide
-  } = useMySwiper({});
 
+    const {activeSlide, handleSlideChange, renderFunction, swiperRef, changeSlide} = useDefaultSwiper({})
+
+    const {closeZoom , renderZoomSwiper, zoomRef, zoomSlider, setZoomSlider} = useZoomSwiper()
 
   const renderSmall = useCallback((src:string, index: number) => {
     return (
-        
-            <SwiperSlide key={index}  className={`mx-auto small-slide  rounded-sm cursor-pointer`}>
-                <Image className='w-[100%] h-[100%] rounded-sm' alt='#' src={src} width={600} height={600}  />
-            </SwiperSlide>
+        <SwiperSlide key={index}  className={`mx-auto small-slide  rounded-sm cursor-pointer`}>
+            <Image className='w-[100%] h-[100%] rounded-sm' alt='#' src={src} width={600} height={600}  />
+        </SwiperSlide>
     )
 }, [activeSlide])
 

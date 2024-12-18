@@ -7,7 +7,7 @@ import { Navigation } from 'swiper/modules';
 import {Swiper as SwiperType} from 'swiper';
 import NextButton from '../NextPrevButtons/NextButton';
 import PrevButton from '../NextPrevButtons/PrevButton';
-import useBlockScroll from '@/shared/hooks/useBlockScroll';
+import {useBlockScroll} from '@/shared/hooks/useBlockScroll';
 
 interface IZoomSliderProps<T> {
     slides: T[];
@@ -25,6 +25,8 @@ function ZoomSlider<T>({slides, closeZoom,initialSlide, render, mainSwiperRef}: 
     //         closeZoom()
     //     }
     // }
+
+
     useBlockScroll()
 
 

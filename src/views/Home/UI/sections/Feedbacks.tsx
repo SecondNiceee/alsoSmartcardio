@@ -1,26 +1,18 @@
 import React from "react";
 import Slider from "../components/Slider";
 import { feedbacks } from "../../config/feedbacks";
-import useMySwiper from "../hooks/useMySwiper";
 import Image from "next/image";
 import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
 import ZoomSlider from "@/shared/UI/ZoomSlider/ZoomSlider";
 import { CSSTransition } from "react-transition-group";
+import useDefaultSwiper from "../hooks/useDefaultSwiper";
+import useZoomSwiper from "../hooks/useZoomSwiper";
 
 const Feedbacks = () => {
-  const {
-    renderFunction,
-    zoomRef,
-    closeZoom,
-    activeSlide,
-    swiperRef,
-    renderZoomSwiper,
-    zoomSlider,
-    setZoomSlider,
-  } = useMySwiper({
-    mainImageClassNames:
-      "!object-contain border-4  my-[auto] lg:px-5 lg:py-5 !w-[unset] feedbacks-slider-clamp",
-  });
+
+  const {activeSlide, handleSlideChange, renderFunction, swiperRef} = useDefaultSwiper({mainImageClassNames : "!object-contain border-4  my-[auto] lg:px-5 lg:py-5 !w-[unset] feedbacks-slider-clamp"})
+
+  const {closeZoom , renderZoomSwiper, zoomRef, zoomSlider, setZoomSlider} = useZoomSwiper()
 
 
   return (
@@ -39,7 +31,9 @@ const Feedbacks = () => {
         </Reveal>
         <Reveal character={CHARACTER.RIGHT}>
           <Slider
-            id={1}
+          ref={swiperRef}
+          handleSlideChange={handleSlideChange}
+            id={4}
             NextButttonClassNames="lg:absolute right-[20px] md:right-[120px] z-30"
             PrevButtonClassNames="lg:absolute left-[120px] md:left-[110px] z-30"
             setZoomSlider={setZoomSlider}
@@ -66,6 +60,7 @@ const Feedbacks = () => {
           slides={feedbacks}
           mainSwiperRef={swiperRef}
           render={renderZoomSwiper}
+
         />
       </CSSTransition>
     </section>

@@ -14,6 +14,8 @@ import RecorderExamples from './sections/RecorderExamples';
 import Feedbacks from './sections/Feedbacks';
 import Recomendation from './sections/Recomendation';
 import Advantages from './sections/Advantages';
+import Sertifications from './sections/Sertifications';
+import FooterOrder from './sections/FooterOrder';
 
 export const Home = () => {
     return (
@@ -33,6 +35,8 @@ export const Home = () => {
             <Feedbacks />
             <Recomendation />
             <Advantages />
+            <Sertifications />
+            <FooterOrder />
         
         </>
         
