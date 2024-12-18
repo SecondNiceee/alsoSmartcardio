@@ -13,7 +13,7 @@ const Sertificate:FC<ISertificate> = ({imagePath, id, setInitialSlide, openZoom}
         openZoom()
     }, [])
     return (
-        <div onClick={changeSlide(id)} className='w-[100%]'>
+        <div onClick={changeSlide(id)} className='w-[100%] cursor-pointer hover:translate-y-[-20px] transition-transform duration-300'>
             <Image className='w-[100%] border-2 border-solid border-black rounded-md' alt='#' src={imagePath} width={583} height={827}  />
         </div>
     );

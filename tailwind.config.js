@@ -11,7 +11,6 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-
     screens: {
       xs: "360px",
       "2xs": "480px",
@@ -33,15 +32,26 @@ module.exports = {
       padding: "20px",
     },
     extend: {
-      backgroundSize : {
-        "full-screen" : "100vw 100vh",
-        "auto" : "auto"
+      backgroundSize: {
+        "full-screen": "100vw 100vh",
+        auto: "auto",
       },
     },
   },
   plugins: [
     plugin(function ({ addUtilities, addComponents, theme }) {
       addComponents({
+        ".button": {
+          width: "100%",
+          paddingTop: "11px",
+          paddingBottom: "11px",
+          paddingLeft: "14px",
+          paddingRight: "14px",
+          "@screen md": {
+            paddingTop: "18px",
+            paddingBottom: "18px",
+          },
+        },
         ".section": {
           overflowX: "clip",
           maxWidth: "100vw",

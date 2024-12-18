@@ -16,6 +16,8 @@ import Recomendation from './sections/Recomendation';
 import Advantages from './sections/Advantages';
 import Sertifications from './sections/Sertifications';
 import FooterOrder from './sections/FooterOrder';
+import Contacts from './sections/Contacts';
+import Footer from './sections/Footer';
 
 export const Home = () => {
     return (
@@ -37,6 +39,8 @@ export const Home = () => {
             <Advantages />
             <Sertifications />
             <FooterOrder />
+            <Contacts />
+            <Footer />
         
         </>
         
