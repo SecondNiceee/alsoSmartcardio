@@ -1,6 +1,5 @@
-import React, {  forwardRef, LegacyRef, ReactNode, useEffect } from "react";
-import Cross from "../ZoomSlider/Cross";
-import useBlockScroll from "@/shared/hooks/useBlockScroll";
+import React, {  forwardRef, LegacyRef, ReactNode } from "react";
+import {useBlockScroll} from "@/shared/hooks/useBlockScroll";
 
 interface IPopup{
   children : ReactNode,
