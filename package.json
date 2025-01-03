@@ -31,6 +31,7 @@
     "swiper": "^11.1.15"
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.14",
     "@types/node": "^20",
     "@types/numeral": "^2.0.5",
     "@types/react": "^18",
