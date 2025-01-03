@@ -27,7 +27,7 @@ module.exports = {
         md: "100%",
         lg: "100%",
         xl: "1140px",
-        "2xl": "1140px",
+        "2xl": "1180px",
       },
       padding: "20px",
     },

@@ -4,13 +4,14 @@ import { Raleway } from "next/font/google";
 import { Roboto } from "next/font/google";
 import { Roboto_Flex } from "next/font/google";
 import { Inter } from "next/font/google";
+import ReduxProvider from "./ReduxProvider";
 
 const inter = Inter({ variable: "--font4", subsets: ["cyrillic"] });
 const raleway = Raleway({
   variable: "--third-family",
   subsets: ["cyrillic"],
   weight: "400",
-  display : "swap"
+  display: "swap",
 });
 
 const roboto300 = Roboto({
@@ -54,21 +55,21 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${raleway.variable}
-         ${roboto300.variable}
-         ${roboto400.variable}
-         ${roboto500.variable} 
-         ${roboto700.variable}
-         ${robotoFlex.variable}
-         ${inter.variable}
-         `}
+            ${roboto300.variable}
+            ${roboto400.variable}
+            ${roboto500.variable} 
+            ${roboto700.variable}
+            ${robotoFlex.variable}
+            ${inter.variable}
+            `}
       >
-        <header>
 
-        </header>
-        {children}
-        <footer>
-          
-        </footer>
+        <ReduxProvider>
+
+          {children}
+
+        </ReduxProvider>
+
       </body>
     </html>
   );

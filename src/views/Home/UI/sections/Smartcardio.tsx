@@ -1,18 +1,26 @@
 "use client";
 import OrderButton from "@/shared/UI/OrderButton/OrderButton";
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import Video from "@/shared/UI/Video/Video";
 
 import { ScrollArrow } from "../components/ScrollArrow";
 import { scrollToDownloads } from "@/features/scrollToDownloads/scrollToDownloads";
 import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
+import { BuyingPopup } from "@/widgets/BuyingPopup";
 
 const Smartcardio: React.FC = () => {
+  
+  const [isPopup, setPopup] = useState<boolean>(false)
   const orderFunction = () => {
-    alert("Заказ");
+    setPopup(true)
   };
+
+
   return (
+
+    <>
+
     <div className="smartcardio-wrapper">
       <Video
         poster="images/smartcardioStart.png"
@@ -30,24 +38,23 @@ const Smartcardio: React.FC = () => {
         <div className="container">
           <Reveal start = {true} character={CHARACTER.DOWNUP} style={{alignItems : "center", display : "flex", flexDirection : "column"}}>
             <h1 className="smarcardio__header">
-              СмартКардио <span>®</span>
+              Олечка <span></span>
             </h1>
             <h3 className="smartcardio__description">
-              <span>Первое в мире</span> устройство, регистрирующее одновременно
-              ЭКГ, сатурацию и пульсовую волну без геля и проводов.
+              <span>Не сердись пожалуйста</span>
             </h3>
             <div className="smartcardio__buttons">
               <OrderButton
                 className="smartcardio__order-button"
                 onClick={orderFunction}
               >
-                <p>Заказать</p>
+                <p>Не сердиться</p>
               </OrderButton>
               <OrderButton
                 className="smartcardio__read-button"
                 onClick={orderFunction}
               >
-                <p>Читать далее</p>
+                <p>Не сердиться</p>
               </OrderButton>
             </div>
             <ScrollArrow
@@ -58,6 +65,8 @@ const Smartcardio: React.FC = () => {
         </div>
       </section>
     </div>
+    <BuyingPopup setState={setPopup} state = {isPopup}  />
+    </>
   );
 };
 

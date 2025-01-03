@@ -10,8 +10,8 @@ import { schemeConfig } from '../../config/schemeConfig';
 import { CSSTransition } from 'react-transition-group';
 import Popup from '@/shared/UI/Popup/Popup';
 import Video from '@/shared/UI/Video/Video';
-import useZoomSwiper from '../hooks/useZoomSwiper';
-import useDefaultSwiper from '../hooks/useDefaultSwiper';
+import useZoomSwiper from '../../../../shared/hooks/useZoomSwiper';
+import useDefaultSwiper from '../../../../shared/hooks/useDefaultSwiper';
 
 
 const InteractiveSection = () => {

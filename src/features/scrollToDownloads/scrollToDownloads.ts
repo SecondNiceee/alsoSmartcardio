@@ -1,4 +1,4 @@
-import { smoothScrollToElement } from "@/shared/functions/smoothScroll"
+import { smoothScrollToElement } from "@/shared/utils/smoothScroll"
 
 export const scrollToDownloads = () => {
     const downloads = document.getElementById("downloads")

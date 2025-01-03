@@ -2,7 +2,7 @@ import ZoomSlider from '@/shared/UI/ZoomSlider/ZoomSlider';
 import Image from 'next/image';
 import React, { useCallback, useState } from 'react';
 import { sertificateConfig } from '../../config/sertificatesConfig';
-import useZoomSwiper from '../hooks/useZoomSwiper';
+import useZoomSwiper from '../../../../shared/hooks/useZoomSwiper';
 import Sertificate from '../components/Sertificate';
 import { CSSTransition } from 'react-transition-group';
 
@@ -21,7 +21,7 @@ const Sertifications = () => {
                 <div className="w-[100%] grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-2  gap-[20px]"> 
                     {sertificateConfig.map( (imagePath, index) => {
                         return (
-                            <Sertificate openZoom={openZoom} id={index} imagePath={imagePath} setInitialSlide={setInitialSlide}/>
+                            <Sertificate key={index} openZoom={openZoom} id={index} imagePath={imagePath} setInitialSlide={setInitialSlide}/>
                         )
                     } )}
                 </div>

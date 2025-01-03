@@ -5,8 +5,8 @@ import Image from "next/image";
 import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
 import ZoomSlider from "@/shared/UI/ZoomSlider/ZoomSlider";
 import { CSSTransition } from "react-transition-group";
-import useDefaultSwiper from "../hooks/useDefaultSwiper";
-import useZoomSwiper from "../hooks/useZoomSwiper";
+import useDefaultSwiper from "../../../../shared/hooks/useDefaultSwiper";
+import useZoomSwiper from "../../../../shared/hooks/useZoomSwiper";
 
 const Feedbacks = () => {
 

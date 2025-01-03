@@ -8,8 +8,8 @@ import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
 import Slider from "../components/Slider";
 import { CSSTransition } from "react-transition-group";
 import Image from "next/image";
-import useDefaultSwiper from "../hooks/useDefaultSwiper";
-import useZoomSwiper from "../hooks/useZoomSwiper";
+import useDefaultSwiper from "../../../../shared/hooks/useDefaultSwiper";
+import useZoomSwiper from "../../../../shared/hooks/useZoomSwiper";
 
 const SmartcardioSlider = () => {
   

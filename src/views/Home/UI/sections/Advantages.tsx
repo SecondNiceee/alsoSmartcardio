@@ -15,7 +15,7 @@ const Advantages = () => {
                 <div className="gap-[10px] !grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                     {advantagesConfig.map( ({header, img, p}, key) => {
                         return (
-                            <Advantage {...{header, img, p} } id={key} />
+                            <Advantage key={key} {...{header, img, p} } id={key} />
                         )
                     }  )}
                 </div>
