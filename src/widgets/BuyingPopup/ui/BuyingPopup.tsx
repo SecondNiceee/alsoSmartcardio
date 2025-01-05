@@ -24,6 +24,8 @@ interface IForm{
 
 }
 
+type TypeMethod = "deliveryPoing" | "postmat" | "courier"
+
 export const BuyingPopup:FC<IBuyingPopup> = ({setState, state}) => {
 
     const clickHandler = () => {
@@ -53,6 +55,8 @@ export const BuyingPopup:FC<IBuyingPopup> = ({setState, state}) => {
     const onSubmit = handleSubmit( (data) => {
         console.log(data)
     } )
+
+    const [methods, setMethods] = useState<TypeMethod[]>([])
 
 
     return (

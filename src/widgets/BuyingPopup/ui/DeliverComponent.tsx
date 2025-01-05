@@ -1,5 +1,5 @@
 import DropDownInput from '@/shared/UI/DropDownInput/DropDownInput';
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import DeliverMethod from './DeliverMethod';
 import { Control, FieldValues, Path } from 'react-hook-form';
 
@@ -12,11 +12,11 @@ interface TfetchDeliveryMethods{
 }
 
 
+type TypeMethod = "deliveryPoing" | "postmat" | "courier";
+
 function DeliverComponent<T extends FieldValues>({control} : IDeliverComponent<T>){
     
-    const fetchDeliveryMethods = ({}) => {
-        
-    }
+    const [methods, setMethods] = useState<TypeMethod[]>([])
 
     return (
         <>

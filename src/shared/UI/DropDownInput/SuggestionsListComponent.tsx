@@ -5,7 +5,7 @@ const SuggestionsListComponent = ({filteredSuggestions, activeSuggestion, onClic
 
     
     return filteredSuggestions.length ? (
-      <ul className='border-black border-t-0 w-[100%] border-solid border-[1px] rounded-md overflow-y-scroll cursor-pointer absolute left-0 bottom-[0px] translate-y-[100%]'>
+      <ul className='border-black border-t-0 w-[100%] border-solid border-[1px] rounded-md overflow-y-scroll cursor-pointer absolute left-0 top-[50px] z-40'>
         {filteredSuggestions.map((suggestion, index) => {
           let className;
           if (index === activeSuggestion) {
@@ -19,7 +19,7 @@ const SuggestionsListComponent = ({filteredSuggestions, activeSuggestion, onClic
         })}
       </ul>
     ) : (
-      <div className="left-0 absolute bottom-[0px] border-black border-[1px] border-solid translate-y-[100%] no-suggestions w-[100%] bg-white p-2 p text-lef">
+      <div className="left-0 absolute top-[50px] border-black border-[1px] border-solid no-suggestions w-[100%] bg-white p-2 p text-lef">
         <em className='p'>По вашему запросу ничего не найдено</em>
       </div>
     );

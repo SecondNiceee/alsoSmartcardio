@@ -32,6 +32,7 @@ module.exports = {
       padding: "20px",
     },
     extend: {
+
       backgroundSize: {
         auto : "auto",
       },
@@ -99,6 +100,9 @@ module.exports = {
         // ".bg-footerImage" : {
         //   ""
         // },
+        ".text-grey" : {
+          color : "grey"
+        },
         ".grid-gap": {
           gap: "clamp(0.625rem, -4.536rem + 10.75vw, 3.125rem)",
         },

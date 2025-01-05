@@ -1,17 +1,11 @@
 import { debounce } from 'lodash';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Control, Controller, FieldError, FieldValues, Path } from 'react-hook-form';
-import axios from "axios";
-import { GET } from '@/shared/api/GET';
-import retryWithToken from '@/shared/utils/retryWithToken';
-import { getAccessToken } from '@/shared/utils/getAccessToken';
 import useFetchYears, { TypeSuggestion } from './hooks/useFetchYears';
 import SuggestionsListComponent from './SuggestionsListComponent';
-import { log } from 'console';
 import Loader from '../Loader/Loader';
 
 
-const suggestions = ["Капсула", "Клоун", "Дерево"]
 
 
 interface IDropDownInput<T extends FieldValues>{
@@ -21,7 +15,7 @@ interface IDropDownInput<T extends FieldValues>{
     error? : FieldError | undefined,
     control : Control<T>
 }
-function DropDownInput<T extends FieldValues>({control, error, labelText, name, placeholder} : IDropDownInput<T>){
+function DropDownInput<T extends FieldValues>({control, name} : IDropDownInput<T>){
     return (
         <Controller
             name={name}
@@ -44,6 +38,8 @@ function DropDownInput<T extends FieldValues>({control, error, labelText, name, 
 
                 const [fromEmpty, setFromEmpty] = useState<boolean>(true)
 
+                const [fullName, setFullName] = useState<string>('')
+
 
                 
 
@@ -58,14 +54,16 @@ function DropDownInput<T extends FieldValues>({control, error, labelText, name, 
                     debouncedFetchCitys(inputValue)
                     setShowSuggestions(true);
                   }
-                }, [inputValue, suggestions, isItemSelected]);
+                }, [inputValue, isItemSelected]);
               
                 const onClick = (suggestion : TypeSuggestion,  ):React.MouseEventHandler<HTMLLIElement> => (e:React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+                   console.log(suggestion)
                     onChange(suggestion.code);
                     setFilteredSuggestions([]);
                     setShowSuggestions(false);
                     setItemSelected(true)
                     setInputValue(suggestion.full_name.split(',')[0])
+                    setFullName(suggestion.full_name)
                   };
 
 
@@ -107,11 +105,14 @@ function DropDownInput<T extends FieldValues>({control, error, labelText, name, 
 
                 return  (
                     <div className='flex flex-col relative'>
-                        {isLoading && <Loader width={'30'} classNames='absolute right-[10px] top-[50%] translate-y-[-50%]' /> }
+                        {isLoading && <Loader width={'30'} classNames='absolute right-[10px] top-[-14px]' /> }
 
                         {showSuggestions && inputValue && !fromEmpty && <SuggestionsListComponent activeSuggestion={activeSuggestion} filteredSuggestions={filteredSuggestions} onClick={onClick} />}
 
                         <input className='p-2 p text-left border-black border-solid border-2 rounded-md' {...field} onFocus={onFocus} onBlur={onBlur}  onKeyDown={onKeyDown} value={inputValue} onChange={changeHandler} type="text" />
+
+                        {fullName.length ? <p className='p mt-2 ml-2 text-grey  text-left'>{fullName}</p> : <></>}
+
                     </div>
                 )
 

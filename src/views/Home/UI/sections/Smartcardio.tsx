@@ -38,23 +38,24 @@ const Smartcardio: React.FC = () => {
         <div className="container">
           <Reveal start = {true} character={CHARACTER.DOWNUP} style={{alignItems : "center", display : "flex", flexDirection : "column"}}>
             <h1 className="smarcardio__header">
-              Олечка <span></span>
+              СмартКардио <span>®</span>
             </h1>
             <h3 className="smartcardio__description">
-              <span>Не сердись пожалуйста</span>
+              <span>Первое в мире</span> устройство, регистрирующее одновременно
+              ЭКГ, сатурацию и пульсовую волну без геля и проводов.
             </h3>
             <div className="smartcardio__buttons">
               <OrderButton
                 className="smartcardio__order-button"
                 onClick={orderFunction}
               >
-                <p>Не сердиться</p>
+                <p>Заказать</p>
               </OrderButton>
               <OrderButton
                 className="smartcardio__read-button"
                 onClick={orderFunction}
               >
-                <p>Не сердиться</p>
+                <p>Читать далее</p>
               </OrderButton>
             </div>
             <ScrollArrow
