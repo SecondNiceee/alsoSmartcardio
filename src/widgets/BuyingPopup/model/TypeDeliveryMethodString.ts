@@ -1,0 +1,1 @@
+export type TypeDeliveryMethodString = "deliveryPoint" | "postmat" | "courier"

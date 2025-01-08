@@ -12,7 +12,7 @@ const Advantages = () => {
                 <Reveal character={CHARACTER.UPDOWN}>
                     <h2 className='h2 text-white'>Наши преимущества</h2>
                 </Reveal>
-                <div className="gap-[10px] !grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="gap-[10px] flex  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                     {advantagesConfig.map( ({header, img, p}, key) => {
                         return (
                             <Advantage key={key} {...{header, img, p} } id={key} />

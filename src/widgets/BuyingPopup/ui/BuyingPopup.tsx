@@ -1,16 +1,13 @@
-import { useBlockScroll } from '@/shared/hooks/useBlockScroll';
 import { useAppSelector } from '@/shared/models/reduxHooks';
 import { formatNumber } from '@/shared/utils/formateNumber';
-import Image from 'next/image';
 import React, { FC, SetStateAction, useCallback, useMemo, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import {useForm} from "react-hook-form"
 import { register } from 'module';
-import Orders from './Orders';
+import Orders from './components/Orders';
 import FormTextInput from '@/shared/UI/FormInput/FormTextInput';
-import DropDownInput from '@/shared/UI/DropDownInput/DropDownInput';
-import DeliverMethod from './DeliverMethod';
-import DeliverComponent from './DeliverComponent';
+import Delivery from './components/Delivery';
+import { TypeDeliveryMethodString } from '../model/TypeDeliveryMethodString';
 
 interface IBuyingPopup{
     state : boolean
@@ -20,13 +17,15 @@ interface IForm{
     FIO : string,
     email : string,
     phone : string,
-    city : string
-
+    city : number,
+    deliveryMethod : TypeDeliveryMethodString,
+    deliveryPoint : number
 }
 
-type TypeMethod = "deliveryPoing" | "postmat" | "courier"
+
 
 export const BuyingPopup:FC<IBuyingPopup> = ({setState, state}) => {
+
 
     const clickHandler = () => {
         setState(false)
@@ -45,18 +44,22 @@ export const BuyingPopup:FC<IBuyingPopup> = ({setState, state}) => {
 
     const {register, control, handleSubmit} = useForm<IForm>({
         defaultValues : {
-            city : "",
+            city : 0,
             email : "",
             FIO : "",
             phone : ""
         }
     })
 
+    
+
+
+
     const onSubmit = handleSubmit( (data) => {
         console.log(data)
     } )
 
-    const [methods, setMethods] = useState<TypeMethod[]>([])
+
 
 
     return (
@@ -65,7 +68,7 @@ export const BuyingPopup:FC<IBuyingPopup> = ({setState, state}) => {
 
                 <div onClick={clickHandler} className="fixed bg-black top-0 left-0 w-[100vw] h-[100vh] opacity-50 z-30"></div>
 
-                <div className="flex-col mt-10 mb-10 h-max rounded-3xl w-[50%] flex relative z-50 bg-white px-12 py-12">
+                <div className="flex-col mt-10 mb-10 h-max rounded-3xl md:w-[90%] lg:w-[70%] xl:w-[50%] flex relative z-50 bg-white px-12 py-12">
 
                     <p className='mid-title font-bold  text-black'>
                         Ваш заказ:
@@ -83,28 +86,14 @@ export const BuyingPopup:FC<IBuyingPopup> = ({setState, state}) => {
 
                         <FormTextInput name='phone' register={register} type='tel' labelText='Ваш телефон'  />
                         
-                        <p className='big-p font-bold'>Доставка</p>
-
-
-                        
-
-                        <DeliverComponent control={control} />
-
-
-
+                        <Delivery control={control} />
 
                         <input className=' !bg-black text-white p-2 big-p w-[100%] mx-auto rounded-md' type="submit" value={"Оформить заказ"} />
 
-
-
-
-
-
                     </div>
 
-
-
                 </div>
+
             </form>
         </CSSTransition>
     );

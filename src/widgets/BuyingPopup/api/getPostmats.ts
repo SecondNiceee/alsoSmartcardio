@@ -1,0 +1,24 @@
+import { GET } from "@/shared/api/GET";
+import { TypeOffice } from "../model/TypeOffice";
+
+interface IGetOffices{
+    region_code : number,
+    token : string | null,
+
+}
+async function getPostmats({region_code, token} : IGetOffices) {
+
+    const offices = await GET<TypeOffice[]>({endpoint : "/offices", params : {
+                    type : "POSTAMAT",
+                    country_code: 'RU',
+                    city_code: region_code,
+                    is_handout : "1"
+                },
+                headers : {
+                "Content-Type" : "Application/json",
+                "Authorization" : `Bearer ${token}`,
+    }})
+
+    return offices
+}
+export default getPostmats
