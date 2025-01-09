@@ -62,7 +62,7 @@ function DeliveryPointsInput<T extends FieldValues>({name, setWannaChange, contr
 
                     <label className='p text-left' htmlFor={name}>{"Пункт выдачи"}</label>
 
-                    <input placeholder='Введите пункт выдачи'  {...field} value={inputValue} onChange={onInputChange} onFocus={onInputFocus} onBlur={onInputBlur} className='p-2 p text-left border-black border-solid border-2 rounded-md' type="text"  />
+                    <input placeholder='Выберите пункт выдачи'  {...field} value={inputValue} onChange={onInputChange} onFocus={onInputFocus} onBlur={onInputBlur} className='p-2 p text-left border-black border-solid border-2 rounded-md' type="text"  />
 
                     {!suggestions && <Loader width={'30'} classNames='absolute right-[10px] top-[14px]' /> }
 

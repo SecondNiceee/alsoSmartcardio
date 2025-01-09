@@ -18,15 +18,17 @@ const Orders = ({ cartOrders }: { cartOrders: TypeOrder[] }) => {
             />
             <p className="big-p ">{order.name}</p>
             <div className="flex gap-6 items-center justify-center">
-              <div className="border-black flex items-center justify-center border-solid border-[1px]  aspect-square w-[30px] h-[30px] cursor-pointer rounded-[50%] p-1">
-                <p className="p">+</p>
-              </div>
-
-              <p className="big-p">{order.counter}</p>
 
               <div className="border-black flex justify-center items-center border-solid border-[1px]  aspect-square w-[30px] h-[30px] cursor-pointer rounded-[50%] p-1">
                 <p className="p">-</p>
               </div>
+
+              <p className="big-p">{order.counter}</p>
+
+              <div className="border-black flex items-center justify-center border-solid border-[1px]  aspect-square w-[30px] h-[30px] cursor-pointer rounded-[50%] p-1">
+                <p className="p">+</p>
+              </div>
+
             </div>
             <p className="big-p border-black border-solid rounded-[50%] p-1">
               {formatNumber(order.price * order.counter)}p

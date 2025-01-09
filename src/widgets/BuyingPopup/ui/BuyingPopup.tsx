@@ -19,7 +19,8 @@ interface IForm{
     phone : string,
     city : number,
     deliveryMethod : TypeDeliveryMethodString,
-    deliveryPoint : number
+    deliveryPoint : number,
+    promocode : string
 }
 
 
@@ -86,11 +87,15 @@ export const BuyingPopup:FC<IBuyingPopup> = ({setState, state}) => {
 
                         <FormTextInput name='phone' register={register} type='tel' labelText='Ваш телефон'  />
                         
-                        <Delivery control={control} />
+                        <Delivery register={register} control={control} />
+
+                        <FormTextInput placeholder='Введите промокод' register={register} labelText='Промокод' name={'promocode'} />
 
                         <input className=' !bg-black text-white p-2 big-p w-[100%] mx-auto rounded-md' type="submit" value={"Оформить заказ"} />
 
                     </div>
+
+
 
                 </div>
 

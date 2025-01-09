@@ -1,3 +1,4 @@
+
 import { TypeOrder } from "@/shared/config/TypeOrder";
 import { createSlice } from "@reduxjs/toolkit";
 
@@ -5,6 +6,11 @@ import { createSlice } from "@reduxjs/toolkit";
 interface IInitial {
     orders : TypeOrder[]
 }
+
+// const smarcardioCounter = getCookie({name : "device"})
+
+// const smartcardioWithCaseCounter = getCookie({name : "deviceWithCase"})
+
 const initial:IInitial = {
     orders : [
         {

@@ -1,6 +1,6 @@
 import CityChoicer from '@/shared/UI/DropDownInput/CityChoicer';
 import React, { useEffect, useMemo, useState } from 'react';
-import { Control, FieldValues, Path } from 'react-hook-form';
+import { Control, FieldValues, Path, UseFormRegister } from 'react-hook-form';
 import NoDeliveryMethods from './NoDeliveryMethods';
 import NoSelectedCity from './NoSelectedCity';
 import { TypeStatus } from '@/shared/api/models';
@@ -14,12 +14,14 @@ import { TypeOffice } from '../../model/TypeOffice';
 import DeliveryPointForm from './DeliveryPointForm';
 import DeliveryPostmanForm from './DeliveryPostmanForm';
 import DeliveryCourierForm from './DeliveryCourierForm';
+import FormTextInput from '@/shared/UI/FormInput/FormTextInput';
 
 interface IDeliverComponent<T extends FieldValues>{
     control : Control<T>
+    register : UseFormRegister<T>
 }
 
-function Delivery<T extends FieldValues>({control} : IDeliverComponent<T>){
+function Delivery<T extends FieldValues>({control, register} : IDeliverComponent<T>){
     
     const [methods, setMethods] = useState<TypedeliveryMethod[]>([])
 
@@ -80,6 +82,7 @@ function Delivery<T extends FieldValues>({control} : IDeliverComponent<T>){
                 {deliveryMethodString === "deliveryPoint" ? <DeliveryPointForm control={control} name={"deliveryPoint" as Path<T>} deliveryPoints={deliveryPoints} /> : 
                 deliveryMethodString === "postmat" ? <DeliveryPostmanForm /> :
                 <DeliveryCourierForm /> }
+
         </>
     );
 };
