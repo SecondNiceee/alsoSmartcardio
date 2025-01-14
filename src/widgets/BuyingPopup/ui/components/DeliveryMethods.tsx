@@ -36,11 +36,9 @@ function DeliveryMethods<T extends FieldValues>({methods, control, setDeliveryMe
                         break;
                     }
                     default:{
-
                     }
                 }
             }
-
             useEffect( () => {
                 if (!methods[0].errors){
                     changeHandler("deliveryPoint")()
