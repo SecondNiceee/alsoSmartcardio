@@ -45,7 +45,7 @@ export interface IForm {
 
 export const BuyingPopup = forwardRef(
   ({ setState }: IBuyingPopup, ref: ForwardedRef<HTMLFormElement>) => {
-    
+
     const [startAddOne, setStartAddOne] = useState<boolean>(false);
 
     const clickHandler = () => {
@@ -204,7 +204,7 @@ export const BuyingPopup = forwardRef(
               deliveryCityName={delivceryCity}
               setDeliveryCityName={setDeliveryCity}
               control={control}
-              error={errors.deliveryPoint?.message}
+              error={errors.deliveryMethod?.message}
             />
 
             <FormTextInput

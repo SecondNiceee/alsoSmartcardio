@@ -65,11 +65,10 @@ export const buyingSchema = z.object({
     return false
     }
     if (data.deliveryMethod === "postmat" && !data.postmat) {
-      alert("Тут взлом")
     //   throw new Error("Пожалуйста, выберите постмат из предложенного списка");
     return false
     }
-    if (data.deliveryMethod === "courier" && !data.address) {
+    if (data.deliveryMethod === "courier" && !data.address?.length) {
     //   throw new Error("Пожалуйста, укажите адрес");
     return false
     }

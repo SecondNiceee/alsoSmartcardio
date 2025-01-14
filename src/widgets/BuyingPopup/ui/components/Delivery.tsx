@@ -136,7 +136,7 @@ function Delivery<T extends FieldValues>({
           deliveryPoints={delivers}
         />
       ) : deliveryMethodString === "courier" ? (
-        <DeliveryCourierForm setDeliveryAddress={setDeliveryInputValue} control={control} />
+        <DeliveryCourierForm error={error} setDeliveryAddress={setDeliveryInputValue} control={control} />
       ) : (
         <></>
       )}
