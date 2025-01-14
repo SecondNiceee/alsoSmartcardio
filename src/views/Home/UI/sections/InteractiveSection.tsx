@@ -11,7 +11,6 @@ import { CSSTransition } from 'react-transition-group';
 import Popup from '@/shared/UI/Popup/Popup';
 import Video from '@/shared/UI/Video/Video';
 import useZoomSwiper from '../../../../shared/hooks/useZoomSwiper';
-import useDefaultSwiper from '../../../../shared/hooks/useDefaultSwiper';
 
 
 const InteractiveSection = () => {
@@ -53,12 +52,12 @@ const InteractiveSection = () => {
 
             <CSSTransition classNames={"zoom"} nodeRef={videoRef} in = {isVideoOpen} timeout={{enter:50, exit : 400}} unmountOnExit mountOnEnter  >
                 <Popup ref = {videoRef} closePopup={closePopup}>
-                    <Video className='' videoClassName='rounded-[20px] !max-w-[90vw] w-[100%] h-[100%] !max-h-[90vh] aspect-squar' videoName='manual.mp4'  controls = {true} poster = "images/manual.png" />
+                    <Video className='' videoClassName='rounded-[20px] !max-w-[90vw] w-[100%] h-[100%] !max-h-[90vh] aspect-squar' videoName='manual.mp4' autoPlay = {true}  controls = {true} poster = "images/manual.png" />
                 </Popup>
             </CSSTransition>
             
             <CSSTransition nodeRef={zoomRef} classNames={"zoom"}   timeout={{enter : 50, exit : 400}} in = {zoomSlider} unmountOnExit mountOnEnter>
-                <ZoomSlider  closeZoom={closeZoom} initialSlide={0} render={renderZoomSwiper} slides={schemeConfig}    />
+                <ZoomSlider zoomState = {zoomSlider}  closeZoom={closeZoom} initialSlide={0} render={renderZoomSwiper} slides={schemeConfig}    />
             </CSSTransition>
 
         </section>

@@ -5,7 +5,6 @@ import useFetchYears, { TypeSuggestion } from './hooks/useFetchYears';
 import Loader from '../Loader/Loader';
 import { TypeStatus } from '@/shared/api/models';
 import CitySuggestionList from './CitySuggestionList';
-import { TypeDeliveryMethodString } from '@/widgets/BuyingPopup/model/TypeDeliveryMethodString';
 
 
 
@@ -17,10 +16,12 @@ interface IDropDownInput<T extends FieldValues>{
     error? : FieldError | undefined,
     control : Control<T>,
     onPickFunction : (par:number) => void,
-    setIsCityPicked : React.Dispatch<SetStateAction<boolean>>
+    setIsCityPicked : React.Dispatch<SetStateAction<boolean>>,
+    city : string,
+    setCity : React.Dispatch<SetStateAction<string>>
 }
 
-function  CityChoicer<T extends FieldValues>({control, name, onPickFunction, setIsCityPicked} : IDropDownInput<T>){
+function  CityChoicer<T extends FieldValues>({control, name, onPickFunction, setIsCityPicked, city, setCity} : IDropDownInput<T>){
     return (
         <Controller
             name={name}
@@ -37,8 +38,6 @@ function  CityChoicer<T extends FieldValues>({control, name, onPickFunction, set
 
                 const [fromEmpty, setFromEmpty] = useState<boolean>(true)
 
-                const [fullName, setFullName] = useState<string>('')
-
                 const [fetchStatus, setFetchStatus] = useState<TypeStatus>("fulfilled")
 
                 const fetchYears = useFetchYears({setFilteredSuggestions, fromEmpty, setFromEmpty, setFetchStatus});
@@ -51,15 +50,14 @@ function  CityChoicer<T extends FieldValues>({control, name, onPickFunction, set
                     setIsCityPicked(true)
                     onChange(suggestion.code);
                     onPickFunction(suggestion.code)
-                    console.log(suggestion)
                     setShowSuggestions(false);
                     setInputValue(suggestion.full_name.split(',')[0])
-                    setFullName(suggestion.full_name)
+                    setCity(suggestion.full_name)
                   };
 
                 const changeHandler:React.ChangeEventHandler<HTMLInputElement> = (e) => {
 
-                  setFullName('')
+                  setCity('')
 
                   setIsCityPicked(false)
 
@@ -95,9 +93,9 @@ function  CityChoicer<T extends FieldValues>({control, name, onPickFunction, set
 
                         {showSuggestions && inputValue && !fromEmpty && fetchStatus === 'fulfilled' && <CitySuggestionList filteredSuggestions={filteredSuggestions} onClick={onClick} />}
 
-                        <input placeholder='Введите город' className='p-2 p text-left border-black border-solid border-2 rounded-md' {...field} onFocus={onFocus} onBlur={onBlur} value={inputValue} onChange={changeHandler} type="text" />
+                        <input autoComplete='off' spellCheck = {false} placeholder='Введите город' className='p-2 p text-left border-black border-solid border-2 rounded-md' {...field} onFocus={onFocus} onBlur={onBlur} value={inputValue} onChange={changeHandler} type="text" />
 
-                        {fullName.length ? <p className='p mt-2 ml-2 text-grey  text-left'>{fullName}</p> : <></>}
+                        {city.length ? <p className='p mt-2 ml-2 text-grey  text-left'>{city}</p> : <></>}
 
                     </div>
                 )
@@ -110,4 +108,4 @@ function  CityChoicer<T extends FieldValues>({control, name, onPickFunction, set
     );
 };
 
-export default CityChoicer;
+export default React.memo(CityChoicer) as <T extends FieldValues>(props : IDropDownInput<T>) => JSX.Element;

@@ -25,21 +25,29 @@ export const Home = () => {
         <>
         
             <Smartcardio />
-            <Downloads />
-            <InteractiveSection />
-            <Indicators />
-            <Technologys />
-            <HowItWorks />
-            <Steps />
-            <HowOrder />
-            <SmartcardioSlider />   
-            <RecorderExamples />
-            <Feedbacks />
-            <Recomendation />
-            <Advantages />
-            <Sertifications />
-            <FooterOrder />
-            <Contacts />
+
+            <main>
+                
+                <Downloads />
+                <InteractiveSection />
+                <Indicators />
+                <Technologys />
+                <HowItWorks />
+                <Steps />
+                <HowOrder />
+
+                <SmartcardioSlider />   
+                <RecorderExamples />
+
+                <Feedbacks />
+                <Recomendation />
+                <Advantages />
+                <Sertifications />
+                <FooterOrder />
+                <Contacts />
+
+            </main>
+            
             <Footer />
         
         </>

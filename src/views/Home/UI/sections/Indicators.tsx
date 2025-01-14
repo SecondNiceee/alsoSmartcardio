@@ -1,15 +1,23 @@
 'use client'
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { indicators } from '../../config';
 import Indicator from '../components/Indicator';
 import OrderButton from '@/shared/UI/OrderButton/OrderButton';
 import Reveal, { CHARACTER } from '@/shared/UI/Reveal/Reveal';
 import BlackThemeCircles from '@/shared/UI/BlackThemeCircles/BlackThemeCircles';
+import { BuyingPopup } from '@/widgets/BuyingPopup';
+import { CSSTransition } from 'react-transition-group';
 
 const Indicators = () => {
+
+    const [isPopupOpened, setPopupOpened] = useState<boolean>(false)
+
     const onClick = () => {
-        
+        setPopupOpened(true)
     }
+
+    const popupRef = useRef(null)
+
     return (
         <section className='indicators relative overflow-y-hidden'>
 
@@ -32,11 +40,18 @@ const Indicators = () => {
                     justifyContent : "center",
                     width : "100%"
                 }} character={CHARACTER.DOWNUP}>
-                    <OrderButton onClick={onClick} className="indicators__button">
-                        <p>Заказть</p>
-                    </OrderButton>
+                <OrderButton onClick={onClick} className="indicators__button">
+                    <p>Заказть</p>
+                </OrderButton>
                 </Reveal>
             </div>
+
+            
+            <CSSTransition classNames={"zoom"} timeout={{enter : 50, exit : 400}} mountOnEnter unmountOnExit in = {isPopupOpened} nodeRef={popupRef}>
+                <BuyingPopup ref = {popupRef} setState={setPopupOpened}  />
+            </CSSTransition>
+
+            
         </section>
     );
 };

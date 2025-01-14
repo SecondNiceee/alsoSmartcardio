@@ -1,17 +1,20 @@
-import React, {forwardRef, LegacyRef, ReactNode, SetStateAction, useState } from 'react';
+'use client'
+import React, {forwardRef, LegacyRef, ReactNode, SetStateAction, useCallback, useState } from 'react';
 import { Navigation, Thumbs, Pagination } from 'swiper/modules';
-import { SwiperProps, SwiperRef } from 'swiper/react';
+import { SwiperProps, SwiperRef, SwiperSlide } from 'swiper/react';
 import { Swiper } from 'swiper/react';
 import { Swiper as SwiperInstance } from 'swiper';
 import NextButton, { arrowsType } from '@/shared/UI/NextPrevButtons/NextButton';
 import PrevButton from '@/shared/UI/NextPrevButtons/PrevButton';
 import 'swiper/css/pagination';
+import Image from 'next/image';
 
+
+    
 interface ISlider<T>{
     id : number;
     handleSlideChange?: (swiper: SwiperInstance) => void,
     renderMap : T[],
-    render : (par:T ,i:number) => ReactNode,
     renderSmall? : (par : T, i:number) => ReactNode,
     smallSliderStyles? : SwiperProps,
     arrowType? : arrowsType,
@@ -19,16 +22,26 @@ interface ISlider<T>{
     loop? : boolean,
     swiperClassNames? : string,
     NextButttonClassNames? : string,
-    PrevButtonClassNames? : string
+    PrevButtonClassNames? : string,
+    SliderWrapperClassNames? : string,
+    mainImageClassNames? : string
 }
 
-function SliderWrapper<T>({ handleSlideChange = () => {}, renderMap, render,  renderSmall, smallSliderStyles, arrowType, setZoomSlider, loop = true, swiperClassNames, NextButttonClassNames, PrevButtonClassNames, id} : ISlider<T>, ref : LegacyRef<SwiperRef> | undefined){
+function SliderWrapper<T>({ handleSlideChange = () => {}, renderMap, mainImageClassNames,  renderSmall, smallSliderStyles, arrowType, setZoomSlider, loop = true, swiperClassNames, NextButttonClassNames, PrevButtonClassNames, id, SliderWrapperClassNames} : ISlider<T>, ref : LegacyRef<SwiperRef> | undefined,){
     const [smallSlider, setSmallSlider] = useState<SwiperInstance | null>(null)
 
-    return (
-        <div className="flex flex-col gap-3 w-[100%] mx-auto ">
+    const render = useCallback((src:T, index:number) => {
+            return (
+                <SwiperSlide key={index} className={`mx-auto flex justify-center cursor-pointer`}>
+                    <Image className={`sm:w-[80%] w-[100%] smartcardio-slider-clamp object-cover rounded-md ${mainImageClassNames}`} alt='#' src={src} width={1900} height={1300}  />
+                </SwiperSlide>
+            )
+    }, [])
 
-            <div className="flex gap-3 w-[100%] mx-auto items-center relative ">
+    return (
+        <div className={`flex flex-col gap-3 w-[100%] mx-auto ${SliderWrapperClassNames}`}>
+
+            <div className="flex w-[100%] mx-auto items-center relative ">
 
 
                 <PrevButton arrowType={arrowType} className={`prev-${id} ${PrevButtonClassNames}`} />

@@ -1,21 +1,24 @@
 "use client";
 import OrderButton from "@/shared/UI/OrderButton/OrderButton";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Header from "./Header";
 import Video from "@/shared/UI/Video/Video";
 
 import { ScrollArrow } from "../components/ScrollArrow";
-import { scrollToDownloads } from "@/features/scrollToDownloads/scrollToDownloads";
+import { scrollToDownloads } from "@/views/Home/utils/scrollToDownloads";
 import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
-import { BuyingPopup } from "@/widgets/BuyingPopup";
+import { CSSTransition } from "react-transition-group";
+import { BuyingPopup } from "@/widgets/BuyingPopup/ui/BuyingPopup";
 
 const Smartcardio: React.FC = () => {
   
   const [isPopup, setPopup] = useState<boolean>(false)
+
   const orderFunction = () => {
     setPopup(true)
   };
 
+  const popupRef = useRef<HTMLFormElement>(null)
 
   return (
 
@@ -53,7 +56,7 @@ const Smartcardio: React.FC = () => {
               </OrderButton>
               <OrderButton
                 className="smartcardio__read-button"
-                onClick={orderFunction}
+                onClick={scrollToDownloads}
               >
                 <p>Читать далее</p>
               </OrderButton>
@@ -66,7 +69,10 @@ const Smartcardio: React.FC = () => {
         </div>
       </section>
     </div>
-    <BuyingPopup setState={setPopup} state = {isPopup}  />
+
+    <CSSTransition classNames={"zoom"} timeout={{enter : 50, exit : 400}} mountOnEnter unmountOnExit in = {isPopup} nodeRef={popupRef}>
+          <BuyingPopup ref = {popupRef} setState={setPopup}  />
+    </CSSTransition>
     </>
   );
 };

@@ -1,0 +1,54 @@
+.contact{
+    position: relative;
+    height: 200px;
+    width: 100%;
+    border-radius: 20px;
+    cursor: pointer;
+    .contact-tblock{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+        
+    }
+    .contact-p {
+        font-weight: 400;
+        line-height: 1;
+        text-align: center;
+        color: white;
+        z-index: 60;
+        position: relative;
+        font-size: clamp(1.188rem /* 19.008px */, 0.902rem /* 14.432px */ + 1.43vw, 2.188rem /* 35.008px */);
+    }
+    .black-block{
+        background-color: black;
+        left : 0;
+        top : 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        opacity: 0.7;
+        z-index: 30;
+        transition: 300ms opacity;
+    }
+    .contact-image{
+        left : 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 20;
+        position: absolute;
+        object-fit: cover;
+    }
+    &:hover{
+        .black-block{
+            opacity: 0;
+        }
+
+    }
+    @media (max-width:768px) {
+        height: 100px;
+    }
+}

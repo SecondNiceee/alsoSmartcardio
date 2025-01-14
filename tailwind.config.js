@@ -100,6 +100,10 @@ module.exports = {
         // ".bg-footerImage" : {
         //   ""
         // },
+        ".productPage-sliderImage-height" : {
+          "height" : "clamp(18.75rem, 12.629rem + 25.77vw, 25rem)"
+        },
+
         ".text-grey" : {
           color : "grey"
         },

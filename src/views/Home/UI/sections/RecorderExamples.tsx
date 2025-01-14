@@ -1,3 +1,4 @@
+'use client'
 import React, { useCallback, useState } from "react";
 import Slider from "../components/Slider";
 import { SwiperSlide } from "swiper/react";
@@ -9,27 +10,16 @@ import { CSSTransition } from "react-transition-group";
 import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
 import useZoomSwiper from "../../../../shared/hooks/useZoomSwiper";
 import useDefaultSwiper from "../../../../shared/hooks/useDefaultSwiper";
+import { RecorderItem } from "../components/RecorderItem";
 
 
-const Recorder = React.memo(({index, text, activeSlide, changeSlide} : {index : number, text : string, activeSlide : number, changeSlide : (index:number) => void}) => {
-    const clickHandler = () => {
-        changeSlide(index)
-    }
-    return (
-        <div onClick={clickHandler} key={index} className={`w-[100%] flex items-center justify-center border-2 px-2 py-2 border-black border-solid rounded-[10px] h-[100%] transition-[background-color] duration-[400ms] ${activeSlide === index && "bg-black" } cursor-pointer `}>
-            <p className={`big-p relative z-10 text-black ${activeSlide === index && "text-white" } transition-colors duration-[400ms]`}>
-            {text}
-            </p>
-        </div>
-    )
-})
 
 // =========================================
 
 
 const RecorderExamples = () => {
 
-    const {activeSlide, handleSlideChange, renderFunction, swiperRef, changeSlide} = useDefaultSwiper({})
+    const {activeSlide, handleSlideChange, swiperRef, changeSlide} = useDefaultSwiper()
 
     const {closeZoom , renderZoomSwiper, zoomRef, zoomSlider, setZoomSlider} = useZoomSwiper()
 
@@ -40,8 +30,6 @@ const RecorderExamples = () => {
         </SwiperSlide>
     )
 }, [activeSlide])
-
-
   return (
     <section className="section">
       <div className="container gap-containerGap p-container flex flex-col">
@@ -53,7 +41,7 @@ const RecorderExamples = () => {
             <Reveal character={CHARACTER.LEFT} className="flex flex-col w-[100%] h-auto items-center max-w-[600px] md:max-w-full gap-5 md:gap-12 py-10 px-6 justify-between  rounded-[10px] relative white-shadow">
 
                 {recorders.map( (e, index) => 
-                    <Recorder changeSlide={changeSlide} text={e} index={index} key={index} activeSlide={activeSlide} />
+                    <RecorderItem changeSlide={changeSlide} text={e} index={index} key={index} activeSlide={activeSlide} />
                   )}
 
             </Reveal>
@@ -73,7 +61,6 @@ const RecorderExamples = () => {
                     ref={swiperRef}
                     setZoomSlider={setZoomSlider}
                     arrowType="just"
-                    render={renderFunction}
                     renderMap={recordersSliders}
                     renderSmall={renderSmall}
                 />
@@ -83,18 +70,15 @@ const RecorderExamples = () => {
 
         </div>
       </div>
-
-        <CSSTransition nodeRef={zoomRef} classNames={"zoom"}  timeout={{enter : 50, exit : 400}} in = {zoomSlider} unmountOnExit mountOnEnter>
-            <ZoomSlider
-            ref={zoomRef}
-            initialSlide={activeSlide}
-            closeZoom={closeZoom}
-            slides={recordersSliders}
-            mainSwiperRef={swiperRef}
-            render={renderZoomSwiper}
-            />
-        </CSSTransition>
-    </section>
+        <ZoomSlider
+        zoomState = {zoomSlider}
+        initialSlide={activeSlide}
+        closeZoom={closeZoom}
+        slides={recordersSliders}
+        mainSwiperRef={swiperRef}
+        render={renderZoomSwiper}
+        />
+    </section>  
   );
 };
 

@@ -1,3 +1,4 @@
+'use client'
 import React, { FC, ReactNode, useCallback, useEffect, useRef } from 'react';
 import "./Reveal.scss"
 

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { FieldError, FieldValues, Path, UseFormRegister } from 'react-hook-form';
 
 
@@ -17,7 +17,8 @@ function FormInput<T extends FieldValues>({labelText, name, placeholder, registe
     return (
     <div className='flex flex-col gap-2'>
         <label className='p text-left' htmlFor={name}>{labelText}</label>
-        <input maxLength={maxLength} placeholder={placeholder} id={name} className='p-2 p text-left border-black border-solid border-2 rounded-md' {...register(name)} type="text" />
+        <input autoComplete='off' spellCheck = {false} maxLength={maxLength} placeholder={placeholder} id={name} className='p-2 p text-left border-black border-solid border-2 rounded-md' {...register(name)} type={type} />
+        {error ? <p className='p text-red-500'>{error.message}</p> : <></>}
     </div>
     );
 };

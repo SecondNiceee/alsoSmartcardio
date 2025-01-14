@@ -1,90 +1,147 @@
-import CityChoicer from '@/shared/UI/DropDownInput/CityChoicer';
-import React, { useEffect, useMemo, useState } from 'react';
-import { Control, FieldValues, Path, UseFormRegister } from 'react-hook-form';
-import NoDeliveryMethods from './NoDeliveryMethods';
-import NoSelectedCity from './NoSelectedCity';
-import { TypeStatus } from '@/shared/api/models';
-import Loader from '@/shared/UI/Loader/Loader';
-import ServerError from './ServerError';
-import { TypedeliveryMethod } from '../../model/TypeDeliveryMethod';
-import useOnPickSity from '../../hooks/useOnPickSity';
-import DeliveryMethods from './DeliveryMethods';
-import { TypeDeliveryMethodString } from '../../model/TypeDeliveryMethodString';
-import { TypeOffice } from '../../model/TypeOffice';
-import DeliveryPointForm from './DeliveryPointForm';
-import DeliveryPostmanForm from './DeliveryPostmanForm';
-import DeliveryCourierForm from './DeliveryCourierForm';
-import FormTextInput from '@/shared/UI/FormInput/FormTextInput';
+import CityChoicer from "@/shared/UI/DropDownInput/CityChoicer";
+import React, { SetStateAction, useEffect, useMemo, useState } from "react";
+import { Control, FieldError, FieldValues, Path } from "react-hook-form";
+import NoDeliveryMethods from "./NoDeliveryMethods";
+import NoSelectedCity from "./NoSelectedCity";
+import { TypeStatus } from "@/shared/api/models";
+import Loader from "@/shared/UI/Loader/Loader";
+import ServerError from "./ServerError";
+import { TypedeliveryMethod } from "../../model/TypeDeliveryMethod";
+import useOnPickSity from "../../hooks/useOnPickSity";
+import DeliveryMethods from "./DeliveryMethods";
+import { TypeDeliveryMethodString } from "../../model/TypeDeliveryMethodString";
+import { TypeOffice } from "../../model/TypeOffice";
+import DeliveryCourierForm from "./DeliveryCourierForm";
+import DeliveryDropDownForm from "./DeliveryDropDownForm";
+import useDeliveryDropDownFormProps from "../../hooks/useDeliveryDropDownFormProps";
 
-interface IDeliverComponent<T extends FieldValues>{
-    control : Control<T>
-    register : UseFormRegister<T>
+interface IDeliverComponent<T extends FieldValues> {
+  control: Control<T>;
+  deliveryCityName: string;
+  setDeliveryCityName: React.Dispatch<SetStateAction<string>>;
+  setDeliverySumm: React.Dispatch<SetStateAction<number>>;
+  deliveryInputValue : string,
+  setDeliveryInputValue : React.Dispatch<SetStateAction<string>>,
+  error : string | undefined
 }
 
-function Delivery<T extends FieldValues>({control, register} : IDeliverComponent<T>){
-    
-    const [methods, setMethods] = useState<TypedeliveryMethod[]>([])
+function Delivery<T extends FieldValues>({
+  control,
+  deliveryCityName,
+  setDeliveryCityName,
+  setDeliverySumm,
+  deliveryInputValue, 
+  setDeliveryInputValue,
+  error
+}: IDeliverComponent<T>) {
 
-    const [methodsStatus , setMethodsStatus] = useState<TypeStatus>("fulfilled")
 
-    const [deliveryMethodString, setDeliveryMethodString] = useState<TypeDeliveryMethodString | null>(null)
+  console.log("Рендер Delivery")
 
-    const [deliveryPoints, setDeliveryPoints] = useState<TypeOffice[] | null>([])
+  const [methods, setMethods] = useState<TypedeliveryMethod[]>([]);
 
-    const [postmats, setPostmats] = useState<TypeOffice[]>([])
+  const [methodsStatus, setMethodsStatus] = useState<TypeStatus>("fulfilled");
 
-    const [isCityPicked, setIsCityPicked] = useState<boolean>(false)
+  const [deliveryMethodString, setDeliveryMethodString] =
+    useState<TypeDeliveryMethodString | null>(null);
 
-    const onPick = useOnPickSity({setMethods : setMethods, setMethodsStatus : setMethodsStatus, setOffices : setDeliveryPoints, setPostmats : setPostmats })
+  const [isCityPicked, setIsCityPicked] = useState<boolean>(false);
 
-    useEffect( () => {
-        if (!isCityPicked){
-            setDeliveryMethodString(null)
-        }
-    } , [isCityPicked] )
+  const [deliveryPoint, setDeliveryPoint] = useState<TypeOffice | null>(null);
 
-    const methodsState = useMemo( () => {
-        if (methods.length && isCityPicked){
-            if (methods.every((method) => method.errors)){
-                return "error"
-            }
-            return "fine"
-        }
-        return "empty"
-        
-    } , [methods, isCityPicked] )
+  const {delivers, deliveryName, inputLabel, inputPlaceholder, setDeliveryPoints,setPostmats, name} = useDeliveryDropDownFormProps({deliveryMethodString})
 
-    console.log(deliveryMethodString)
 
-    return (
-        <>
-                <p className='big-p font-bold'>Доставка</p>
+  const onPick = useOnPickSity({
+    setMethods: setMethods,
+    setMethodsStatus: setMethodsStatus,
+    setOffices: setDeliveryPoints,
+    setPostmats: setPostmats,
+  });
 
-                <CityChoicer setIsCityPicked={setIsCityPicked} control={control} labelText='Город / Населенный пункт' name={'city' as Path<T>} onPickFunction={onPick}  />
+  useEffect(() => {
+    if (!isCityPicked) {
+      setDeliveryMethodString(null);
+    }
+  }, [isCityPicked]);
 
-                <div className="flex flex-col gap-4 ">
+  const methodsState = useMemo(() => {
+    if (methods.length && isCityPicked) {
+      if (methods.every((method) => method.errors)) {
+        return "error";
+      }
+      return "fine";
+    }
+    return "empty";
+  }, [methods, isCityPicked]);
 
-                    <p className='big-p font-bold'>Способы доставки</p>
+  useEffect(() => {
+    setDeliveryPoint(null);
+    setDeliveryInputValue("");
+  }, [deliveryMethodString]);
 
-                    {methodsStatus === "fulfilled" ? 
 
-                        methodsState === "empty" ? <NoSelectedCity/> : methodsState === "error" ? <NoDeliveryMethods/> : <DeliveryMethods setDeliveryMethodString={setDeliveryMethodString} control={control} methods={methods} />
-                        :
-                        methodsStatus === "pending" ? 
-                        <Loader classNames='mx-auto' width='100' />
-                        :
-                        <ServerError />
-                        
-                    }
+  return (
+    <>
+      <p className="big-p font-bold">Доставка</p>
 
-                </div>
+      <CityChoicer
+        city={deliveryCityName}
+        setCity={setDeliveryCityName}
+        setIsCityPicked={setIsCityPicked}
+        control={control}
+        labelText="Город / Населенный пункт"
+        name={"city" as Path<T>}
+        onPickFunction={onPick}
+      />
 
-                {deliveryMethodString === "deliveryPoint" ? <DeliveryPointForm control={control} name={"deliveryPoint" as Path<T>} deliveryPoints={deliveryPoints} /> : 
-                deliveryMethodString === "postmat" ? <DeliveryPostmanForm /> :
-                <DeliveryCourierForm /> }
+      <div className="flex flex-col gap-4 ">
+        <p className="big-p font-bold">Способы доставки</p>
 
-        </>
-    );
-};
+        {methodsStatus === "fulfilled" ? (
+          methodsState === "empty" ? (
+            <NoSelectedCity />
+          ) : methodsState === "error" ? (
+            <NoDeliveryMethods />
+          ) : (
+            <DeliveryMethods
+              setDeliverySumm={setDeliverySumm}
+              setDeliveryMethodString={setDeliveryMethodString}
+              control={control}
+              methods={methods} 
+            />
+          )
+        ) : methodsStatus === "pending" ? (
+          <Loader classNames="mx-auto" width="100" />
+        ) : (
+          <ServerError />
+        )}
 
-export default Delivery;
+                     
+      </div>
+
+      {deliveryMethodString === "deliveryPoint" || deliveryMethodString === "postmat"  ? (
+        <DeliveryDropDownForm
+          error={error}
+          inputValue={deliveryInputValue}
+          setInputValue={setDeliveryInputValue}
+          setDeliveryPoint={setDeliveryPoint}
+          deliveryPoint={deliveryPoint}
+          deliveryName={deliveryName}
+          inputLabel={inputLabel}
+          inputPlaceholder={inputPlaceholder}
+          setDeliverySumm={setDeliverySumm}
+          control={control}
+          name={name as Path<T>}
+          deliveryPoints={delivers}
+        />
+      ) : deliveryMethodString === "courier" ? (
+        <DeliveryCourierForm setDeliveryAddress={setDeliveryInputValue} control={control} />
+      ) : (
+        <></>
+      )}
+    </>
+  );
+}
+
+export default React.memo(Delivery) as <T extends FieldValues>(props : IDeliverComponent<T>) => JSX.Element; 

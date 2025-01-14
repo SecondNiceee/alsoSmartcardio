@@ -30,6 +30,7 @@
 }
 
 .next{
+    transform: rotate(-180deg);
     @media (max-width:768px) {
         position: absolute;
         z-index: 300;

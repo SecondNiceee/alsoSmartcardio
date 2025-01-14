@@ -6,4 +6,4 @@ const NoSelectedCity = () => {
     );
 };
 
-export default NoSelectedCity;
+export default React.memo(NoSelectedCity);

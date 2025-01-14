@@ -1,0 +1,1 @@
+export type TypeDeliverName = "PVZ" | "POSTMAT" | "COURIER"

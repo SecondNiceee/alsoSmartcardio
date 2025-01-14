@@ -12,4 +12,4 @@ const Loader:FC<ILoader> = ({width, classNames}) => {
     );
 };
 
-export default Loader;
+export default React.memo(Loader);

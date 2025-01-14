@@ -1,3 +1,4 @@
+'use client'
 import { TypeCookie } from "../models/TypeCookie";
 
 interface ISetCookie{
@@ -7,7 +8,7 @@ interface ISetCookie{
 }
 
 export const setCookie = function({name, value, days} : ISetCookie) {
-    
+
     if (typeof document === 'undefined') {
         return 0;
     }
@@ -16,4 +17,5 @@ export const setCookie = function({name, value, days} : ISetCookie) {
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
     const expires = "expires=" + date.toUTCString();
     document.cookie = name + "=" + value + ";" + expires + ";path=/";
+
 }

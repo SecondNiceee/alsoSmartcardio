@@ -117,17 +117,10 @@
         flex-direction: column;
         gap: 40px;
 
-        p{
-            @extend %paragraph;
-            text-align: center;
-        }
+        
         .technologys__benefits{
             display: flex;
             flex-direction: column;
-            li{
-                @extend %paragraph;
-                list-style-type: none;
-            }
         }
     }
     .technologys__blog-button{

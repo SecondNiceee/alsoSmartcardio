@@ -7,7 +7,7 @@ interface IndicatorProps {
 }
 const Indicator:FC<IndicatorProps> = ({description, imageSrc} : IndicatorProps) => {
   return (
-    <div className="indicator p-6 bg-white black-shadow h-[auto]">
+    <div className="indicator  p-6 bg-white black-shadow h-[auto]">
       <Image className="indicator__image !icon-height" alt="#" src={imageSrc} width={150} height={150} />
       <p className="indicator__description">
         {description}

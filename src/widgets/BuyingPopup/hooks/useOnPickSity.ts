@@ -15,7 +15,7 @@ interface IUseOnPickSity{
     setMethodsStatus : React.Dispatch<SetStateAction<TypeStatus>>
     setMethods : React.Dispatch<SetStateAction<TypedeliveryMethod[]>>
     setOffices : React.Dispatch<SetStateAction<TypeOffice[] | null>>
-    setPostmats : React.Dispatch<SetStateAction<TypeOffice[]>>
+    setPostmats : React.Dispatch<SetStateAction<TypeOffice[] | null>>
     
 }
 
@@ -59,7 +59,8 @@ const useOnPickSity = ({setMethodsStatus, setMethods, setOffices, setPostmats} :
 
         const offices = await getOffices({region_code : settlementsCode, token : token})
 
-        const postmats = await getPostmats({region_code : par, token : token})
+        const postmats = await getPostmats({region_code : settlementsCode, token : token})
+
 
         if (postmats && offices){
 

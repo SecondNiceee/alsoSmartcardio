@@ -8,17 +8,18 @@ interface IGetOffices{
 }
 async function getPostmats({region_code, token} : IGetOffices) {
 
-    const offices = await GET<TypeOffice[]>({endpoint : "/offices", params : {
+    const postmat = await GET<TypeOffice[]>({endpoint : "/offices", params : {
                     type : "POSTAMAT",
                     country_code: 'RU',
-                    city_code: region_code,
+                    region_code: region_code,
                     is_handout : "1"
                 },
                 headers : {
                 "Content-Type" : "Application/json",
                 "Authorization" : `Bearer ${token}`,
     }})
-
-    return offices
+    if (postmat)
+    return postmat
+else return []
 }
 export default getPostmats

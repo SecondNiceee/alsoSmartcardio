@@ -8,10 +8,6 @@ type TypeResponse = {
     access_token : string
 }
 
-
-console.log(account)
-console.log(password)
-
 export default async function authorize() {
     const response = await retryOperation(async () => {
       return await POST<TypeResponse>({

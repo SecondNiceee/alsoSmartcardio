@@ -4,6 +4,7 @@ import HowOrderItem from '../components/HowOrderItem';
 import OrderButton from '@/shared/UI/OrderButton/OrderButton';
 import Reveal, { CHARACTER } from '@/shared/UI/Reveal/Reveal';
 import BlackThemeCircles from '@/shared/UI/BlackThemeCircles/BlackThemeCircles';
+import { routes } from '@/shared/config/routes';
 
 const HowOrder = () => {
     return (
@@ -25,14 +26,14 @@ const HowOrder = () => {
                         return <HowOrderItem index = {i} h={e.h} imageSrc={e.imageSrc} p={e.p} key={i} />
                     } )}
                 </div>  
-                <Reveal character={CHARACTER.DOWNUP} className='button-reveal w-[100%] justify-center flex relative z-30'>
-                    <OrderButton className='how-order__button black-border'  onClick={() => {alert("Идет заказ")}}>
-                        <p className='how-order__button-p black'>В магазин</p>
+                <Reveal character={CHARACTER.DOWNUP} className='button-wrapper mx-auto w-[100%] max-w-[70%] md:max-w-[500px] relative z-40'>
+                    <OrderButton link={routes.store}  className='!bg-liner w-[100%] py-[11px] md:py-[18px] px-[14px] gradient-hover'>
+                        <p className='clamp(1.188rem, 0.902rem + 1.43vw, 2.188rem) text-black'>В магазин</p>
                     </OrderButton>
                 </Reveal>
             </div>
             
-        </section>
+        </section> 
     );
 };
 

@@ -1,5 +1,5 @@
+'use client'
 import ZoomSlider from '@/shared/UI/ZoomSlider/ZoomSlider';
-import Image from 'next/image';
 import React, { useCallback, useState } from 'react';
 import { sertificateConfig } from '../../config/sertificatesConfig';
 import useZoomSwiper from '../../../../shared/hooks/useZoomSwiper';
@@ -32,7 +32,7 @@ const Sertifications = () => {
             
       <CSSTransition nodeRef={zoomRef} classNames={"zoom"}   timeout={{enter : 50, exit : 400}} in = {zoomSlider} unmountOnExit mountOnEnter>
 
-        <ZoomSlider  closeZoom={closeZoom} initialSlide={initialSlide} render={renderZoomSwiper} slides={sertificateConfig}   />
+        <ZoomSlider zoomState = {zoomSlider}  closeZoom={closeZoom} initialSlide={initialSlide} render={renderZoomSwiper} slides={sertificateConfig}   />
         
       </CSSTransition>
 

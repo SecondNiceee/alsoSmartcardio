@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import Slider from "../components/Slider";
 import { feedbacks } from "../../config/feedbacks";
@@ -10,7 +11,7 @@ import useZoomSwiper from "../../../../shared/hooks/useZoomSwiper";
 
 const Feedbacks = () => {
 
-  const {activeSlide, handleSlideChange, renderFunction, swiperRef} = useDefaultSwiper({mainImageClassNames : "!object-contain border-4  my-[auto] lg:px-5 lg:py-5 !w-[unset] feedbacks-slider-clamp"})
+  const {activeSlide, handleSlideChange, swiperRef} = useDefaultSwiper()
 
   const {closeZoom , renderZoomSwiper, zoomRef, zoomSlider, setZoomSlider} = useZoomSwiper()
 
@@ -39,30 +40,21 @@ const Feedbacks = () => {
             setZoomSlider={setZoomSlider}
             swiperClassNames="sm:p-5 white-shadow md:rounded-[50px] sm:rounded-[20px] rounded-[10px]  relative"
             arrowType="circle"
-            render={renderFunction}
+            mainImageClassNames = "!object-contain border-4  my-[auto] lg:px-5 lg:py-5 !w-[unset] feedbacks-slider-clamp"
             renderMap={feedbacks}
           />
         </Reveal>
       </div>
 
-      <CSSTransition
-        nodeRef={zoomRef}
-        classNames={"zoom"}
-        timeout={{ enter: 50, exit: 400 }}
-        in={zoomSlider}
-        unmountOnExit
-        mountOnEnter
-      >
         <ZoomSlider
-          ref={zoomRef}
+          zoomState = {zoomSlider}
           initialSlide={activeSlide}
           closeZoom={closeZoom}
           slides={feedbacks}
           mainSwiperRef={swiperRef}
           render={renderZoomSwiper}
-
         />
-      </CSSTransition>
+
     </section>
   );
 };

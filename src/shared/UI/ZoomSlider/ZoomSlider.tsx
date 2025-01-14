@@ -1,4 +1,5 @@
-import React, {  forwardRef, LegacyRef, ReactNode, useCallback, useEffect } from 'react';
+'use client'
+import React, { ReactNode, useEffect, useRef } from 'react';
 import { Swiper, SwiperRef } from 'swiper/react';
 import "swiper/css";
 import "./zoomSlider.scss";
@@ -7,7 +8,9 @@ import { Navigation } from 'swiper/modules';
 import {Swiper as SwiperType} from 'swiper';
 import NextButton from '../NextPrevButtons/NextButton';
 import PrevButton from '../NextPrevButtons/PrevButton';
-import {useBlockScroll} from '@/shared/hooks/useBlockScroll';
+import { CSSTransition } from 'react-transition-group';
+import { blockScroll } from '@/shared/utils/blockScroll';
+import { unBlockScroll } from '@/shared/utils/unblockScroll';
 
 interface IZoomSliderProps<T> {
     slides: T[];
@@ -15,19 +18,17 @@ interface IZoomSliderProps<T> {
     closeZoom : () => void,
     initialSlide : number,
     mainSwiperRef? : React.MutableRefObject<SwiperRef | null>
+    zoomState : boolean
 }
 
-function ZoomSlider<T>({slides, closeZoom,initialSlide, render, mainSwiperRef}: IZoomSliderProps<T>, ref : LegacyRef<HTMLDivElement> | undefined, ) {
+function ZoomSlider<T>({slides, closeZoom,initialSlide, render, mainSwiperRef, zoomState}: IZoomSliderProps<T> ) {
     
-    // const clickHandler:React.MouseEventHandler<HTMLDivElement>  = (e) => {
-    //     const target = e.target as HTMLElement
-    //     if (!closestMultiple(target, ['.image', '.next-zoom', '.prev-zoom'])){
-    //         closeZoom()
-    //     }
-    // }
+    useEffect( () => {
+        zoomState ? blockScroll() : unBlockScroll()
+    } , [zoomState] )
 
 
-    useBlockScroll()
+    const ref = useRef(null)
 
 
     const changeSlider = (swiper : SwiperType) => {
@@ -38,6 +39,15 @@ function ZoomSlider<T>({slides, closeZoom,initialSlide, render, mainSwiperRef}: 
     
 
     return (    
+
+        <CSSTransition
+        nodeRef={ref}
+        classNames={"zoom"}
+        timeout={{ enter: 50, exit: 400 }}
+        in={zoomState}
+        unmountOnExit
+        mountOnEnter
+        >
         <div ref={ref}  className='slider-wrapper' >
             <div  className="slider-container">
                 <div onClick={closeZoom} className="trigger-area"/>
@@ -57,7 +67,7 @@ function ZoomSlider<T>({slides, closeZoom,initialSlide, render, mainSwiperRef}: 
 
                 {slides.map((slide, index) => {
                 return (
-                        <div key={index} className="image">
+                        <div key={index} className="image select-none">
                             {/* <p>Привет</p> */}
                             {render(slide, index)}
                         </div>
@@ -66,7 +76,8 @@ function ZoomSlider<T>({slides, closeZoom,initialSlide, render, mainSwiperRef}: 
                 </Swiper>
             </div>
         </div>
+        </CSSTransition>
     );
 };
 
-export default React.memo(forwardRef(ZoomSlider)) as <T>(props: IZoomSliderProps<T> & React.RefAttributes<HTMLDivElement>) => JSX.Element;
+export default React.memo(ZoomSlider) as <T>(props: IZoomSliderProps<T>) => JSX.Element;

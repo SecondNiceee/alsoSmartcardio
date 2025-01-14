@@ -6,4 +6,4 @@ const NoDeliveryMethods = () => {
     );
 };
 
-export default NoDeliveryMethods;
+export default React.memo(NoDeliveryMethods);

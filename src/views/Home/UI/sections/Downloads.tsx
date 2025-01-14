@@ -3,8 +3,8 @@ import React from "react";
 import OrderButton from "@/shared/UI/OrderButton/OrderButton";
 import { downloadsButtons } from "../../config";
 import PhoneButton from "@/shared/UI/PhoneButton/PhoneButton";
-import Image from "next/image";
 import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
+import AppleSvg from "../components/AppleSvg";
 
 const Downloads = () => {
   return (
@@ -18,7 +18,7 @@ const Downloads = () => {
             return (
               <PhoneButton
                 className="downloads__button"
-                svgItem={e.imageName === "apple.svg" ? <Image alt="#" width={32} height={39} src={"/images/apple.svg"} /> : undefined}
+                svgItem={e.imageName === "apple.svg" ? <AppleSvg />: undefined}
                 key={i}
                 href={e.href}
                 imageName={e.imageName}
@@ -28,10 +28,10 @@ const Downloads = () => {
           })}
         </div>
         <div className="downloads__instructions">
-          <OrderButton onClick={() => {}} className="instruction-apple">
-            <p>Инструкция для пользователей Apple</p>
-          </OrderButton>
-          <OrderButton onClick={() => {}} className="instruction-assistance">
+          <OrderButton externalLink="/videos/iphone_manual.mp4" externalProps={{"download" : true}} className="instruction-apple cursor-pointer">
+              <p>Инструкция для пользователей Apple</p>
+            </OrderButton>
+          <OrderButton externalLink="https://docs.google.com/forms/d/e/1FAIpQLSckBhbLZ3GKHS9o6sSJaQITfN0QE5j1xOviRrgBVbS7Q99HJA/viewform?usp=send_form" className="instruction-assistance cursor-pointer">
             <p>Служба поддержки</p>
           </OrderButton>
         </div>

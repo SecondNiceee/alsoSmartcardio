@@ -13,9 +13,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   );
 
 
-  console.log(HOST)
-
-
   try {
     const response = await fetch(
       `${HOST}/v2/oauth/token${Object.keys(queryParams).length ? `?${new URLSearchParams(queryParams as Record<string, string>)}` : ''}`,

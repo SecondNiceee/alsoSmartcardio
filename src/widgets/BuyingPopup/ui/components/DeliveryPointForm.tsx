@@ -1,15 +1,16 @@
-import React, { FC, useState } from 'react';
+import React, { FC, SetStateAction, useState } from 'react';
 import { TypeOffice } from '../../model/TypeOffice';
-import DeliveryPointsInput from './DeliveryPointsInput';
 import { Control, FieldValues, Path } from 'react-hook-form';
+import DelivertDropDownInput from './DeliveryDropDownInput';
 
 
 interface IDeliveryPoint<T extends FieldValues>{
     deliveryPoints : TypeOffice[] | null,
     control : Control<T>,
-    name : Path<T>
+    name : Path<T>,
+    setDeliverySumm : React.Dispatch<SetStateAction<number>>
 }
-function DeliveryPointForm<T extends FieldValues>({deliveryPoints, control, name} : IDeliveryPoint<T>){
+function DeliveryPointForm<T extends FieldValues>({deliveryPoints, control, name, setDeliverySumm} : IDeliveryPoint<T>){
     const [deliveryPoint, setDeliveryPoint] = useState<TypeOffice | null>(null)
     const [wannaChange, setWannaChange] = useState<boolean>(false)
     const [inputValue, setInputValue] = useState<string>('')
@@ -21,7 +22,7 @@ function DeliveryPointForm<T extends FieldValues>({deliveryPoints, control, name
     return (
         <div className='flex flex-col'>
             {!deliveryPoint || wannaChange ? 
-            <DeliveryPointsInput setWannaChange={setWannaChange} inputValue={inputValue} setInputValue={setInputValue} setDeliveryPoint={setDeliveryPoint} control={control} deliveryPoints={deliveryPoints} name={name} />
+            <DelivertDropDownInput setDeliverySumm={setDeliverySumm} type='PVZ' label='Пункт выдачи' placeholder='Выберите пункт выдачи' setWannaChange={setWannaChange} inputValue={inputValue} setInputValue={setInputValue} setDeliveryPoint={setDeliveryPoint} control={control} deliveryPoints={deliveryPoints} name={name} />
             :
             <div className='gap-1 flex flex-col p-4 rounded-md border-black border-[1px] border-solid'>
                 <p className='p text-left'><span className='font-medium'>Название : </span>{deliveryPoint.name}</p>

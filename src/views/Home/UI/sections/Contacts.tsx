@@ -1,27 +1,30 @@
 import OrderButton from '@/shared/UI/OrderButton/OrderButton';
 import React from 'react';
+import { contacts } from '../../config/contacts.config';
+import Contact from '../components/Contact';
 
 const Contacts = () => {
     return (
-        <section className='sectino bg-black'>
+        <section id='contacts' className='sectino bg-black'>
             <div className="container flex flex-col gap-[20px] p-container items-center">
                 <h2 className='h2 text-white'>Наши контакты</h2>
                 <p className='mid-title text-white'>support@smartcardio.ru</p>
                 <p className='p text-white'> Подпишитесь на СмартКардио® в социальных сетях</p>
-                <div className="flex flex-col items-center gap-[20px] mt-[5px]">
-                    <OrderButton className='button !bg-[#47668d]'  onClick={() => {}}>
-                        <p className='button-p'>Научно-популярная медицина</p>
-                    </OrderButton>
-                    <OrderButton className='button !bg-[#0087d0]' onClick={() => {}}>
-                        <p className='button-p'>Профессиональное сообщество для врачей</p>
-                    </OrderButton>
+
+
+                <div className='grid grid-cols-3 gap-5 w-[100%] mt-[10px] mb-[10px]'>
+                        {contacts.map( (contact, i) => {
+                            return (
+                                <Contact contact={contact} />
+                            )
+                        } )}
                 </div>
-                <a  target="_blank" rel="noopener noreferrer" href='https://dzen.ru/smartcardio' className='p text-white underline'>Актуальные статьи</a>
+
                 <div className="flex gap-[20px] w-[100%] justify-center max-w-[600px]">
-                    <OrderButton onClick={() => {}} className='button !bg-white'>
+                    <OrderButton className='button !bg-white'>
                         <p className='button-p !text-black'>Оставить отзыв</p>
                     </OrderButton>
-                    <OrderButton onClick={() => {}} className='button !bg-white'>
+                    <OrderButton className='button !bg-white'>
                         <p className='button-p !text-black'>Служба поддержки</p>
                     </OrderButton>
                 </div>

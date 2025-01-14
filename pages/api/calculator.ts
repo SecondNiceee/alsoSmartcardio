@@ -12,10 +12,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     Object.entries(req.headers).map(([key, value]) => [key, String(value)])
   );
 
-
-  console.log(HOST)
-
-
   try {
     const response = await fetch(
       `${HOST}/v2/calculator/tariff${Object.keys(queryParams).length ? `?${new URLSearchParams(queryParams as Record<string, string>)}` : ''}`,

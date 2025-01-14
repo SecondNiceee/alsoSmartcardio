@@ -56,7 +56,7 @@ const useFetchYears = ({setFilteredSuggestions, fromEmpty, setFromEmpty, setFetc
       return responses;
 
     });
-    console.log(responses)
+
     setFilteredSuggestions(responses)
   }, [fromEmpty, setFromEmpty]);
   return fetchYears

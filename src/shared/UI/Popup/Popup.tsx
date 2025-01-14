@@ -1,12 +1,18 @@
-import React, {  forwardRef, LegacyRef, ReactNode } from "react";
-import {useBlockScroll} from "@/shared/hooks/useBlockScroll";
+import { blockScroll } from "@/shared/utils/blockScroll";
+import { unBlockScroll } from "@/shared/utils/unblockScroll";
+import React, {  forwardRef, LegacyRef, ReactNode, useEffect } from "react";
 
 interface IPopup{
   children : ReactNode,
   closePopup : () => void
 }
 const Popup =  ({ children, closePopup }: IPopup, ref : LegacyRef<HTMLDivElement> | undefined) => {
-  useBlockScroll()
+  useEffect( () => {
+    blockScroll()
+    return () => {
+      unBlockScroll()
+    }
+  }, [] )
   return (
     <div ref={ref} className="z-40 fixed !w-[100vw]  left-[0] !h-[100vh] border-2 top-[0] flex items-center justify-center">
       <div className="relative w-[100vw] h-[100vh] flex justify-center items-center">
