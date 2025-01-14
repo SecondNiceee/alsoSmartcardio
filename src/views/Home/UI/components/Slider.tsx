@@ -33,7 +33,7 @@ function SliderWrapper<T>({ handleSlideChange = () => {}, renderMap, mainImageCl
     const render = useCallback((src:T, index:number) => {
             return (
                 <SwiperSlide key={index} className={`mx-auto flex justify-center cursor-pointer`}>
-                    <Image className={`sm:w-[80%] w-[100%] smartcardio-slider-clamp object-cover rounded-md ${mainImageClassNames}`} alt='#' src={src} width={1900} height={1300}  />
+                    <Image className={`sm:w-[80%] w-[100%] smartcardio-slider-clamp object-cover rounded-md ${mainImageClassNames}`} alt='#' src={src as string} width={1900} height={1300}  />
                 </SwiperSlide>
             )
     }, [])
