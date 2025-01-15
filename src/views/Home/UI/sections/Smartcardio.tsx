@@ -1,24 +1,22 @@
 "use client";
 import OrderButton from "@/shared/UI/OrderButton/OrderButton";
-import React, { useRef, useState } from "react";
+import React from "react";
 import Header from "./Header";
 import Video from "@/shared/UI/Video/Video";
 
 import { ScrollArrow } from "../components/ScrollArrow";
 import { scrollToDownloads } from "@/views/Home/utils/scrollToDownloads";
 import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
-import { CSSTransition } from "react-transition-group";
-import { BuyingPopup } from "@/widgets/BuyingPopup/ui/BuyingPopup";
+import { useAppDispatch } from "@/shared/models/reduxHooks";
+import { setCartPopup } from "@/entities/cart/model/cartSlice";
 
 const Smartcardio: React.FC = () => {
-  
-  const [isPopup, setPopup] = useState<boolean>(false)
+
+  const dispath = useAppDispatch()
 
   const orderFunction = () => {
-    setPopup(true)
+    dispath(setCartPopup(true))
   };
-
-  const popupRef = useRef<HTMLFormElement>(null)
 
   return (
 
@@ -69,10 +67,6 @@ const Smartcardio: React.FC = () => {
         </div>
       </section>
     </div>
-
-    <CSSTransition classNames={"zoom"} timeout={{enter : 50, exit : 400}} mountOnEnter unmountOnExit in = {isPopup} nodeRef={popupRef}>
-          <BuyingPopup ref = {popupRef} setState={setPopup}  />
-    </CSSTransition>
     </>
   );
 };

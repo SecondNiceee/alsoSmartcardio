@@ -7,13 +7,13 @@ interface IContact{
 }
 const Contact:FC<IContact> = ({contact}) => {
     return (
-        <div className='contact rounded-md'>
+        <a href={contact.link} className='contact rounded-md' target='_blank' rel='noopener noreferred'>
             <div className="contact-tblock">
                 <p className='contact-p'>{contact.name}</p>
             </div>
         <div className= {`black-block rounded-md`}></div>
         <Image className='contact-image rounded-md' alt='#' width={300} height={300} src={contact.imageSrc} />
-    </div>
+        </a>
     );
 };
 

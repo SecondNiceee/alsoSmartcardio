@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef, useState } from "react";
+import React from "react";
 import { smartardioSliderImage } from "../../config/smarcardioSliderImages";
 import OrderButton from "@/shared/UI/OrderButton/OrderButton";
 
@@ -7,24 +7,23 @@ import "swiper/css";
 import ZoomSlider from "@/shared/UI/ZoomSlider/ZoomSlider";
 import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
 import Slider from "../components/Slider";
-import { CSSTransition } from "react-transition-group";
 import Image from "next/image";
 import useDefaultSwiper from "../../../../shared/hooks/useDefaultSwiper";
 import useZoomSwiper from "../../../../shared/hooks/useZoomSwiper";
-import { BuyingPopup } from "@/widgets/BuyingPopup";
+import { useAppDispatch } from "@/shared/models/reduxHooks";
+import { setCartPopup } from "@/entities/cart/model/cartSlice";
 
 const SmartcardioSlider = () => {
+
+  const dispatch = useAppDispatch()
   
   const {activeSlide, handleSlideChange, swiperRef} = useDefaultSwiper()
 
   const {closeZoom , renderZoomSwiper, zoomRef, zoomSlider, setZoomSlider} = useZoomSwiper()
 
-  const popupRef = useRef(null)
-
-  const [isPopupOpened, setPopupOpened] = useState<boolean>(false)
 
   const buttonHandler = () => {
-    setPopupOpened(true)
+    dispatch(setCartPopup(true))
   };
 
   return (
@@ -87,11 +86,7 @@ const SmartcardioSlider = () => {
           render={renderZoomSwiper}
         />
 
-        
-        <CSSTransition classNames={"zoom"} timeout={{enter : 50, exit : 400}} mountOnEnter unmountOnExit in = {isPopupOpened} nodeRef={popupRef}>
-              <BuyingPopup ref = {popupRef} setState={setPopupOpened}  />
-        </CSSTransition>
-
+    
       {/* <CssTransition wrapperRef={zoomRef} state={zoomSlider}>
 
 

@@ -5,7 +5,8 @@ import { Roboto } from "next/font/google";
 import { Roboto_Flex } from "next/font/google";
 import { Inter } from "next/font/google";
 import ReduxProvider from "./ReduxProvider";
-import Cart from "@/widgets/Cart/ui/Cart";
+import LayoutBuyingPopup from "@/widgets/BuyingPopup/ui/LayoutBuyingPopup";
+import { LayoutCart } from "@/widgets/Cart";
 
 const inter = Inter({ variable: "--font4", subsets: ["cyrillic"] });
 const raleway = Raleway({
@@ -68,7 +69,8 @@ export default function RootLayout({
         <ReduxProvider>
 
           {children}
-          <Cart />
+          <LayoutCart />
+          <LayoutBuyingPopup />
 
         </ReduxProvider>
 

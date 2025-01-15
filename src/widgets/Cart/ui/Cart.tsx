@@ -1,27 +1,24 @@
 'use client'
-import { useAppSelector } from '@/shared/models/reduxHooks';
-import { BuyingPopup } from '@/widgets/BuyingPopup';
+import { setCartPopup } from '@/entities/cart/model/cartSlice';
+import { useAppDispatch} from '@/shared/models/reduxHooks';
 import Image from 'next/image';
-import React, { useMemo, useRef, useState } from 'react';
-import { CSSTransition } from 'react-transition-group';
+import React, { FC, forwardRef, LegacyRef } from 'react';
 
-const Cart = () => {
-    const orders = useAppSelector(state => state.cartSlice.orders)
-    const ordersCounter = useMemo( () => {
-        return orders[0].counter + orders[1].counter
-    } , [orders] )
 
-    const popupRef = useRef(null)
+interface ICart{
+    ordersCounter : number
+}
+export const Cart = forwardRef(({ordersCounter} : ICart, ref : LegacyRef<HTMLInputElement>) => {
 
-    const [isBuyingPopupOpened, setBuyingPopupOpened] = useState<boolean>(false)
+    const dispatch = useAppDispatch()
 
     const openBuyingPopup = () => {
-        setBuyingPopupOpened(true)
+        dispatch(setCartPopup(true))
     }
     
     return (
         <>
-            {ordersCounter &&  <div className='bg-[white]  cursor-pointer fixed right-[40px] top-[110px] z-40 rounded-[50%] white-shadow w-[100px] h-[100px]'>
+            <div className='bg-[white] opacity-75  sm:border-none  border-solid border-black border-[1px] md:opacity-100 md:scale-100 sm:scale-75 scale-[0.6] cursor-pointer fixed right-[0px] top-[40px] sm:right-[20px] sm:top-[40px] md:right-[40px] md:top-[110px] z-40 rounded-[50%] white-shadow w-[100px] h-[100px]'>
                 <div onClick={openBuyingPopup} className='relative w-[100%] h-[100%] flex items-center justify-center'>
                     <Image alt='#' src={"/images/cart.svg"} width={50} height={50} />
                     <div className="w-[34px] h-[34px] right-[3%] bottom-[0%] rounded-[50%] absolute lef flex justify-center items-center bg-red-500">
@@ -30,12 +27,8 @@ const Cart = () => {
                         </p>
                     </div>
                 </div>
-            </div>}
-            <CSSTransition classNames={"zoom"} timeout={{enter : 50, exit : 400}} mountOnEnter unmountOnExit in = {isBuyingPopupOpened} nodeRef={popupRef}>
-                <BuyingPopup ref = {popupRef} setState={setBuyingPopupOpened}  />
-            </CSSTransition>
+            </div>
         </>
     );
-};
+});
 
-export default Cart;

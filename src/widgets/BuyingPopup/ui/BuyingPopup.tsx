@@ -4,7 +4,6 @@ import React, {
   ChangeEventHandler,
   ForwardedRef,
   forwardRef,
-  SetStateAction,
   useEffect,
   useMemo,
   useState,
@@ -21,12 +20,16 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { buyingSchema } from "../model/buyingValidation";
 import { telephoneFormatter } from "@/shared/utils/telephoneFormatter";
 import { telephoneParser } from "@/shared/utils/telephoneParser";
-import { POST } from "@/shared/api/POST";
 import { getAccessToken } from "@/shared/utils/getAccessToken";
 import { deliverCode } from "@/shared/config/deliverCode.config";
+import useBlockScroll from "@/shared/hooks/useBlockScroll";
+import Cross from "@/shared/UI/ZoomSlider/Cross";
+import Order from "./components/Order";
+import PhoneInput from "./components/PhoneInput";
+import CloseButton from "./components/CloseButton";
 
 interface IBuyingPopup {
-  setState: React.Dispatch<SetStateAction<boolean>>;
+  setState: (state: boolean) => void;
 }
 export interface IForm {
   FIO: string;
@@ -42,10 +45,8 @@ export interface IForm {
   promocode: string;
 }
 
-
 export const BuyingPopup = forwardRef(
   ({ setState }: IBuyingPopup, ref: ForwardedRef<HTMLFormElement>) => {
-
     const [startAddOne, setStartAddOne] = useState<boolean>(false);
 
     const clickHandler = () => {
@@ -92,28 +93,33 @@ export const BuyingPopup = forwardRef(
 
     const method = watch("deliveryMethod");
 
-    console.log(method)
+    console.log(method);
 
+    useBlockScroll();
 
     const onSubmit = handleSubmit(async (data: IForm) => {
       const token = getAccessToken();
 
-      const tarrif_code = data.deliveryMethod === "courier" ? deliverCode.COURIER : 
-      data.deliveryMethod === "deliveryPoint" ? deliverCode.PVZ : deliverCode.POSTMAT
+      const tarrif_code =
+        data.deliveryMethod === "courier"
+          ? deliverCode.COURIER
+          : data.deliveryMethod === "deliveryPoint"
+          ? deliverCode.PVZ
+          : deliverCode.POSTMAT;
 
-    //   const response = await POST({
-        
-    //     endpoint: "/order",
-    //     data: {
-    //         tariff_code : tarrif_code,
-    //         shipment_point1 : 44,
+      //   const response = await POST({
 
-    //     },
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       Authorization: `Bearer ${token}`,
-    //     },
-    //   });
+      //     endpoint: "/order",
+      //     data: {
+      //         tariff_code : tarrif_code,
+      //         shipment_point1 : 44,
+
+      //     },
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //       Authorization: `Bearer ${token}`,
+      //     },
+      //   });
     });
 
     console.log(errors);
@@ -133,18 +139,29 @@ export const BuyingPopup = forwardRef(
         <div
           onClick={clickHandler}
           className="fixed bg-black top-0 left-0 w-[100vw] h-[100vh] opacity-50 z-30"
-        ></div>
+        />
 
-        <div className="flex-col mt-10 mb-10 h-max rounded-3xl w-[100%] md:w-[90%] lg:w-[70%] xl:w-[50%] flex relative z-50 bg-white px-12 py-12">
-          <p className="mid-title font-bold  text-black">Ваш заказ:</p>
+          <div className="flex-col md:mt-10 md:mb-10 h-max rounded-3xl w-[100%] md:w-[90%] lg:w-[70%] xl:w-[50%] flex relative z-50 bg-white px-3 py-3 sm:px-6 sm:py-6 md:px-12 md:py-12">
 
-          <Orders cartOrders={cartOrders} />
+
+          <CloseButton clickHandler={clickHandler}  />
+
+          <p className="mid-title font-bold text-black">Ваш заказ:</p>
+
+          <div className="div mt-10 flex flex-col gap-5 border-t-[1px] border-b-[1px] border-solid border-black">
+            {cartOrders.map((order, i) => {
+              return (
+                <>{order.counter ? <Order order={order} key={i} /> : <> </>}</>
+              );
+            })}
+          </div>
 
           <p className="big-p font-bold text-right mt-10 mr-[10px]">
             Сумма : {formatNumber(summ)}p
           </p>
 
-          <div className="flex flex-col gap-10 mt-10 w-[100%] px-12  mx-auto white-shadow py-12 rounded-xl">
+          <div className="flex flex-col gap-10 mt-10 w-[100%] px-6 py-6 md:px-12 md:py-12  mx-auto white-shadow  rounded-xl">
+
             <FormTextInput
               error={errors.FIO}
               labelText="ФИО"
@@ -162,40 +179,7 @@ export const BuyingPopup = forwardRef(
               labelText="Ваш Email"
             />
 
-            <Controller
-              control={control}
-              name="phone"
-              render={({ field }) => {
-                const { name, onChange, value } = field;
-                const changeHandler: ChangeEventHandler<HTMLInputElement> = (
-                  e
-                ) => {
-                  const value = e.target.value;
-                  onChange(telephoneParser(value));
-                };
-                return (
-                  <div className="flex flex-col gap-2">
-                    <label className="p text-left" htmlFor={name}>
-                      {"Ваш телефон"}
-                    </label>
-                    <input
-                      {...field}
-                      onChange={changeHandler}
-                      value={telephoneFormatter(value)}
-                      placeholder={"+7-XXX-XXX-XX"}
-                      id={name}
-                      className="p-2 p text-left border-black border-solid border-2 rounded-md"
-                      type={"tel"}
-                    /> 
-                    {errors.phone ? (
-                      <p className="p text-red-500">{errors.phone.message}</p>
-                    ) : (
-                      <></>
-                    )}
-                  </div>
-                );
-              }}
-            />
+            <PhoneInput control={control} error={errors.phone?.message} />
 
             <Delivery
               deliveryInputValue={deliveryAddress}
@@ -226,6 +210,7 @@ export const BuyingPopup = forwardRef(
               type="submit"
               value={"Оформить заказ"}
             />
+
           </div>
         </div>
       </form>

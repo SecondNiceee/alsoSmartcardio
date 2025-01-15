@@ -9,8 +9,7 @@ import {Swiper as SwiperType} from 'swiper';
 import NextButton from '../NextPrevButtons/NextButton';
 import PrevButton from '../NextPrevButtons/PrevButton';
 import { CSSTransition } from 'react-transition-group';
-import { blockScroll } from '@/shared/utils/blockScroll';
-import { unBlockScroll } from '@/shared/utils/unblockScroll';
+import { blockScroll, unBlockScroll } from '@/shared/utils/blockController';
 
 interface IZoomSliderProps<T> {
     slides: T[];

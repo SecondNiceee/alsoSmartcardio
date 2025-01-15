@@ -35,7 +35,7 @@ const Order:FC<IOrder> = ({order}) => {
               <p className="p md:max-w-[120px]">{order.name}</p>
 
               <div className="flex max-w-[300px] justify-between items-center w-[100%]">
-                <div className="flex gap-6 items-center justify-center">
+                <div className="flex sm:gap-6 gap-3 items-center justify-center">
                   <div onClick={removeOneHandler(order.id)} className="border-black select-none flex justify-center items-center border-solid border-[1px]  aspect-square w-[20px] h-[20px] cursor-pointer rounded-[50%] p-1">
                     <p className="p">-</p>
                   </div>

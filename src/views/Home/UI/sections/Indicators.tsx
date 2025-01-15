@@ -1,22 +1,21 @@
 'use client'
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import { indicators } from '../../config';
 import Indicator from '../components/Indicator';
 import OrderButton from '@/shared/UI/OrderButton/OrderButton';
 import Reveal, { CHARACTER } from '@/shared/UI/Reveal/Reveal';
 import BlackThemeCircles from '@/shared/UI/BlackThemeCircles/BlackThemeCircles';
-import { BuyingPopup } from '@/widgets/BuyingPopup';
-import { CSSTransition } from 'react-transition-group';
+import { useAppDispatch } from '@/shared/models/reduxHooks';
+import { setCartPopup } from '@/entities/cart/model/cartSlice';
+
 
 const Indicators = () => {
 
-    const [isPopupOpened, setPopupOpened] = useState<boolean>(false)
+    const dispatch = useAppDispatch()
 
     const onClick = () => {
-        setPopupOpened(true)
+        dispatch(setCartPopup(true))
     }
-
-    const popupRef = useRef(null)
 
     return (
         <section className='indicators relative overflow-y-hidden'>
@@ -46,12 +45,6 @@ const Indicators = () => {
                 </Reveal>
             </div>
 
-            
-            <CSSTransition classNames={"zoom"} timeout={{enter : 50, exit : 400}} mountOnEnter unmountOnExit in = {isPopupOpened} nodeRef={popupRef}>
-                <BuyingPopup ref = {popupRef} setState={setPopupOpened}  />
-            </CSSTransition>
-
-            
         </section>
     );
 };
