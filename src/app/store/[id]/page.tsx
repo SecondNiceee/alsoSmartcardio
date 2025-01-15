@@ -1,11 +1,13 @@
 import { Product } from '@/views/Product';
-import React from 'react'
+import React, { Suspense } from 'react'
 
 
 const page = () => {
 
     return (
-        <Product />
+        <Suspense fallback={<>Loading...</>}>
+            <Product />
+        </Suspense>
     );
 };
 

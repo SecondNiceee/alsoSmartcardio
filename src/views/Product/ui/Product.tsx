@@ -13,6 +13,7 @@ import ZoomSlider from "@/shared/UI/ZoomSlider/ZoomSlider";
 import { goBack } from "@/shared/utils/goBack";
 
 export const Product = () => {
+  
   const params = useParams<{ id: string }>();
 
   const id = Number(params?.id);
