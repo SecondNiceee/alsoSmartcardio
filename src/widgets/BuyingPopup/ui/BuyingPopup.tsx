@@ -9,7 +9,6 @@ import React, {
   useState,
 } from "react";
 import { Controller, useForm } from "react-hook-form";
-import Orders from "./components/Orders";
 import FormTextInput from "@/shared/UI/FormInput/FormTextInput";
 import Delivery from "./components/Delivery";
 import { TypeDeliveryMethodString } from "../model/TypeDeliveryMethodString";
