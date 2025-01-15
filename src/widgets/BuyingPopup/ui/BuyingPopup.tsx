@@ -1,14 +1,13 @@
 import { useAppSelector } from "@/shared/models/reduxHooks";
 import { formatNumber } from "@/shared/utils/formateNumber";
 import React, {
-  ChangeEventHandler,
   ForwardedRef,
   forwardRef,
   useEffect,
   useMemo,
   useState,
 } from "react";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import FormTextInput from "@/shared/UI/FormInput/FormTextInput";
 import Delivery from "./components/Delivery";
 import { TypeDeliveryMethodString } from "../model/TypeDeliveryMethodString";
@@ -17,12 +16,9 @@ import { TypeOffice } from "../model/TypeOffice";
 import BuyingItog from "./components/BuyingItog";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { buyingSchema } from "../model/buyingValidation";
-import { telephoneFormatter } from "@/shared/utils/telephoneFormatter";
-import { telephoneParser } from "@/shared/utils/telephoneParser";
 import { getAccessToken } from "@/shared/utils/getAccessToken";
 import { deliverCode } from "@/shared/config/deliverCode.config";
 import useBlockScroll from "@/shared/hooks/useBlockScroll";
-import Cross from "@/shared/UI/ZoomSlider/Cross";
 import Order from "./components/Order";
 import PhoneInput from "./components/PhoneInput";
 import CloseButton from "./components/CloseButton";
