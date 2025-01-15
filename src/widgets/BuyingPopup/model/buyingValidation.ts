@@ -59,6 +59,7 @@ export const buyingSchema = z.object({
     postmat: TypeOffice.optional(),
     address: z.string().optional(),
     promocode: z.string().optional(),
+    comment: z.string().optional(),
   }).refine((data) => {
     if (data.deliveryMethod === "deliveryPoint" && !data.deliveryPoint) {
     //   throw new Error("Пожалуйста, выберите пункт выдачи из предложенного списка");

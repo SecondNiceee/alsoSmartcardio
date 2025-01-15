@@ -38,6 +38,7 @@ export interface IForm {
   postmat: TypeOffice;
   address: string;
   promocode: string;
+  comment : string
 }
 
 export const BuyingPopup = forwardRef(
@@ -146,7 +147,7 @@ export const BuyingPopup = forwardRef(
           <div className="div mt-10 flex flex-col gap-5 border-t-[1px] border-b-[1px] border-solid border-black">
             {cartOrders.map((order, i) => {
               return (
-                <>{order.counter ? <Order order={order} key={i} /> : <> </>}</>
+                <React.Fragment key={i}>{order.counter ? <Order order={order}/> : <> </>}</React.Fragment>
               );
             })}
           </div>
@@ -185,6 +186,14 @@ export const BuyingPopup = forwardRef(
               control={control}
               error={errors.deliveryMethod?.message}
             />
+
+            <FormTextInput
+              placeholder="Напиши комментарий к заказу"
+              register={register}
+              labelText="Комментарий"
+              name={"comment"}
+            />
+
 
             <FormTextInput
               placeholder="Введите промокод"

@@ -15,7 +15,7 @@ const Contacts = () => {
                 <div className='grid grid-cols-3 gap-5 w-[100%] mt-[10px] mb-[10px]'>
                         {contacts.map( (contact, i) => {
                             return (
-                                <Contact contact={contact} />
+                                <Contact key={i} contact={contact} />
                             )
                         } )}
                 </div>
