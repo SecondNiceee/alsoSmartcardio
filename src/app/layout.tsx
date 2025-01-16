@@ -4,7 +4,7 @@ import { Raleway } from "next/font/google";
 import { Roboto } from "next/font/google";
 import { Roboto_Flex } from "next/font/google";
 import { Inter } from "next/font/google";
-import ReduxProvider from "./ReduxProvider";
+import ReduxProvider from "../shared/providers/ReduxProvider";
 import LayoutBuyingPopup from "@/widgets/BuyingPopup/ui/LayoutBuyingPopup";
 import { LayoutCart } from "@/widgets/Cart";
 

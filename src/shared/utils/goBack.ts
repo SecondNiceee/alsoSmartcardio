@@ -1,4 +1,4 @@
-
+'use client'
 export const goBack = () => {
 
     if (typeof window === "object"){

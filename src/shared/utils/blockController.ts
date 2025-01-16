@@ -1,3 +1,4 @@
+'use client'
 let originalPadding = parseInt(window.getComputedStyle(document.body).getPropertyValue('padding-right')) || 0;
 
 export const blockScroll = () => {

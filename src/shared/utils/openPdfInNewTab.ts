@@ -1,4 +1,5 @@
 
+'use client'
 export function openPdfInNewTab(pdfPath : string) {
     if (typeof window === "object"){
 

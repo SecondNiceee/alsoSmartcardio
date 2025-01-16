@@ -1,11 +1,11 @@
-
+'use client'
 import React from 'react';
 import { Home } from '@/views/Home';
 import "../styles/_index.scss";
 import StartApp from '../features/Home/StartApp';
 
 
-const HomePage = () => {
+const Page = () => {
 
 
     return (
@@ -16,4 +16,4 @@ const HomePage = () => {
     );
 };
 
-export default HomePage;
+export default Page;
