@@ -1,15 +1,10 @@
-import { Product } from '@/views/Product';
-import React, { Suspense } from 'react'
+import { Product } from "@/views/Product"
 
-
-const page = () => {
-
-    return (
-        <Suspense fallback={<>Loading...</>}>
-            <Product />
-        </Suspense>
-    );
-};
-
-
-export default page;
+export default async function Page({
+    params,
+  }: {
+    params: Promise<{ id : string }>
+  }) {
+    const id = (await params).id
+    return <Product id={id} />
+  }

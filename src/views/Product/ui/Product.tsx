@@ -4,7 +4,7 @@ import Cross from "@/shared/UI/ZoomSlider/Cross";
 import Slider from "@/views/Home/UI/components/Slider";
 import { getStoreOrderById } from "@/widgets/BuyingPopup/utils/getStoreOrderById";
 import { useParams } from "next/navigation";
-import React from "react";
+import React, { FC } from "react";
 import NotFound from "./components/NotFound";
 import OrderButton from "@/shared/UI/OrderButton/OrderButton";
 import StrangeArrow from "@/shared/UI/NextPrevButtons/StrangeArrow";
@@ -12,13 +12,13 @@ import useZoomSwiper from "@/shared/hooks/useZoomSwiper";
 import ZoomSlider from "@/shared/UI/ZoomSlider/ZoomSlider";
 import { goBack } from "@/shared/utils/goBack";
 
-export const Product = () => {
-  
-  const params = useParams<{ id: string }>();
 
-  const id = Number(params?.id);
+interface IProduct{
+  id : string
+}
+export const Product:FC<IProduct> = ({id}) => {
 
-  const storeOrder = getStoreOrderById(id);
+  const storeOrder = getStoreOrderById(Number(id));
 
   const {activeSlide, swiperRef} = useDefaultSwiper()
 
