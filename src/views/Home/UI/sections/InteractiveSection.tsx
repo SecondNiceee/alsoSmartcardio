@@ -5,12 +5,15 @@ import InteractivePhoneBlock from '../components/InteractivePhoneBlock';
 import InteractiveCardioBlock from '../components/InteractiveCardioBlock';
 import InteractiveMobile from '../components/InteractiveMobile';
 import Reveal, { CHARACTER } from '@/shared/UI/Reveal/Reveal';
-import ZoomSlider from '@/shared/UI/ZoomSlider/ZoomSlider';
 import { schemeConfig } from '../../config/schemeConfig';
 import { CSSTransition } from 'react-transition-group';
-import Popup from '@/shared/UI/Popup/Popup';
 import Video from '@/shared/UI/Video/Video';
 import useZoomSwiper from '../../../../shared/hooks/useZoomSwiper';
+import dynamic from 'next/dynamic';
+import { IZoomSliderProps } from '@/shared/UI/ZoomSlider/ZoomSlider';
+
+const ZoomSlider = dynamic(() => import("@/shared/UI/ZoomSlider/ZoomSlider"), {ssr : false}) as <T>(props: IZoomSliderProps<T>) => JSX.Element
+const Popup = dynamic( () => import("@/shared/UI/Popup/Popup"), {ssr : false} )
 
 
 const InteractiveSection = () => {
@@ -31,6 +34,7 @@ const InteractiveSection = () => {
 
     return (
         <section className='interactive'>
+
             <Reveal character={CHARACTER.RIGHT} className="desktop">
                 <div className="container">
                     <div className="interactive-wrapper">

@@ -1,23 +1,14 @@
-"use client";
-import OrderButton from "@/shared/UI/OrderButton/OrderButton";
+
 import React from "react";
 import Header from "./Header";
 import Video from "@/shared/UI/Video/Video";
-
-import { ScrollArrow } from "../components/ScrollArrow";
-import { scrollToDownloads } from "@/views/Home/utils/scrollToDownloads";
 import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
-import { useAppDispatch } from "@/shared/models/reduxHooks";
-import { setCartPopup } from "@/entities/cart/model/cartSlice";
+import dynamic from "next/dynamic";
+
+const SmartcardioScrollArrow = dynamic( () => import("../components/SmartcardioScrollArrow"), {ssr : false} )
+const SmartcardioButtons = dynamic( () => import("../components/SmartcardioButtons"), {ssr : false} )
 
 const Smartcardio: React.FC = () => {
-
-  const dispath = useAppDispatch()
-
-  const orderFunction = () => {
-    dispath(setCartPopup(true))
-  };
-
   return (
 
     <>
@@ -46,23 +37,9 @@ const Smartcardio: React.FC = () => {
               ЭКГ, сатурацию и пульсовую волну без геля и проводов.
             </h3>
             <div className="smartcardio__buttons">
-              <OrderButton
-                className="smartcardio__order-button"
-                onClick={orderFunction}
-              >
-                <p>Заказать</p>
-              </OrderButton>
-              <OrderButton
-                className="smartcardio__read-button"
-                onClick={scrollToDownloads}
-              >
-                <p>Читать далее</p>
-              </OrderButton>
+              <SmartcardioButtons />
             </div>
-            <ScrollArrow
-              onClick={scrollToDownloads}
-              className="smartcardio-arrow"
-            />
+              <SmartcardioScrollArrow />
           </Reveal>
         </div>
       </section>

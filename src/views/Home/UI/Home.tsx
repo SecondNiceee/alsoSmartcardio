@@ -1,24 +1,18 @@
 'use client'
 import React from 'react';
 import "./styles/_index.scss";
-import Smartcardio from './sections/Smartcardio';
-import Downloads from './sections/Downloads';
-import InteractiveSection from './sections/InteractiveSection';
-import Indicators from './sections/Indicators';
-import Technologys from './sections/Technologys';
+import dynamic from 'next/dynamic';
 import HowItWorks from './sections/HowItWorks';
 import Steps from './sections/Steps';
-import HowOrder from './sections/HowOrder';
-import SmartcardioSlider from './sections/SmartcardioSlider';
-import RecorderExamples from './sections/RecorderExamples';
-import Feedbacks from './sections/Feedbacks';
-import Recomendation from './sections/Recomendation';
-import Advantages from './sections/Advantages';
-import Sertifications from './sections/Sertifications';
-import FooterOrder from './sections/FooterOrder';
-import Contacts from './sections/Contacts';
-import Footer from './sections/Footer';
+import Smartcardio from './sections/Smartcardio';
 
+const InteractiveSection = dynamic(() =>
+    import("./sections/InteractiveSection"),
+    { ssr: false }
+  );
+const Downloads = dynamic( () => import('./sections/Downloads') )
+const Indicators = dynamic( () => import('./sections/Indicators') )
+const Technologys = dynamic( () => import('./sections/Technologys') )
 export const Home = () => {
     return (
 
@@ -34,7 +28,8 @@ export const Home = () => {
                 <Technologys />
                 <HowItWorks />
                 <Steps />
-                <HowOrder />
+                
+                {/* <HowOrdes />
 
                 <SmartcardioSlider />   
                 <RecorderExamples />
@@ -44,11 +39,11 @@ export const Home = () => {
                 <Advantages />
                 <Sertifications />
                 <FooterOrder />
-                <Contacts />
+                <Contacts /> */}
 
             </main>
             
-            <Footer />
+            {/* <Footer /> */}
         
         </>
         

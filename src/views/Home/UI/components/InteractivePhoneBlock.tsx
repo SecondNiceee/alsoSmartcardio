@@ -1,7 +1,10 @@
 "use client"
 import React, { useRef } from 'react';
-import InteractiveLottie from './InteractiveLottie';
 import OrderButton from '@/shared/UI/OrderButton/OrderButton';
+import dynamic from 'next/dynamic';
+const InteractiveLottie = dynamic(() => import("./InteractiveLottie"), {
+    ssr: false
+  });
 
 const InteractivePhoneBlock = ({openVideo} : { openVideo : () => void}) => {
     const interactiveRef = useRef<HTMLDivElement>(null)

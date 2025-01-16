@@ -1,21 +1,12 @@
-'use client'
 import React from 'react';
 import { indicators } from '../../config';
 import Indicator from '../components/Indicator';
-import OrderButton from '@/shared/UI/OrderButton/OrderButton';
 import Reveal, { CHARACTER } from '@/shared/UI/Reveal/Reveal';
 import BlackThemeCircles from '@/shared/UI/BlackThemeCircles/BlackThemeCircles';
-import { useAppDispatch } from '@/shared/models/reduxHooks';
-import { setCartPopup } from '@/entities/cart/model/cartSlice';
+import IndicatorButton from '../components/IndicatorButton';
 
 
 const Indicators = () => {
-
-    const dispatch = useAppDispatch()
-
-    const onClick = () => {
-        dispatch(setCartPopup(true))
-    }
 
     return (
         <section className='indicators relative overflow-y-hidden'>
@@ -39,9 +30,7 @@ const Indicators = () => {
                     justifyContent : "center",
                     width : "100%"
                 }} character={CHARACTER.DOWNUP}>
-                <OrderButton onClick={onClick} className="indicators__button">
-                    <p>Заказть</p>
-                </OrderButton>
+                <IndicatorButton />
                 </Reveal>
             </div>
 

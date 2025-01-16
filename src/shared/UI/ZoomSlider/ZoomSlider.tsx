@@ -11,7 +11,7 @@ import PrevButton from '../NextPrevButtons/PrevButton';
 import { CSSTransition } from 'react-transition-group';
 import { blockScroll, unBlockScroll } from '@/shared/utils/blockController';
 
-interface IZoomSliderProps<T> {
+export interface IZoomSliderProps<T> {
     slides: T[];
     render: (slide: T, index: number) => ReactNode;
     closeZoom : () => void,

@@ -1,16 +1,17 @@
 'use client'
 import React from 'react';
-import { Home } from '@/views/Home';
 import "../styles/_index.scss";
-import StartApp from '../features/Home/StartApp';
+import { Home } from '@/views/Home';
+import authorize from '@/shared/api/authorize';
 
 
 const Page = () => {
 
+    authorize()
 
     return (
         <>
-            <StartApp />
+            {/* <StartApp /> */}
             <Home />
         </>
     );

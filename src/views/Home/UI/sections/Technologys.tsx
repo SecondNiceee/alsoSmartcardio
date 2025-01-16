@@ -1,4 +1,3 @@
-'use client'
 import Video from "@/shared/UI/Video/Video";
 import React from "react";
 import OrderButton from "@/shared/UI/OrderButton/OrderButton";

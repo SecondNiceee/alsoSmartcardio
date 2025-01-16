@@ -1,10 +1,9 @@
-'use client'
 import React from "react";
-import OrderButton from "@/shared/UI/OrderButton/OrderButton";
 import { downloadsButtons } from "../../config";
 import PhoneButton from "@/shared/UI/PhoneButton/PhoneButton";
 import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
 import AppleSvg from "../components/AppleSvg";
+import DownloadsButtons from "../components/DownloadsButtons";
 
 const Downloads = () => {
   return (
@@ -27,14 +26,7 @@ const Downloads = () => {
             );
           })}
         </div>
-        <div className="downloads__instructions">
-          <OrderButton externalLink="/videos/iphone_manual.mp4" externalProps={{"download" : true}} className="instruction-apple cursor-pointer">
-              <p>Инструкция для пользователей Apple</p>
-            </OrderButton>
-          <OrderButton externalLink="https://docs.google.com/forms/d/e/1FAIpQLSckBhbLZ3GKHS9o6sSJaQITfN0QE5j1xOviRrgBVbS7Q99HJA/viewform?usp=send_form" className="instruction-assistance cursor-pointer">
-            <p>Служба поддержки</p>
-          </OrderButton>
-        </div>
+        <DownloadsButtons />
       </Reveal>
     </section>
   );
