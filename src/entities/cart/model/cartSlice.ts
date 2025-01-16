@@ -13,9 +13,13 @@ interface IInitial {
   isCartButtonOpened: boolean;
 }
 
-const smarcardioCounter = getCookie({ name: "device" });
+// const smarcardioCounter = getCookie({ name: "device" });
 
-const smartcardioWithCaseCounter = getCookie({ name: "deviceWithCase" });
+// const smartcardioWithCaseCounter = getCookie({ name: "deviceWithCase" });
+
+const smarcardioCounter = 0
+
+const smartcardioWithCaseCounter = 0
 
 const initial: IInitial = {
   isCartPopupOpened: false,

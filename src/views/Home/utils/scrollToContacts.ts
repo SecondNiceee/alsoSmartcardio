@@ -1,9 +1,9 @@
 
 export const scrollToContacts = () => {
-    const downloads = document.getElementById("contacts")
+    // const downloads = document.getElementById("contacts")
     
-    if (downloads) {
-      downloads.scrollIntoView({ behavior: 'smooth' });
-    }
+    // if (downloads) {
+    //   downloads.scrollIntoView({ behavior: 'smooth' });
+    // }
     
 }
