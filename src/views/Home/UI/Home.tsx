@@ -4,6 +4,7 @@ import "./styles/_index.scss";
 import dynamic from 'next/dynamic';
 
 import Smartcardio from './sections/Smartcardio';
+import LayoutCookiePopup from '@/widgets/CookiePopup/LayoutCookiePopup';
 
 const InteractiveSection = dynamic(() => import("./sections/InteractiveSection"),{ ssr: false });
 const Downloads = dynamic( () => import('./sections/Downloads') )
@@ -58,7 +59,7 @@ export const Home = () => {
             
             <Footer />
 
-            <CookiePopup />
+            <LayoutCookiePopup />
         
         </>
         
