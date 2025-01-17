@@ -7,10 +7,9 @@ import { setCookie } from '@/shared/utils/setCookie';
 const LayoutCookiePopup = () => {
     const cookie = getCookie({name : "isAccepted"})
     const [isCookieAccepted, setCookieAccepted] = useState<boolean>(false)
-    // console.log(cookie)
     return (
         <>
-            { !cookie || isCookieAccepted ? <CookiePopup setCookieAccepted={setCookieAccepted} /> : <> </>}
+            { cookie || isCookieAccepted ?  <> </> : <CookiePopup setCookieAccepted={setCookieAccepted} /> }
         </>
 
     );
