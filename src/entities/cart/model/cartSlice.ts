@@ -13,9 +13,7 @@ interface IInitial {
   isCartButtonOpened: boolean;
 }
 
-// const smarcardioCounter = getCookie({ name: "device" });
 
-// const smartcardioWithCaseCounter = getCookie({ name: "deviceWithCase" });
 
 const smarcardioCounter = 0
 
@@ -40,6 +38,12 @@ export const cartSlice = createSlice({
   name: "cartSlice",
   initialState: initial,
   reducers: {
+    setOrdersFromCookie(state){
+        const deviceCounter = getCookie({name : "device"})
+        const deviceWithCaseCounter = getCookie({name : "deviceWithCase"})
+        state.orders[0].counter = deviceCounter
+        state.orders[1].counter = deviceWithCaseCounter
+    },
     addOrder(state, action: PayloadAction<{ id: number }>) {
       const id = action.payload.id;
       const order = state.orders.find((order) => order.id === id);
@@ -71,5 +75,6 @@ export const {
   addOrder,
   removeOneOrder,
   setCartButton,
-  setCartPopup
+  setCartPopup,
+  setOrdersFromCookie
 } = cartSlice.actions;

@@ -1,8 +1,10 @@
+'use client'
 import React from 'react';
 import "./styles/_index.scss";
 import dynamic from 'next/dynamic';
 
 import Smartcardio from './sections/Smartcardio';
+
 const InteractiveSection = dynamic(() => import("./sections/InteractiveSection"),{ ssr: false });
 const Downloads = dynamic( () => import('./sections/Downloads') )
 const Indicators = dynamic( () => import('./sections/Indicators') )
@@ -19,6 +21,8 @@ const Sertifications = dynamic( () => import("./sections/Sertifications") , {ssr
 const FooterOrder = dynamic( () => import("./sections/FooterOrder") )
 const Contacts = dynamic( () => import("./sections/Contacts") )
 const Footer = dynamic( () => import("./sections/Footer") )
+const CookiePopup = dynamic( () => import("@/widgets/CookiePopup/CookiePopup") , {ssr : false} ) 
+
 
 export const Home = () => {
     return (
@@ -48,9 +52,13 @@ export const Home = () => {
                 <FooterOrder />
                 <Contacts />
 
+   
+
             </main>
             
             <Footer />
+
+            <CookiePopup />
         
         </>
         

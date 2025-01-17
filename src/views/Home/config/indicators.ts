@@ -9,7 +9,7 @@ export const indicators:TypeIndicator[] = [
         imageSrc : "images/indicator1.svg"
     },
     {
-        description : "Пульсовую волну с расчетом сатурации крови кислородом",
+        description : "Пульсовую волну <br> с расчетом сатурации крови кислородом",
         imageSrc : "images/indicator2.svg"
     },
     {

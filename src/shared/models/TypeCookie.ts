@@ -1,1 +1,1 @@
-export type TypeCookie = "device" | "deviceWithCase";
+export type TypeCookie = "device" | "deviceWithCase" | "isAccepted";
