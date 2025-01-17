@@ -72,7 +72,7 @@ const SmartcardioSlider = () => {
             className="smartcardio-slider__button"
             onClick={buttonHandler}
           >
-            <p>Закать</p>
+            <p>Заказать</p>
           </OrderButton>
         </Reveal>
       </div>

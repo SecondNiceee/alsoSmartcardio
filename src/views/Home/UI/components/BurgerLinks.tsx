@@ -25,7 +25,7 @@ const BurgerLinks:FC<IBurgerLinks> = ({isActive, setMenuOpen}) => {
               )
             } )}
             <OrderButton className='burgerMenu__order-button' onClick={openBuyingPopup}>
-                <p className='burgerMenu__order-text'>Заказть</p>
+                <p className='burgerMenu__order-text'>Заказать</p>
             </OrderButton>
         </nav>
     );

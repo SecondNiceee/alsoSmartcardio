@@ -2,15 +2,14 @@
 import React, { useState } from "react";
 import HeaderBurger from "../components/HeaderBurger";
 import BurgerLinks from "../components/BurgerLinks";
-import OrderButton from "@/shared/UI/OrderButton/OrderButton";
 import Link from "next/link";
 import { headerNavs } from "../../config";
+import HeaderOrderButton from "../components/HeaderOrderButton";
 
 const Header = () => {
   const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
-  const clickHandler = () => {
-    alert("Это заказ!!");
-  };
+
+
 
   
   return (
@@ -31,13 +30,8 @@ const Header = () => {
           </nav>
 
           <HeaderBurger isOpen={isMenuOpen} setOpen={setMenuOpen} />
-
-          <OrderButton
-            className={"header__order-button !sticky top-[20px] right-[20px]"}
-            onClick={clickHandler}
-          >
-            <p>Заказать</p>
-          </OrderButton>
+           
+          <HeaderOrderButton />
           
         </div>
         

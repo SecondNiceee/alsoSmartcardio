@@ -12,7 +12,7 @@ const IndicatorButton = () => {
     }
     return (
     <OrderButton onClick={onClick} className="indicators__button">
-        <p>Заказть</p>
+        <p>Заказать</p>
     </OrderButton>
     );
 };
