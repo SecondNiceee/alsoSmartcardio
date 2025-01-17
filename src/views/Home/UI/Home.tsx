@@ -4,7 +4,6 @@ import "./styles/_index.scss";
 import dynamic from 'next/dynamic';
 
 import Smartcardio from './sections/Smartcardio';
-import LayoutCookiePopup from '@/widgets/CookiePopup/LayoutCookiePopup';
 
 const InteractiveSection = dynamic(() => import("./sections/InteractiveSection"),{ ssr: false });
 const Downloads = dynamic( () => import('./sections/Downloads') )
@@ -22,7 +21,7 @@ const Sertifications = dynamic( () => import("./sections/Sertifications") , {ssr
 const FooterOrder = dynamic( () => import("./sections/FooterOrder") )
 const Contacts = dynamic( () => import("./sections/Contacts") )
 const Footer = dynamic( () => import("./sections/Footer") )
-const CookiePopup = dynamic( () => import("@/widgets/CookiePopup/CookiePopup") , {ssr : false} ) 
+const LayoutCookiePopup = dynamic( () => import("@/widgets/CookiePopup/LayoutCookiePopup") , {ssr : false} ) 
 
 
 export const Home = () => {
