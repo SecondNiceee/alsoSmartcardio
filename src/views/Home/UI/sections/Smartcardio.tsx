@@ -3,7 +3,6 @@ import React from "react";
 import Header from "./Header";
 import Video from "@/shared/UI/Video/Video";
 import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
-import dynamic from "next/dynamic";
 import SmartcardioButtons from "../components/SmartcardioButtons";
 import SmartcardioScrollArrow from "../components/SmartcardioScrollArrow";
 
