@@ -1,4 +1,3 @@
-'use client'
 import React from 'react';
 import { steps } from '../../config';
 import Step from '../components/Step';

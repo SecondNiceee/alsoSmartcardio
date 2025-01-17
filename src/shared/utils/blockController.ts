@@ -1,5 +1,5 @@
 'use client'
-let originalPadding = 20;
+let originalPadding = 0;
 
 export const blockScroll = () => {
     if (typeof window === 'object'){

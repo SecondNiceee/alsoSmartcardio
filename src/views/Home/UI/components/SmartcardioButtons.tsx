@@ -1,12 +1,19 @@
-"use client";
+import React, { useEffect, useState } from "react";
 import OrderButton from "@/shared/UI/OrderButton/OrderButton";
-import React from "react";
-import { scrollToDownloads } from "../../utils/scrollToDownloads";
 import { useAppDispatch } from "@/shared/models/reduxHooks";
 import { setCartPopup } from "@/entities/cart/model/cartSlice";
 
 const SmartcardioButtons = () => {
   const dispath = useAppDispatch();
+  const [scrollToDownloads, setScrollToDownloads] = useState(() => () => {});
+
+  useEffect(() => {
+    const importScrollToDownloads = async () => {
+      const { scrollToDownloads } = await import('../../utils/scrollToDownloads');
+      setScrollToDownloads(() => scrollToDownloads);
+    };
+    importScrollToDownloads();
+  }, []);
 
   const orderFunction = () => {
     dispath(setCartPopup(true));
