@@ -8,7 +8,7 @@ const CloseButton: FC<ICloseButton> = ({ clickHandler }) => {
   return (
     <div
       onClick={clickHandler}
-      className="circle md:hidden z-50 absolute md:scale-100 md:top-[10px] md:r-[40px] scale-75 top-[10px] right-[10px]"
+      className="circle z-50 absolute md:scale-90 md:top-[10px] md:r-[40px] scale-50 sm:scale-75 top-[0px] right-[0px] sm:top-[10px] sm:right-[10px]"
     >
       <Cross />
     </div>

@@ -1,3 +1,4 @@
+'use client'
 import { useAppSelector } from "@/shared/models/reduxHooks";
 import { formatNumber } from "@/shared/utils/formateNumber";
 import React, {
