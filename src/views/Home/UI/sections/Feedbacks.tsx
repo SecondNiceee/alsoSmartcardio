@@ -12,7 +12,7 @@ const Feedbacks = () => {
 
   const {activeSlide, handleSlideChange, swiperRef} = useDefaultSwiper()
 
-  const {closeZoom , renderZoomSwiper, zoomRef, zoomSlider, setZoomSlider} = useZoomSwiper()
+  const {closeZoom , zoomRef, zoomSlider, setZoomSlider} = useZoomSwiper()
 
 
   return (
@@ -51,7 +51,6 @@ const Feedbacks = () => {
           closeZoom={closeZoom}
           slides={feedbacks}
           mainSwiperRef={swiperRef}
-          render={renderZoomSwiper}
         />
 
     </section>

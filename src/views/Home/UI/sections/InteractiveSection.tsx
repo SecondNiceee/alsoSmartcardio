@@ -18,7 +18,7 @@ const Popup = dynamic( () => import("@/shared/UI/Popup/Popup"), {ssr : false} )
 
 const InteractiveSection = () => {
 
-    const {closeZoom , renderZoomSwiper, zoomRef, zoomSlider, openZoom} = useZoomSwiper()
+    const {closeZoom,  zoomRef, zoomSlider, openZoom, } = useZoomSwiper()
   
     const [isVideoOpen, setVideoOpen] = useState<boolean>(false)
 
@@ -61,7 +61,7 @@ const InteractiveSection = () => {
             </CSSTransition>
             
             <CSSTransition nodeRef={zoomRef} classNames={"zoom"}   timeout={{enter : 50, exit : 400}} in = {zoomSlider} unmountOnExit mountOnEnter>
-                <ZoomSlider zoomState = {zoomSlider}  closeZoom={closeZoom} initialSlide={0} render={renderZoomSwiper} slides={schemeConfig}    />
+                <ZoomSlider imagesClassNames='!md:w-[70%] rounded-md' zoomState = {zoomSlider}  closeZoom={closeZoom} initialSlide={0} slides={schemeConfig}    />
             </CSSTransition>
 
         </section>

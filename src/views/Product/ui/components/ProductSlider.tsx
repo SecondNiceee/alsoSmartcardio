@@ -14,7 +14,7 @@ const ProductSlider:FC<IProductSlider> = ({storeOrder}) => {
 
     const {activeSlide, swiperRef} = useDefaultSwiper()
 
-    const {closeZoom, setZoomSlider, renderZoomSwiper, zoomSlider} = useZoomSwiper()
+    const {closeZoom, setZoomSlider, zoomSlider} = useZoomSwiper()
 
 
     return (
@@ -41,7 +41,6 @@ const ProductSlider:FC<IProductSlider> = ({storeOrder}) => {
                   closeZoom={closeZoom}
                   slides={storeOrder.images}
                   mainSwiperRef={swiperRef}
-                  render={renderZoomSwiper}
               />
             </>
     );

@@ -1,6 +1,6 @@
 'use client'
-import React, { ReactNode, useEffect, useRef } from 'react';
-import { Swiper, SwiperRef } from 'swiper/react';
+import React, { ReactNode, useCallback, useEffect, useRef } from 'react';
+import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 import "swiper/css";
 import "./zoomSlider.scss";
 import Cross from './Cross';
@@ -10,17 +10,18 @@ import NextButton from '../NextPrevButtons/NextButton';
 import PrevButton from '../NextPrevButtons/PrevButton';
 import { CSSTransition } from 'react-transition-group';
 import { blockScroll, unBlockScroll } from '@/shared/utils/blockController';
+import Image from 'next/image';
 
 export interface IZoomSliderProps<T> {
     slides: T[];
-    render: (slide: T, index: number) => ReactNode;
     closeZoom : () => void,
     initialSlide : number,
     mainSwiperRef? : React.MutableRefObject<SwiperRef | null>
-    zoomState : boolean
+    zoomState : boolean,
+    imagesClassNames? : string
 }
 
-function ZoomSlider<T>({slides, closeZoom,initialSlide, render, mainSwiperRef, zoomState}: IZoomSliderProps<T> ) {
+function ZoomSlider<T>({slides, closeZoom,initialSlide , mainSwiperRef, zoomState, imagesClassNames}: IZoomSliderProps<T> ) {
     
     useEffect( () => {
         zoomState ? blockScroll() : unBlockScroll()
@@ -29,6 +30,13 @@ function ZoomSlider<T>({slides, closeZoom,initialSlide, render, mainSwiperRef, z
 
     const ref = useRef(null)
 
+    const render = useCallback( (src:T, index:number) => {
+        return (
+            <SwiperSlide key={index} className='mx-auto flex justify-center'>
+                <Image className= {`w-fit h-[100vh] object-contain ${imagesClassNames}`} alt='#' src={src as string} width={1900} height={1300}  />
+            </SwiperSlide>
+        )
+    }, [] ) 
 
     const changeSlider = (swiper : SwiperType) => {
         if (mainSwiperRef){
@@ -66,8 +74,7 @@ function ZoomSlider<T>({slides, closeZoom,initialSlide, render, mainSwiperRef, z
 
                 {slides.map((slide, index) => {
                 return (
-                        <div key={index} className="image select-none">
-                            {/* <p>Привет</p> */}
+                        <div key={index} className={`image select-none`}>
                             {render(slide, index)}
                         </div>
                 ) })}

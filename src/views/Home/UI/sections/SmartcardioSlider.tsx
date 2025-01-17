@@ -19,7 +19,7 @@ const SmartcardioSlider = () => {
   
   const {activeSlide, handleSlideChange, swiperRef} = useDefaultSwiper()
 
-  const {closeZoom , renderZoomSwiper, zoomRef, zoomSlider, setZoomSlider} = useZoomSwiper()
+  const {closeZoom , zoomRef, zoomSlider, setZoomSlider} = useZoomSwiper()
 
 
   const buttonHandler = () => {
@@ -83,7 +83,6 @@ const SmartcardioSlider = () => {
           closeZoom={closeZoom}
           slides={smartardioSliderImage}
           mainSwiperRef={swiperRef}
-          render={renderZoomSwiper}
         />
 
     

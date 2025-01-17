@@ -21,7 +21,7 @@ const RecorderExamples = () => {
 
     const {activeSlide, handleSlideChange, swiperRef, changeSlide} = useDefaultSwiper()
 
-    const {closeZoom , renderZoomSwiper, zoomRef, zoomSlider, setZoomSlider} = useZoomSwiper()
+    const {closeZoom , zoomRef, zoomSlider, setZoomSlider} = useZoomSwiper()
 
   const renderSmall = useCallback((src:string, index: number) => {
     return (
@@ -76,7 +76,6 @@ const RecorderExamples = () => {
         closeZoom={closeZoom}
         slides={recordersSliders}
         mainSwiperRef={swiperRef}
-        render={renderZoomSwiper}
         />
     </section>  
   );

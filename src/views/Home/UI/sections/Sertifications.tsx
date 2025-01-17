@@ -9,7 +9,7 @@ import { CSSTransition } from 'react-transition-group';
 
 const Sertifications = () => {
 
-    const {closeZoom, renderZoomSwiper, openZoom, zoomRef, zoomSlider} = useZoomSwiper()
+    const {closeZoom, openZoom, zoomRef, zoomSlider} = useZoomSwiper()
 
     const [initialSlide, setInitialSlide] = useState<number>(0)
 
@@ -32,7 +32,7 @@ const Sertifications = () => {
             
       <CSSTransition nodeRef={zoomRef} classNames={"zoom"}   timeout={{enter : 50, exit : 400}} in = {zoomSlider} unmountOnExit mountOnEnter>
 
-        <ZoomSlider zoomState = {zoomSlider}  closeZoom={closeZoom} initialSlide={initialSlide} render={renderZoomSwiper} slides={sertificateConfig}   />
+        <ZoomSlider zoomState = {zoomSlider}  closeZoom={closeZoom} initialSlide={initialSlide}  slides={sertificateConfig}   />
         
       </CSSTransition>
 
