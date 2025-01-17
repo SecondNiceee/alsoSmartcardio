@@ -31,7 +31,7 @@ export const Product:FC<IProduct> = ({id}) => {
                 <p className="big-p text-left leadin  g-normal">
                   {storeOrder.price} р
                 </p>
-                <AddToCartButton />
+                <AddToCartButton id={id} />
                 <p className="p text-left leading-normal">
                   {storeOrder.description}
                 </p>

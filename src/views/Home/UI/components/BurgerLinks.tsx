@@ -1,22 +1,30 @@
-import React, { FC } from 'react';
+
+import React, { FC, SetStateAction } from 'react';
 import { headerNavs } from '../../config';
 import OrderButton from '@/shared/UI/OrderButton/OrderButton';
+import Link from 'next/link';
+import { useAppDispatch } from '@/shared/models/reduxHooks';
+import { setCartPopup } from '@/entities/cart/model/cartSlice';
 
 interface IBurgerLinks{
-    isActive : boolean
+    isActive : boolean,
+    setMenuOpen : React.Dispatch<SetStateAction<boolean>>
 }
-const BurgerLinks:FC<IBurgerLinks> = ({isActive}) => {
-    const clickHandler = () => {
-
+const BurgerLinks:FC<IBurgerLinks> = ({isActive, setMenuOpen}) => {
+    const dispatch = useAppDispatch()
+    const openBuyingPopup = () => {
+        dispatch(setCartPopup(true))
+        setMenuOpen(false)
     }
     return (
         <nav className={`header__burger-menu ${isActive ? "active" : ""}`}>
-            {headerNavs.map( (e, i) => {
-                return (
-                    <li key={i} className='header__nav-li'>{e}</li>
-                )
+            {headerNavs.map( (headerNav) => {
+              return (
+                  headerNav.path ? <Link href={headerNav.path} className="header__nav-li cursor-pointer">{headerNav.value}</Link>
+                  :  <li onClick={headerNav.function} className="header__nav-li cursor-pointer">{headerNav.value}</li>
+              )
             } )}
-            <OrderButton className='burgerMenu__order-button' onClick={clickHandler}>
+            <OrderButton className='burgerMenu__order-button' onClick={openBuyingPopup}>
                 <p className='burgerMenu__order-text'>Заказть</p>
             </OrderButton>
         </nav>
