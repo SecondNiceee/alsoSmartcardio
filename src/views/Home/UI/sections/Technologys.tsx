@@ -3,7 +3,7 @@ import React from "react";
 import OrderButton from "@/shared/UI/OrderButton/OrderButton";
 import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
 import Image from "next/image";
-import { routes } from "@/shared/config/routes";
+import TechnologysInstructionButton from "../components/TechnologysInstructionButton";
 
 
 
@@ -37,12 +37,7 @@ const Technologys = () => {
                 </ul>
 
 
-                <OrderButton
-                  className="technologys__blog-button black-border"
-                  link={routes.store}
-                >
-                  <p className="technologys_blog-text black">Инструкция использования</p>
-                </OrderButton>
+              <TechnologysInstructionButton />
                 
               </div>
 
