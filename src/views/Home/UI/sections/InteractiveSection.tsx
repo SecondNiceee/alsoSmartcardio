@@ -61,7 +61,7 @@ const InteractiveSection = () => {
             </CSSTransition>
             
             <CSSTransition nodeRef={zoomRef} classNames={"zoom"}   timeout={{enter : 50, exit : 400}} in = {zoomSlider} unmountOnExit mountOnEnter>
-                <ZoomSlider imagesClassNames='!md:w-[70%] rounded-md' zoomState = {zoomSlider}  closeZoom={closeZoom} initialSlide={0} slides={schemeConfig}    />
+                <ZoomSlider imagesClassNames='md:!w-[70%] rounded-md' zoomState = {zoomSlider}  closeZoom={closeZoom} initialSlide={0} slides={schemeConfig}    />
             </CSSTransition>
 
         </section>
