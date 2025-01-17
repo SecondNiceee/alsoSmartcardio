@@ -1,3 +1,4 @@
+'use cleint'
 import { setCookie } from '@/shared/utils/setCookie';
 import React from 'react';
 

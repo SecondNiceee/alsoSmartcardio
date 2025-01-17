@@ -1,13 +1,10 @@
 import { Metadata } from "next";
 import React from "react";
 import { Raleway } from "next/font/google";
-import { Roboto } from "next/font/google";
-import { Roboto_Flex } from "next/font/google";
 import { Inter } from "next/font/google";
 import ReduxProvider from "../shared/providers/ReduxProvider";
 import LayoutBuyingPopup from "@/widgets/BuyingPopup/ui/LayoutBuyingPopup";
 import { LayoutCart } from "@/widgets/Cart";
-import LayoutCookiePopup from "@/widgets/CookiePopup/LayoutCookiePopup";
 
 const inter = Inter({ variable: "--font4", subsets: ["cyrillic"] });
 const raleway = Raleway({
@@ -40,7 +37,6 @@ export default function RootLayout({
           {children}
           <LayoutCart />
           <LayoutBuyingPopup />
-          <LayoutCookiePopup />
         </ReduxProvider>
 
       </body>

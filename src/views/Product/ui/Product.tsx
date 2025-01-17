@@ -7,6 +7,7 @@ import ProductHeader from "./components/ProductHeader";
 import AddToCartButton from "./components/AddToCartButton";
 
 
+
 interface IProduct{
   id : string
 }
