@@ -18,7 +18,7 @@ const HowOrder = () => {
                     <header className='how-order__header relative z-30'>
                         Как сделать заказ
                     </header>
-                    <p className='how-order__description relative z-30'>Для вашего удобства мы предлагаем разные варианты доставки, выбирайте комфортный</p>
+                    <p className='how-order__description relative z-30'>Для вашего удобства мы предлагаем разные способы доставки, выбирайте комфортный</p>
 
                 </Reveal>
                 <div className="how-orders__items relative z-30">

@@ -41,7 +41,7 @@ const Technologys = () => {
                   className="technologys__blog-button black-border"
                   link={routes.store}
                 >
-                  <p className="technologys_blog-text black">Магазин</p>
+                  <p className="technologys_blog-text black">Инструкция использования</p>
                 </OrderButton>
                 
               </div>

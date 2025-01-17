@@ -9,7 +9,7 @@ const Contacts = () => {
             <div className="container flex flex-col gap-[20px] p-container items-center">
                 <h2 className='h2 text-white'>Наши контакты</h2>
                 <p className='mid-title text-white'>support@smartcardio.ru</p>
-                <p className='p text-white'> Подпишитесь на СмартКардио® в социальных сетях</p>
+                <p className='p text-white'> Присоединяйтесь к нам в социальных сетях!</p>
 
 
                 <div className='grid grid-cols-3 gap-5 w-[100%] mt-[10px] mb-[10px]'>

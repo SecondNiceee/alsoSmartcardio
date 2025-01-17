@@ -20,7 +20,7 @@
         color: white;
         z-index: 60;
         position: relative;
-        font-size: clamp(1.188rem /* 19.008px */, 0.902rem /* 14.432px */ + 1.43vw, 2.188rem /* 35.008px */);
+        font-size: clamp(1.125rem, 0.396rem + 2.43vw, 2.188rem);
     }
     .black-block{
         background-color: black;

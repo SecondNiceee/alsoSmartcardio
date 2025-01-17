@@ -8,12 +8,12 @@ export const contacts = [
     {
         imageSrc : "/images/vk.jpg",
         link : "https://vk.com/smart_cardio",
-        name : "Мы в вк"
+        name : "Научно-популярная медицина"
     },
     {
         imageSrc : "/images/tg.jpg",
         link : "https://t.me/smart_cardio",
-        name : "Мы в телеграмм"
+        name : "Для врачей"
     },
     {
         imageSrc : "/images/blog.jpg",
