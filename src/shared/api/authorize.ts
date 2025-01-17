@@ -29,7 +29,7 @@ export default async function authorize() {
       saveAccessToken(response.access_token)
       return response.access_token;
     }
-    alert("Обновите, пожалуйста, страницу, что - то пошло не так.")
+    // alert("Обновите, пожалуйста, страницу, что - то пошло не так.")
     throw new Error("Access token was not given!");
     
   }
