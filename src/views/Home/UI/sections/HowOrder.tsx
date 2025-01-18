@@ -16,7 +16,7 @@ const HowOrder = () => {
                 <Reveal character={CHARACTER.DOWNUP} className="how-order__cap">
                 
                     <header className='how-order__header relative z-30'>
-                        Как сделать заказ
+                        Как сделать заказ?
                     </header>
                     <p className='how-order__description relative z-30'>Для вашего удобства мы предлагаем разные способы доставки, выбирайте комфортный</p>
 

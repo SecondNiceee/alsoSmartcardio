@@ -7,7 +7,7 @@ export const howOrderItems:TypeOrder[] = [
     {
         imageSrc : "/images/cartIcon.png",
         h : 'Выбирайте',
-        p : "Не забудьте положить понравившийся товар в корзину"
+        p : "Укажите нужное количество приборов"
     },
     {
         imageSrc: "/images/truckIcon.png",
@@ -17,6 +17,6 @@ export const howOrderItems:TypeOrder[] = [
     {
         imageSrc : '/images/moneyIcon.png',
         h : 'Оплатите',
-        p : 'Оплата при получени, вводить данные карты не нужно'
+        p : 'Оплата при получени, вводить данные карты <br>P не нужно'
     }
 ]

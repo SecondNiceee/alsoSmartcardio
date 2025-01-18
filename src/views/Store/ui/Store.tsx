@@ -19,7 +19,7 @@ export const Store = () => {
                     <Image alt='#' width={1600} height={1500} className='w-[50%]' src={"/images/logo.jpg"} />
                     <div className='flex flex-col gap-2 items-center'>
 
-                        <p className='mid-title leading-none text-gray-500'>Smartcardio</p>
+                        <p className='mid-title leading-none text-gray-500'>SmartCardio</p>
                         <p className='mid-title leading-none text-gray-500'>store</p>
 
                     </div>
@@ -28,7 +28,7 @@ export const Store = () => {
                 <div className='flex flex-col gap-4 items-center'>
 
                     <p className='sub-title text-black font-semibold'>
-                        Начните заботу о своем здоровье уже сегодня
+                        Начните заботу о своем здоровье уже сегодня!
                     </p>
                     <p className='sub-title text-black'>Наши товары: </p>
 

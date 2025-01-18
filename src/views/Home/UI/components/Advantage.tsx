@@ -35,7 +35,7 @@ const Advantage:FC<IAdvantage> = ({header, img, p, id}) => {
             <Image className='!icon-height w-auto' width={400} height={400} alt='#' src={img}    />
             <div className='flex flex-col items-center'>
                 <header className={`sub-title ${isBlack(id) ? "text-white !font-extrabold" : "text-black"} font-semibold`}>{header}</header>
-                <p className={`p ${isBlack(id) ? "text-white" : "text-black"}`}>{p}</p>
+                <p dangerouslySetInnerHTML={{ __html: p }} className={`p ${isBlack(id) ? "text-white" : "text-black"}`}></p>
             </div>
         </Reveal>
     );

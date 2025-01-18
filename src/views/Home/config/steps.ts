@@ -5,7 +5,7 @@ export type TypeSteps = {
 
 export const steps:TypeSteps[] = [
     {
-        text : "Нажать кнопку ПУСК в приложении",
+        text : "Нажать кнопку ПУСК<br> в приложении",
         imagePath : "/images/step3.jpg"
     },
     {

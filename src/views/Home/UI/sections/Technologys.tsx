@@ -1,9 +1,9 @@
+
 import Video from "@/shared/UI/Video/Video";
 import React from "react";
-import OrderButton from "@/shared/UI/OrderButton/OrderButton";
 import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
 import Image from "next/image";
-import TechnologysInstructionButton from "../components/TechnologysInstructionButton";
+import TechnologysStoreLink from "../components/TechnologysStoreLink";
 
 
 
@@ -37,7 +37,7 @@ const Technologys = () => {
                 </ul>
 
 
-              <TechnologysInstructionButton />
+              <TechnologysStoreLink />
                 
               </div>
 

@@ -21,7 +21,7 @@ const InteractiveCardioBlock = ({openZoom} : {openZoom : () => void}) => {
             <InteractiveLottie ref={interactiveRef} />
             <div className="cardio-block"/>
             <div ref={textRef}  className="cardio-tblock">
-                <p className='tblock__text'>Полностью беспроводной карманный прибор для мониторинга вашего здоровья</p>
+                <p className='tblock__text'>Полностью беспроводной карманный прибор для мониторинга Вашего здоровья</p>
                 <OrderButton className='intersection__order-button black-border' onClick={openZoom}>
                     <p className='button-text black'>Cхема устройства</p>
                 </OrderButton>
