@@ -49,7 +49,7 @@ const Technologys = () => {
 
 
 
-          <Reveal className="video__wrapper" character={CHARACTER.RIGHT}>
+          <div className="video__wrapper h-[100%]">
             <Video
               controlsList="nodownload"
               playsInline
@@ -60,7 +60,7 @@ const Technologys = () => {
               videoClassName="technologys__video"
               videoName="normTwo.mp4"
             />
-          </Reveal>
+          </div>
         </div>
       </div>
     </section>
