@@ -8,7 +8,7 @@ const DownloadsButtons = () => {
           <OrderButton externalLink="/videos/iphone_manual.mp4" externalProps={{"download" : true}} className="instruction-apple cursor-pointer">
               <p>Инструкция для пользователей Apple</p>
             </OrderButton>
-          <OrderButton externalLink="https://docs.google.com/forms/d/e/1FAIpQLSckBhbLZ3GKHS9o6sSJaQITfN0QE5j1xOviRrgBVbS7Q99HJA/viewform?usp=send_form" className="instruction-assistance cursor-pointer">
+          <OrderButton externalLink="mailto:someone@example.com" className="instruction-assistance cursor-pointer">
             <p>Служба поддержки</p>
           </OrderButton>
           </div>
