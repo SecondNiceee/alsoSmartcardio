@@ -37,7 +37,7 @@ const HowItWorks = () => {
                   </header>
                 
                   <div ref={elementRef} className="how-it-works__main relative z-[100]">
-                      <Video  videoClassName='video'  poster = "images/manual.png" controls = {true} className='how-it-works__video' videoName='manual.mp4'  />
+                      <Video videoClassName='video !z-[100] !relative'  poster = "images/manual.png" controls = {true} className='how-it-works__video !z-[100] !relative' videoName='manual.mp4'  />
                   </div>
                   <Image className='how-it-works__logo' src={"/images/logo.jpg"} alt='#' width={1200} height={1006} />
                   <Image className='how-it-works__logo' src={"/images/logo.jpg"} alt='#' width={1200} height={1006} />

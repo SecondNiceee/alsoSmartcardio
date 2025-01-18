@@ -4,9 +4,10 @@ import "./styles/_index.scss";
 import dynamic from 'next/dynamic';
 
 import Smartcardio from './sections/Smartcardio';
-import Downloads from './sections/Downloads';
+
 
 const InteractiveSection = dynamic(() => import("./sections/InteractiveSection"),{ ssr: false });
+const Downloads = dynamic( () => import("./sections/Downloads") )
 const Indicators = dynamic( () => import('./sections/Indicators') )
 const Technologys = dynamic( () => import('./sections/Technologys') )
 const HowItWorks = dynamic( () => import("./sections/HowItWorks"), {ssr : false} )

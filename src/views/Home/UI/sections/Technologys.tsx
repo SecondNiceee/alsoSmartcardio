@@ -1,4 +1,3 @@
-
 import Video from "@/shared/UI/Video/Video";
 import React from "react";
 import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
