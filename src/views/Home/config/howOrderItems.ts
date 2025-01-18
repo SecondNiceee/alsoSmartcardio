@@ -17,6 +17,6 @@ export const howOrderItems:TypeOrder[] = [
     {
         imageSrc : '/images/moneyIcon.png',
         h : 'Оплатите',
-        p : 'Оплата при получени, вводить данные карты <br>P не нужно'
+        p : 'Оплата при получени, вводить данные карты <br> не нужно'
     }
 ]

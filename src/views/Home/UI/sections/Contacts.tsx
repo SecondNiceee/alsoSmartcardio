@@ -20,14 +20,14 @@ const Contacts = () => {
                         } )}
                 </div>
 
-                <div className="flex gap-[20px] w-[100%] justify-center max-w-[600px]">
+                {/* <div className="flex gap-[20px] w-[100%] justify-center max-w-[600px]">
                     <OrderButton className='button !bg-white'>
                         <p className='button-p !text-black'>Оставить отзыв</p>
                     </OrderButton>
                     <OrderButton className='button !bg-white'>
                         <p className='button-p !text-black'>Служба поддержки</p>
                     </OrderButton>
-                </div>
+                </div> */}
             </div>
         </section>
     );

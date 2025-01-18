@@ -18,7 +18,7 @@ const Video:FC<IVideo & VideoProps> = ({className = "" , videoClassName = "" ,st
                 opacity : darkOpacity
             }}>
             </div>
-            <video className={`${cl.video} ${videoClassName}`} style={styles} {...props} >
+            <video playsInline className={`${cl.video} ${videoClassName}`} style={styles} {...props} >
                 <source type="video/mp4" src={`videos/${videoName}`}  />
             </video>
         </div>
