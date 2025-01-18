@@ -21,7 +21,7 @@ const Video:FC<IVideo & VideoProps> = ({className = "" , videoClassName = "" ,st
             }}>
             </div>
             <video className={`${cl.video} ${videoClassName}`}  style={styles} {...props} muted playsInline >
-                <source type="video/mp4" src={`videos/${videoName}`}  />
+                <source type="video/mp4" src={`/videos/${videoName}`}  />
             </video>
         </div>
     );

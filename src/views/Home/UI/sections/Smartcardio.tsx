@@ -5,6 +5,7 @@ import Video from "@/shared/UI/Video/Video";
 import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
 import SmartcardioButtons from "../components/SmartcardioButtons";
 import SmartcardioScrollArrow from "../components/SmartcardioScrollArrow";
+import ResponsiveVideo from "@/shared/UI/ResponsiveVideo/ResponsiveVideo";
 
 
 
@@ -14,18 +15,16 @@ const Smartcardio: React.FC = () => {
     <>
 
     <div className="smartcardio-wrapper">
-      <Video
-        poster="images/smartcardioStart.png"
-        controlsList="nodownload"
-        playsInline
-        autoPlay
-        preload="metadata"
-        muted
-        loop
-        darkOpacity={0.5}
-        videoName="smartardio.mp4"
-        className="smartcardio__video"
-      />
+
+      <ResponsiveVideo darkOpacity={0.5}  imageHeight={500} imageWidth={576} poster={'/images/smartcardioStart.png'} videoProps={
+        {
+        controlsList:"nodownload",
+        playsInline : true,
+        autoPlay : true,
+        muted : true,
+        loop : true
+      }
+      } videoName="smartcardio.mp4"  className="smartcardio__video" />
       <Header />
       <section className="smartcardio">
         <div className="container">
