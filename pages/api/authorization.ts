@@ -12,7 +12,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     Object.entries(req.headers).map(([key, value]) => [key, String(value)])
   );
 
-
+  console.log( "This is Host" + HOST)
   try {
     const response = await fetch(
       `${HOST}/v2/oauth/token${Object.keys(queryParams).length ? `?${new URLSearchParams(queryParams as Record<string, string>)}` : ''}`,
@@ -26,6 +26,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
     );
 
+    const data = await response.json();
+    console.log(data)
+
     // Логирование ответа для отладки
 
 
@@ -36,12 +39,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const contentType = response.headers.get('content-type');
     if (contentType && contentType.includes('application/json')) {
       const data = await response.json();
+      console.log(data)
       res.status(200).json(data);
     } else {
       const text = await response.text();
       res.status(200).send(text);
     }
   } catch (error) {
+    console.log(error)
     res.status(500).json({ error: 'Internal Server Error' });
   }
 }
