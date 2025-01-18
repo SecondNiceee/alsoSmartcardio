@@ -1,9 +1,8 @@
 'use client'
 import React, { useEffect, useState } from 'react';
-import dynamic from 'next/dynamic';
+import CookiePopup from './CookiePopup';
 
 
-const CookiePopup = dynamic( () => import("./CookiePopup"), {ssr : false} )
 
 const LayoutCookiePopup = () => {
     const [cookie, setCookie] = useState<number>(0)
