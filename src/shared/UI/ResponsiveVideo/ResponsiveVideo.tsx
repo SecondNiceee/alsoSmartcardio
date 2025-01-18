@@ -11,9 +11,10 @@ interface IResponsiveVideo {
     imageWidth : number,
     imageHeight : number,
     videoProps : VideoProps,
-    darkOpacity? : number
+    darkOpacity? : number,
+    imageLoading? : "eager" | "lazy" 
 }
-const ResponsiveVideo:FC<IResponsiveVideo> = ({ poster, videoName, className, imageHeight, imageWidth, videoProps, darkOpacity = 0 }) => {
+const ResponsiveVideo:FC<IResponsiveVideo> = ({ poster, videoName, className, imageHeight, imageWidth, videoProps, darkOpacity = 0, imageLoading }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -39,7 +40,7 @@ const ResponsiveVideo:FC<IResponsiveVideo> = ({ poster, videoName, className, im
 
         <div className={`relative w-[100%] h-[100%]`}>
             <div className={`absolute left-0 top-0 w-[100%] h-[100%] bg-black z-[10]`} style={{opacity : darkOpacity}} />
-            <Image width={imageWidth} height={imageHeight} src={poster} alt='Poster' className={className} />
+            <Image loading = {imageLoading} width={imageWidth} height={imageHeight} src={poster} alt='Poster' className={className} />
         </div>
         
       ) : (

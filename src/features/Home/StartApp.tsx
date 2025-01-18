@@ -9,12 +9,6 @@ const StartApp = () => {
     const dispatch = useAppDispatch()
     
     useEffect( () => {
-        const getToken = async () => {
-            // const accesToken = await authorize()
-            // removeAccessToken()
-            // saveAccessToken(accesToken)
-        }
-        getToken()
         dispatch(setOrdersFromCookie())
     } , [] )
     
