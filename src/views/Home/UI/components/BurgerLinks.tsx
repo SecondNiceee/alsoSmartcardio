@@ -18,10 +18,12 @@ const BurgerLinks:FC<IBurgerLinks> = ({isActive, setMenuOpen}) => {
     }
     return (
         <nav className={`header__burger-menu ${isActive ? "active" : ""}`}>
-            {headerNavs.map( (headerNav) => {
+            {headerNavs.map( (headerNav, i) => {
               return (
-                  headerNav.path ? <Link href={headerNav.path} className="header__nav-li cursor-pointer">{headerNav.value}</Link>
-                  :  <li onClick={headerNav.function} className="header__nav-li cursor-pointer">{headerNav.value}</li>
+                <React.Fragment key={i}>
+                    {headerNav.path ? <Link href={headerNav.path} className="header__nav-li cursor-pointer">{headerNav.value}</Link>
+                    :  <li onClick={headerNav.function} className="header__nav-li cursor-pointer">{headerNav.value}</li>}
+                </React.Fragment>
               )
             } )}
             <OrderButton className='burgerMenu__order-button' onClick={openBuyingPopup}>

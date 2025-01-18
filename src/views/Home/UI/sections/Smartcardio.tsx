@@ -19,6 +19,7 @@ const Smartcardio: React.FC = () => {
         controlsList="nodownload"
         playsInline
         autoPlay
+        preload="metadata"
         muted
         loop
         darkOpacity={0.5}

@@ -3,6 +3,7 @@ import cl from "./_Video.module.scss"
 
 
 type VideoProps = JSX.IntrinsicElements["video"]  
+
 interface IVideo extends VideoProps{
     styles? : CSSProperties,
     className? : string,
@@ -11,6 +12,7 @@ interface IVideo extends VideoProps{
     videoClassName? : string
 
 } 
+
 const Video:FC<IVideo & VideoProps> = ({className = "" , videoClassName = "" ,styles = {}, videoName, darkOpacity = 0, ...props}) => {
     return (
         <div className={`${cl.videoWrapper} ${className}`}>
@@ -18,7 +20,7 @@ const Video:FC<IVideo & VideoProps> = ({className = "" , videoClassName = "" ,st
                 opacity : darkOpacity
             }}>
             </div>
-            <video className={`${cl.video} ${videoClassName}`}  style={styles}  {...props} muted playsInline >
+            <video className={`${cl.video} ${videoClassName}`}  style={styles} {...props} muted playsInline >
                 <source type="video/mp4" src={`videos/${videoName}`}  />
             </video>
         </div>

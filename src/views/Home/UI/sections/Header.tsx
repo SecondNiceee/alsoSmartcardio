@@ -21,10 +21,14 @@ const Header = () => {
           <h2 className="header__logo">SmartCardio</h2>
 
           <nav className="header__nav">
-            {headerNavs.map( (headerNav) => {
+            {headerNavs.map( (headerNav, i) => {
               return (
-                  headerNav.path ? <Link href={headerNav.path} className="header__nav-li cursor-pointer">{headerNav.value}</Link>
-                  :  <li onClick={headerNav.function} className="header__nav-li cursor-pointer">{headerNav.value}</li>
+                <React.Fragment key={i}>
+                  {
+                    headerNav.path ? <Link href={headerNav.path} className="header__nav-li cursor-pointer">{headerNav.value}</Link>
+                    :  <li onClick={headerNav.function} className="header__nav-li cursor-pointer">{headerNav.value}</li>
+                  }
+                </React.Fragment>
               )
             } )}
           </nav>

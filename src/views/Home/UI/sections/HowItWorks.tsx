@@ -36,8 +36,8 @@ const HowItWorks = () => {
                       Как это работает?
                   </header>
                 
-                  <div ref={elementRef} className="how-it-works__main">
-                      <Video videoClassName='video'  poster = "images/manual.png" controls = {true} className='how-it-works__video' videoName='manual.mp4'  />
+                  <div ref={elementRef} className="how-it-works__main relative z-[100]">
+                      <Video  videoClassName='video'  poster = "images/manual.png" controls = {true} className='how-it-works__video' videoName='manual.mp4'  />
                   </div>
                   <Image className='how-it-works__logo' src={"/images/logo.jpg"} alt='#' width={1200} height={1006} />
                   <Image className='how-it-works__logo' src={"/images/logo.jpg"} alt='#' width={1200} height={1006} />
