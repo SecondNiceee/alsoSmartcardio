@@ -1,7 +1,8 @@
 import React, { FC, useMemo } from 'react';
 import { TypeOrder } from '../../config/howOrderItems';
 import Image from 'next/image';
-import Reveal, { CHARACTER } from '@/shared/UI/Reveal/Reveal';
+import Reveal from '@/shared/UI/Reveal/Reveal';
+import { CHARACTER } from '@/shared/UI/Reveal/models/CharacterEnum';
 
 type indexType = {
     index : number

@@ -1,23 +1,27 @@
 'use client'
-import React, { FC, ReactNode, useCallback, useEffect, useRef } from 'react';
+import React, { FC, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import "./Reveal.scss"
+import { CHARACTER } from './models/CharacterEnum';
 
-export const enum CHARACTER{
-    DOWNUP, LEFT, RIGHT, UPDOWN
-}
+
 type DivProps = JSX.IntrinsicElements["div"]
 
 interface IReveal extends DivProps{
     children? : ReactNode,
-    character : CHARACTER,
+    character :  CHARACTER,
     className? : string,
     start? : boolean
 } 
 const Reveal:FC<IReveal> = ({children, character, className = "", start, ...props}) => {
 
+    const [isRendered, setIsRendered] = useState<boolean>(false)
+
     const revealRef = useRef<HTMLDivElement>(null)
 
+
     const addFunction = useCallback(() => {
+        setIsRendered(true)
+
         switch (character){
             case CHARACTER.UPDOWN:{
                 revealRef.current?.classList.add("upDown")
@@ -34,9 +38,12 @@ const Reveal:FC<IReveal> = ({children, character, className = "", start, ...prop
             case CHARACTER.RIGHT:
                 revealRef.current?.classList.add("right")
                 return;
-            
+            default:{
+
+            }
         }
-    } , [character]) 
+
+    } , [character, setIsRendered]) 
 
     const observerCallback:IntersectionObserverCallback = useCallback((entries) => {
         const firstEntry = entries[0]
@@ -46,19 +53,23 @@ const Reveal:FC<IReveal> = ({children, character, className = "", start, ...prop
     } , [addFunction])
 
     useEffect( () => {
-        const observer = new IntersectionObserver(observerCallback)
+        if (!isRendered){
+            const observer = new IntersectionObserver(observerCallback)
+    
+            if (revealRef.current){
+                observer.observe(revealRef.current)
+            }
+            if (start){
+                addFunction()
+            }
+    
+            return () => {
+                observer.disconnect()
+            }
+        }
+    } , [observerCallback, addFunction, isRendered] )
 
-        if (revealRef.current){
-            observer.observe(revealRef.current)
-        }
-        if (start){
-            addFunction()
-        }
-
-        return () => {
-            observer.disconnect()
-        }
-    } , [observerCallback, addFunction] )
+    
 
     return (
         <div className={`${className} reveal-base`} ref={revealRef} {...props}>

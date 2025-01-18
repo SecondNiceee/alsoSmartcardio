@@ -5,13 +5,15 @@ import OrderButton from "@/shared/UI/OrderButton/OrderButton";
 
 import "swiper/css";
 import ZoomSlider from "@/shared/UI/ZoomSlider/ZoomSlider";
-import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
+import Reveal from "@/shared/UI/Reveal/Reveal";
 import Slider from "../components/Slider";
 import Image from "next/image";
 import useDefaultSwiper from "../../../../shared/hooks/useDefaultSwiper";
 import useZoomSwiper from "../../../../shared/hooks/useZoomSwiper";
 import { useAppDispatch } from "@/shared/models/reduxHooks";
 import { setCartPopup } from "@/entities/cart/model/cartSlice";
+import { CHARACTER } from "@/shared/UI/Reveal/models/CharacterEnum";
+
 
 const SmartcardioSlider = () => {
 
@@ -19,7 +21,7 @@ const SmartcardioSlider = () => {
   
   const {activeSlide, handleSlideChange, swiperRef} = useDefaultSwiper()
 
-  const {closeZoom , zoomRef, zoomSlider, setZoomSlider} = useZoomSwiper()
+  const {closeZoom , zoomSlider, setZoomSlider} = useZoomSwiper()
 
 
   const buttonHandler = () => {

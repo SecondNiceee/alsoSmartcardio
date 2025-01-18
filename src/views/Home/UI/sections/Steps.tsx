@@ -2,7 +2,8 @@ import React from 'react';
 import { steps } from '../../config';
 import Step from '../components/Step';
 import Image from 'next/image';
-import Reveal, { CHARACTER } from '@/shared/UI/Reveal/Reveal';
+import Reveal from '@/shared/UI/Reveal/Reveal';
+import { CHARACTER } from '@/shared/UI/Reveal/models/CharacterEnum';
 
 const Steps = () => {
     return (

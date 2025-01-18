@@ -1,10 +1,19 @@
 'use client'
-import { getCookie } from '@/shared/utils/getCookie';
-import React, {  useState } from 'react';
-import CookiePopup from './CookiePopup';
+import React, { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
+
+
+const CookiePopup = dynamic( () => import("./CookiePopup"), {ssr : false} )
 
 const LayoutCookiePopup = () => {
-    const cookie = getCookie({name : "isAccepted"})
+    const [cookie, setCookie] = useState<number>(0)
+    useEffect( () => {
+        const importCookie = async () => {
+            const {getCookie} = await import("../../shared/utils/getCookie")
+            setCookie(getCookie({name : "isAccepted"}))
+        }
+        importCookie()
+    } ) 
     const [isCookieAccepted, setCookieAccepted] = useState<boolean>(false)
     return (
         <>

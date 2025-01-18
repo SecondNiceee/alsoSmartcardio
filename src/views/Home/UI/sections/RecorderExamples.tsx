@@ -6,11 +6,11 @@ import Image from "next/image";
 import { recordersSliders } from "../../config/smarcardioSliderImages";
 import ZoomSlider from "@/shared/UI/ZoomSlider/ZoomSlider";
 import { recorders } from "../../config/recorders";
-import { CSSTransition } from "react-transition-group";
-import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
+import Reveal  from "@/shared/UI/Reveal/Reveal";
 import useZoomSwiper from "../../../../shared/hooks/useZoomSwiper";
 import useDefaultSwiper from "../../../../shared/hooks/useDefaultSwiper";
 import { RecorderItem } from "../components/RecorderItem";
+import { CHARACTER } from "@/shared/UI/Reveal/models/CharacterEnum";
 
 
 

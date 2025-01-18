@@ -1,11 +1,10 @@
-
 import React from "react";
 import Header from "./Header";
-import Video from "@/shared/UI/Video/Video";
-import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
+import Reveal from "@/shared/UI/Reveal/Reveal";
 import SmartcardioButtons from "../components/SmartcardioButtons";
 import SmartcardioScrollArrow from "../components/SmartcardioScrollArrow";
 import ResponsiveVideo from "@/shared/UI/ResponsiveVideo/ResponsiveVideo";
+import { CHARACTER } from "@/shared/UI/Reveal/models/CharacterEnum";
 
 
 

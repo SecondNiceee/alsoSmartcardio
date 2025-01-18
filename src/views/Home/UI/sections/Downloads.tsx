@@ -1,9 +1,10 @@
 import React from "react";
 import { downloadsButtons } from "../../config";
 import PhoneButton from "@/shared/UI/PhoneButton/PhoneButton";
-import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
+import Reveal from "@/shared/UI/Reveal/Reveal";
 import AppleSvg from "../components/AppleSvg";
 import DownloadsButtons from "../components/DownloadsButtons";
+import { CHARACTER } from "@/shared/UI/Reveal/models/CharacterEnum";
 
 const Downloads = () => {
   return (

@@ -1,4 +1,3 @@
-'use client'
 import React from 'react';
 import "./styles/_index.scss";
 import dynamic from 'next/dynamic';
@@ -7,22 +6,23 @@ import Smartcardio from './sections/Smartcardio';
 import Downloads from './sections/Downloads';
 
 
-const InteractiveSection = dynamic(() => import("./sections/InteractiveSection"),{ ssr: false });
+
+const InteractiveSection = dynamic(() => import("./sections/InteractiveSection"));
 const Indicators = dynamic( () => import('./sections/Indicators') )
 const Technologys = dynamic( () => import('./sections/Technologys') )
-const HowItWorks = dynamic( () => import("./sections/HowItWorks"), {ssr : false} )
+const HowItWorks = dynamic( () => import("./sections/HowItWorks") )
 const Steps = dynamic( () => import("./sections/Steps"))
 const HowOrder = dynamic( () => import("./sections/HowOrder") )
-const SmartcardioSlider = dynamic( () => import("./sections/SmartcardioSlider") , {ssr : false} ) 
-const RecorderExamples = dynamic( () => import("./sections/RecorderExamples") , {ssr : false} ) 
-const Feedbacks = dynamic( () => import("./sections/Feedbacks") , {ssr : false} ) 
+const SmartcardioSlider = dynamic( () => import("./sections/SmartcardioSlider")  ) 
+const RecorderExamples = dynamic( () => import("./sections/RecorderExamples") ) 
+const Feedbacks = dynamic( () => import("./sections/Feedbacks")  ) 
 const Recomendation = dynamic( () => import("./sections/Recomendation") )
 const Advantages = dynamic( () => import("./sections/Advantages") )
-const Sertifications = dynamic( () => import("./sections/Sertifications") , {ssr : false} ) 
+const Sertifications = dynamic( () => import("./sections/Sertifications") ) 
 const FooterOrder = dynamic( () => import("./sections/FooterOrder") )
 const Contacts = dynamic( () => import("./sections/Contacts") )
 const Footer = dynamic( () => import("./sections/Footer") )
-const LayoutCookiePopup = dynamic( () => import("@/widgets/CookiePopup/LayoutCookiePopup") , {ssr : false} ) 
+const LayoutCookiePopup = dynamic( () => import("@/widgets/CookiePopup/LayoutCookiePopup")  ) 
 
 
 export const Home = () => {

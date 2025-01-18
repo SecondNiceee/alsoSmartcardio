@@ -3,10 +3,11 @@ import React from "react";
 import Slider from "../components/Slider";
 import { feedbacks } from "../../config/feedbacks";
 import Image from "next/image";
-import Reveal, { CHARACTER } from "@/shared/UI/Reveal/Reveal";
+import Reveal from "@/shared/UI/Reveal/Reveal";
 import ZoomSlider from "@/shared/UI/ZoomSlider/ZoomSlider"; 
 import useDefaultSwiper from "../../../../shared/hooks/useDefaultSwiper";
 import useZoomSwiper from "../../../../shared/hooks/useZoomSwiper";
+import { CHARACTER } from "@/shared/UI/Reveal/models/CharacterEnum";
 
 const Feedbacks = () => {
 

@@ -2,9 +2,10 @@ import React from 'react';
 import { howOrderItems } from '../../config/howOrderItems';
 import HowOrderItem from '../components/HowOrderItem';
 import OrderButton from '@/shared/UI/OrderButton/OrderButton';
-import Reveal, { CHARACTER } from '@/shared/UI/Reveal/Reveal';
+import Reveal from '@/shared/UI/Reveal/Reveal';
 import BlackThemeCircles from '@/shared/UI/BlackThemeCircles/BlackThemeCircles';
 import { routes } from '@/shared/config/routes';
+import { CHARACTER } from '@/shared/UI/Reveal/models/CharacterEnum';
 
 const HowOrder = () => {
     return (

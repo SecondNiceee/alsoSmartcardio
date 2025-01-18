@@ -1,19 +1,19 @@
 'use client'
 import Image from 'next/image';
-import React, { useCallback, useRef, useState } from 'react';
-import InteractivePhoneBlock from '../components/InteractivePhoneBlock';
-import InteractiveCardioBlock from '../components/InteractiveCardioBlock';
-import InteractiveMobile from '../components/InteractiveMobile';
-import Reveal, { CHARACTER } from '@/shared/UI/Reveal/Reveal';
-import { schemeConfig } from '../../config/schemeConfig';
-import { CSSTransition } from 'react-transition-group';
+import React from 'react';
+import Reveal from '@/shared/UI/Reveal/Reveal';
 import useZoomSwiper from '../../../../shared/hooks/useZoomSwiper';
+import { CHARACTER } from '@/shared/UI/Reveal/models/CharacterEnum';
 import dynamic from 'next/dynamic';
-import { IZoomSliderProps } from '@/shared/UI/ZoomSlider/ZoomSlider';
+import { CSSTransition } from 'react-transition-group';
+import { schemeConfig } from '../../config/schemeConfig';
 
-const ZoomSlider = dynamic(() => import("@/shared/UI/ZoomSlider/ZoomSlider"), {ssr : false}) as <T>(props: IZoomSliderProps<T>) => JSX.Element
+// const ZoomSlider = dynamic(() => import("@/shared/UI/ZoomSlider/ZoomSlider"), {ssr : false}) as <T>(props: IZoomSliderProps<T>) => JSX.Element
 
-
+const InteractiveCardioBlock = dynamic( () => import("../components/InteractiveCardioBlock"), {ssr : false} )
+const InteractivePhoneBlock = dynamic( () => import("../components/InteractivePhoneBlock"), {ssr : false} )
+const InteractiveMobile = dynamic( () => import("../components/InteractiveMobile") , {ssr : false} )
+const ZoomSlider = dynamic( () => import("@/shared/UI/ZoomSlider/ZoomSlider"), {ssr : false} )
 
 const InteractiveSection = () => {
 

@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect, useState } from "react";
 import OrderButton from "@/shared/UI/OrderButton/OrderButton";
 import { useAppDispatch } from "@/shared/models/reduxHooks";

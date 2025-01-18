@@ -1,9 +1,10 @@
 import React from 'react';
 import { indicators } from '../../config';
 import Indicator from '../components/Indicator';
-import Reveal, { CHARACTER } from '@/shared/UI/Reveal/Reveal';
+import Reveal from '@/shared/UI/Reveal/Reveal';
 import BlackThemeCircles from '@/shared/UI/BlackThemeCircles/BlackThemeCircles';
 import IndicatorButton from '../components/IndicatorButton';
+import { CHARACTER } from '@/shared/UI/Reveal/models/CharacterEnum';
 
 
 const Indicators = () => {

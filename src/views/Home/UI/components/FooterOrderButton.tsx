@@ -1,3 +1,4 @@
+'use client'
 import { setCartPopup } from '@/entities/cart/model/cartSlice';
 import { useAppDispatch } from '@/shared/models/reduxHooks';
 import OrderButton from '@/shared/UI/OrderButton/OrderButton';

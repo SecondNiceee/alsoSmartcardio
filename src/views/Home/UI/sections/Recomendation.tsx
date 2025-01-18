@@ -1,5 +1,6 @@
 import OrderButton from '@/shared/UI/OrderButton/OrderButton';
-import Reveal, { CHARACTER } from '@/shared/UI/Reveal/Reveal';
+import { CHARACTER } from '@/shared/UI/Reveal/models/CharacterEnum';
+import Reveal from '@/shared/UI/Reveal/Reveal';
 import Video from '@/shared/UI/Video/Video';
 import Image from 'next/image';
 import React from 'react';

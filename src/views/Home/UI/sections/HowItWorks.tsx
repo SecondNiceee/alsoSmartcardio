@@ -1,5 +1,6 @@
 "use client"
-import Reveal, { CHARACTER } from '@/shared/UI/Reveal/Reveal';
+import { CHARACTER } from '@/shared/UI/Reveal/models/CharacterEnum';
+import Reveal from '@/shared/UI/Reveal/Reveal';
 import Video from '@/shared/UI/Video/Video';
 import Image from 'next/image';
 import React, { useCallback, useEffect, useRef } from 'react';

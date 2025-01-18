@@ -1,4 +1,5 @@
-import Reveal, { CHARACTER } from '@/shared/UI/Reveal/Reveal';
+import { CHARACTER } from '@/shared/UI/Reveal/models/CharacterEnum';
+import Reveal from '@/shared/UI/Reveal/Reveal';
 import Image from 'next/image';
 import React, { FC } from 'react';
 

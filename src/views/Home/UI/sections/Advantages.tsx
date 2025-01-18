@@ -2,7 +2,8 @@ import React from 'react';
 import { advantagesConfig } from '../../config/advantagesConfig';
 import Advantage from '../components/Advantage';
 import BlackThemeCircles from '@/shared/UI/BlackThemeCircles/BlackThemeCircles';
-import Reveal, { CHARACTER } from '@/shared/UI/Reveal/Reveal';
+import Reveal from '@/shared/UI/Reveal/Reveal';
+import { CHARACTER } from '@/shared/UI/Reveal/models/CharacterEnum';
 
 const Advantages = () => {
     return (
