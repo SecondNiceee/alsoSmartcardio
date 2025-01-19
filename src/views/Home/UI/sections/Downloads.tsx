@@ -14,7 +14,7 @@ const Downloads = () => {
         <header className="downloads__header">
           Скачайте приложение СмартКардио® для работы с прибором
         </header>
-        <div className="downloads__buttons">
+        <Reveal character={CHARACTER.LEFT} className="downloads__buttons">
           {downloadsButtons.map((e, i) => {
             return (
               <PhoneButton
@@ -27,7 +27,7 @@ const Downloads = () => {
               />
             );
           })}
-        </div>
+        </Reveal>
         <DownloadsButtons />
       </div>
     </section>

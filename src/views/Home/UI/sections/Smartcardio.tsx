@@ -11,7 +11,6 @@ import ResponsiveVideo from "@/shared/UI/ResponsiveVideo/ResponsiveVideo";
 
 
 const Smartcardio: React.FC = () => {
-  console.log("Приемпш")
   return (
 
     <>
@@ -32,7 +31,7 @@ const Smartcardio: React.FC = () => {
       {/* <Video controlsList="nodownload" playsInline = {true} autoPlay = {true} muted = {true} loop = {true} darkOpacity = {0.5} className={"smartcardio__video hidden md:block"} poster={"/images/smartcardioStart.png"}  videoName={"smartcardio.mp4"} /> */}
       <Header />
       <section className="smartcardio">
-        <div className="container">
+        <Reveal character={CHARACTER.DOWNUP} className="container">
           
           <div style={{alignItems : "center", display : "flex", flexDirection : "column"}}>
             <h1 className="smarcardio__header">
@@ -47,7 +46,7 @@ const Smartcardio: React.FC = () => {
             </div>
               <SmartcardioScrollArrow />
           </div>
-        </div>
+        </Reveal>
       </section>
     </div>
     </>
