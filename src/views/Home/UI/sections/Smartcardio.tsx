@@ -1,4 +1,3 @@
-'use client'
 import React from "react";
 import Header from "./Header";
 import Reveal from "@/shared/UI/Reveal/Reveal";
@@ -26,7 +25,7 @@ const Smartcardio: React.FC = () => {
         muted : true,
         loop : true
       }
-      } videoName="smartcardio.mp4"  className="smartcardio__video md:block hidden" />
+      } videoName="smartcardio.mp4"  className="smartcardio__video" />
 
       
       {/* <Video controlsList="nodownload" playsInline = {true} autoPlay = {true} muted = {true} loop = {true} darkOpacity = {0.5} className={"smartcardio__video hidden md:block"} poster={"/images/smartcardioStart.png"}  videoName={"smartcardio.mp4"} /> */}

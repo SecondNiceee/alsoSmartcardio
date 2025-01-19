@@ -1,6 +1,5 @@
-'use client'
 import Image from 'next/image';
-import React, { useState, useEffect, FC } from 'react';
+import React, { FC } from 'react';
 import Video from '../Video/Video';
 
 type VideoProps = JSX.IntrinsicElements["video"]  
@@ -15,24 +14,6 @@ interface IResponsiveVideo {
     imageLoading? : "eager" | "lazy" 
 }
 const ResponsiveVideo:FC<IResponsiveVideo> = ({ poster, videoName, className, imageHeight, imageWidth, videoProps, darkOpacity = 0, imageLoading }) => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); // Установите порог для мобильных устройств
-    };
-
-    // Инициализируем состояние при монтировании компонента
-    handleResize();
-
-    // Добавляем обработчик события изменения размера окна
-    window.addEventListener('resize', handleResize);
-
-    // Очищаем обработчик события при размонтировании компонента
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   return (
     <div className={className}>
@@ -42,7 +23,7 @@ const ResponsiveVideo:FC<IResponsiveVideo> = ({ poster, videoName, className, im
             <Image loading = {imageLoading} width={imageWidth} height={imageHeight} src={poster} alt='Poster' className={className} />
         </div>
         
-        <Video  darkOpacity = {darkOpacity} className={className} poster={poster} {...videoProps} videoName={videoName} />
+        <Video  darkOpacity = {darkOpacity} className={`${className} md:block hidden`} poster={poster} {...videoProps} videoName={videoName} />
 
     </div>
   );
