@@ -11,14 +11,14 @@ import ResponsiveVideo from "@/shared/UI/ResponsiveVideo/ResponsiveVideo";
 
 
 const Smartcardio: React.FC = () => {
-  console.log("Прием")
+  console.log("Приемпш")
   return (
 
     <>
 
     <div className="smartcardio-wrapper">
 
-      <ResponsiveVideo imageLoading="eager" darkOpacity={0.5}  imageHeight={500} imageWidth={576} poster={'/images/smartcardioStart.png'} videoProps={
+      <ResponsiveVideo darkOpacity={0.5}  imageHeight={300} imageWidth={380} poster={'/images/smartcardioStart.png'} videoProps={
         {
         controlsList:"nodownload",
         playsInline : true,
