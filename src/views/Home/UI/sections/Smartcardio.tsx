@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import Header from "./Header";
 import Reveal from "@/shared/UI/Reveal/Reveal";
@@ -5,6 +6,8 @@ import SmartcardioButtons from "../components/SmartcardioButtons";
 import SmartcardioScrollArrow from "../components/SmartcardioScrollArrow";
 import { CHARACTER } from "@/shared/UI/Reveal/models/CharacterEnum";
 import Video from "@/shared/UI/Video/Video";
+import Image from "next/image";
+import ResponsiveVideo from "@/shared/UI/ResponsiveVideo/ResponsiveVideo";
 
 
 
@@ -15,7 +18,7 @@ const Smartcardio: React.FC = () => {
 
     <div className="smartcardio-wrapper">
 
-      {/* <ResponsiveVideo imageLoading="eager" darkOpacity={0.5}  imageHeight={500} imageWidth={576} poster={'/images/smartcardioStart.png'} videoProps={
+      <ResponsiveVideo imageLoading="eager" darkOpacity={0.5}  imageHeight={500} imageWidth={576} poster={'/images/smartcardioStart.png'} videoProps={
         {
         controlsList:"nodownload",
         playsInline : true,
@@ -23,9 +26,10 @@ const Smartcardio: React.FC = () => {
         muted : true,
         loop : true
       }
-      } videoName="smartcardio.mp4"  className="smartcardio__video" /> */}
+      } videoName="smartcardio.mp4"  className="smartcardio__video md:block hidden" />
 
-      <Video controlsList="nodownload" playsInline = {true} autoPlay = {true} muted = {true} loop = {true} darkOpacity = {0.5} className={"smartcardio__video"} poster={"/images/smartcardioStart.png"}  videoName={"smartcardio.mp4"} />
+      
+      {/* <Video controlsList="nodownload" playsInline = {true} autoPlay = {true} muted = {true} loop = {true} darkOpacity = {0.5} className={"smartcardio__video hidden md:block"} poster={"/images/smartcardioStart.png"}  videoName={"smartcardio.mp4"} /> */}
       <Header />
       <section className="smartcardio">
         <div className="container">

@@ -36,16 +36,14 @@ const ResponsiveVideo:FC<IResponsiveVideo> = ({ poster, videoName, className, im
 
   return (
     <div className={className}>
-      {isMobile ? (
 
-        <div className={`relative w-[100%] h-[100%]`}>
+        <div className={`relative w-[100%] h-[100%] block md:hidden`}>
             <div className={`absolute left-0 top-0 w-[100%] h-[100%] bg-black z-[10]`} style={{opacity : darkOpacity}} />
             <Image loading = {imageLoading} width={imageWidth} height={imageHeight} src={poster} alt='Poster' className={className} />
         </div>
         
-      ) : (
         <Video  darkOpacity = {darkOpacity} className={className} poster={poster} {...videoProps} videoName={videoName} />
-      )}
+
     </div>
   );
 };
