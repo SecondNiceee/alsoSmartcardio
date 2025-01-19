@@ -1,3 +1,4 @@
+
 import React from "react";
 import { downloadsButtons } from "../../config";
 import PhoneButton from "@/shared/UI/PhoneButton/PhoneButton";
@@ -9,7 +10,7 @@ import { CHARACTER } from "@/shared/UI/Reveal/models/CharacterEnum";
 const Downloads = () => {
   return (
     <section id="downloads" className="downloads">
-      <Reveal character={CHARACTER.LEFT} className="container">
+      <div className="container">
         <header className="downloads__header">
           Скачайте приложение СмартКардио® для работы с прибором
         </header>
@@ -28,7 +29,7 @@ const Downloads = () => {
           })}
         </div>
         <DownloadsButtons />
-      </Reveal>
+      </div>
     </section>
   );
 };

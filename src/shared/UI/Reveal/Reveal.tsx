@@ -53,6 +53,11 @@ const Reveal:FC<IReveal> = ({children, character, className = "", start, ...prop
     } , [addFunction])
 
     useEffect( () => {
+
+        if (start && !isRendered){
+            addFunction()
+        }
+
         if (!isRendered){
             const observer = new IntersectionObserver(observerCallback)
     

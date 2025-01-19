@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 
 import Smartcardio from './sections/Smartcardio';
 import Downloads from './sections/Downloads';
-import LayoutCookiePopup from '@/widgets/CookiePopup/LayoutCookiePopup';
+// import LayoutCookiePopup from '@/widgets/CookiePopup/LayoutCookiePopup';
 
 
 
@@ -59,7 +59,7 @@ export const Home = () => {
             
             <Footer />
 
-            <LayoutCookiePopup />
+            {/* <LayoutCookiePopup /> */}
         
         </>
         

@@ -3,8 +3,8 @@ import Header from "./Header";
 import Reveal from "@/shared/UI/Reveal/Reveal";
 import SmartcardioButtons from "../components/SmartcardioButtons";
 import SmartcardioScrollArrow from "../components/SmartcardioScrollArrow";
-import ResponsiveVideo from "@/shared/UI/ResponsiveVideo/ResponsiveVideo";
 import { CHARACTER } from "@/shared/UI/Reveal/models/CharacterEnum";
+import Video from "@/shared/UI/Video/Video";
 
 
 
@@ -15,7 +15,7 @@ const Smartcardio: React.FC = () => {
 
     <div className="smartcardio-wrapper">
 
-      <ResponsiveVideo imageLoading="eager" darkOpacity={0.5}  imageHeight={500} imageWidth={576} poster={'/images/smartcardioStart.png'} videoProps={
+      {/* <ResponsiveVideo imageLoading="eager" darkOpacity={0.5}  imageHeight={500} imageWidth={576} poster={'/images/smartcardioStart.png'} videoProps={
         {
         controlsList:"nodownload",
         playsInline : true,
@@ -23,11 +23,14 @@ const Smartcardio: React.FC = () => {
         muted : true,
         loop : true
       }
-      } videoName="smartcardio.mp4"  className="smartcardio__video" />
+      } videoName="smartcardio.mp4"  className="smartcardio__video" /> */}
+
+      <Video controlsList="nodownload" playsInline = {true} autoPlay = {true} muted = {true} loop = {true} darkOpacity = {0.5} className={"smartcardio__video"} poster={"/images/smartcardioStart.png"}  videoName={"smartcardio.mp4"} />
       <Header />
       <section className="smartcardio">
         <div className="container">
-          <Reveal start = {true} character={CHARACTER.DOWNUP} style={{alignItems : "center", display : "flex", flexDirection : "column"}}>
+          
+          <div style={{alignItems : "center", display : "flex", flexDirection : "column"}}>
             <h1 className="smarcardio__header">
               СмартКардио <span>®</span>
             </h1>
@@ -39,7 +42,7 @@ const Smartcardio: React.FC = () => {
               <SmartcardioButtons />
             </div>
               <SmartcardioScrollArrow />
-          </Reveal>
+          </div>
         </div>
       </section>
     </div>

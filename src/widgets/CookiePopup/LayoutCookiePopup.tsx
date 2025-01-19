@@ -5,7 +5,7 @@ import CookiePopup from './CookiePopup';
 
 
 const LayoutCookiePopup = () => {
-    const [cookie, setCookie] = useState<number>(0)
+    const [cookie, setCookie] = useState<number>(1)
     useEffect( () => {
         const importCookie = async () => {
             const {getCookie} = await import("../../shared/utils/getCookie")
