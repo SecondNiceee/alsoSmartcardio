@@ -11,6 +11,7 @@ import ResponsiveVideo from "@/shared/UI/ResponsiveVideo/ResponsiveVideo";
 
 
 const Smartcardio: React.FC = () => {
+  console.log("Прием")
   return (
 
     <>
