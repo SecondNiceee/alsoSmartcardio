@@ -12,9 +12,8 @@ const Technologys = () => {
     <section className="technologys">
       <div className="container">
         <Reveal character={CHARACTER.UPDOWN}>
-          <header className="technologys__header">
-            Высокие технологии в повседневной жизни
-          </header>
+          <header dangerouslySetInnerHTML={{__html : "Высокие технологии <br> в повседневной жизни"} } className="technologys__header">
+            </header>
         </Reveal>
 
         <div className="technologys__main">
@@ -49,15 +48,15 @@ const Technologys = () => {
 
 
 
-          <div className="video__wrapper h-[100%]">
+          <div className="video__wrapper h-[100%] w-[100%] min-w-[100%] min-h-[100%]">
             <Video
               controlsList="nodownload"
               playsInline
               autoPlay
               muted
               loop
-              className="video__wrapper"
-              videoClassName="technologys__video"
+              className="video__wrapper w-[100%] h-[100%] min-w-[100%] min-h-[100%]"
+              videoClassName="technologys__video w-[100%] h-[100%] min-w-[100%] min-h-[100%]"
               videoName="normTwo.mp4"
             />
           </div>
