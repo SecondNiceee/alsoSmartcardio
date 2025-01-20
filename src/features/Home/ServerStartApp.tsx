@@ -1,7 +1,7 @@
 import authorize from '@/shared/api/authorize';
 import React from 'react';
-import StartApp from './StartApp';
-
+import dynamic from 'next/dynamic';
+const StartApp = dynamic( () => import("./StartApp"), {ssr : false} )
 const ServerStartApp = async () => {
     const response = await authorize()
     return (

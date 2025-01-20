@@ -2,8 +2,7 @@ import { endpoints } from "@/shared/api/endpoints";
 import { GET } from "@/shared/api/GET";
 import { TypeStatus } from "@/shared/api/models";
 import { getAccessToken } from "@/shared/utils/getAccessToken";
-import retryWithToken from "@/shared/utils/retryWithToken";
-import  { FC, SetStateAction, useCallback } from "react";
+import  { SetStateAction, useCallback } from "react";
 
 
 export type TypeSuggestion = {
@@ -33,6 +32,7 @@ const useFetchYears = ({setFilteredSuggestions, fromEmpty, setFromEmpty, setFetc
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
+          'Access-Control-Allow-Origin' : '*',
         },  
         params: {
           name: value,

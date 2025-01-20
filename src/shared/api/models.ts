@@ -7,6 +7,7 @@ export type CustomHeaders = {
   "User-Agent"?: string;
   "Content-Encoding"?: string;
   Authorization?: string;
+  'Access-Control-Allow-Origin'?: string
 };
 
 // Тип параметров запроса
