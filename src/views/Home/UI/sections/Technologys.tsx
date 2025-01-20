@@ -57,7 +57,8 @@ const Technologys = () => {
               loop
               className="video__wrapper"
               videoClassName="technologys__video"
-              videoName="norm-two.mp4"
+              videoName="chuck.webm"
+              type = {"video/webm"}
             />
           </div>
         </div>
