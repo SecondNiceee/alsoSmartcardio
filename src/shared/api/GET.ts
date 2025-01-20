@@ -1,8 +1,7 @@
-import { HOST } from "../config/constants";
 import { CustomHeaders, DataType, ParamsType } from "./models";
 import { GenericAbortSignal } from "axios";
 
-interface IPost {
+interface IGet {
   endpoint: string;
   params?: ParamsType;
   headers?: CustomHeaders;
@@ -16,13 +15,22 @@ export const GET = async <T>({
   headers = { "Content-Type": 'application/json' },
   signal,
   onReject = () => {}
-}: IPost): Promise<T> => {
+}: IGet): Promise<T> => {
   try {
+    // Проверка, что endpoint начинается с /
+    if (!endpoint.startsWith('/')) {
+      endpoint = `/${endpoint}`;
+    }
+
+    // Формирование URL с параметрами
     const queryString = new URLSearchParams(params as Record<string, string>).toString();
-    const response = await fetch(`${HOST}${endpoint}?${queryString}`, {
+    const url = `/api${endpoint}${queryString ? `?${queryString}` : ''}`;
+    console.log(url);
+
+    const response = await fetch(url, {
       method: 'GET',
       headers: headers as HeadersInit,
-      signal: signal?.aborted ? undefined : signal,
+      signal,
     });
 
     if (!response.ok) {
@@ -32,7 +40,7 @@ export const GET = async <T>({
     const data: T = await response.json();
     return data;
   } catch (error) {
-    console.log(error);
+    console.error('Error:', error);
     onReject();
     throw error;
   }

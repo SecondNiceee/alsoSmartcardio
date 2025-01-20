@@ -12,7 +12,7 @@ type TypeResponse = {
 export default async function authorize() {
     const response = await retryOperation(async () => {
       return await POST<TypeResponse>({
-        endpoint: endpoints.autorization,
+        endpoint: "/authorization",
         params: {
           "grant_type": "client_credentials",
           "client_id": account,

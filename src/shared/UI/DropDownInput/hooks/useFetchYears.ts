@@ -28,7 +28,7 @@ const useFetchYears = ({setFilteredSuggestions, fromEmpty, setFromEmpty, setFetc
       let error = false
 
       const responses = await GET<TypeSuggestion[]>({
-        endpoint: endpoints.citys,
+        endpoint: "/citys",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -43,8 +43,6 @@ const useFetchYears = ({setFilteredSuggestions, fromEmpty, setFromEmpty, setFetc
         }
       });
 
-      console.log(responses)
-
       if (!error){
         setFetchStatus("fulfilled")
       }
@@ -56,9 +54,9 @@ const useFetchYears = ({setFilteredSuggestions, fromEmpty, setFromEmpty, setFetc
         setFromEmpty(false)
       }
 
+      setFilteredSuggestions(responses)
       return responses;
-
-    setFilteredSuggestions(responses)
+      
   }, [fromEmpty, setFromEmpty]);
   return fetchYears
 };

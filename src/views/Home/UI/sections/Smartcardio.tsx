@@ -4,8 +4,6 @@ import Reveal from "@/shared/UI/Reveal/Reveal";
 import SmartcardioButtons from "../components/SmartcardioButtons";
 import SmartcardioScrollArrow from "../components/SmartcardioScrollArrow";
 import { CHARACTER } from "@/shared/UI/Reveal/models/CharacterEnum";
-import Video from "@/shared/UI/Video/Video";
-import Image from "next/image";
 import ResponsiveVideo from "@/shared/UI/ResponsiveVideo/ResponsiveVideo";
 
 

@@ -1,4 +1,3 @@
-import { HOST } from "../config/constants";
 import { CustomHeaders, DataType, ParamsType } from "./models";
 
 interface IPost {
@@ -19,10 +18,17 @@ export const POST = async <T>({
   onReject = () => {}
 }: IPost): Promise<T> => {
   try {
-    const url = new URL(`${HOST}${endpoint}`);
-    Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+    // Проверка, что endpoint начинается с /
+    if (!endpoint.startsWith('/')) {
+      endpoint = `/${endpoint}`;
+    }
 
-    const response = await fetch(url.toString(), {
+    // Формирование URL с параметрами
+    const queryString = new URLSearchParams(params as Record<string, string>).toString();
+    const url = `/api${endpoint}${queryString ? `?${queryString}` : ''}`;
+    console.log(url);
+
+    const response = await fetch(url, {
       method: 'POST',
       headers: headers as HeadersInit,
       signal,
@@ -36,7 +42,7 @@ export const POST = async <T>({
     const responseData = await response.json();
     return responseData;
   } catch (error) {
-    console.log(error);
+    console.error('Error:', error);
     onReject();
     throw error;
   }

@@ -1,14 +1,21 @@
 "use client"
+import { setOrdersFromCookie } from "@/entities/cart/model/cartSlice";
+import authorize from "@/shared/api/authorize";
+import { useAppDispatch } from "@/shared/models/reduxHooks";
 import { saveAccessToken } from "@/shared/utils/saveAccesToken";
 import {  FC, useEffect } from "react";
 
 
-interface IStartApp {
-    acessToken : string
-}
-const StartApp:FC<IStartApp> = ({acessToken}) => {
+
+const StartApp:FC = () => {
+    const dispatch = useAppDispatch()
     useEffect( () => {
-        saveAccessToken(acessToken)
+        const getAutoriztion = async () => {
+            const token = await authorize()
+            saveAccessToken(token)
+        }
+        getAutoriztion()
+        dispatch(setOrdersFromCookie())
     } , [] )
     
     return null
