@@ -48,16 +48,16 @@ const Technologys = () => {
 
 
 
-          <div className="video__wrapper h-[100%] w-[100%] min-w-[100%] min-h-[100%]">
+          <div className="video__wrapper h-[100%]">
             <Video
               controlsList="nodownload"
               playsInline
               autoPlay
               muted
               loop
-              className="video__wrapper w-[100%] h-[100%] min-w-[100%] min-h-[100%]"
-              videoClassName="technologys__video w-[100%] h-[100%] min-w-[100%] min-h-[100%]"
-              videoName="normTwo.mp4"
+              className="video__wrapper"
+              videoClassName="technologys__video"
+              videoName="manual.mp4"
             />
           </div>
         </div>
