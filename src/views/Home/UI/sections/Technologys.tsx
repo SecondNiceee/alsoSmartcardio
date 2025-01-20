@@ -57,7 +57,7 @@ const Technologys = () => {
               loop
               className="video__wrapper"
               videoClassName="technologys__video"
-              videoName="manual.mp4"
+              videoName="norm-two.mp4"
             />
           </div>
         </div>
