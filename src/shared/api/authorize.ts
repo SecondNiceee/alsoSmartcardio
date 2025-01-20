@@ -25,10 +25,8 @@ export default async function authorize() {
       });
     });
 
-    console.log(response)
   
     if (response) {
-      console.log(response.access_token)
       return response.access_token;
     }
     // alert("Обновите, пожалуйста, страницу, что - то пошло не так.")

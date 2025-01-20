@@ -43,6 +43,7 @@ export interface IForm {
 }
 
 export const BuyingPopup = forwardRef(
+  
   ({ setState }: IBuyingPopup, ref: ForwardedRef<HTMLFormElement>) => {
     const [startAddOne, setStartAddOne] = useState<boolean>(false);
 
@@ -89,9 +90,6 @@ export const BuyingPopup = forwardRef(
     });
 
     const method = watch("deliveryMethod");
-
-    console.log(method);
-
     useBlockScroll();
 
     const onSubmit = handleSubmit(async (data: IForm) => {
@@ -119,7 +117,6 @@ export const BuyingPopup = forwardRef(
       //   });
     });
 
-    console.log(errors);
 
     const [deliverySumm, setDeliverySumm] = useState<number>(0);
 

@@ -1,31 +1,39 @@
+import { HOST } from "../config/constants";
 import { CustomHeaders, DataType, ParamsType } from "./models";
-import axios, {GenericAbortSignal} from "axios";
-
+import { GenericAbortSignal } from "axios";
 
 interface IPost {
-    endpoint : string,
-    params? : ParamsType,
-    headers? : CustomHeaders,
-    signal? : GenericAbortSignal,
-    onReject? : () => void
+  endpoint: string;
+  params?: ParamsType;
+  headers?: CustomHeaders;
+  signal?: AbortSignal;
+  onReject?: () => void;
 }
 
-export const GET = async <T>( {
-    endpoint,
-    params = {},
-    headers = { "Content-Type": 'application/json' },
-    signal,
-    onReject = () => {}
-} : IPost ) => {
+export const GET = async <T>({
+  endpoint,
+  params = {},
+  headers = { "Content-Type": 'application/json' },
+  signal,
+  onReject = () => {}
+}: IPost): Promise<T> => {
   try {
-    const response = await axios.get<T>(`api${endpoint}` , {
-        params,
-        headers,
-        signal
-      });
-    return response.data;
+    const queryString = new URLSearchParams(params as Record<string, string>).toString();
+    const response = await fetch(`${HOST}${endpoint}?${queryString}`, {
+      method: 'GET',
+      headers: headers as HeadersInit,
+      signal: signal?.aborted ? undefined : signal,
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data: T = await response.json();
+    return data;
   } catch (error) {
-    console.log(error)
-    onReject()
+    console.log(error);
+    onReject();
+    throw error;
   }
 };

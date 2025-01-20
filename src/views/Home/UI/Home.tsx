@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 
 import Smartcardio from './sections/Smartcardio';
 import Downloads from './sections/Downloads';
+import { getAccessToken } from '@/shared/utils/getAccessToken';
 // import LayoutCookiePopup from '@/widgets/CookiePopup/LayoutCookiePopup';
 
 

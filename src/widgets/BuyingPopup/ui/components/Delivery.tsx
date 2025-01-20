@@ -36,7 +36,6 @@ function Delivery<T extends FieldValues>({
 }: IDeliverComponent<T>) {
 
 
-  console.log("Рендер Delivery")
 
   const [methods, setMethods] = useState<TypedeliveryMethod[]>([]);
 

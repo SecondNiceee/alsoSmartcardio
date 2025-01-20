@@ -19,9 +19,6 @@ export const POST = async <T>({
   onReject = () => {}
 }: IPost): Promise<T> => {
   try {
-    console.log(`/api${endpoint}`);
-    console.log(HOST);
-
     const url = new URL(`${HOST}${endpoint}`);
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
@@ -37,7 +34,6 @@ export const POST = async <T>({
     }
 
     const responseData = await response.json();
-    console.log(responseData);
     return responseData;
   } catch (error) {
     console.log(error);

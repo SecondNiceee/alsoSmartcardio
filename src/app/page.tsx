@@ -2,14 +2,13 @@
 import React from 'react';
 import "../styles/_index.scss";
 import { Home } from '@/views/Home';
-import StartApp from '@/features/Home/StartApp';
+import ServerStartApp from '@/features/Home/ServerStartApp';
 
 
 const Page = () => {
-
     return (
         <>
-            <StartApp/>
+            <ServerStartApp />
             <Home />
         </>
     );
