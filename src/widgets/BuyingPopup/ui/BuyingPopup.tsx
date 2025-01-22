@@ -29,7 +29,7 @@ import { device } from "@/shared/config/device";
 import { fromLocation } from "@/shared/config/fromLocation";
 
 interface IBuyingPopup {
-  setState: React.Dispatch<SetStateAction<boolean>>;
+  setState: (state:boolean) => void;
 }
 export interface IForm {
   FIO: string;
