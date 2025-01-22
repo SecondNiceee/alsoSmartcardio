@@ -26,8 +26,7 @@ export const Product:FC<IProduct> = ({id}) => {
               <ProductSlider storeOrder={storeOrder} />
 
               <div className="flex flex-col gap-3 w-[100%] my-auto">
-                <p className="sub-title text-left leading-normal">
-                  {storeOrder.name}
+                <p dangerouslySetInnerHTML={{__html : storeOrder.name}} className="sub-title text-left leading-normal">
                 </p>
                 <p className="big-p text-left leadin  g-normal">
                   {storeOrder.price} р

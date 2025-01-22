@@ -4,6 +4,7 @@ import Cross from "../ZoomSlider/Cross";
 import { useAppDispatch } from "@/shared/models/reduxHooks";
 import { setCartButton, setCartPopup } from "@/entities/cart/model/cartSlice";
 import useBlockScroll from "@/shared/hooks/useBlockScroll";
+import useHideCartButton from "@/shared/hooks/useHideCartButton";
 
 interface IPopup{
   children : ReactNode,
@@ -13,16 +14,11 @@ interface IPopup{
 
 const Popup =  ({ children, closePopup }: IPopup, ref : LegacyRef<HTMLDivElement> | undefined) => {
 
-  const dispatch = useAppDispatch()
   
   useBlockScroll()
+
+  useHideCartButton()
   
-  useEffect( () => {
-    dispatch(setCartButton(false))
-    return () => {
-      dispatch(setCartButton(true))
-    }
-  }, [] )
 
   return (
     <div ref={ref} className="z-40 fixed !w-[100vw]  left-[0] !h-[100vh] border-2 top-[0] flex items-center justify-center">

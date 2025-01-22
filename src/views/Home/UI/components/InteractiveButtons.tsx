@@ -14,7 +14,7 @@ const InteractiveButtons:FC<IInteractiveMobile> = ({openZoom}) => {
         планшете.
       </p>
       <OrderButton onClick={openInstruction} className="interactive__m-button black-border">
-        <p className="interactive__button-text black">Инструкция по эксплуатации</p>
+        <p className="interactive__button-text black">Руководство по эксплуатации</p>
       </OrderButton>
       <OrderButton
         onClick={openZoom}

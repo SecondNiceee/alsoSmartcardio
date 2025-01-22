@@ -20,7 +20,7 @@ const StoreOrder:FC<IStoreOrder> = ({description, name, price, image, hoverImage
                 <Image className='aspect-square rounded-md object-cover w-[100%] absolute left-0 top-0 h-[100%] z-20' width={1600} height={1600} alt='#' src={hoverImage}  />
             </div>
             <div className='flex flex-col gap-2 items-center p-4 pt-0'>
-                <p className='big-p !font-medium'>{name}</p>
+                <p dangerouslySetInnerHTML={{__html : name}} className='big-p !font-medium'></p>
                 {/* <p className='p'>{description}</p> */}
                 <p className='big-p !font-medium'>{price} p</p>
             </div>

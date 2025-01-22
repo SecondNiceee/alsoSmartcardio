@@ -4,6 +4,7 @@ import { formatNumber } from "@/shared/utils/formateNumber";
 import React, {
   ForwardedRef,
   forwardRef,
+  SetStateAction,
   useEffect,
   useMemo,
   useState,
@@ -22,10 +23,10 @@ import { deliverCode } from "@/shared/config/deliverCode.config";
 import useBlockScroll from "@/shared/hooks/useBlockScroll";
 import Order from "./components/Order";
 import PhoneInput from "./components/PhoneInput";
-import CloseButton from "./components/CloseButton";
+import PopupCloseButton from "@/shared/UI/PopupCloseButton/PopupCloseButton";
 
 interface IBuyingPopup {
-  setState: (state: boolean) => void;
+  setState: React.Dispatch<SetStateAction<boolean>>;
 }
 export interface IForm {
   FIO: string;
@@ -46,10 +47,6 @@ export const BuyingPopup = forwardRef(
   
   ({ setState }: IBuyingPopup, ref: ForwardedRef<HTMLFormElement>) => {
     const [startAddOne, setStartAddOne] = useState<boolean>(false);
-
-    const clickHandler = () => {
-      setState(false);
-    };
 
     const cartOrders = useAppSelector((state) => state.cartSlice.orders);
 
@@ -131,14 +128,14 @@ export const BuyingPopup = forwardRef(
         className="w-[100vw] fixed flex justify-center top-0 left-0 z-40 overflow-y-scroll h-[100vh]"
       >
         <div
-          onClick={clickHandler}
+          onClick={() => {setState(false)}}
           className="fixed bg-black top-0 left-0 w-[100vw] h-[100vh] opacity-50 z-30"
         />
 
-          <div className="flex-col md:mt-10 md:mb-10 h-max rounded-3xl w-[100%] md:w-[90%] lg:w-[70%] xl:w-[50%] flex relative z-50 bg-white px-3 py-3 sm:px-6 sm:py-6 md:px-12 md:py-12">
+          <div className="flex-col md:mt-10 md:mb-10 h-max rounded-3xl w-[100%] md:w-[90%] lg:w-[70%] xl:w-[50%] flex relative max-w-[800px] z-50 bg-white px-4 py-4 sm:px-6 sm:py-6 md:px-12 md:py-12">
 
 
-          <CloseButton clickHandler={clickHandler}  />
+          <PopupCloseButton setPopup={setState} />
 
           <p className="mid-title font-bold text-black">Ваш заказ:</p>
 

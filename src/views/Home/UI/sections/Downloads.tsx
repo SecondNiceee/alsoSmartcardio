@@ -11,8 +11,8 @@ const Downloads = () => {
   return (
     <section id="downloads" className="downloads">
       <div className="container">
-        <header className="downloads__header">
-          Скачайте приложение СмартКардио® для работы с прибором
+        <header dangerouslySetInnerHTML={{__html : "Скачайте приложение СмартКардио® <br> для работы с прибором"}} className="downloads__header">
+          
         </header>
         <Reveal character={CHARACTER.LEFT} className="downloads__buttons">
           {downloadsButtons.map((e, i) => {
