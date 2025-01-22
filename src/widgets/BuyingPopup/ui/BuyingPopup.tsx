@@ -24,6 +24,9 @@ import useBlockScroll from "@/shared/hooks/useBlockScroll";
 import Order from "./components/Order";
 import PhoneInput from "./components/PhoneInput";
 import PopupCloseButton from "@/shared/UI/PopupCloseButton/PopupCloseButton";
+import { POST } from "@/shared/api/POST";
+import { device } from "@/shared/config/device";
+import { fromLocation } from "@/shared/config/fromLocation";
 
 interface IBuyingPopup {
   setState: React.Dispatch<SetStateAction<boolean>>;
@@ -91,6 +94,11 @@ export const BuyingPopup = forwardRef(
 
     const onSubmit = handleSubmit(async (data: IForm) => {
       const token = getAccessToken();
+      const address = delivceryCity.split(',')[0] + ' ' + data.address
+      console.log(address)
+
+      const delivery_code = data.deliveryMethod === "postmat" ? data.postmat.code
+      : data.deliveryMethod === "deliveryPoint" ? data.deliveryPoint.code : null
 
       const tarrif_code =
         data.deliveryMethod === "courier"
@@ -98,20 +106,84 @@ export const BuyingPopup = forwardRef(
           : data.deliveryMethod === "deliveryPoint"
           ? deliverCode.PVZ
           : deliverCode.POSTMAT;
+        
 
-      //   const response = await POST({
+        if (data.deliveryMethod === "courier")  {
 
-      //     endpoint: "/order",
-      //     data: {
-      //         tariff_code : tarrif_code,
-      //         shipment_point1 : 44,
+          const response = await POST({
+            endpoint: "/order",
+            data: {
+                tariff_code : tarrif_code,
+                delivery_point : "MSK55",
+                value : 0,
+                threshold : 14500,
+                sum : 0,
+                to_location : {
+                  address : address
+                },
+                packages : [
+                  {
+                    number : 1,
+                    weight : device.weight,
+                    length : device.length,
+                    width : device.width,
+                    height : device.height,
+                    comment : data.comment,
+                    items : [{
+                      name : device.name,
+                      ware_key : "AA-1",
+                      payment : {
+                        value : 0,
+                        vat_sum : 0,
+                        vat_rate : 0,
+                        cost : device.price,
+                        weight : device.weight,
+                        amount : 1
+                      }
+                    }],
+                  }
+                ],
+                recipient : {
+                  name : data.FIO,
+                  phones : [{number : "+7" + data.phone.slice(1)}]
+                }
+            },
+            headers: {
+              "Content-Type" : "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          });
 
-      //     },
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //       Authorization: `Bearer ${token}`,
-      //     },
-      //   });
+          console.log(response)
+
+
+        }
+        else{
+
+          const response = await POST({
+            endpoint: "/order",
+            data: {
+                tariff_code : tarrif_code,
+                shipment_point : 44,
+                delivery_point : delivery_code,
+                value : 0,
+                threshold : 14500,
+                sum : 0,
+                recipient : {
+                  name : data.FIO,
+                  phones : [{number : data.phone}]
+                }
+            },
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+        }
+
+
+
     });
 
 
@@ -133,7 +205,6 @@ export const BuyingPopup = forwardRef(
         />
 
           <div className="flex-col md:mt-10 md:mb-10 h-max rounded-3xl w-[100%] md:w-[90%] lg:w-[70%] xl:w-[50%] flex relative max-w-[800px] z-50 bg-white px-4 py-4 sm:px-6 sm:py-6 md:px-12 md:py-12">
-
 
           <PopupCloseButton setPopup={setState} />
 

@@ -13,6 +13,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   );
 
 
+  console.log(req.body)
+  console.log(JSON.stringify(req.body))
+
 
 
   try {
@@ -22,7 +25,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         method: method,
         body: JSON.stringify(requestBody),
         headers: {
-          'Content-Type': 'application/json',
           ...headers,
         },
       }
@@ -32,6 +34,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
 
     if (!response.ok) {
+      console.log(response)
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
@@ -44,6 +47,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       res.status(200).send(text);
     }
   } catch (error) {
+    console.log(error)
     res.status(500).json({ error: 'Internal Server Error' });
   }
 }

@@ -36,8 +36,11 @@ export const POST = async <T>({
     });
 
     if (!response.ok) {
+      console.log(response)
       throw new Error(`HTTP error! status: ${response.status}`);
     }
+
+
 
     const responseData = await response.json();
     return responseData;

@@ -39,8 +39,7 @@ const ResponsePopup = forwardRef(({setPopup}: IResponsePopup, ref: Ref<HTMLFormE
           <p><strong>От:</strong> ${data.email}</p>
           <p><strong>Сам отзыв:</strong> ${data.comment}</p>
         </div>
-      `,
-        recipientEmail : "support@smartcardio.ru"
+      `
     }})})
 
   useBlockScroll()

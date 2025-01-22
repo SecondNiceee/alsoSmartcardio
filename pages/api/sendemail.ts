@@ -13,13 +13,13 @@ interface EmailRequestBody {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
-    const { message, recipientEmail }: EmailRequestBody = req.body;
+    const { message }: EmailRequestBody = req.body;
     console.log("Пришел сюда")
     // Настройки транспорта (например, для Gmail)
     let transporter = nodemailer.createTransport({
       service: "Mail.ru",
       auth: {
-        user: "support@smartcardio.ru", // Ваш email
+        user: "kolya.titov.05@inbox.ru", // Ваш email
         pass: "77V49AsPjPgMYw25LrdK", // Ваш пароль
       },
     });
@@ -27,7 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Настройки email
     let mailOptions = {
       from: "kolya.titov.05@inbox.ru",
-      to: recipientEmail,
+      to: "support@smartcardio.ru",
       subject: 'New Message',
       html: message, 
     };
