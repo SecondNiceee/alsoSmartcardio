@@ -17,11 +17,10 @@ const LayoutBuyingPopup = () => {
       classNames={"zoom"}
       timeout={{ enter: 50, exit: 400 }}
       mountOnEnter
-      unmountOnExit
       in={isPopupOpened}
       nodeRef={popupRef}
     >
-      <BuyingPopup ref={popupRef} setState={setPopup} />
+      <BuyingPopup ref={popupRef} setState={setPopup} state = {isPopupOpened} />
     </CSSTransition>
   );
 };

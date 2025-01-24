@@ -60,6 +60,14 @@ export const cartSlice = createSlice({
         setCookie({ name: order.value, days: 360, value: order.counter });
       }
     },
+    removeAllOrders(state, action:PayloadAction<{id : number}>){
+      const id = action.payload.id
+      const order = state.orders.find((order) => order.id === id)
+      if (order) {
+        order.counter = 0;
+        setCookie({ name: order.value, days: 360, value: order.counter });
+      }
+    },
     setCartPopup(state, action:PayloadAction<boolean>){
         const popupState = action.payload
         state.isCartPopupOpened = popupState
@@ -76,5 +84,6 @@ export const {
   removeOneOrder,
   setCartButton,
   setCartPopup,
-  setOrdersFromCookie
+  setOrdersFromCookie,
+  removeAllOrders
 } = cartSlice.actions;

@@ -19,6 +19,8 @@ const useDeliveryDropDownFormProps = ({deliveryMethodString} : IuseDeliveryDropD
     const inputPlaceholder = deliveryMethodString === "deliveryPoint" ? "Выберите пункт выдачи" : "Выберите постмат"
     const delivers = deliveryMethodString === "deliveryPoint" ? deliveryPoints : postmats
 
+    console.log(delivers)
+
     return {deliveryName, inputLabel, inputPlaceholder, delivers, setDeliveryPoints, setPostmats, name}
 };
 

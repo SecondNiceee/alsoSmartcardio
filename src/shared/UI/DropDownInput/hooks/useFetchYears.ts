@@ -43,6 +43,8 @@ const useFetchYears = ({setFilteredSuggestions, fromEmpty, setFromEmpty, setFetc
         }
       });
 
+      console.log(value)
+
       if (!error){
         setFetchStatus("fulfilled")
       }
@@ -53,6 +55,8 @@ const useFetchYears = ({setFilteredSuggestions, fromEmpty, setFromEmpty, setFetc
       if (fromEmpty){
         setFromEmpty(false)
       }
+
+      console.log(responses)
 
       setFilteredSuggestions(responses)
       return responses;

@@ -1,4 +1,4 @@
-import { addOrder, removeOneOrder } from '@/entities/cart/model/cartSlice';
+import { addOrder, removeAllOrders, removeOneOrder } from '@/entities/cart/model/cartSlice';
 import { useAppDispatch } from '@/shared/models/reduxHooks';
 
 const useOrdersController = () => {
@@ -12,8 +12,12 @@ const useOrdersController = () => {
         dispatch(removeOneOrder({id : orderId}))
     }
 
+    const removeAllOrdersFromCart = (orderId : number) => {
+      dispatch(removeAllOrders({id : orderId}))
+    }
 
-    return {addOrderToCart, removeOneOrderFromCart}
+
+    return {addOrderToCart, removeOneOrderFromCart , removeAllOrdersFromCart}
 };
 
 export default useOrdersController;

@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import ReduxProvider from "../shared/providers/ReduxProvider";
 import LayoutBuyingPopup from "@/widgets/BuyingPopup/ui/LayoutBuyingPopup";
 import { LayoutCart } from "@/widgets/Cart";
+import "../styles/_index.scss"
 
 const inter = Inter({ variable: "--font4", subsets: ["cyrillic"] });
 const raleway = Raleway({

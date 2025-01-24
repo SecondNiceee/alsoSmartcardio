@@ -51,7 +51,7 @@ function DelivertDropDownInput<T extends FieldValues>({
             );
           }
           return null;
-        }, [inputValue]);
+        }, [inputValue, deliveryPoints]);
 
         const onInputFocus = () => {
           setShowSuggestion(true);

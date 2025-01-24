@@ -31,7 +31,7 @@ export default function RegisteredTextArea<T extends FieldValues>({error, name, 
     return (
         <div className={"flex flex-col gap-2 items-center overflow-hidden"}>
 
-            <label className={"p text-left"} htmlFor={name}>{title}</label>
+            <label className={"p text-left w-fit mr-auto"} htmlFor={name}>{title}</label>
             <div className={"border-black border-solid border-2 rounded-md flex flex-col w-[100%] relative gap-[10px] "}>
 
             <textarea ref={hiddenRef} value={value} readOnly className={`select-none text-left absolute  px-3 py-2 left-[0] opacity-0 -z-10 top-0 w-[100%] h-[200px]  max-h-[200px] rounded-md overflow-y-hidden p`}  />

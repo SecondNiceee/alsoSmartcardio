@@ -15,10 +15,10 @@ const DownloadsButtons = () => {
               <p>Инструкция для пользователей Apple</p>
             </OrderButton>
           <OrderButton onClick={() => setResponsePopup(true)} className="instruction-assistance cursor-pointer">
-            <p>Служба поддержки</p>
+            <p>Служба поддержки / отзыв</p>
           </OrderButton>
         </div>
-      <CSSTransition nodeRef={popupRef} in = {responsePopup} timeout={300} unmountOnExit mountOnEnter>
+      <CSSTransition nodeRef={popupRef} in = {responsePopup} timeout={{ enter:300, exit : 0}} unmountOnExit mountOnEnter>
           <ResponsePopup setPopup={setResponsePopup} ref={popupRef} />
       </CSSTransition>
       </>  

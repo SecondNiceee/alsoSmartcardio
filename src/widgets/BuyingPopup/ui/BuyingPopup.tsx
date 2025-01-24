@@ -20,16 +20,18 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { buyingSchema } from "../model/buyingValidation";
 import { getAccessToken } from "@/shared/utils/getAccessToken";
 import { deliverCode } from "@/shared/config/deliverCode.config";
-import useBlockScroll from "@/shared/hooks/useBlockScroll";
 import Order from "./components/Order";
 import PhoneInput from "./components/PhoneInput";
 import PopupCloseButton from "@/shared/UI/PopupCloseButton/PopupCloseButton";
 import { POST } from "@/shared/api/POST";
 import { device } from "@/shared/config/device";
-import { fromLocation } from "@/shared/config/fromLocation";
+import { deviceWithCase } from "@/shared/config/deviceWithCase";
+import { blockScroll, unBlockScroll } from "@/shared/utils/blockController";
+import useSubmit from "../hooks/useSubmit";
 
 interface IBuyingPopup {
   setState: (state:boolean) => void;
+  state : boolean
 }
 export interface IForm {
   FIO: string;
@@ -48,12 +50,15 @@ export interface IForm {
 
 export const BuyingPopup = forwardRef(
   
-  ({ setState }: IBuyingPopup, ref: ForwardedRef<HTMLFormElement>) => {
+  ({ setState, state }: IBuyingPopup, ref: ForwardedRef<HTMLFormElement>) => {
+
     const [startAddOne, setStartAddOne] = useState<boolean>(false);
 
     const cartOrders = useAppSelector((state) => state.cartSlice.orders);
 
     const { addOrderToCart } = useOrdersController();
+
+    
 
     useEffect(() => {
       const count = cartOrders
@@ -90,101 +95,19 @@ export const BuyingPopup = forwardRef(
     });
 
     const method = watch("deliveryMethod");
-    useBlockScroll();
-
-    const onSubmit = handleSubmit(async (data: IForm) => {
-      const token = getAccessToken();
-      const address = delivceryCity.split(',')[0] + ' ' + data.address
-      console.log(address)
-
-      const delivery_code = data.deliveryMethod === "postmat" ? data.postmat.code
-      : data.deliveryMethod === "deliveryPoint" ? data.deliveryPoint.code : null
-
-      const tarrif_code =
-        data.deliveryMethod === "courier"
-          ? deliverCode.COURIER
-          : data.deliveryMethod === "deliveryPoint"
-          ? deliverCode.PVZ
-          : deliverCode.POSTMAT;
-        
-
-        if (data.deliveryMethod === "courier")  {
-
-          const response = await POST({
-            endpoint: "/order",
-            data: {
-                tariff_code : tarrif_code,
-                delivery_point : "MSK55",
-                value : 0,
-                threshold : 14500,
-                sum : 0,
-                to_location : {
-                  address : address
-                },
-                packages : [
-                  {
-                    number : 1,
-                    weight : device.weight,
-                    length : device.length,
-                    width : device.width,
-                    height : device.height,
-                    comment : data.comment,
-                    items : [{
-                      name : device.name,
-                      ware_key : "AA-1",
-                      payment : {
-                        value : 0,
-                        vat_sum : 0,
-                        vat_rate : 0,
-                        cost : device.price,
-                        weight : device.weight,
-                        amount : 1
-                      }
-                    }],
-                  }
-                ],
-                recipient : {
-                  name : data.FIO,
-                  phones : [{number : "+7" + data.phone.slice(1)}]
-                }
-            },
-            headers: {
-              "Content-Type" : "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-          });
-
-          console.log(response)
 
 
-        }
-        else{
-
-          const response = await POST({
-            endpoint: "/order",
-            data: {
-                tariff_code : tarrif_code,
-                shipment_point : 44,
-                delivery_point : delivery_code,
-                value : 0,
-                threshold : 14500,
-                sum : 0,
-                recipient : {
-                  name : data.FIO,
-                  phones : [{number : data.phone}]
-                }
-            },
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-          });
-
-        }
+    useEffect( () => {
+      if (state){
+        blockScroll()
+      }
+      else{
+        unBlockScroll()
+      }
+    } , [state] ) 
 
 
 
-    });
 
 
     const [deliverySumm, setDeliverySumm] = useState<number>(0);
@@ -193,96 +116,104 @@ export const BuyingPopup = forwardRef(
 
     const [deliveryAddress, setDeliveryAddress] = useState<string>("");
 
+    const onSubmit = useSubmit({delivceryCity : delivceryCity, deliverySumm, handleSubmit})
+
     return (
       <form
         onSubmit={onSubmit}
         ref={ref}
         className="w-[100vw] fixed flex justify-center top-0 left-0 z-40 overflow-y-scroll h-[100vh]"
       >
-        <div
-          onClick={() => {setState(false)}}
-          className="fixed bg-black top-0 left-0 w-[100vw] h-[100vh] opacity-50 z-30"
-        />
 
-          <div className="flex-col md:mt-10 md:mb-10 h-max rounded-3xl w-[100%] md:w-[90%] lg:w-[70%] xl:w-[50%] flex relative max-w-[800px] z-50 bg-white px-4 py-4 sm:px-6 sm:py-6 md:px-12 md:py-12">
 
-          <PopupCloseButton setPopup={setState} />
+          <div className="flex w-[100vw] h-fit z-50 relative justify-center">
 
-          <p className="mid-title font-bold text-black">Ваш заказ:</p>
+            <div
+            onClick={() => {setState(false)}}
+            className="absolute bg-black top-0 left-0 w-[100%] h-[100%] opacity-50 z-30"
+          />
 
-          <div className="div mt-10 flex flex-col gap-5 border-t-[1px] border-b-[1px] border-solid border-black">
-            {cartOrders.map((order, i) => {
-              return (
-                <React.Fragment key={i}>{order.counter ? <Order order={order}/> : <> </>}</React.Fragment>
-              );
-            })}
+            <div className="flex-col md:mt-10 md:mb-10 h-max rounded-3xl w-[100%] md:w-[90%] lg:w-[70%] xl:w-[50%] flex relative max-w-[800px] z-50 bg-white px-4 py-4 sm:px-6 sm:py-6 md:px-12 md:py-12">
+
+            <PopupCloseButton setPopup={setState} />
+
+            <p className="mid-title font-bold text-black">Ваш заказ:</p>
+
+            <div className="div mt-10 flex flex-col gap-5 border-t-[1px] border-b-[1px] border-solid border-black">
+              {cartOrders.map((order, i) => {
+                return (
+                  <React.Fragment key={i}>{order.counter ? <Order order={order}/> : <> </>}</React.Fragment>
+                );
+              })}
+            </div>
+
+            <p className="big-p font-bold text-right mt-10 mr-[10px]">
+              Сумма : {formatNumber(summ)}p
+            </p>
+
+            <div className="flex flex-col gap-10 mt-10 w-[100%] px-6 py-6 md:px-12 md:py-12  mx-auto white-shadow  rounded-xl">
+
+              <FormTextInput
+                error={errors.FIO}
+                labelText="ФИО"
+                name="FIO"
+                placeholder="Введите ваше ФИО"
+                register={register}
+              />
+
+              <FormTextInput
+                error={errors.email}
+                name="email"
+                register={register}
+                type="email"
+                placeholder="example@email.com"
+                labelText="Ваш Email"
+              />
+
+              <PhoneInput control={control} error={errors.phone?.message} />
+
+              <Delivery
+                deliveryInputValue={deliveryAddress}
+                setDeliveryInputValue={setDeliveryAddress}
+                setDeliverySumm={setDeliverySumm}
+                deliveryCityName={delivceryCity}
+                setDeliveryCityName={setDeliveryCity}
+                control={control}
+                error={errors.deliveryMethod?.message}
+              />
+
+              <FormTextInput
+                placeholder="Напиши комментарий к заказу"
+                register={register}
+                labelText="Комментарий"
+                name={"comment"}
+              />
+
+
+              <FormTextInput
+                placeholder="Введите промокод"
+                register={register}
+                labelText="Промокод"
+                name={"promocode"}
+              />
+
+              <BuyingItog
+                address={deliveryAddress}
+                deliveryCity={delivceryCity}
+                deliverySumm={deliverySumm}
+                summ={summ}
+              />
+
+              <input
+                className=" !bg-black text-white p-2 big-p w-[100%] mx-auto rounded-md"
+                type="submit"
+                value={"Оформить заказ"}
+              />
+
+            </div>
+          </div>
           </div>
 
-          <p className="big-p font-bold text-right mt-10 mr-[10px]">
-            Сумма : {formatNumber(summ)}p
-          </p>
-
-          <div className="flex flex-col gap-10 mt-10 w-[100%] px-6 py-6 md:px-12 md:py-12  mx-auto white-shadow  rounded-xl">
-
-            <FormTextInput
-              error={errors.FIO}
-              labelText="ФИО"
-              name="FIO"
-              placeholder="Введите ваше ФИО"
-              register={register}
-            />
-
-            <FormTextInput
-              error={errors.email}
-              name="email"
-              register={register}
-              type="email"
-              placeholder="example@email.com"
-              labelText="Ваш Email"
-            />
-
-            <PhoneInput control={control} error={errors.phone?.message} />
-
-            <Delivery
-              deliveryInputValue={deliveryAddress}
-              setDeliveryInputValue={setDeliveryAddress}
-              setDeliverySumm={setDeliverySumm}
-              deliveryCityName={delivceryCity}
-              setDeliveryCityName={setDeliveryCity}
-              control={control}
-              error={errors.deliveryMethod?.message}
-            />
-
-            <FormTextInput
-              placeholder="Напиши комментарий к заказу"
-              register={register}
-              labelText="Комментарий"
-              name={"comment"}
-            />
-
-
-            <FormTextInput
-              placeholder="Введите промокод"
-              register={register}
-              labelText="Промокод"
-              name={"promocode"}
-            />
-
-            <BuyingItog
-              address={deliveryAddress}
-              deliveryCity={delivceryCity}
-              deliverySumm={deliverySumm}
-              summ={summ}
-            />
-
-            <input
-              className=" !bg-black text-white p-2 big-p w-[100%] mx-auto rounded-md"
-              type="submit"
-              value={"Оформить заказ"}
-            />
-
-          </div>
-        </div>
       </form>
     );
   }

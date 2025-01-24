@@ -34,8 +34,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
 
     if (!response.ok) {
-      console.log(response)
-      throw new Error(`HTTP error! status: ${response.status}`);
+      const data = await response.json();
+      console.log(data.requests[0].errors)
+      throw new Error(data.message)
     }
 
     const contentType = response.headers.get('content-type');
