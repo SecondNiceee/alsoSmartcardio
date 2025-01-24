@@ -38,6 +38,8 @@ const useSubmit = ({handleSubmit, delivceryCity, deliverySumm} : IUseSumbit) => 
           const token = getAccessToken();
 
           const address = delivceryCity.split(',')[0] + ' ' + data.address
+
+          console.log(address)
     
           const delivery_code = data.deliveryMethod === "postmat" ? data.postmat.code
           : data.deliveryMethod === "deliveryPoint" ? data.deliveryPoint.code : null
@@ -54,39 +56,38 @@ const useSubmit = ({handleSubmit, delivceryCity, deliverySumm} : IUseSumbit) => 
     
               if (data.deliveryMethod === "courier")  {
 
+
                 const response = await POST({
-                  endpoint: "/order",
-                  data: {
-                      "number" : "ddOererre7450813980068",
-                      "comment" : data.comment,
-                      type : 1,
-                      tariff_code : tarrif_code,
-                      shipment_point : "MSK55",
-                      value : 0,
-                      sum : 0,
-                      delivery_recipient_cost : {
-                        value : deliverySumm
-                      },
-                      to_location : {
-                        "code" : data.city,
-                        "address" : address
-                      },
-                      packages :  packages,
-                      recipient : {
-                        name : data.FIO,
-                        // phones : [{number : "+7" + data.phone.slice(1)}]
-                        phones : [{number : "+79661827344" }]
-                      }
-                  },
-                  headers: {
-                    "Content-Type" : "application/json",
-                    Authorization: `Bearer ${token}`,
-                  },
-                });
+                    endpoint: "/order",
+                    data: {
+                        "comment" : data.comment,
+                        type : 1,
+                        tariff_code : tarrif_code,
+                        shipment_point : "MSK55",
+                        value : 0,
+                        sum : 0,
+                        to_location : {
+                            country_code : "RU",
+                            "address" : address
+                          },
+                        delivery_recipient_cost : {
+                          value : deliverySumm
+                        },
+                        delivery_point : delivery_code,
+                        packages : packages,
+                        recipient : {
+                          name : data.FIO,
+                          // phones : [{number : "+7" + data.phone.slice(1)}]
+                          phones : [{number : "+79661827344" }]
+                        }
+                    },
+                    headers: {
+                      "Content-Type" : "application/json",
+                      Authorization: `Bearer ${token}`,
+                    },
+                  });
+
                 
-                if (response){
-      
-                }
               }
               else{
                 const response = await POST({
