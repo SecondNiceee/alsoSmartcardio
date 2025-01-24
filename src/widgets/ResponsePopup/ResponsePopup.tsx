@@ -67,7 +67,7 @@ const ResponsePopup = forwardRef(({setPopup}: IResponsePopup, ref: Ref<HTMLFormE
         <div className="flex-col  my-auto gap-10  md:mt-10 md:mb-10 h-max rounded-3xl w-[100%] max-w-[800px] md:w-[90%] lg:w-[70%] xl:w-[50%] flex relative z-50 bg-white px-4 py-4 sm:px-6 sm:py-6 md:px-12 md:py-12">
           <div className="flex flex-col gap-2 items-center w-[100%] justify-center">
               <h2 className="mid-title text-black">Служба поддержки / отзыв</h2>
-              <p className="big-p">Отвечаем в течении суток</p>
+              <p className="big-p">Отвечаем в течение суток</p>
           </div>
 
           <FormTextInput

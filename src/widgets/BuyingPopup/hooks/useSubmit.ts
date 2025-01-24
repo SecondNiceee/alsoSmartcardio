@@ -17,6 +17,10 @@ interface IUseSumbit{
 }
 const useSubmit = ({handleSubmit, delivceryCity, deliverySumm} : IUseSumbit) => {
 
+        const goToCongradulation = () => {
+            window.location.href = '/congradulation';
+        };
+
         const cartOrders = useAppSelector( (state) => state.cartSlice.orders )
 
         const onSubmit = handleSubmit(async (data: IForm) => {
@@ -112,6 +116,9 @@ const useSubmit = ({handleSubmit, delivceryCity, deliverySumm} : IUseSumbit) => 
                 });
       
               }
+
+              goToCongradulation()
+
             }
             catch(error){
               console.warn(error)

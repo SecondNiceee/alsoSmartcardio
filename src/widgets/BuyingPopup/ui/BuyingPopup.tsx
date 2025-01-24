@@ -18,16 +18,12 @@ import { TypeOffice } from "../model/TypeOffice";
 import BuyingItog from "./components/BuyingItog";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { buyingSchema } from "../model/buyingValidation";
-import { getAccessToken } from "@/shared/utils/getAccessToken";
-import { deliverCode } from "@/shared/config/deliverCode.config";
 import Order from "./components/Order";
 import PhoneInput from "./components/PhoneInput";
 import PopupCloseButton from "@/shared/UI/PopupCloseButton/PopupCloseButton";
-import { POST } from "@/shared/api/POST";
-import { device } from "@/shared/config/device";
-import { deviceWithCase } from "@/shared/config/deviceWithCase";
 import { blockScroll, unBlockScroll } from "@/shared/utils/blockController";
 import useSubmit from "../hooks/useSubmit";
+import { routes } from "@/shared/config/routes";
 
 interface IBuyingPopup {
   setState: (state:boolean) => void;
@@ -110,7 +106,7 @@ export const BuyingPopup = forwardRef(
 
 
 
-    const [deliverySumm, setDeliverySumm] = useState<number>(0);
+    const [deliverySumm, setDeliverySumm] = useState<number>(0)
 
     const [delivceryCity, setDeliveryCity] = useState<string>("");
 

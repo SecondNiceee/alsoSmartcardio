@@ -55,6 +55,16 @@ function  CityChoicer<T extends FieldValues>({control, name, onPickFunction, set
                     setCity(suggestion.full_name)
                   };
 
+
+                const onTouch = (suggestion: TypeSuggestion): React.TouchEventHandler<HTMLLIElement> => (e: React.TouchEvent<HTMLLIElement>) => {
+                  setIsCityPicked(true);
+                  onChange(suggestion.code);
+                  onPickFunction(suggestion.code);
+                  setShowSuggestions(false);
+                  setInputValue(suggestion.full_name.split(',')[0]);
+                  setCity(suggestion.full_name);
+                };
+
                 const changeHandler:React.ChangeEventHandler<HTMLInputElement> = (e) => {
 
                   setCity('')
@@ -91,9 +101,9 @@ function  CityChoicer<T extends FieldValues>({control, name, onPickFunction, set
 
                         {fetchStatus === "pending" && <Loader width={'30'} classNames='absolute right-[10px] top-[25px]' /> }
 
-                        {showSuggestions && inputValue && !fromEmpty && fetchStatus === 'fulfilled' && <CitySuggestionList filteredSuggestions={filteredSuggestions} onClick={onClick} />}
+                        {showSuggestions && inputValue && !fromEmpty && fetchStatus === 'fulfilled' && <CitySuggestionList  filteredSuggestions={filteredSuggestions} onClick={onClick} onTouch={onTouch} />}
 
-                        <input autoComplete='off' spellCheck = {false} placeholder='Введите город' className='p-2 p text-left border-black border-solid border-2 rounded-md' {...field} onFocus={onFocus} onBlur={onBlur} value={inputValue} onChange={changeHandler} type="text" />
+                        <input  autoComplete='off' spellCheck = {false} placeholder='Введите город' className='p-2 p text-left border-black border-solid border-2 rounded-md' {...field} onFocus={onFocus} onBlur={onBlur} value={inputValue} onChange={changeHandler} type="text" />
 
                         {city.length ? <p className='p mt-2 ml-2 text-grey  text-left'>{city}</p> : <></>}
 
