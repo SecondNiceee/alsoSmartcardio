@@ -6,6 +6,7 @@ import ReduxProvider from "../shared/providers/ReduxProvider";
 import LayoutBuyingPopup from "@/widgets/BuyingPopup/ui/LayoutBuyingPopup";
 import { LayoutCart } from "@/widgets/Cart";
 import "../styles/_index.scss"
+import Head from "next/head";
 
 const inter = Inter({ variable: "--font4", subsets: ["cyrillic"] });
 const raleway = Raleway({
@@ -24,7 +25,6 @@ export const metadata: Metadata = {
     description: "Беспроводной кардиограф, ЭКГ и сатурация без геля и проводов, результат сразу в телефоне, прибор разработан и производится в России",
     type: "website",
     url: "https://smartcardio.ru/",
-    
     images: [
       {
         url: "/images/smartcardioS1.png",
@@ -48,6 +48,9 @@ export const metadata: Metadata = {
     siteName: "Smartcardio",
     locale: "ru_RU",
   },
+  applicationName : "Smartcardio",
+  creator : "Nick",
+
   
 
 
@@ -60,6 +63,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <link rel="hortcut icon" href="/images/favicon.ico"/>
+      </Head>
       <body
         className={`${raleway.variable}
             ${inter.variable}
