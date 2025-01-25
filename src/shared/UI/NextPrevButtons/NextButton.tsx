@@ -8,7 +8,7 @@ export type arrowsType = "circle" | "just";
 
 const NextButton = ({ arrowType, className }: { arrowType?: arrowsType, className? : string }) => {
   return (
-    <div className={`${className} flex items-center justify-center ${arrowType === "just" ? "absolute right-2 z-10" : ""}`}>
+    <div className={`${className}  flex items-center justify-center ${arrowType === "just" ? "absolute right-2 z-10" : ""}`}>
       {arrowType === "just" ? (
         <JustArrow className="-rotate-90 w-[70%]" />
       ) : (

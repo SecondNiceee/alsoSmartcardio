@@ -77,8 +77,7 @@ const useSubmit = ({handleSubmit, delivceryCity, deliverySumm} : IUseSumbit) => 
                         packages : packages,
                         recipient : {
                           name : data.FIO,
-                          // phones : [{number : "+7" + data.phone.slice(1)}]
-                          phones : [{number : "+79661827344" }]
+                          phones : [{number : "+7" + data.phone.slice(1)}]
                         }
                     },
                     headers: {
@@ -106,8 +105,7 @@ const useSubmit = ({handleSubmit, delivceryCity, deliverySumm} : IUseSumbit) => 
                       packages : packages,
                       recipient : {
                         name : data.FIO,
-                        // phones : [{number : "+7" + data.phone.slice(1)}]
-                        phones : [{number : "+79661827344" }]
+                        phones : [{number : "+7" + data.phone.slice(1)}]
                       }
                   },
                   headers: {

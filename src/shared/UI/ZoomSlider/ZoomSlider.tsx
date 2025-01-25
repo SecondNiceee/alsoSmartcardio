@@ -63,9 +63,9 @@ function ZoomSlider<T>({slides, closeZoom,initialSlide , mainSwiperRef, zoomStat
                     <Cross/>
                 </div>
 
-                <NextButton arrowType='circle' className='circle next-zoom' />
+                <NextButton arrowType='circle' className='next-zoom' />
 
-                <PrevButton arrowType='circle' className='circle prev-zoom' />
+                <PrevButton arrowType='circle' className='prev-zoom' />
 
                 <Swiper onSlideChange={changeSlider}  initialSlide={initialSlide} modules={[Navigation]} loop = {true}  navigation = {{
                     prevEl : '.prev-zoom',
