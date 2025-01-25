@@ -50,10 +50,8 @@ export const metadata: Metadata = {
   },
   applicationName : "Smartcardio",
   creator : "Nick",
-
-  
-
-
+  robots: "index, follow",
+  viewport: "width=device-width, initial-scale=1",
 };
 
 export default function RootLayout({
@@ -65,6 +63,18 @@ export default function RootLayout({
     <html lang="en">
       <Head>
         <link rel="hortcut icon" href="/images/favicon.ico"/>
+        <meta name="description" content={"Беспроводной кардиограф, ЭКГ и сатурация без геля и проводов, результат сразу в телефоне, прибор разработан и производится в России"} />
+        <meta name="keywords" content={"беспроводной кардиограф, ЭКГ, сатурация, медицинский прибор, медицина, прибор, разработка в России, сердце, инновация"} />
+        <meta property="og:title" content={"Smartcardio - Беспроводной кардиограф, ЭКГ и сатурация без геля и проводов."} />
+        <meta property="og:description" content={"Беспроводной кардиограф, ЭКГ и сатурация без геля и проводов, результат сразу в телефоне, прибор разработан и производится в России"} />
+        <meta property="og:type" content={"website"} />
+        <meta property="og:url" content={"https://smartcardio.ru/"} />
+        <meta property="og:image" content={"/images/smartcardioS1.png"} />
+        <meta property="og:site_name" content={"Smartcardio"} />
+        <meta property="og:locale" content={"ru_RU"} />
+        <meta name="robots" content={"index, follow"} />
+        <meta name="viewport" content={"width=device-width, initial-scale=1"} />
+        
       </Head>
       <body
         className={`${raleway.variable}
