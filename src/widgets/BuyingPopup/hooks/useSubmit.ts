@@ -72,10 +72,13 @@ const useSubmit = ({handleSubmit, delivceryCity, deliverySumm} : IUseSumbit) => 
                           },
                         delivery_recipient_cost : {
                           value : deliverySumm
+                          
                         },
+                        
                         delivery_point : delivery_code,
                         packages : packages,
                         recipient : {
+                          email : data.email,
                           name : data.FIO,
                           phones : [{number : "+7" + data.phone.slice(1)}]
                         }
