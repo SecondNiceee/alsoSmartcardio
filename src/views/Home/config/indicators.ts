@@ -5,7 +5,7 @@ export type TypeIndicator = {
 
 export const indicators:TypeIndicator[] = [
     {
-        description : "ЭКГ в шести стандартных отведениях",
+        description : "ЭКГ в трёх стандартных (I, II, III) и трёх усиленных от конечностей (aVL, aVR, aVF) отведениях",
         imageSrc : "images/indicator1.svg"
     },
     {
