@@ -62,9 +62,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
+        <meta name="title" content="Smartcardio" />
         <link rel="hortcut icon" href="/images/favicon.ico"/>
         <meta name="description" content={"Беспроводной кардиограф, ЭКГ и сатурация без геля и проводов, результат сразу в телефоне, прибор разработан и производится в России"} />
-        <meta name="keywords" content={"беспроводной кардиограф, ЭКГ, сатурация, медицинский прибор, медицина, прибор, разработка в России, сердце, инновация"} />
+        <meta name="keywords" content={"беспроводной кардиограф, ЭКГ, сатурация, медицинский прибор, медицина, прибор, разработка в России, сердце, инновация, Smartcardio, Смарткардио, Смарткадио, Smatcardio"} />
         <meta property="og:title" content={"Smartcardio - Беспроводной кардиограф, ЭКГ и сатурация без геля и проводов."} />
         <meta property="og:description" content={"Беспроводной кардиограф, ЭКГ и сатурация без геля и проводов, результат сразу в телефоне, прибор разработан и производится в России"} />
         <meta property="og:type" content={"website"} />
