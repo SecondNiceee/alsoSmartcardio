@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     description: "Беспроводной кардиограф, ЭКГ и сатурация без геля и проводов, результат сразу в телефоне, прибор разработан и производится в России",
     type: "website",
     url: "https://smartcardio.ru/",
+    
     images: [
       {
         url: "/images/smartcardioS1.png",
@@ -47,6 +48,7 @@ export const metadata: Metadata = {
     siteName: "Smartcardio",
     locale: "ru_RU",
   },
+  
 
 
 };
