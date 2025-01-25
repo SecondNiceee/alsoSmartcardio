@@ -2,6 +2,7 @@
 import { useAppSelector } from "@/shared/models/reduxHooks";
 import { formatNumber } from "@/shared/utils/formateNumber";
 import React, {
+  ChangeEventHandler,
   ForwardedRef,
   forwardRef,
   SetStateAction,
@@ -9,7 +10,7 @@ import React, {
   useMemo,
   useState,
 } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import FormTextInput from "@/shared/UI/FormInput/FormTextInput";
 import Delivery from "./components/Delivery";
 import { TypeDeliveryMethodString } from "../model/TypeDeliveryMethodString";
@@ -24,6 +25,7 @@ import PopupCloseButton from "@/shared/UI/PopupCloseButton/PopupCloseButton";
 import { blockScroll, unBlockScroll } from "@/shared/utils/blockController";
 import useSubmit from "../hooks/useSubmit";
 import { routes } from "@/shared/config/routes";
+import { PROMOCODE } from "@/shared/config/constants";
 
 interface IBuyingPopup {
   setState: (state:boolean) => void;
@@ -54,8 +56,6 @@ export const BuyingPopup = forwardRef(
 
     const { addOrderToCart } = useOrdersController();
 
-    
-
     useEffect(() => {
       const count = cartOrders
         .map((order) => order.counter)
@@ -66,11 +66,16 @@ export const BuyingPopup = forwardRef(
       setStartAddOne(true);
     }, [setStartAddOne]);
 
+    const [isPromocodeFind, setPromocode] = useState<boolean>(false)
+
     const summ = useMemo(() => {
       let summ = 0;
       cartOrders.forEach((e, i) => (summ += e.price * e.counter));
+      if (isPromocodeFind ){
+        summ -= 2250
+      }
       return summ;
-    }, [cartOrders]);
+    }, [cartOrders,isPromocodeFind]);
 
     // useBlockScroll()
 
@@ -87,10 +92,12 @@ export const BuyingPopup = forwardRef(
       watch,
       formState: { errors },
     } = useForm<IForm>({
-      resolver: zodResolver(buyingSchema),
+      resolver: zodResolver(buyingSchema)
     });
 
-    const method = watch("deliveryMethod");
+    // const method = watch("deliveryMethod");
+
+    // console.log(method)
 
 
     useEffect( () => {
@@ -113,6 +120,8 @@ export const BuyingPopup = forwardRef(
     const [deliveryAddress, setDeliveryAddress] = useState<string>("");
 
     const onSubmit = useSubmit({delivceryCity : delivceryCity, deliverySumm, handleSubmit})
+
+    console.log(errors)
 
     return (
       <form
@@ -185,15 +194,27 @@ export const BuyingPopup = forwardRef(
                 name={"comment"}
               />
 
+              <Controller control={control} name="promocode" render={({field}) => {
+                const {onChange, value} = field
+                const changeHandler:ChangeEventHandler<HTMLInputElement> = (e) => {
+                    const value = e.target.value
+                    console.log(value, PROMOCODE)
+                    if (value === PROMOCODE){
+                      setPromocode(true)
+                    }
+                    onChange(value)
+                }
+                return (
+                <div className='flex flex-col gap-2'>
+                    <label className='p text-left' htmlFor={"promocode"}>{"Промокод"}</label>
+                    <input {...field} onChange={changeHandler} value={value} autoComplete='nope' spellCheck = {false} placeholder={"Введите промокод"} id={"promocode"} className={`p-2 p text-left ${isPromocodeFind ? "border-green-600 border-2" : "border-black"} border-solid border-2 rounded-md`} type={"text"} />
+                </div>
+                )
+              }} />
 
-              <FormTextInput
-                placeholder="Введите промокод"
-                register={register}
-                labelText="Промокод"
-                name={"promocode"}
-              />
 
               <BuyingItog
+                isPromocode = {isPromocodeFind}
                 address={deliveryAddress}
                 deliveryCity={delivceryCity}
                 deliverySumm={deliverySumm}

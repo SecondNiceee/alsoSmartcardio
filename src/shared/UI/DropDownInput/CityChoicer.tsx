@@ -103,7 +103,7 @@ function  CityChoicer<T extends FieldValues>({control, name, onPickFunction, set
 
                         {showSuggestions && inputValue && !fromEmpty && fetchStatus === 'fulfilled' && <CitySuggestionList  filteredSuggestions={filteredSuggestions} onClick={onClick} onTouch={onTouch} />}
 
-                        <input  autoComplete='off' spellCheck = {false} placeholder='Введите город' className='p-2 p text-left border-black border-solid border-2 rounded-md' {...field} onFocus={onFocus} onBlur={onBlur} value={inputValue} onChange={changeHandler} type="text" />
+                        <input  autoComplete='nope' spellCheck = {false} placeholder='Введите город' className='p-2 p text-left border-black border-solid border-2 rounded-md' {...field} onFocus={onFocus} onBlur={onBlur} value={inputValue} onChange={changeHandler} type="text" />
 
                         {city.length ? <p className='p mt-2 ml-2 text-grey  text-left'>{city}</p> : <></>}
 

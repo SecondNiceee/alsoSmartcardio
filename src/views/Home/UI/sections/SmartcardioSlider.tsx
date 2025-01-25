@@ -13,20 +13,21 @@ import useZoomSwiper from "../../../../shared/hooks/useZoomSwiper";
 import { useAppDispatch } from "@/shared/models/reduxHooks";
 import { setCartPopup } from "@/entities/cart/model/cartSlice";
 import { CHARACTER } from "@/shared/UI/Reveal/models/CharacterEnum";
+import { routes } from "@/shared/config/routes";
 
 
 const SmartcardioSlider = () => {
 
-  const dispatch = useAppDispatch()
+  // const dispatch = useAppDispatch()
   
   const {activeSlide, handleSlideChange, swiperRef} = useDefaultSwiper()
 
   const {closeZoom , zoomSlider, setZoomSlider} = useZoomSwiper()
 
 
-  const buttonHandler = () => {
-    dispatch(setCartPopup(true))
-  };
+  // const buttonHandler = () => {
+  //   dispatch(setCartPopup(true))
+  // };
 
   return (
     <section id = "smartcardio-slider" className="smartcardio-slider relative">
@@ -72,7 +73,7 @@ const SmartcardioSlider = () => {
         <Reveal className="w-[100%] flex justify-center" character={CHARACTER.RIGHT}>
           <OrderButton
             className="smartcardio-slider__button"
-            onClick={buttonHandler}
+            link={routes.store}
           >
             <p>Заказать</p>
           </OrderButton>

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import OrderButton from "@/shared/UI/OrderButton/OrderButton";
 import { useAppDispatch } from "@/shared/models/reduxHooks";
 import { setCartPopup } from "@/entities/cart/model/cartSlice";
+import { routes } from "@/shared/config/routes";
 
 const SmartcardioButtons = () => {
   const dispath = useAppDispatch();
@@ -16,15 +17,15 @@ const SmartcardioButtons = () => {
     importScrollToDownloads();
   }, []);
 
-  const orderFunction = () => {
-    dispath(setCartPopup(true));
-  };
+  // const orderFunction = () => {
+  //   dispath(setCartPopup(true));
+  // };
 
   return (
     <>
       <OrderButton
         className="smartcardio__order-button"
-        onClick={orderFunction}
+        link={routes.store}
       >
         <p>Заказать</p>
       </OrderButton>

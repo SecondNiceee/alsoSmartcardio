@@ -3,19 +3,13 @@ import React, { FC, SetStateAction } from 'react';
 import { headerNavs } from '../../config';
 import OrderButton from '@/shared/UI/OrderButton/OrderButton';
 import Link from 'next/link';
-import { useAppDispatch } from '@/shared/models/reduxHooks';
-import { setCartPopup } from '@/entities/cart/model/cartSlice';
+import { routes } from '@/shared/config/routes';
 
 interface IBurgerLinks{
     isActive : boolean,
     setMenuOpen : React.Dispatch<SetStateAction<boolean>>
 }
 const BurgerLinks:FC<IBurgerLinks> = ({isActive, setMenuOpen}) => {
-    const dispatch = useAppDispatch()
-    const openBuyingPopup = () => {
-        dispatch(setCartPopup(true))
-        setMenuOpen(false)
-    }
     return (
         <nav className={`header__burger-menu ${isActive ? "active" : ""}`}>
             {headerNavs.map( (headerNav, i) => {
@@ -26,7 +20,7 @@ const BurgerLinks:FC<IBurgerLinks> = ({isActive, setMenuOpen}) => {
                 </React.Fragment>
               )
             } )}
-            <OrderButton className='burgerMenu__order-button' onClick={openBuyingPopup}>
+            <OrderButton className='burgerMenu__order-button' link={routes.store}>
                 <p className='burgerMenu__order-text'>Заказать</p>
             </OrderButton>
         </nav>

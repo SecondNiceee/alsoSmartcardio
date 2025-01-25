@@ -16,8 +16,39 @@ const raleway = Raleway({
 });
 
 export const metadata: Metadata = {
-  title: "Nick sait",
-  description: "It's my first Sait on Next.js",
+  title: "Smartcardio",
+  description: "беспроводной кардиограф, ЭКГ и сатурация без геля и проводов, результат сразу в телефоне, прибор разработан и производится в России",
+  keywords: ["беспроводной кардиограф", "ЭКГ", "сатурация", "медицинский прибор", "разработка в России"],
+  openGraph: {
+    title: "Smartcardio",
+    description: "Беспроводной кардиограф, ЭКГ и сатурация без геля и проводов, результат сразу в телефоне, прибор разработан и производится в России",
+    type: "website",
+    url: "https://smartcardio.ru/",
+    images: [
+      {
+        url: "/images/smartcardioS1.png",
+        width: 800,
+        height: 600,
+        alt: "Smartcardio Device",
+      },
+      {
+        url: "/images/smartcardioS2.png",
+        width: 800,
+        height: 600,
+        alt: "Smartcardio Device",
+      },
+      {
+        url: "/images/smartcardioS3.png",
+        width: 800,
+        height: 600,
+        alt: "Smartcardio Device",
+      },
+    ],
+    siteName: "Smartcardio",
+    locale: "ru_RU",
+  },
+
+
 };
 
 export default function RootLayout({

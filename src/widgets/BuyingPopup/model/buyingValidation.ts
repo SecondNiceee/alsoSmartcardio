@@ -62,14 +62,17 @@ export const buyingSchema = z.object({
     comment: z.string().optional(),
   }).refine((data) => {
     if (data.deliveryMethod === "deliveryPoint" && !data.deliveryPoint) {
+    console.log("Тут ошибка")
     //   throw new Error("Пожалуйста, выберите пункт выдачи из предложенного списка");
     return false
     }
     if (data.deliveryMethod === "postmat" && !data.postmat) {
+    console.log("тут ошибка")
     //   throw new Error("Пожалуйста, выберите постмат из предложенного списка");
     return false
     }
     if (data.deliveryMethod === "courier" && !data.address?.length) {
+      console.log("Тут ошибка")
     //   throw new Error("Пожалуйста, укажите адрес");
     return false
     }
