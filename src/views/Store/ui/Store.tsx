@@ -27,9 +27,6 @@ export const Store = () => {
 
                 <div className='flex flex-col gap-4 items-center'>
 
-                    <p className='sub-title text-black font-semibold'>
-                        Начните заботу о своем здоровье уже сегодня!
-                    </p>
                     <p className='sub-title text-black'>Наши товары: </p>
 
                 </div>
