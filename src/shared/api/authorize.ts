@@ -23,7 +23,7 @@ export default async function authorize() {
       });
     });
 
-  
+    console.log(response.access_token)
     if (response) {
       return response.access_token;
     }

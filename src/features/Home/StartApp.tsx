@@ -12,6 +12,17 @@ import { getUserId } from "@/shared/utils/getUserId";
 const StartApp:FC = () => {
     const dispatch = useAppDispatch()
 
+
+    useEffect( () => {
+      const getAutoriztion = async () => {
+          console.log("Авторизация пошла")
+          const token = await authorize()
+          saveAccessToken(token)
+      }
+      getAutoriztion()
+      dispatch(setOrdersFromCookie())
+    } , [] )
+
     useEffect(() => {
         const setFp = async () => {
           const fp = await FingerprintJS.load();
@@ -36,14 +47,7 @@ const StartApp:FC = () => {
         setFp();
       }, []);
 
-    useEffect( () => {
-        const getAutoriztion = async () => {
-            const token = await authorize()
-            saveAccessToken(token)
-        }
-        getAutoriztion()
-        dispatch(setOrdersFromCookie())
-    } , [] )
+
     
     return null
 };
