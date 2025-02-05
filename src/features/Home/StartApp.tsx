@@ -15,12 +15,15 @@ const StartApp:FC = () => {
 
     useEffect( () => {
       const getAutoriztion = async () => {
-          console.log("Авторизация пошла")
           const token = await authorize()
           saveAccessToken(token)
       }
       getAutoriztion()
+      const id = setTimeout( () => getAutoriztion, 3600 )
       dispatch(setOrdersFromCookie())
+      return () => {
+        clearTimeout(id)
+      }
     } , [] )
 
     useEffect(() => {
