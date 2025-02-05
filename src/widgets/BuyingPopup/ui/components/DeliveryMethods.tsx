@@ -68,7 +68,7 @@ function DeliveryMethods<T extends FieldValues>({methods, control, setDeliveryMe
                 <div className='flex items-center gap-2'>
                     <input  id='POSTAMAT'  type="radio" {...field} checked = {value === "postmat"}  onChange={changeHandler("postmat")} />      
                     <label htmlFor='POSTAMAT' className="radio-label" /> 
-                    <label className='p font-bold' htmlFor="POSTAMAT">Доставка в постмат <span className='font-extralight'>от { methods[1].calendar_min + ' '+ getDaysString(methods[0].calendar_min) + ', от ' + methods[1].total_sum + ' руб'} </span></label>
+                    <label className='p font-bold' htmlFor="POSTAMAT">Доставка в постамат <span className='font-extralight'>от { methods[1].calendar_min + ' '+ getDaysString(methods[0].calendar_min) + ', от ' + methods[1].total_sum + ' руб'} </span></label>
                 </div> }
 
                 {!methods[2].errors && 

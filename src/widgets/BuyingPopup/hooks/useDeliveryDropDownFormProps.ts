@@ -15,8 +15,8 @@ const useDeliveryDropDownFormProps = ({deliveryMethodString} : IuseDeliveryDropD
 
     const deliveryName:TypeDeliverName = deliveryMethodString === "deliveryPoint" ? "PVZ" : "POSTMAT"
     const name = deliveryMethodString === "deliveryPoint" ? "deliveryPoint" : "postmat"
-    const inputLabel = deliveryMethodString === "deliveryPoint" ? "Пункт выдачи" : "Постмат"
-    const inputPlaceholder = deliveryMethodString === "deliveryPoint" ? "Выберите пункт выдачи" : "Выберите постмат"
+    const inputLabel = deliveryMethodString === "deliveryPoint" ? "Пункт выдачи" : "Постамат"
+    const inputPlaceholder = deliveryMethodString === "deliveryPoint" ? "Выберите пункт выдачи" : "Выберите постамат"
     const delivers = deliveryMethodString === "deliveryPoint" ? deliveryPoints : postmats
 
     console.log(delivers)

@@ -75,7 +75,7 @@ function  CityChoicer<T extends FieldValues>({control, name, onPickFunction, set
 
                   if (e.target.value.length){
                       setFetchStatus("pending")
-                      debouncedFetchCitys(e.target.value)
+                      debouncedFetchCitys(e.target.value.split(' ')[0])
                   }
                   else{
                     setFromEmpty(true)

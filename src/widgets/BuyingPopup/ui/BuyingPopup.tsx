@@ -109,10 +109,6 @@ export const BuyingPopup = forwardRef(
       }
     } , [state] ) 
 
-
-
-
-
     const [deliverySumm, setDeliverySumm] = useState<number>(0)
 
     const [delivceryCity, setDeliveryCity] = useState<string>("");
