@@ -1,5 +1,5 @@
 // pages/api/sendEmail.ts
-import { emailTransporterName, emailTransporterPassword } from '@/shared/config/constants';
+import { emailPassword, emailRecipient, emailTransporterName, emailTransporterPassword, emailUser } from '@/shared/config/constants';
 import { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
 
@@ -19,15 +19,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     let transporter = nodemailer.createTransport({
       service: "Mail.ru",
       auth: {
-        user: "kolya.titov.05@inbox.ru", // Ваш email
-        pass: "77V49AsPjPgMYw25LrdK", // Ваш пароль
+        user: emailUser, // Ваш email
+        pass: emailPassword, // Ваш пароль
       },
     });
 
-    // Настройки email
     let mailOptions = {
-      from: "kolya.titov.05@inbox.ru",
-      to: "support@smartcardio.ru",
+      from: emailUser,
+      to: emailRecipient,
       subject: 'New Message',
       html: message, 
     };

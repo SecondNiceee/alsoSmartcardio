@@ -19,8 +19,6 @@
     "libphonenumber-js": "^1.11.17",
     "lodash": "^4.17.21",
     "lottie-react": "^2.4.0",
-    "mongodb": "^6.10.0",
-    "mongoose": "^8.7.3",
     "next": "^15.1.4",
     "next-auth": "^4.24.10",
     "nodemailer": "^6.9.16",

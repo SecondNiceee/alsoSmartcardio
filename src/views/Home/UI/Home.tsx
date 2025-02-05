@@ -4,7 +4,6 @@ import dynamic from 'next/dynamic';
 
 import Smartcardio from './sections/Smartcardio';
 import Downloads from './sections/Downloads';
-import { getAccessToken } from '@/shared/utils/getAccessToken';
 // import LayoutCookiePopup from '@/widgets/CookiePopup/LayoutCookiePopup';
 
 
@@ -24,6 +23,7 @@ const Sertifications = dynamic( () => import("./sections/Sertifications") )
 const FooterOrder = dynamic( () => import("./sections/FooterOrder") )
 const Contacts = dynamic( () => import("./sections/Contacts") )
 const Footer = dynamic( () => import("./sections/Footer") )
+const LayoutCookiePopup = dynamic( () => import("../../../widgets/CookiePopup/LayoutCookiePopup") )
 
 
 export const Home = () => {
@@ -60,7 +60,7 @@ export const Home = () => {
             
             <Footer />
 
-            {/* <LayoutCookiePopup /> */}
+            <LayoutCookiePopup />
         
         </>
         

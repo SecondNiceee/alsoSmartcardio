@@ -1,8 +1,6 @@
 import { account, password } from "../config/constants";
-import { removeAccessToken } from "../utils/removeAccessToken";
+
 import retryOperation from "../utils/retryOperation";
-import { saveAccessToken } from "../utils/saveAccesToken";
-import { endpoints } from "./endpoints";
 import { POST } from "./POST";
 
 type TypeResponse = {

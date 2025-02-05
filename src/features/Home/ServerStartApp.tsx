@@ -1,8 +1,7 @@
 
 'use client'
 import React from 'react';
-import dynamic from 'next/dynamic';
-const StartApp = dynamic( () => import("./StartApp"), {ssr : false} )
+import StartApp from './StartApp';
 const ServerStartApp = () => {
     return (
         <StartApp />
