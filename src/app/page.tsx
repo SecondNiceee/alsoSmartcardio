@@ -8,7 +8,6 @@ import ServerStartApp from '@/features/Home/ServerStartApp';
 const Page = () => {
     return (
         <>
-            <ServerStartApp />
             <Home />
         </>
     );
