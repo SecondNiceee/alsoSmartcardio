@@ -1,6 +1,6 @@
 import { telephoneFormatter } from '@/shared/utils/telephoneFormatter';
 import { telephoneParser } from '@/shared/utils/telephoneParser';
-import React, { ChangeEventHandler, FC } from 'react';
+import React, { ChangeEventHandler } from 'react';
 import { Control, Controller, FieldValues, Path } from 'react-hook-form';
 
 

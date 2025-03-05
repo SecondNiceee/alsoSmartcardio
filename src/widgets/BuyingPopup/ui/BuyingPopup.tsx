@@ -24,7 +24,6 @@ import PhoneInput from "./components/PhoneInput";
 import PopupCloseButton from "@/shared/UI/PopupCloseButton/PopupCloseButton";
 import { blockScroll, unBlockScroll } from "@/shared/utils/blockController";
 import useSubmit from "../hooks/useSubmit";
-import { routes } from "@/shared/config/routes";
 import { PROMOCODE } from "@/shared/config/constants";
 
 interface IBuyingPopup {
