@@ -67,12 +67,12 @@ export const BuyingPopup = forwardRef(
     const [isPromocodeFind, setPromocode] = useState<boolean>(false)
 
     const summ = useMemo(() => {
-      let localSumm = 0;
-      cartOrders.forEach((e, i) => (localSumm += e.price * e.counter));
+      let summ = 0;
+      cartOrders.forEach((e, i) => (summ += e.price * e.counter));
       if (isPromocodeFind ){
-        localSumm -= 2250
+        summ -= 2250
       }
-      return localSumm ;
+      return summ;
     }, [cartOrders,isPromocodeFind]);
 
     // useBlockScroll()
@@ -113,12 +113,11 @@ export const BuyingPopup = forwardRef(
 
     const [deliveryAddress, setDeliveryAddress] = useState<string>("");
 
-    const sdecComission = useMemo( () => {
-      const commonSumm = deliverySumm + summ
-      return commonSumm / 100 * 3
+    const cdekComission = useMemo( () => {
+      return (deliverySumm + summ) / 100 * 3
     } , [deliverySumm, summ] )
 
-    const onSubmit = useSubmit({delivceryCity : delivceryCity, deliverySumm, handleSubmit, cdekComisstion : sdecComission})
+    const onSubmit = useSubmit({delivceryCity : delivceryCity, deliverySumm, handleSubmit, cdekComission})
 
 
 
@@ -220,7 +219,6 @@ export const BuyingPopup = forwardRef(
                 deliveryCity={delivceryCity}
                 deliverySumm={deliverySumm}
                 summ={summ}
-                sdecComission={sdecComission}
               />
 
               <input

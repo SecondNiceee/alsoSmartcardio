@@ -14,9 +14,9 @@ interface IUseSumbit{
     handleSubmit : (onValid: SubmitHandler<IForm>, onInvalid?: SubmitErrorHandler<IForm> | undefined) => (e?: React.BaseSyntheticEvent) => Promise<void>
     delivceryCity : string
     deliverySumm : number,
-    cdekComisstion : number
+    cdekComission : number
 }
-const useSubmit = ({handleSubmit, delivceryCity, deliverySumm, cdekComisstion} : IUseSumbit) => {
+const useSubmit = ({handleSubmit, delivceryCity, deliverySumm, cdekComission} : IUseSumbit) => {
 
         const goToCongradulation = () => {
             window.location.href = '/congradulation';
@@ -64,13 +64,14 @@ const useSubmit = ({handleSubmit, delivceryCity, deliverySumm, cdekComisstion} :
                         tariff_code : tarrif_code,
                         shipment_point : "MSK55",
                         value : 0,
-                        sum : cdekComisstion,
+                        sum : cdekComission,
                         to_location : {
                             country_code : "RU",
                             "address" : address
                           },
                         delivery_recipient_cost : {
-                          value : deliverySumm + cdekComisstion
+                          value : deliverySumm
+                          
                         },
                         
                         delivery_point : delivery_code,
@@ -98,9 +99,9 @@ const useSubmit = ({handleSubmit, delivceryCity, deliverySumm, cdekComisstion} :
                       tariff_code : tarrif_code,
                       shipment_point : "MSK55",
                       value : 0,
-                      sum : cdekComisstion ,
+                      sum : cdekComission,
                       delivery_recipient_cost : {
-                        value : deliverySumm + cdekComisstion
+                        value : deliverySumm
                       },
                       delivery_point : delivery_code,
                       packages : packages,

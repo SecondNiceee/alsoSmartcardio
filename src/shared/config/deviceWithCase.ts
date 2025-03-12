@@ -7,7 +7,7 @@ export const deviceWithCase:TypeOrder = {
     height : 6,
     length : 33,
     name : "Смарткардио + Чехол <br> для хранения",
-    price : 15000,
+    price : 15500,
     weight : 500,
     width : 24,
     value : "deviceWithCase"
