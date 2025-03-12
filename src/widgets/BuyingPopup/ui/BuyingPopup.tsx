@@ -113,12 +113,14 @@ export const BuyingPopup = forwardRef(
 
     const [deliveryAddress, setDeliveryAddress] = useState<string>("");
 
-    const onSubmit = useSubmit({delivceryCity : delivceryCity, deliverySumm, handleSubmit, cdekComisstion})
-
     const sdecComission = useMemo( () => {
       const commonSumm = deliverySumm + summ
       return commonSumm / 100 * 3
     } , [deliverySumm, summ] )
+
+    const onSubmit = useSubmit({delivceryCity : delivceryCity, deliverySumm, handleSubmit, cdekComisstion : sdecComission})
+
+
 
     console.log(errors)
 
