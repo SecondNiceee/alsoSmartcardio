@@ -6,9 +6,10 @@ interface IBuyintItog{
     deliverySumm : number,
     deliveryCity : string,
     address : string,
-    isPromocode : boolean
+    isPromocode : boolean,
+    sdecComission : number
 }
-const BuyingItog:FC<IBuyintItog> = ({deliveryCity, deliverySumm, summ, address, isPromocode}) => {
+const BuyingItog:FC<IBuyintItog> = ({deliveryCity, deliverySumm, summ, address, isPromocode, sdecComission}) => {
     return (
         <div className="flex flex-col gap-1 ml-auto">
             <p className="p text-black text-right">
@@ -18,15 +19,19 @@ const BuyingItog:FC<IBuyintItog> = ({deliveryCity, deliverySumm, summ, address, 
             Доставка : {deliverySumm} р
             </p>
             <p className="p text-black text-right">
+            Комиссия Сдэк : {sdecComission} р
+            </p>
+            <p className="p text-black text-right">
             Город : {deliveryCity.length ? deliveryCity : "не указан"}
             </p>
             <p className="p text-black text-right">
             Адрес : {address.length ? address : "не указан"}
             </p>
-            {isPromocode &&             <p className="p text-black text-right">
+
+            {isPromocode &&  <p className="p text-black text-right">
             Промокод : <span className='text-green-600 font-bold'>Активирован</span>
             </p>}
-            <p className='mid-title text-right text-black font-bold'>Итого : {formatNumber(summ + deliverySumm)} р</p>
+            <p className='mid-title text-right text-black font-bold'>Итого : {formatNumber(summ + deliverySumm + sdecComission)} р</p>
       </div>
     );
 };

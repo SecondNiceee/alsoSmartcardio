@@ -17,7 +17,7 @@ export const contacts = [
     },
     {
         imageSrc : "/images/blog.jpg",
-        link : "https://project5617078.tilda.ws/thank",
+        link : "https://dzen.ru/smartcardio",
         name : "Наш блог"
     }
 ]

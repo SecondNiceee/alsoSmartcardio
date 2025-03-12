@@ -13,9 +13,10 @@ import { getDeviceWithPackage } from '../utils/getDeviceWithCasePackage';
 interface IUseSumbit{
     handleSubmit : (onValid: SubmitHandler<IForm>, onInvalid?: SubmitErrorHandler<IForm> | undefined) => (e?: React.BaseSyntheticEvent) => Promise<void>
     delivceryCity : string
-    deliverySumm : number
+    deliverySumm : number,
+    cdekComisstion : number
 }
-const useSubmit = ({handleSubmit, delivceryCity, deliverySumm} : IUseSumbit) => {
+const useSubmit = ({handleSubmit, delivceryCity, deliverySumm, cdekComisstion} : IUseSumbit) => {
 
         const goToCongradulation = () => {
             window.location.href = '/congradulation';
@@ -38,9 +39,7 @@ const useSubmit = ({handleSubmit, delivceryCity, deliverySumm} : IUseSumbit) => 
           const token = getAccessToken();
 
           const address = delivceryCity.split(',')[0] + ' ' + data.address
-
-          console.log(address)
-    
+                  
           const delivery_code = data.deliveryMethod === "postmat" ? data.postmat.code
           : data.deliveryMethod === "deliveryPoint" ? data.deliveryPoint.code : null
     
@@ -65,7 +64,7 @@ const useSubmit = ({handleSubmit, delivceryCity, deliverySumm} : IUseSumbit) => 
                         tariff_code : tarrif_code,
                         shipment_point : "MSK55",
                         value : 0,
-                        sum : 0,
+                        sum : cdekComisstion,
                         to_location : {
                             country_code : "RU",
                             "address" : address

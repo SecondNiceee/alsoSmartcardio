@@ -5,7 +5,6 @@ import React, {
   ChangeEventHandler,
   ForwardedRef,
   forwardRef,
-  SetStateAction,
   useEffect,
   useMemo,
   useState,
@@ -68,12 +67,12 @@ export const BuyingPopup = forwardRef(
     const [isPromocodeFind, setPromocode] = useState<boolean>(false)
 
     const summ = useMemo(() => {
-      let summ = 0;
-      cartOrders.forEach((e, i) => (summ += e.price * e.counter));
+      let localSumm = 0;
+      cartOrders.forEach((e, i) => (localSumm += e.price * e.counter));
       if (isPromocodeFind ){
-        summ -= 2250
+        localSumm -= 2250
       }
-      return summ;
+      return localSumm ;
     }, [cartOrders,isPromocodeFind]);
 
     // useBlockScroll()
@@ -114,7 +113,12 @@ export const BuyingPopup = forwardRef(
 
     const [deliveryAddress, setDeliveryAddress] = useState<string>("");
 
-    const onSubmit = useSubmit({delivceryCity : delivceryCity, deliverySumm, handleSubmit})
+    const onSubmit = useSubmit({delivceryCity : delivceryCity, deliverySumm, handleSubmit, cdekComisstion})
+
+    const sdecComission = useMemo( () => {
+      const commonSumm = deliverySumm + summ
+      return commonSumm / 100 * 3
+    } , [deliverySumm, summ] )
 
     console.log(errors)
 
@@ -214,6 +218,7 @@ export const BuyingPopup = forwardRef(
                 deliveryCity={delivceryCity}
                 deliverySumm={deliverySumm}
                 summ={summ}
+                sdecComission={sdecComission}
               />
 
               <input
