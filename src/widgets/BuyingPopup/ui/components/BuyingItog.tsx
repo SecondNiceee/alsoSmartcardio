@@ -16,10 +16,7 @@ const BuyingItog:FC<IBuyintItog> = ({deliveryCity, deliverySumm, summ, address, 
             Сумма : {formatNumber(summ)} р
             </p>
             <p className="p text-black text-right">
-            Доставка : {deliverySumm} р
-            </p>
-            <p className="p text-black text-right">
-            Комиссия Сдэк : {sdecComission} р
+            Доставка : {deliverySumm + sdecComission} р
             </p>
             <p className="p text-black text-right">
             Город : {deliveryCity.length ? deliveryCity : "не указан"}

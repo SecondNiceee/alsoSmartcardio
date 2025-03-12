@@ -70,8 +70,7 @@ const useSubmit = ({handleSubmit, delivceryCity, deliverySumm, cdekComisstion} :
                             "address" : address
                           },
                         delivery_recipient_cost : {
-                          value : deliverySumm
-                          
+                          value : deliverySumm + cdekComisstion
                         },
                         
                         delivery_point : delivery_code,
@@ -99,9 +98,9 @@ const useSubmit = ({handleSubmit, delivceryCity, deliverySumm, cdekComisstion} :
                       tariff_code : tarrif_code,
                       shipment_point : "MSK55",
                       value : 0,
-                      sum : 0,
+                      sum : cdekComisstion ,
                       delivery_recipient_cost : {
-                        value : deliverySumm
+                        value : deliverySumm + cdekComisstion
                       },
                       delivery_point : delivery_code,
                       packages : packages,
