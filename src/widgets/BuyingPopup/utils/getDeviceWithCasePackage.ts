@@ -16,7 +16,7 @@ export const getDeviceWithPackage = function(comment : string){
             vat_sum : 0,
             vat_rate : 0,
             },
-            cost : deviceWithCase.price,
+            cost : deviceWithCase.realPrice,
             weight : deviceWithCase.weight,
             amount : 1
         }],

@@ -10,5 +10,6 @@ export const deviceWithCase:TypeOrder = {
     price : 15500,
     weight : 500,
     width : 24,
-    value : "deviceWithCase"
+    value : "deviceWithCase",
+    realPrice : 15000
 }

@@ -6,6 +6,7 @@ export type TypeOrder = {
     description : string,
     price : number,
     weight : number,
+    realPrice : number,
     height : number,
     width : number,
     length : number

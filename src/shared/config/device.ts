@@ -6,6 +6,7 @@ export const device:TypeOrder = {
     name : "СмартКардио",
     description : "СмартКардио - первое в мире устройство, регистрирующее одновременно ЭКГ, сатурацию и пульсовую волну без геля и проводов",
     price : 14950,
+    realPrice : 14500,
     weight : 500,
     width : 24,
     length : 33,
