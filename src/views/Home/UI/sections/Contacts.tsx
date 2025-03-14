@@ -5,7 +5,7 @@ import Contact from '../components/Contact';
 
 const Contacts = () => {
     return (
-        <section id='contacts' className='sectino bg-black'>
+        <section id='contacts' className='sectinon bg-black'>
             <div className="container flex flex-col gap-[20px] p-container items-center">
                 <h2 className='h2 text-white'>Наши контакты</h2>
                 <p className='mid-title text-white'>support@smartcardio.ru</p>
