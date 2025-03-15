@@ -15,6 +15,9 @@ const Recognition = () => {
           <h2 className="h2 text-black">Интуитивно понятый интерфейс</h2>
         </Reveal>
         <div className="flex justify-center md:justify-between  gap-5 md:flex-row flex-col-reverse ">
+
+        <RecognitionImages />
+        
           <div
             className="white-shadow my-auto py-10 flex flex-col gap-10 items-center justify-center rounded-3xl
                       p-4 mx-auto w-[100%] sm:w-[80%]"
@@ -29,7 +32,7 @@ const Recognition = () => {
               <span className="button-p">Заказать</span>
             </OrderButton>
           </div>
-          <RecognitionImages />
+
         </div>
       </div>
     </section>
