@@ -9,6 +9,8 @@ import "../styles/_index.scss"
 import Head from "next/head";
 import ServerStartApp from "@/features/Home/ServerStartApp";
 
+ 
+
 const inter = Inter({ variable: "--font4", subsets: ["cyrillic"] });
 
 
@@ -41,6 +43,7 @@ const raleway = Raleway({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://smartcardio.ru/'),
   title: "Smartcardio",
   description: "беспроводной кардиограф, ЭКГ и сатурация без геля и проводов, результат сразу в телефоне, прибор разработан и производится в России",
   keywords: ["беспроводной кардиограф", "ЭКГ", "сатурация", "медицинский прибор", "разработка в России"],
