@@ -34,7 +34,7 @@ const RecorderExamples = () => {
     <section className="section">
       <div className="container gap-containerGap p-container flex flex-col">
         <Reveal character={CHARACTER.UPDOWN}>
-            <h2 className="h2">Примеры записей</h2>
+            <h2 className="h2">Примеры записей c прибора</h2>
         </Reveal>
         <div className="flex md:flex-row flex-col-reverse md:gap-2 md:justify-between gap-containerGap w-[100%] items-center">
 
