@@ -1,11 +1,10 @@
-import OrderButton from '@/shared/UI/OrderButton/OrderButton';
 import React from 'react';
 import { contacts } from '../../config/contacts.config';
 import Contact from '../components/Contact';
 
 const Contacts = () => {
     return (
-        <section id='contacts' className='sectinon bg-black'>
+        <section id='contacts' className='section bg-black'>
             <div className="container flex flex-col gap-[20px] p-container items-center">
                 <h2 className='h2 text-white'>Наши контакты</h2>
                 <p className='mid-title text-white'>support@smartcardio.ru</p>
