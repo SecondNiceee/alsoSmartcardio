@@ -19,8 +19,8 @@ const Recognition = () => {
             className="white-shadow my-auto py-10 flex flex-col gap-10 items-center justify-center rounded-3xl
                       p-4 mx-auto w-[100%] sm:w-[80%]"
           >
-            <p className="big-p text-black ">
-            Приложение содержит автоматическое распознавание широкого спектра нарушений с помощью искусственного интеллекта. Цветовая индикация способствует лучшему восприятию данных.
+            <p className="big-p text-black " dangerouslySetInnerHTML={{ __html: "Приложение содержит автоматическое распознавание широкого спектра нарушений <br> с помощью искусственного интеллекта. Цветовая индикация способствует лучшему восприятию данных."  }}>
+            
             </p>
             <OrderButton
               link={routes.store}
