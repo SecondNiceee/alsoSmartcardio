@@ -46,11 +46,11 @@ export const Home = () => {
 
                 <RecorderExamples />
 
+                <Recognition />
+
                 <HowOrder />
 
                 <SmartcardioSlider />   
-
-                <Recognition />
 
                 <Feedbacks />
                 <Recomendation />
