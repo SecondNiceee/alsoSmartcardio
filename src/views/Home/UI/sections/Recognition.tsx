@@ -26,7 +26,7 @@ const Recognition = () => {
               link={routes.store}
               className="w-[90%] max-w-[70%] md:max-w-[500px] bg-[#ffffff] py-[11px] md:py-[18px] px-[14px] mx-auto border-solid border-2 scale-hover"
             >
-              <span className="button-p">Заказть</span>
+              <span className="button-p">Заказать</span>
             </OrderButton>
           </div>
           <RecognitionImages />
