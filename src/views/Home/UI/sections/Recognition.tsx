@@ -14,10 +14,10 @@ const Recognition = () => {
         <Reveal character={CHARACTER.UPDOWN}>
           <h2 className="h2 text-black">Интуитивно понятый интерфейс</h2>
         </Reveal>
-        <div className="flex justify-center md:justify-between  gap-5 md:flex-row flex-col-reverse ">
+        <div className="flex justify-center md:justify-between  gap-5 md:flex-row flex-col ">
 
         <RecognitionImages />
-        
+
           <div
             className="white-shadow my-auto py-10 flex flex-col gap-10 items-center justify-center rounded-3xl
                       p-4 mx-auto w-[100%] sm:w-[80%]"
