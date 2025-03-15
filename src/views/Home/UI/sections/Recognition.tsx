@@ -12,7 +12,7 @@ const Recognition = () => {
     <section className="recognition">
       <div className="container relative z-30 gap-containerGap p-container flex flex-col items-center">
         <Reveal character={CHARACTER.UPDOWN}>
-          <h2 className="h2 text-black">Интуитивно понятый интерфейс</h2>
+          <h2 className="h2 text-black">Интуитивно понятный интерфейс</h2>
         </Reveal>
         <div className="flex justify-center md:justify-between  gap-5 md:flex-row flex-col ">
 
