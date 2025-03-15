@@ -15,15 +15,16 @@ const Recognition = () => {
           <h2 className="h2 text-black">Интуитивно понятный интерфейс</h2>
         </Reveal>
         <div className="flex justify-center md:justify-between gap-10 md:flex-row flex-col ">
-
-        <RecognitionImages />
+          <RecognitionImages />
 
           <div
             className="white-shadow my-auto py-10 flex flex-col gap-10 items-center md:justify-between justify-center rounded-3xl
                       p-4 mx-auto w-[100%] sm:w-[80%]"
           >
-            <p className="big-p text-black " dangerouslySetInnerHTML={{ __html: "Приложение СмартКардио® содержит <b>автоматическое распознавание широкого спектра нарушений <br> с помощью искусственного интеллекта.<b> Цветовая индикация способствует лучшему восприятию данных."  }}>
-            
+            <p
+              className="big-p text-black "
+            >
+                Приложение СмартКардио® содержит автоматическое <span className="font-semibold"> распознавание широкого спектра нарушений  с помощью искусственного интеллекта. </span>Цветовая индикация способствует лучшему восприятию данных.
             </p>
             <OrderButton
               link={routes.store}
@@ -32,7 +33,6 @@ const Recognition = () => {
               <span className="button-p">Заказать</span>
             </OrderButton>
           </div>
-
         </div>
       </div>
     </section>
