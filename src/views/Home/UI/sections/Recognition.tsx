@@ -14,15 +14,15 @@ const Recognition = () => {
         <Reveal character={CHARACTER.UPDOWN}>
           <h2 className="h2 text-black">Интуитивно понятный интерфейс</h2>
         </Reveal>
-        <div className="flex justify-center md:justify-between  gap-5 md:flex-row flex-col ">
+        <div className="flex justify-center md:justify-between gap-10 md:flex-row flex-col ">
 
         <RecognitionImages />
 
           <div
-            className="white-shadow my-auto py-10 flex flex-col gap-10 items-center justify-center rounded-3xl
+            className="white-shadow my-auto py-10 flex flex-col gap-10 items-center md:justify-between justify-center rounded-3xl
                       p-4 mx-auto w-[100%] sm:w-[80%]"
           >
-            <p className="big-p text-black " dangerouslySetInnerHTML={{ __html: "Приложение содержит автоматическое распознавание широкого спектра нарушений <br> с помощью искусственного интеллекта. Цветовая индикация способствует лучшему восприятию данных."  }}>
+            <p className="big-p text-black " dangerouslySetInnerHTML={{ __html: "Приложение СмартКардио® содержит <b>автоматическое распознавание широкого спектра нарушений <br> с помощью искусственного интеллекта.<b> Цветовая индикация способствует лучшему восприятию данных."  }}>
             
             </p>
             <OrderButton
