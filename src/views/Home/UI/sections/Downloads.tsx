@@ -14,7 +14,7 @@ const Downloads = () => {
         <header dangerouslySetInnerHTML={{__html : "Скачайте приложение СмартКардио® <br> для работы с прибором"}} className="downloads__header">
           
         </header>
-        <Reveal character={CHARACTER.LEFT} className="downloads__buttons">
+        <Reveal character={CHARACTER.RIGHT} className="downloads__buttons">
           {downloadsButtons.map((e, i) => {
             return (
               <PhoneButton
