@@ -8,12 +8,8 @@ import { LayoutCart } from "@/widgets/Cart";
 import "../styles/_index.scss"
 import Head from "next/head";
 import ServerStartApp from "@/features/Home/ServerStartApp";
-
- 
-
+import LayoutAuthPopup from "@/widgets/Auth/LayoutAuthPopup";
 const inter = Inter({ variable: "--font4", subsets: ["cyrillic"] });
-
-
 const yandexMetrikaScript = `
 (function(m,e,t,r,i,k,a){
   m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -98,7 +94,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-
       <Head>
         <meta name="title" content="Smartcardio" />
         <link rel="hortcut icon" href="/images/favicon.ico"/>
@@ -113,28 +108,28 @@ export default function RootLayout({
         <meta property="og:locale" content={"ru_RU"} />
         <meta name="robots" content={"index, follow"} />
         <meta name="viewport" content={"width=device-width, initial-scale=1"} />
-        
       </Head>
       <body
         className={`${raleway.variable}
             ${inter.variable}
             `}
       >
-
-        <ReduxProvider>
-          <ServerStartApp />
-          {children}
-          <LayoutCart />
-          <LayoutBuyingPopup />
-        </ReduxProvider>
-
+       
+          <ReduxProvider>
+            <ServerStartApp />
+           <div className="flex flex-col">
+            {children}
+           </div>
+            <LayoutCart />
+            <LayoutAuthPopup />
+            <LayoutBuyingPopup />
+          </ReduxProvider>
 
         <script
             dangerouslySetInnerHTML={{
               __html: yandexMetrikaScript
             }}
           />
-
           <script dangerouslySetInnerHTML={{
             __html : mailruScript
           }}></script>

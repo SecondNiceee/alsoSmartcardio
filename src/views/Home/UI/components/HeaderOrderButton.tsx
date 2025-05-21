@@ -1,24 +1,20 @@
-import { setCartPopup } from '@/entities/cart/model/cartSlice';
-import { routes } from '@/shared/config/routes';
+import { setRegistrationPopup } from '@/entities/auth/model/authSlice';
 import { useAppDispatch } from '@/shared/models/reduxHooks';
 import OrderButton from '@/shared/UI/OrderButton/OrderButton';
 import React from 'react';
 
 const HeaderOrderButton = () => {
 
-    // const dispatch = useAppDispatch()
-
-    // const opeBuyingPopup = () => {
-    //   dispatch(setCartPopup(true))
-    // };
-
+    const dispatch = useAppDispatch();
     return (
 
           <OrderButton
-            className={"header__order-button !sticky top-[20px] right-[20px]"}
-            link={routes.store}
+            onClick={() => {
+              dispatch(setRegistrationPopup(true))
+            }}
+            className={"header__order-button !bg-liner !sticky top-[20px] right-[20px]"}
           >
-            <p>Заказать</p>
+            <p>Личный кабинет</p>
           </OrderButton>
     );
 };

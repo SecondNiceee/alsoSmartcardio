@@ -5,13 +5,10 @@ import BurgerLinks from "../components/BurgerLinks";
 import Link from "next/link";
 import { headerNavs } from "../../config";
 import HeaderOrderButton from "../components/HeaderOrderButton";
+import CSSTransitionRegistrationForm from "@/features/Auth/ui/CSSTransitionRegistrationForm";
 
 const Header = () => {
   const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
-
-
-
-  
   return (
 
     <>

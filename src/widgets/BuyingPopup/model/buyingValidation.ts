@@ -38,9 +38,6 @@ const TypeOffice = z.object({
     location: Location,
   });
 
-
-  
-
 export const buyingSchema = z.object({
     FIO: z.string().min(1, "Это поле обязательно"),
     email: z.string({message : "Введите email"}).email({message : "Ваш email невалиден"}),

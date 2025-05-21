@@ -24,6 +24,7 @@ import PopupCloseButton from "@/shared/UI/PopupCloseButton/PopupCloseButton";
 import { blockScroll, unBlockScroll } from "@/shared/utils/blockController";
 import useSubmit from "../hooks/useSubmit";
 import { PROMOCODE } from "@/shared/config/constants";
+import SubmitButton from "@/shared/UI/SubmitButton/SubmitButton";
 
 interface IBuyingPopup {
   setState: (state:boolean) => void;
@@ -130,7 +131,6 @@ export const BuyingPopup = forwardRef(
         className="w-[100vw] fixed flex justify-center top-0 left-0 z-40 overflow-y-scroll h-[100vh]"
       >
 
-
           <div className="flex w-[100vw] h-fit z-50 relative justify-center">
 
             <div
@@ -221,11 +221,7 @@ export const BuyingPopup = forwardRef(
                 summ={summ}
               />
 
-              <input
-                className=" !bg-black text-white p-2 big-p w-[100%] mx-auto rounded-md"
-                type="submit"
-                value={"Оформить заказ"}
-              />
+              <SubmitButton text="Офорамить заказ" />
 
             </div>
           </div>
