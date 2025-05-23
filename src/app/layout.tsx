@@ -8,8 +8,12 @@ import { LayoutCart } from "@/widgets/Cart";
 import "../styles/_index.scss"
 import Head from "next/head";
 import ServerStartApp from "@/features/Home/ServerStartApp";
-import LayoutAuthPopup from "@/widgets/Auth/LayoutAuthPopup";
+
+ 
+
 const inter = Inter({ variable: "--font4", subsets: ["cyrillic"] });
+
+
 const yandexMetrikaScript = `
 (function(m,e,t,r,i,k,a){
   m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -22,24 +26,13 @@ const yandexMetrikaScript = `
   a.parentNode.insertBefore(k,a)
 })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-ym(100169482, "init", {
+ym(101539371, "init", {
   clickmap:true,
   trackLinks:true,
   accurateTrackBounce:true,
   webvisor:true
 });
 `;
-
-const mailruScript = `var _tmr = window._tmr || (window._tmr = []);
-_tmr.push({id: "3637000", type: "pageView", start: (new Date()).getTime()});
-(function (d, w, id) {
-  if (d.getElementById(id)) return;
-  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
-  ts.src = "https://top-fwz1.mail.ru/js/code.js";
-  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
-  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
-})(document, window, "tmr-code");`;
-
 
 const raleway = Raleway({
   variable: "--third-family",
@@ -94,6 +87,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+
       <Head>
         <meta name="title" content="Smartcardio" />
         <link rel="hortcut icon" href="/images/favicon.ico"/>
@@ -108,31 +102,27 @@ export default function RootLayout({
         <meta property="og:locale" content={"ru_RU"} />
         <meta name="robots" content={"index, follow"} />
         <meta name="viewport" content={"width=device-width, initial-scale=1"} />
+        
       </Head>
       <body
         className={`${raleway.variable}
             ${inter.variable}
             `}
       >
-       
-          <ReduxProvider>
-            <ServerStartApp />
-           <div className="flex flex-col">
-            {children}
-           </div>
-            <LayoutCart />
-            <LayoutAuthPopup />
-            <LayoutBuyingPopup />
-          </ReduxProvider>
+
+        <ReduxProvider>
+          <ServerStartApp />
+          {children}
+          <LayoutCart />
+          <LayoutBuyingPopup />
+        </ReduxProvider>
+
 
         <script
             dangerouslySetInnerHTML={{
               __html: yandexMetrikaScript
             }}
           />
-          <script dangerouslySetInnerHTML={{
-            __html : mailruScript
-          }}></script>
 
 
         <script dangerouslySetInnerHTML={{__html : `
@@ -182,7 +172,6 @@ export default function RootLayout({
           `}} />
 
 
-<noscript><div><img src="https://top-fwz1.mail.ru/counter?id=3637000;js=na" style={{position : "absolute", left : "-9999px"}} alt="Top.Mail.Ru" /></div></noscript>
       </body>
     </html>
   );
