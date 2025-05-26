@@ -95,11 +95,8 @@ function CityChoicer<T extends FieldValues>({
           e
         ) => {
           setCity("");
-
           setIsCityPicked(false);
-
           onChange(null);
-
           if (e.target.value.length) {
             setFetchStatus("pending");
             debouncedFetchCitys(e.target.value.split(" ")[0]);
@@ -108,13 +105,11 @@ function CityChoicer<T extends FieldValues>({
           }
           setInputValue(e.target.value);
         };
-
         const onBlur: React.FocusEventHandler<HTMLInputElement> = () => {
           setTimeout(() => {
             setShowSuggestions(false);
           }, 150);
         };
-
         const onFocus: React.FocusEventHandler<HTMLInputElement> = () => {
           setShowSuggestions(true);
         };

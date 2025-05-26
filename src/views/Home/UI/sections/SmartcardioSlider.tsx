@@ -66,7 +66,7 @@ const SmartcardioSlider = () => {
 
           <Reveal character={CHARACTER.LEFT}>
             <p className="smartcardio-slider__p">
-                Разработан и произведен в <span>России</span>
+                Разработан и производится в <span>России</span>
             </p>
           </Reveal>
 

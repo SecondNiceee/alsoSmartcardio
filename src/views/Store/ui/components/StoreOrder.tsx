@@ -1,4 +1,6 @@
-import { routes } from '@/shared/config/routes';
+'use client'
+import { addOrder, removeAllOrders, setCartPopup } from '@/entities/cart/model/cartSlice';
+import { useAppDispatch, useAppSelector } from '@/shared/models/reduxHooks';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC } from 'react';
@@ -13,8 +15,16 @@ type IStoreOrder = {
 }
 
 const StoreOrder:FC<IStoreOrder> = ({description, name, price, image, hoverImage, id}) => {
+
+    const dispatch = useAppDispatch();
+    const clickHandler = () => {
+        dispatch(removeAllOrders({id : 1}))
+        dispatch(removeAllOrders({id : 2}))
+        dispatch(addOrder({id : Number(id)}))
+        dispatch(setCartPopup(true));
+    }
     return (
-        <Link href={routes.store + `/${id}`} className='flex hover:scale-105 transition-transform duration-300 white-shadow border-solid border-black border-1 rounded-lg flex-col gap-2 items-center cursor-pointer'>
+        <div onClick={clickHandler} className='flex hover:scale-105 transition-transform duration-300 white-shadow border-solid border-black border-1 rounded-lg flex-col gap-2 items-center cursor-pointer'>
             <div className='relative w-[100%]'>
                 <Image className='aspect-square transition-opacity duration-300 rounded-md object-cover w-[100%] relative z-30 hover:opacity-0' width={1600} height={1600} alt='#' src={image}  />
                 <Image className='aspect-square rounded-md object-cover w-[100%] absolute left-0 top-0 h-[100%] z-20' width={1600} height={1600} alt='#' src={hoverImage}  />
@@ -24,7 +34,7 @@ const StoreOrder:FC<IStoreOrder> = ({description, name, price, image, hoverImage
                 {/* <p className='p'>{description}</p> */}
                 <p className='big-p !font-medium'>{price} p</p>
             </div>
-        </Link>
+        </div>
     );
 };
 

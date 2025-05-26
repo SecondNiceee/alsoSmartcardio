@@ -5,7 +5,7 @@ import React from 'react';
 
 const FooterOrderButton = () => {
     return (
-    <OrderButton link={routes.store} className='!bg-liner w-[100%] py-[11px] md:py-[18px] px-[14px] gradient-hover'>
+    <OrderButton link={routes.store} className='header__order-button !sticky top-[20px] right-[20px]'>
         <p className='clamp(1.188rem, 0.902rem + 1.43vw, 2.188rem)'>Заказать</p>
     </OrderButton>
     );

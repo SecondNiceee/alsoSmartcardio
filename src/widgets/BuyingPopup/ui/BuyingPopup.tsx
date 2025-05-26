@@ -120,10 +120,6 @@ export const BuyingPopup = forwardRef(
 
     const onSubmit = useSubmit({delivceryCity : delivceryCity, deliverySumm, handleSubmit, cdekComission})
 
-
-
-    console.log(errors)
-
     return (
       <form
         onSubmit={onSubmit}
@@ -144,7 +140,7 @@ export const BuyingPopup = forwardRef(
 
             <p className="mid-title font-bold text-black">Ваш заказ:</p>
 
-            <div className="div mt-10 flex flex-col gap-5 border-t-[1px] border-b-[1px] border-solid border-black">
+            <div className="div mt-10 flex flex-col gap-3 border-t-[1px] border-b-[1px] border-solid border-black">
               {cartOrders.map((order, i) => {
                 return (
                   <React.Fragment key={i}>{order.counter ? <Order order={order}/> : <> </>}</React.Fragment>
@@ -152,11 +148,11 @@ export const BuyingPopup = forwardRef(
               })}
             </div>
 
-            <p className="big-p font-bold text-right mt-10 mr-[10px]">
+            <p className="big-p font-bold text-right mt-5 mr-[10px]">
               Сумма : {formatNumber(summ)}p
             </p>
 
-            <div className="flex flex-col gap-10 mt-10 w-[100%] px-6 py-6 md:px-12 md:py-12  mx-auto white-shadow  rounded-xl">
+            <div className="flex flex-col gap-5 mt-5 w-[100%] px-6 py-6 md:px-12 md:py-12  mx-auto white-shadow  rounded-xl">
 
               <FormTextInput
                 error={errors.FIO}
