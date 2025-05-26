@@ -23,11 +23,13 @@ const Popup = (
       <div className="relative w-full h-[100vh] flex justify-center items-center">
         <div
           onClick={closePopup}
+          onPointerDown={closePopup}
           className="circle z-50 absolute md:scale-100 md:top-[10px] md:r-[40px] scale-75 top-[10px] right-[10px]"
         >
           <Cross />
         </div>
         <div
+          onPointerDown={closePopup}
           onClick={closePopup}
           className="absolute left-0 top-0 z-30 bg-black w-full h-[100vh] opacity-30"
         ></div>

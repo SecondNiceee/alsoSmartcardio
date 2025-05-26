@@ -18,6 +18,7 @@ const CitySuggestionList = ({
             className={"p-2 p w-[100%] text-left bg-white hover:bg-[#d5cdcd]"}
             onTouchStart={onTouch(suggestion)}
             key={index}
+            onPointerDown={onClick(suggestion)}
             onClick={onClick(suggestion)}
           >
             {suggestion.full_name}

@@ -55,6 +55,7 @@ function OrderButton({
         <button
           style={styles}
           onClick={onClick}
+          onPointerDown={onClick}
           className={`${cl.orderButton} ${className}`}
         >
           {children}
