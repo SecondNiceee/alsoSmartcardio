@@ -20,6 +20,7 @@ export const Store = () => {
                     <div className='flex flex-col gap-2 items-center'>
 
                         <p className='mid-title leading-none text-gray-500'>SmartCardio</p>
+                        
                         <p className='mid-title leading-none text-gray-500'>store</p>
 
                     </div>

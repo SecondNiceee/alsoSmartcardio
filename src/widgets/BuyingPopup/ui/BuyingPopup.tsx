@@ -217,7 +217,7 @@ export const BuyingPopup = forwardRef(
                 summ={summ}
               />
 
-              <SubmitButton text="Офорамить заказ" />
+              <SubmitButton text="Оформить заказ" />
 
             </div>
           </div>

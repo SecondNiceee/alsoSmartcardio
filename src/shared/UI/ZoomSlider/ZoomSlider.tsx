@@ -58,6 +58,7 @@ function ZoomSlider<T>({slides, closeZoom,initialSlide , mainSwiperRef, zoomStat
         <div ref={ref}  className='slider-wrapper' >
             <div  className="slider-container">
                 <div onClick={closeZoom} className="trigger-area"/>
+            
                 
                 <div onClick={closeZoom} className="circle close-button">
                     <Cross/>
