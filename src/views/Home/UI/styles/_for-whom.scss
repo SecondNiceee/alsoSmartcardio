@@ -1,0 +1,17 @@
+.for-whom{
+    .container{
+        @apply relative z-30 gap-containerGap p-container flex flex-col;
+    }
+    .choices-wrapper{
+        @apply  flex flex-col justify-between;
+    }
+    .choice-item{
+        @apply w-[100%] flex items-center justify-center border-2 px-2 py-2 border-black border-solid rounded-[10px] h-[100%] transition-[background-color] duration-[400ms] cursor-pointer;
+        .choice-item__text{
+            @apply big-p relative z-10 transition-colors duration-[400ms];
+        }
+    }
+    .choices-container{
+        @apply flex flex-col w-[100%] h-auto items-center max-w-[600px] md:max-w-full gap-5 md:gap-6 py-8 px-8 justify-between  rounded-[10px] relative white-shadow;
+    }
+}

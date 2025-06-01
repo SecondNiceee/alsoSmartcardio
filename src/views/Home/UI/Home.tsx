@@ -5,6 +5,8 @@ import dynamic from 'next/dynamic';
 import Smartcardio from './sections/Smartcardio';
 import Downloads from './sections/Downloads';
 import Recognition from './sections/Recognition';
+import ForWhom from './sections/ForWhom';
+import ForWhomTwo from './sections/ForWhomTwo';
 // import LayoutCookiePopup from '@/widgets/CookiePopup/LayoutCookiePopup';
 
 
@@ -33,38 +35,27 @@ export const Home = () => {
         <>
         
             <Smartcardio />
-
             <main>
-                
                 <Downloads />
+                <ForWhom />
+                <ForWhomTwo />
                 <InteractiveSection />
                 <Indicators />
                 <Technologys />
                 <HowItWorks />
                 <Steps />
-                
-
                 <RecorderExamples />
-
                 <Recognition />
-
                 <HowOrder />
-
                 <SmartcardioSlider />   
-
                 <Feedbacks />
                 <Recomendation />
                 <Advantages />
                 <Sertifications />
                 <FooterOrder />
                 <Contacts />
-
-   
-
             </main>
-            
             <Footer />
-
             <LayoutCookiePopup />
         
         </>
