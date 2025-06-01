@@ -16,14 +16,10 @@ export default async function authorize() {
           "client_id": account,
           "client_secret": password,
         },
-        headers: {
-          "Content-Type": 'application/json',
-        },
         data: {},
       });
     });
 
-    console.log(response.access_token)
     if (response) {
       return response.access_token;
     }

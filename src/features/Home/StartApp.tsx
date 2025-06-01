@@ -16,6 +16,7 @@ const StartApp:FC = () => {
     useEffect( () => {
       const getAutoriztion = async () => {
           const token = await authorize()
+          if (token)
           saveAccessToken(token)
       }
       getAutoriztion()
