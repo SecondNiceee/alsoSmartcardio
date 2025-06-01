@@ -1,5 +1,4 @@
 import { CustomHeaders, DataType, ParamsType } from "./models";
-import { GenericAbortSignal } from "axios";
 
 interface IGet {
   endpoint: string;

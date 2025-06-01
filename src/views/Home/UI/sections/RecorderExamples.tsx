@@ -12,11 +12,6 @@ import useDefaultSwiper from "../../../../shared/hooks/useDefaultSwiper";
 import { RecorderItem } from "../components/RecorderItem";
 import { CHARACTER } from "@/shared/UI/Reveal/models/CharacterEnum";
 
-
-
-// =========================================
-
-
 const RecorderExamples = () => {
 
     const {activeSlide, handleSlideChange, swiperRef, changeSlide} = useDefaultSwiper()

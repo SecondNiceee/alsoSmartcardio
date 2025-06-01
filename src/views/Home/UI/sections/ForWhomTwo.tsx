@@ -1,33 +1,34 @@
-'use client'
-import React, { useState } from 'react';
+"use client";
+import React, { useState } from "react";
 import "../styles/_for-whom.scss";
+import NextButton from "@/shared/UI/NextPrevButtons/NextButton";
+import ForWhomMainSlider from "../components/ForWhomMainSlider";
+import ForWhomTitleSlider from "../components/ForWhomTitleSlider";
+import {Swiper as TSwiper} from 'swiper';
 
-type TChoice = "users" | "doctors" | "hospitals";
 const ForWhomTwo = () => {
-    const [choice, setChoice] = useState<TChoice>("users");
-    const clickHandler = (choice : TChoice) => () => {
-        setChoice(choice);
-    }
-    return (
-        <section className='section for-whom relative'>
-            <div className="container">
-                <h2 className='h2'>Для пользователей</h2>
-                <div className='flex gap-10'>
-                    <div className='w-[31%] flex items-center'>
-                        <p className='sub-title text-center my-auto'>СмартКардио - надежный помощник в мониторинге сердечного ритма с автоматическим анализом показателей.</p> 
-                    </div>
-                    <img className='w-[38%] mx-auto rounded-lg' src="/images/for-users.png" alt="forUsers" />
-                    <div className='w-[31%] flex my-auto justify-center'>
-                        <div className='border-black w-full flex justify-center items-center border-2 border-solid py-3 rounded-md'>
-                            <p className='sub-title'>ДАЛЕЕ</p>
-                        </div>
-                    </div>
+  const [activeSlideIndex, setActiveSlideIndex] = useState<number>(0);
 
-                </div>
+  const onSlideChange = (swiper : TSwiper) => {
+    setActiveSlideIndex(swiper.realIndex);
+  }
 
-            </div>
-        </section>
-    );
+  return (
+    <section className="section for-whom relative">
+      <div className="container gap-containerGap p-container flex flex-col">
+        <ForWhomTitleSlider activeSlideIndex={activeSlideIndex} />
+        <div className="flex w-full">
+          <ForWhomMainSlider onSlideChange={onSlideChange} />
+          <div className="w-[31%] flex my-auto justify-center">
+            <NextButton
+              className="w-full next-forWhom scale-150"
+              arrowType="circle"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default ForWhomTwo;

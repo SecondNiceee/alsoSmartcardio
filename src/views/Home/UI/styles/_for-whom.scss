@@ -1,5 +1,18 @@
 @import "../../../../styles/variables";
 .for-whom{
+    .title-swiper{
+        width: 100%;
+        .swiper-slide{
+            opacity: 0.5;
+            transform: scale(0.9);
+            transition: all 0.3s ease;
+        }
+        .swiper-slide-active{
+            opacity: 1;
+            transform: scale(1);
+            font-weight: bold;
+        }
+    }
     .container{
         @extend %container;
         max-width: 1310px;
@@ -15,8 +28,21 @@
         .choice-item__text{
             @apply big-p relative z-10 transition-colors duration-[400ms];
         }
-    }~~
+    }
     .choices-container{
         @apply flex flex-col w-[100%] h-auto items-center max-w-[600px] md:max-w-full gap-5 md:gap-6 py-8 px-8 justify-between  rounded-[10px] relative white-shadow;
     }
+    .order-button{
+        @apply w-[80%] mr-auto max-w-[70%] md:max-w-[500px] bg-[black] py-[11px] md:py-[18px] px-[14px] border-solid border-2 transition-colors duration-300 ease-in-out;
+        span{
+            @apply button-p text-white transition-colors duration-300 ease-in-out;
+        }
+        &:hover{
+            @apply bg-white;
+            span{
+                @apply text-black
+            }
+        }
+    }
+    
 }

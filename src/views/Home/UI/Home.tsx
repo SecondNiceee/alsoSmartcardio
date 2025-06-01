@@ -36,8 +36,8 @@ export const Home = () => {
         
             <Smartcardio />
             <main>
-                <Downloads />
                 <ForWhomTwo />
+                <Downloads />
                 <InteractiveSection />
                 <Indicators />
                 <Technologys />
