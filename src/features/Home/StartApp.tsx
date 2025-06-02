@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import { setOrdersFromCookie } from "@/entities/cart/model/cartSlice";
 import authorize from "@/shared/api/authorize";
 import { useAppDispatch } from "@/shared/models/reduxHooks";
@@ -8,23 +8,15 @@ import FingerprintJS from '@fingerprintjs/fingerprintjs';
 import { getUserId } from "@/shared/utils/getUserId";
 
 
-
-const StartApp:FC = () => {
+interface IStartApp{
+  token : string | undefined
+}
+const StartApp:FC<IStartApp> = ({token}) => {
     const dispatch = useAppDispatch()
-
-
     useEffect( () => {
-      const getAutoriztion = async () => {
-          const token = await authorize()
-          if (token)
-          saveAccessToken(token)
-      }
-      getAutoriztion()
-      const id = setTimeout( () => getAutoriztion, 3600 )
+      if (token)
+      saveAccessToken(token)
       dispatch(setOrdersFromCookie())
-      return () => {
-        clearTimeout(id)
-      }
     } , [] )
 
     useEffect(() => {
@@ -51,8 +43,6 @@ const StartApp:FC = () => {
         setFp();
       }, []);
 
-
-    
     return null
 };
 

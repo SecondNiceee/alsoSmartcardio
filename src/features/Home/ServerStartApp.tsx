@@ -1,10 +1,14 @@
 
-'use client'
 import React from 'react';
 import StartApp from './StartApp';
-const ServerStartApp = () => {
+import authorize from '@/shared/api/authorize';
+import { saveAccessToken } from '@/shared/utils/saveAccesToken';
+const ServerStartApp = async () => {
+    const token = await authorize()
+    // if (token)
+    //     saveAccessToken(token)
     return (
-        <StartApp />
+        <StartApp token={token} />
     );
 };
 
