@@ -48,7 +48,6 @@ const Reveal:FC<IReveal> = ({children, character, className = "", start, ...prop
 
     const observerCallback:IntersectionObserverCallback = useCallback((entries) => {
         const firstEntry = entries[0]
-        console.log("Хэй хэй")
         if (firstEntry.isIntersecting){
             addFunction()
         }

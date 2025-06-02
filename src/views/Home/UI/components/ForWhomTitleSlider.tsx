@@ -32,7 +32,7 @@ const ForWhomTitleSlider:FC<IForWhomMainSlider> = ({activeSlideIndex, setSliderI
                 <h2 className='h2'>Для врачей</h2>
             </SwiperSlide>
             <SwiperSlide onClick={onSliderClick(2)} className='w-full cursor-pointer'>
-                <h2 className='h2'>Для мед.учреждений</h2>
+                <h2 className='h2'>Для медицинских центров</h2>
             </SwiperSlide>
         </Swiper>
     );
