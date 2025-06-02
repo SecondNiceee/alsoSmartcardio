@@ -21,7 +21,7 @@ const ForWhomSlide:FC<IForWhomSlide> = ({slide, setResponsePopup}) => {
                         <span>Связаться с нами</span>
                     </OrderButton>} 
                 </div>
-                <Image width={1000} height={1000} className='lg:w-[55.07%] h-[500px] sm:w-[60%] w-full object-cover sm:h-[485px] md:h-[608px] mx-auto rounded-lg' src={slide.imgSrc} alt="forUsers" />
+                <Image width={600} height={600} className='lg:w-[55.07%] h-[500px] sm:w-[60%] w-full object-cover sm:h-[485px] md:h-[608px] mx-auto rounded-lg' src={slide.imgSrc} alt="forUsers" />
             </div>
     );
 };
