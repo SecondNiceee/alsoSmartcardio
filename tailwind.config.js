@@ -154,8 +154,8 @@ module.exports = {
           },
         },
         ".p-container": {
-          paddingBottom: "clamp(1.563rem, 0.587rem + 4.88vw, 4.063rem)",
-          paddingTop: "clamp(1.563rem, 0.587rem + 4.88vw, 4.063rem)",
+          paddingBottom: "clamp(1.25rem, 0.625rem + 3.6vw, 3.125rem)",
+          paddingTop: "clamp(1.25rem, 0.625rem + 3.6vw, 3.125rem);",
         },
         ".gap-containerGap": {
           gap: "clamp(1.875rem, 1.53rem + 1.72vw, 3.125rem)",

@@ -20,7 +20,7 @@ const ForWhomTitleSlider:FC<IForWhomMainSlider> = ({activeSlideIndex, setSliderI
     }
 
     return (
-        <Swiper ref={swiperRef} id='for-whom-slider' slidesPerView={2} centeredSlides = {true} breakpoints={{
+        <Swiper ref={swiperRef} id='for-whom-slider' slidesPerView={1} centeredSlides = {true} breakpoints={{
             768 : {
                 slidesPerView : 3
             }

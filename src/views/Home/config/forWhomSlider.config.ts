@@ -17,3 +17,5 @@ export const forWhomSliderConfig:TWhoWhomSliderItem[] = [
         imgSrc : "/images/for-hospitals.png"
     }
 ]
+
+export const forWhomSliderImagesConfig:string[] = forWhomSliderConfig.map( (item) => item.imgSrc );

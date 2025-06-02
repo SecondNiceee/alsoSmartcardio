@@ -1,26 +1,20 @@
-import React, { FC, SetStateAction, useEffect, useRef } from 'react';
+import React, {  forwardRef, LegacyRef, SetStateAction, useEffect, useRef } from 'react';
 import { Navigation } from 'swiper/modules';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import {Swiper, SwiperRef, SwiperSlide} from 'swiper/react';
 import { forWhomSliderConfig } from '../../config/forWhomSlider.config';
 import ForWhomSlide from './ForWhomSlide';
-import {Swiper as TSwiper} from 'swiper';
+import  {Swiper as TSwiper} from 'swiper';
 interface IForWhomMainSlider{
     onSlideChange : (swiper : TSwiper) => void;
-    activeSlideIndex : number,
-    setResponsePopup : React.Dispatch<SetStateAction<boolean>>
+    setResponsePopup : React.Dispatch<SetStateAction<boolean>>,
+    setZoomSlider : React.Dispatch<SetStateAction<boolean>>
 }
-const ForWhomMainSlider:FC<IForWhomMainSlider> = ({onSlideChange, activeSlideIndex, setResponsePopup}) => {
-    const swiperRef = useRef<any>(null);
-    useEffect( () => {
-        if (swiperRef.current){
-            if (swiperRef.current.swiper.realIndex !== activeSlideIndex){
-                swiperRef.current.swiper.slideTo(activeSlideIndex);
-            }
-        }
-    } , [activeSlideIndex])
+const ForWhomMainSlider = forwardRef<SwiperRef, IForWhomMainSlider>(({onSlideChange, setResponsePopup, setZoomSlider}:IForWhomMainSlider, ref ) => {
+
     return (
             <Swiper
-            ref={swiperRef}
+            onClick={( ) => setZoomSlider(true)}
+            ref={ref}
             className='lg:w-[69%] w-full'
             onSlideChange={onSlideChange}
             slidesPerView={1} 
@@ -30,7 +24,8 @@ const ForWhomMainSlider:FC<IForWhomMainSlider> = ({onSlideChange, activeSlideInd
                 Navigation
             ]}
             navigation = {{
-                nextEl : ".next-forWhom"
+                nextEl : ".next-forWhom",
+                prevEl : ".prev-forWhom"
             }}
             >
                 {forWhomSliderConfig.map( (slide, i) => (
@@ -40,6 +35,6 @@ const ForWhomMainSlider:FC<IForWhomMainSlider> = ({onSlideChange, activeSlideInd
                 ) )}                
             </Swiper>
     );
-};
+} );
 
-export default ForWhomMainSlider;
+export default ForWhomMainSlider as (props : IForWhomMainSlider & React.RefAttributes<SwiperRef>) => JSX.Element;
