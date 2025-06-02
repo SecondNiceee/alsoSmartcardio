@@ -1,4 +1,4 @@
-import React, {  forwardRef, LegacyRef, SetStateAction, useEffect, useRef } from 'react';
+import React, {  forwardRef,  SetStateAction } from 'react';
 import { Navigation } from 'swiper/modules';
 import {Swiper, SwiperRef, SwiperSlide} from 'swiper/react';
 import { forWhomSliderConfig } from '../../config/forWhomSlider.config';
@@ -13,7 +13,6 @@ const ForWhomMainSlider = forwardRef<SwiperRef, IForWhomMainSlider>(({onSlideCha
 
     return (
             <Swiper
-            onClick={( ) => setZoomSlider(true)}
             ref={ref}
             className='lg:w-[69%] w-full'
             onSlideChange={onSlideChange}
@@ -30,7 +29,7 @@ const ForWhomMainSlider = forwardRef<SwiperRef, IForWhomMainSlider>(({onSlideCha
             >
                 {forWhomSliderConfig.map( (slide, i) => (
                     <SwiperSlide key={i} className='w-full cursor-pointer'>
-                        <ForWhomSlide setResponsePopup={setResponsePopup} slide={slide} />
+                        <ForWhomSlide setSliderActive={setZoomSlider} setResponsePopup={setResponsePopup} slide={slide} />
                     </SwiperSlide>
                 ) )}                
             </Swiper>

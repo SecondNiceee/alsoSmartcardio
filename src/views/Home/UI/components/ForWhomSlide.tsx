@@ -7,9 +7,10 @@ import Image from 'next/image';
 
 interface IForWhomSlide{
     slide : TWhoWhomSliderItem;
-    setResponsePopup : React.Dispatch<SetStateAction<boolean>>
+    setResponsePopup : React.Dispatch<SetStateAction<boolean>>;
+    setSliderActive : React.Dispatch<SetStateAction<boolean>>
 }
-const ForWhomSlide:FC<IForWhomSlide> = ({slide, setResponsePopup}) => {
+const ForWhomSlide:FC<IForWhomSlide> = ({slide, setResponsePopup, setSliderActive}) => {
     return (
             <div className='w-full md:flex-row flex-col-reverse flex gap-5 md:gap-10'>
                 <div className='lg:w-[44.93%] md:w-[40%] w-full  flex flex-col justify-center items-center gap-5 md:gap-10'>
@@ -17,11 +18,11 @@ const ForWhomSlide:FC<IForWhomSlide> = ({slide, setResponsePopup}) => {
                     {slide.imgSrc !== "/images/for-hospitals.png" ?  <OrderButton link={routes.store} className={'order-button'}  >
                         <span>Заказать</span>
                     </OrderButton> : 
-                            <OrderButton onClick={() => {setResponsePopup(true)}} className={'order-button'}  >
+                        <OrderButton onClick={() => {setResponsePopup(true)}} className={'order-button'}  >
                         <span>Связаться с нами</span>
                     </OrderButton>} 
                 </div>
-                <Image width={600} height={600} className='lg:w-[55.07%] h-[500px] sm:w-[60%] w-full object-cover sm:h-[485px] md:h-[608px] mx-auto rounded-lg' src={slide.imgSrc} alt="forUsers" />
+                <Image onClick={() => {setSliderActive(true)}} width={600} height={600} className='lg:w-[55.07%] h-[500px] sm:w-[60%] w-full object-cover sm:h-[485px] md:h-[608px] mx-auto rounded-lg' src={slide.imgSrc} alt="forUsers" />
             </div>
     );
 };

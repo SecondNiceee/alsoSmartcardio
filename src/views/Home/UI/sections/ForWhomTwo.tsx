@@ -40,13 +40,13 @@ const ForWhomTwo = () => {
   return (
     <section className="section for-whom relative">
       <div className="container gap-containerGap p-container flex flex-col">
-        <ForWhomTitleSlider setSliderIndex={setActiveSlideIndex} activeSlideIndex={activeSlideIndex} />
+        <ForWhomTitleSlider  setSliderIndex={setActiveSlideIndex} activeSlideIndex={activeSlideIndex} />
         <div className="flex w-full relative">
-          <ForWhomMainSlider setZoomSlider={setZoomSlider} ref={mainSwiperRef} setResponsePopup={setResponsePopup}  onSlideChange={onSlideChange} />
+          <ForWhomMainSlider  setZoomSlider={setZoomSlider} ref={mainSwiperRef} setResponsePopup={setResponsePopup}  onSlideChange={onSlideChange} />
           <div className="lg:w-[31%] flex my-auto justify-center">
-            <PrevButton className="lg:w-full md:hidden top-[28%] md:top-1/2 left-0 z-20 -translate-y-1/2 absolute lg:relative prev-forWhom lg:scale-150" arrowType="circle" />
+            <PrevButton className="lg:w-full md:hidden top-[32%] md:top-1/2 left-0 z-20 -translate-y-1/2 absolute lg:relative prev-forWhom lg:scale-150" arrowType="circle" />
             <NextButton
-              className="lg:w-full top-[28%] md:top-1/2 right-0 z-20 -translate-y-1/2 absolute lg:relative next-forWhom lg:scale-150"
+              className="lg:w-full top-[33%] md:top-1/2 right-0 z-20 -translate-y-1/2 absolute lg:relative next-forWhom lg:scale-150"
               arrowType="circle"
             />
           </div>
