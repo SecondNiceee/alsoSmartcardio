@@ -3,7 +3,7 @@
     .title-swiper{
         width: 100%;
         .swiper-slide{
-            @apply md:scale-90 ease-in-out duration-300 ;
+            @apply md:scale-90 md:opacity-50 ease-in-out duration-300 ;
         }
         .swiper-slide-active{
             opacity: 1;
