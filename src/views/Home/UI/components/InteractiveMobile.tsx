@@ -10,9 +10,6 @@ const InteractiveMobile:FC<IInteractiveMobile> = ({openZoom}) => {
     return (
         <div className="mobile">
         <div className="container">
-            <header className='interactive__m-header'>
-                СмартКардио® - полностью беспроводной карманный прибор для мониторинга Вашего здоровья
-            </header>
             <div className="interactive__m-main relative z-30 bg-white">
                 <InteractiveButtons openZoom={openZoom} />
                 <Image className='interactive__m-image' alt='#' width={400} height={400} src={"/images/interactive.png"} />
