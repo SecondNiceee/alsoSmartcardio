@@ -50,6 +50,26 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Даша богиня",
     locale: "ru_RU",
+    images: [
+      {
+        url: "/images/dasha1.jpg",
+        width: 800,
+        height: 600,
+        alt: "Dasha",
+      },
+      {
+         url: "/images/dasha2.jpg",
+        width: 800,
+        height: 600,
+        alt: "Dasha",
+      },
+      {
+        url: "/images/dasha3.jpg",
+        width: 800,
+        height: 600,
+        alt: "Dasha",
+      },
+    ],
   },
   applicationName : "Даша",
   creator : "Nick",

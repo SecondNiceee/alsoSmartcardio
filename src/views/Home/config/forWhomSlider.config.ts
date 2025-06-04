@@ -13,7 +13,7 @@ export const forWhomSliderConfig:TWhoWhomSliderItem[] = [
         imgSrc : "/images/dasha2.jpg"
     },
     {
-        text : "Твой волосы выглядят такими приятными, что хочется в них зарыться",
+        text : "Твой волосы выглядят такими приятными, что хочется в них укутаться",
         imgSrc : "/images/dasha3.jpg"
     },
     {
