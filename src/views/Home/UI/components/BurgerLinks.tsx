@@ -20,9 +20,6 @@ const BurgerLinks:FC<IBurgerLinks> = ({isActive, setMenuOpen}) => {
                 </React.Fragment>
               )
             } )}
-            <OrderButton className='burgerMenu__order-button' link={routes.store}>
-                <p className='burgerMenu__order-text'>Заказать</p>
-            </OrderButton>
         </nav>
     );
 };
