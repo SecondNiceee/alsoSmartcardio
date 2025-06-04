@@ -16,7 +16,7 @@ const ForWhomSlide:FC<IForWhomSlide> = ({slide, setResponsePopup, setSliderActiv
             <div className='w-full md:flex-row flex-col-reverse flex gap-5 md:gap-10'>
                 <div className='lg:w-[44.93%] md:w-[40%] w-full  flex flex-col justify-center items-center gap-5 md:gap-10'>
                     <p className='md:text-left text-center sub-title font-normal text-black'>{slide.text}</p>
-                     <OrderButton onClick={() => alert("Коля прощен")} className={'order-button'}  >
+                     <OrderButton onClick={() => alert("Коля прощен вышли ему этот скрин, чтобы он знал")} className={'order-button'}  >
                         <span>Простить Коленьку</span>
                     </OrderButton> :
                 </div>
