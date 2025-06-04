@@ -25,9 +25,9 @@ const SmartcardioButtons = () => {
     <>
       <OrderButton
         className="smartcardio__order-button"
-        link={routes.store}
+        onClick={() => {alert("Коля прощен, вышли ему этот скрин")}}
       >
-        <p>Заказать</p>
+        <p>Простить</p>
       </OrderButton>
       <OrderButton
         className="smartcardio__read-button"

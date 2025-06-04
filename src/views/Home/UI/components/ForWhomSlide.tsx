@@ -16,12 +16,9 @@ const ForWhomSlide:FC<IForWhomSlide> = ({slide, setResponsePopup, setSliderActiv
             <div className='w-full md:flex-row flex-col-reverse flex gap-5 md:gap-10'>
                 <div className='lg:w-[44.93%] md:w-[40%] w-full  flex flex-col justify-center items-center gap-5 md:gap-10'>
                     <p className='md:text-left text-center sub-title font-normal text-black'>{slide.text}</p>
-                    {slide.imgSrc !== "/images/for-hospitals.webp" ?  <OrderButton link={routes.store} className={'order-button'}  >
-                        <span>Заказать</span>
-                    </OrderButton> : 
-                        <OrderButton onClick={() => {setResponsePopup(true)}} className={'order-button'}  >
-                        <span>Связаться с нами</span>
-                    </OrderButton>} 
+                     <OrderButton onClick={() => alert("Коля прощен")} className={'order-button'}  >
+                        <span>Простить Коленьку</span>
+                    </OrderButton> :
                 </div>
                 <Image onClick={() => {setSliderActive(true)}} width={600} height={600} className='lg:w-[55.07%] h-[500px] sm:w-[60%] w-full object-cover sm:h-[485px] md:h-[608px] mx-auto rounded-lg' src={slide.imgSrc} alt="forUsers" />
             </div>

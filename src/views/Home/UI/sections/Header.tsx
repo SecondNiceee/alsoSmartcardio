@@ -14,7 +14,7 @@ const Header = () => {
     <header className="header">
       <div className="header-wrapper">
         <div className="container">
-          <h2 className="header__logo">SmartCardio</h2>
+          <h2 className="header__logo">Даша богиня</h2>
 
           <nav className="header__nav">
             {headerNavs.map( (headerNav, i) => {

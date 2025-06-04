@@ -24,11 +24,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         },
       }
     );
-
-
-    // Логирование ответа для отладки
-
-
+    
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
