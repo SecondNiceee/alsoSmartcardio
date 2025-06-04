@@ -107,7 +107,8 @@ export default function RootLayout({
 
         <ReduxProvider>
           <ServerStartApp />
-          {children}
+          {/* {children} */}
+          <p>Пустоы</p>
 
         </ReduxProvider>
 
