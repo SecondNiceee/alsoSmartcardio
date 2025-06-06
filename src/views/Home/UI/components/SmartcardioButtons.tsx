@@ -25,15 +25,9 @@ const SmartcardioButtons = () => {
     <>
       <OrderButton
         className="smartcardio__order-button"
-<<<<<<< HEAD
-        onClick={() => {alert("Коля прощен, вышли ему этот скрин")}}
-      >
-        <p>Простить</p>
-=======
         link={routes.store}
       >
         <p>Заказать</p>
->>>>>>> 53e526b (asd)
       </OrderButton>
       <OrderButton
         className="smartcardio__read-button"

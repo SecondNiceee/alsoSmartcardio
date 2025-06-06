@@ -42,38 +42,6 @@ const raleway = Raleway({
 });
 
 export const metadata: Metadata = {
-<<<<<<< HEAD
-  title: "Даша Госпожа",
-  description: "Госпожа Дашенька, прошу, прости меня",
-  openGraph: {
-    title: "Даша",
-    description: "Госпожа Дашенька, прошу, прости меня",
-    type: "website",
-    siteName: "Даша богиня",
-    locale: "ru_RU",
-    images: [
-      {
-        url: "/images/dasha1.jpg",
-        width: 800,
-        height: 600,
-        alt: "Dasha",
-      },
-      {
-         url: "/images/dasha2.jpg",
-        width: 800,
-        height: 600,
-        alt: "Dasha",
-      },
-      {
-        url: "/images/dasha3.jpg",
-        width: 800,
-        height: 600,
-        alt: "Dasha",
-      },
-    ],
-  },
-  applicationName : "Даша",
-=======
   metadataBase: new URL('https://smartcardio.ru/'),
   title: "Smartcardio",
   description: "беспроводной кардиограф, ЭКГ и сатурация без геля и проводов, результат сразу в телефоне, прибор разработан и производится в России",
@@ -107,7 +75,6 @@ export const metadata: Metadata = {
     locale: "ru_RU",
   },
   applicationName : "Smartcardio",
->>>>>>> 53e526b (asd)
   creator : "Nick",
   robots: "index, follow",
   viewport: "width=device-width, initial-scale=1",
@@ -122,16 +89,6 @@ export default function RootLayout({
     <html lang="en">
 
       <Head>
-<<<<<<< HEAD
-        <meta name="title" content="Дашенька Богиня" />
-        <meta name="description" content={"Госпожа Дашенька, прошу, прости меня"} />
-        <meta name="keywords" content={"Дашенька, ты самая самая лучшая)"} />
-        <meta property="og:title" content={"Дашенька Богиня"} />
-        <meta property="og:description" content={"Госпожа Дашенька, прошу, прости меня"} />
-        <meta property="og:type" content={"website"} />
-        <meta property="og:image" content={"/images/dasha1.jpg"} />
-        <meta property="og:site_name" content={"Даша"} />
-=======
         <meta name="title" content="Smartcardio" />
         <link rel="hortcut icon" href="/images/favicon.ico"/>
         <meta name="description" content={"Беспроводной кардиограф, ЭКГ и сатурация без геля и проводов, результат сразу в телефоне, прибор разработан и производится в России"} />
@@ -142,7 +99,6 @@ export default function RootLayout({
         <meta property="og:url" content={"https://smartcardio.ru/"} />
         <meta property="og:image" content={"/images/smartcardioS1.png"} />
         <meta property="og:site_name" content={"Smartcardio"} />
->>>>>>> 53e526b (asd)
         <meta property="og:locale" content={"ru_RU"} />
         <meta name="robots" content={"index, follow"} />
         <meta name="viewport" content={"width=device-width, initial-scale=1"} />
@@ -156,15 +112,9 @@ export default function RootLayout({
 
         <ReduxProvider>
           <ServerStartApp />
-<<<<<<< HEAD
-          {/* {children} */}
-          <p>Пустоы</p>
-
-=======
           {children}
           <LayoutCart />
           <LayoutBuyingPopup />
->>>>>>> 53e526b (asd)
         </ReduxProvider>
 
 

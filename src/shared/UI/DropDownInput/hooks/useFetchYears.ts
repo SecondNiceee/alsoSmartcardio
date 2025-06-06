@@ -26,7 +26,8 @@ const useFetchYears = ({setFilteredSuggestions, fromEmpty, setFromEmpty, setFetc
       setFetchStatus("pending")
       
       let error = false
-      
+
+      console.log("asd");
 
       const responses = await GET<TypeSuggestion[]>({
         endpoint: "/citys",

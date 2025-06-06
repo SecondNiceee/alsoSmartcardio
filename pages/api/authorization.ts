@@ -24,15 +24,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         },
       }
     );
-<<<<<<< HEAD
-    
-=======
 
 
     // Логирование ответа для отладки
 
 
->>>>>>> 53e526b (asd)
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }

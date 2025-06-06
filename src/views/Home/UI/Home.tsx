@@ -3,11 +3,6 @@ import "./styles/_index.scss";
 import dynamic from 'next/dynamic';
 
 import Smartcardio from './sections/Smartcardio';
-<<<<<<< HEAD
-import ForWhomTwo from './sections/ForWhomTwo';
-// import LayoutCookiePopup from '@/widgets/CookiePopup/LayoutCookiePopup';
-
-=======
 import Downloads from './sections/Downloads';
 import Recognition from './sections/Recognition';
 import ForWhom from './sections/ForWhom';
@@ -31,7 +26,6 @@ const Sertifications = dynamic( () => import("./sections/Sertifications") )
 const FooterOrder = dynamic( () => import("./sections/FooterOrder") )
 const Contacts = dynamic( () => import("./sections/Contacts") )
 const Footer = dynamic( () => import("./sections/Footer") )
->>>>>>> 53e526b (asd)
 const LayoutCookiePopup = dynamic( () => import("../../../widgets/CookiePopup/LayoutCookiePopup") )
 
 
@@ -43,11 +37,7 @@ export const Home = () => {
             <Smartcardio />
             <main>
                 <ForWhomTwo />
-<<<<<<< HEAD
-                {/* <Downloads />
-=======
                 <Downloads />
->>>>>>> 53e526b (asd)
                 <InteractiveSection />
                 <Indicators />
                 <Technologys />
@@ -56,16 +46,6 @@ export const Home = () => {
                 <RecorderExamples />
                 <Recognition />
                 <HowOrder />
-<<<<<<< HEAD
-                <SmartcardioSlider />    */}
-                {/* <Feedbacks /> */}
-                {/* <Recomendation />
-                <Advantages />
-                <Sertifications />
-                <FooterOrder />
-                <Contacts /> */}
-            </main>
-=======
                 <SmartcardioSlider />   
                 <Feedbacks />
                 <Recomendation />
@@ -75,7 +55,6 @@ export const Home = () => {
                 <Contacts />
             </main>
             <Footer />
->>>>>>> 53e526b (asd)
             <LayoutCookiePopup />
         
         </>
