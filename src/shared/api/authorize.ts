@@ -10,11 +10,16 @@ type TypeResponse = {
 export default async function authorize() {
   const response = await retryOperation(async () => {
     return await request<TypeResponse>({
-      headers: {
-        "Content-Type": "Application/json",
-      },
+
+    headers: {
+      "Content-Type": "application/json",
+      "Cache-Control": "no-cache, no-store, must-revalidate",
+      "Pragma": "no-cache",
+      "Expires": "0",
+    },
       method: "POST",
       queryParams: {
+_: Date.now().toString(), // предотвращаем кэширование  
         grant_type: "client_credentials",
         client_id: account,
         client_secret: password,
