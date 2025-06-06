@@ -20,6 +20,12 @@ const BurgerLinks:FC<IBurgerLinks> = ({isActive, setMenuOpen}) => {
                 </React.Fragment>
               )
             } )}
+<<<<<<< HEAD
+=======
+            <OrderButton className='burgerMenu__order-button' link={routes.store}>
+                <p className='burgerMenu__order-text'>Заказать</p>
+            </OrderButton>
+>>>>>>> 53e526b (asd)
         </nav>
     );
 };

@@ -12,6 +12,10 @@ const HowOrder = () => {
         <section className='how-order bg-black relative overflow-y-hidden'>
             <BlackThemeCircles />            
             <div className="absolute left-0 top-0 w-[100%] h-[100%] bg-black"></div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 53e526b (asd)
             <div className="container">
                 <Reveal character={CHARACTER.DOWNUP} className="how-order__cap">
                 

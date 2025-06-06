@@ -28,7 +28,11 @@ const Feedbacks = () => {
           className="absolute blur-[100px] left-[50%] top-[50%]  translate-x-[-50%] translate-y-[-50%] "
         />
         <Reveal character={CHARACTER.LEFT}>
+<<<<<<< HEAD
           <h2 className="h2">Дашенька, ты</h2>
+=======
+          <h2 className="h2">Ваш отзыв может быть следующим!</h2>
+>>>>>>> 53e526b (asd)
         </Reveal>
         <Reveal character={CHARACTER.RIGHT}>
           <Slider

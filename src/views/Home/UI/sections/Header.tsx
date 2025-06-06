@@ -14,7 +14,11 @@ const Header = () => {
     <header className="header">
       <div className="header-wrapper">
         <div className="container">
+<<<<<<< HEAD
           <h2 className="header__logo">Даша богиня</h2>
+=======
+          <h2 className="header__logo">SmartCardio</h2>
+>>>>>>> 53e526b (asd)
 
           <nav className="header__nav">
             {headerNavs.map( (headerNav, i) => {

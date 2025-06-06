@@ -5,6 +5,7 @@ export type TWhoWhomSliderItem = {
 }
 export const forWhomSliderConfig:TWhoWhomSliderItem[] = [
     {
+<<<<<<< HEAD
     text : "Твой голос прекрасен что его хочется слушать вечно, не останавливаясь.",
     imgSrc : "/images/dasha1.jpg"
     },
@@ -19,6 +20,18 @@ export const forWhomSliderConfig:TWhoWhomSliderItem[] = [
     {
         text : "Ну и ты просто богиня:>",
         imgSrc : "/images/dasha4.jpg"
+=======
+    text : "СмартКардио® - надежный помощник в мониторинге сердечного ритма. Полностью беспроводное устройство с автоматическим анализом показателей.",
+    imgSrc : "/images/for-users.webp"
+    },
+    {
+        text : "СмартКардио® - определение сердечного ритма Ваших пациентов всего за 20 секунд. Точная информация для экономии времени до принятия ключевых решений.",
+        imgSrc : "/images/for-doctors.webp"
+    },
+    {
+        text : "Мы предоставляем телемедицинскую систему, позволяющую проводить диагностику и оценивать динамику заболеваний дистанционно.",
+        imgSrc : "/images/for-hospitals.webp"
+>>>>>>> 53e526b (asd)
     }
 ]
 

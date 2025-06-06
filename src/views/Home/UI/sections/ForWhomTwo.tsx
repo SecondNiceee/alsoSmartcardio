@@ -38,7 +38,11 @@ const ForWhomTwo = () => {
 } , [activeSlideIndex])
 
   return (
+<<<<<<< HEAD
     <section id="downloads" className="section for-whom relative downloads">
+=======
+    <section className="section for-whom relative">
+>>>>>>> 53e526b (asd)
       <div className="container gap-containerGap p-container flex flex-col">
         <ForWhomTitleSlider  setSliderIndex={setActiveSlideIndex} activeSlideIndex={activeSlideIndex} />
         <div className="flex w-full relative">

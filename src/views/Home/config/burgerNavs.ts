@@ -11,6 +11,7 @@ type THeaderNavs = {
 
 export const headerNavs: THeaderNavs[] = [
   {
+<<<<<<< HEAD
     value: "Я очень",
     function: scrollToDevice,
   },
@@ -24,6 +25,21 @@ export const headerNavs: THeaderNavs[] = [
   },
   {
     value: "Ступив",
+=======
+    value: "Устройство",
+    function: scrollToDevice,
+  },
+  {
+    value: "Магазин",
+    path: routes.store,
+  },
+  {
+    value: "Инструкция",
+    function: openInstruction,
+  },
+  {
+    value: "Контакты",
+>>>>>>> 53e526b (asd)
     function: scrollToContacts,
   },
 ];
