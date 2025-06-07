@@ -34,7 +34,7 @@ export const GET = async <T>({
 
     if (!response.ok) {
       const error = await response.json().catch(() => {});
-      throw new Error(`HTTP error! status: ${error}`);
+      throw new Error(`HTTP error! status: ${JSON.stringify(error)}`);
     }
 
     const data: T = await response.json();
