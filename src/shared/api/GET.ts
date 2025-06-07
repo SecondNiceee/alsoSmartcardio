@@ -33,7 +33,7 @@ export const GET = async <T>({
     });
 
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${JSON.stringify(response)}`);
+      throw new Error(`HTTP error! status: ${response}`);
     }
 
     const data: T = await response.json();
