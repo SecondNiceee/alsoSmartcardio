@@ -1,5 +1,7 @@
 import { HOST } from "@/shared/config/constants";
+import { NextApiRequest, NextApiResponse } from "next";
 
+type QueryParams = Record<string, string | string[]>;
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { method } = req;
   const queryParams: QueryParams = req.query as QueryParams;
