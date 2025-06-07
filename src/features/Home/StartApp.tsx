@@ -8,17 +8,16 @@ import FingerprintJS from '@fingerprintjs/fingerprintjs';
 import { getUserId } from "@/shared/utils/getUserId";
 
 
-interface IStartApp{
-  token : string | undefined
-}
-const StartApp:FC<IStartApp> = ({token}) => {
+
+const StartApp:FC = () => {
     const dispatch = useAppDispatch()
     useEffect( () => {
-      if (token){
-        console.warn(token);
-        saveAccessToken(token)
-        dispatch(setOrdersFromCookie())
-      }
+      authorize().then( (token) => {
+        if (token){
+          saveAccessToken(token)
+          dispatch(setOrdersFromCookie())
+        }
+      } );
     } , [] )
 
     useEffect(() => {

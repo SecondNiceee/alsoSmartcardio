@@ -1,50 +1,56 @@
-import { HOST } from '@/shared/config/constants';
+// pages/api/oauth/token.ts
+
+import { HOST, account, password } from '@/shared/config/constants';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-type QueryParams = Record<string, string | string[]>;
+let cachedToken: string | null = null;
+let tokenExpiryTime: number = 0;
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { method } = req;
-  const requestBody = req.body;
-  const queryParams: QueryParams = req.query as QueryParams;
+  const now = Date.now();
 
-  const headers = Object.fromEntries(
-    Object.entries(req.headers).map(([key, value]) => [key, String(value)])
-  );
+  // Если токен ещё жив — возвращаем его
+  if (cachedToken && now < tokenExpiryTime) {
+    return res.status(200).json({ access_token: cachedToken });
+  }
 
   try {
-    const response = await fetch(
-      `${HOST}/v2/oauth/token${Object.keys(queryParams).length ? `?${new URLSearchParams(queryParams as Record<string, string>)}` : ''}`,
-      {
-        method: method,
-        body: JSON.stringify(requestBody),
-        headers: {
-          'Content-Type': 'application/json',
-          ...headers,
-        },
-      }
-    );
+    // Формируем query-параметры
+    const searchParams = new URLSearchParams({
+      grant_type: 'client_credentials',
+      client_id: account,
+      client_secret: password,
+    });
 
-
-    // Логирование ответа для отладки
-
+    // Отправляем POST-запрос, но с параметрами в URL, а не в теле
+    const response = await fetch(`${HOST}/v2/oauth/token?${searchParams}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({}), // можно оставить пустое тело
+    });
 
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+        let errorMessage = `OAuth error: ${response.status} ${response.statusText}`;
+        res.status(response.status).json(errorMessage);
+
     }
 
-    const contentType = response.headers.get('content-type');
-    if (contentType && contentType.includes('application/json')) {
-      const data = await response.json();
-      res.status(200).json(data);
-    } else {
-      const text = await response.text();
-      res.status(200).send(text);
+    const data = await response.json();
+
+    if (!data.access_token) {
+      throw new Error('No access_token in OAuth2 response');
     }
+
+    // Обновляем кэш
+    cachedToken = data.access_token;
+    const expiresInMs = (data.expires_in || 3600) * 1000; // по умолчанию 1 час
+    tokenExpiryTime = now + expiresInMs;
+
+    res.status(200).json({ access_token: cachedToken });
   } catch (error) {
-    console.log(error)
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error('Error fetching token:', error);
+    res.status(500).json({ error: 'Failed to get access token' });
   }
 }
-
-
