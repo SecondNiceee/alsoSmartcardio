@@ -11,6 +11,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const headers = Object.fromEntries(
     Object.entries(req.headers).map(([key, value]) => [key, String(value)])
   );
+  console.log(JSON.stringify(headers));
   console.log('Headers:', headers);
 
   try {
