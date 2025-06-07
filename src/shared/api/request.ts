@@ -20,6 +20,7 @@ export const  request = async <T>({body, headers, method, queryParams, url, with
         credentials : withCredentials ? "include" : "same-origin"
     })
     if (!response.ok){
+        console.log(response);
         const errorData = await response.json().catch(() => {});
         console.log(errorData);
         throw errorData;
