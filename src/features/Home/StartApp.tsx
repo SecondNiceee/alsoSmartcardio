@@ -14,9 +14,11 @@ interface IStartApp{
 const StartApp:FC<IStartApp> = ({token}) => {
     const dispatch = useAppDispatch()
     useEffect( () => {
-      if (token)
-      saveAccessToken(token)
-      dispatch(setOrdersFromCookie())
+      if (token){
+        console.warn(token);
+        saveAccessToken(token)
+        dispatch(setOrdersFromCookie())
+      }
     } , [] )
 
     useEffect(() => {
