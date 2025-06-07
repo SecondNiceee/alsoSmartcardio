@@ -16,7 +16,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     const url = `${HOST}/v2/location/suggest/cities${Object.keys(queryParams).length ? `?${new URLSearchParams(queryParams as Record<string, string>)}` : ''}`;
-    console.log('Fetching URL:', url);
 
     const response = await fetch(url, {
       method: method,
@@ -31,7 +30,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
       console.log('API Error Response:', errorData);
-      throw new Error(`HTTP error! status: ${response.status}, data: ${JSON.stringify(errorData)}`);
+      res.status(response.status).json(`data : ${response.statusText} `)
     }
 
     const contentType = response.headers.get('content-type');

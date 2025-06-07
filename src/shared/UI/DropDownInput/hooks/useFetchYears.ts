@@ -45,6 +45,8 @@ const useFetchYears = ({setFilteredSuggestions, fromEmpty, setFromEmpty, setFetc
         }
       });
 
+      console.warn("Хэй хэй")
+
       console.log(responses)
 
       if (!error){
