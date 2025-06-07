@@ -22,7 +22,7 @@ export const  request = async <T>({body, headers, method, queryParams, url, with
     if (!response.ok){
         console.log(response);
         const errorData = await response.json().catch(() => {});
-        console.log(errorData);
+        console.log(JSON.stringify(errorData));
         throw errorData;
     }
     const data:T = await response.json();
