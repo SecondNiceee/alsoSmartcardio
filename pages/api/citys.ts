@@ -30,7 +30,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
       console.log('API Error Response:', errorData);
-      res.status(response.status).json(`data : ${response.statusText} `)
+      const err = await response.json().catch( () => {} );
+      res.status(response.status).json(`data : ${response.statusText} ${JSON.stringify(err)}`)
     }
 
     const contentType = response.headers.get('content-type');
