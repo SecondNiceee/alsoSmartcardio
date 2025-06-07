@@ -1,5 +1,3 @@
-
-import retryOperation from "../utils/retryOperation";
 import { POST } from "./POST";
 
 type TypeResponse = {
@@ -11,6 +9,8 @@ export default async function authorize() {
         endpoint: "/authorization",
         data: {}
     })
+
+    console.warn(response);
       
     if (response) {
       return response.access_token;
