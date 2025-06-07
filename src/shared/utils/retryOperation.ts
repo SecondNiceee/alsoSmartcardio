@@ -15,6 +15,8 @@ export default async function retryOperation<T>(
       return await operation();
     } catch (error: any) {
 
+      console.warn(error);
+
       const status = error?.response?.status || error.status;
 
       if (status === 401 || status === 403) {
