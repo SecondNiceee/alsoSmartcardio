@@ -5,10 +5,12 @@ type QueryParams = Record<string, string | string[]>;
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { method } = req;
   const queryParams: QueryParams = req.query as QueryParams;
-  
+
   const headers = Object.fromEntries(
     Object.entries(req.headers).map(([key, value]) => [key, String(value)])
   );
+
+  console.log(headers);
 
   try {
     const url = `${HOST}/v2/location/suggest/cities${Object.keys(queryParams).length ? `?${new URLSearchParams(queryParams as Record<string, string>)}` : ''}`;
@@ -21,7 +23,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       },
     });
 
-    console.log('Response status:', response.status);
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));

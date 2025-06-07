@@ -9,26 +9,24 @@ let tokenExpiryTime: number = 0;
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const now = Date.now();
 
-  // Если токен ещё жив — возвращаем его
   if (cachedToken && now < tokenExpiryTime) {
     return res.status(200).json({ access_token: cachedToken });
   }
 
   try {
-    // Формируем query-параметры
+
     const searchParams = new URLSearchParams({
       grant_type: 'client_credentials',
       client_id: account,
       client_secret: password,
     });
 
-    // Отправляем POST-запрос, но с параметрами в URL, а не в теле
     const response = await fetch(`${HOST}/v2/oauth/token?${searchParams}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({}), // можно оставить пустое тело
+      body: JSON.stringify({}), 
     });
 
     if (!response.ok) {
