@@ -3,6 +3,7 @@ import { GET } from "@/shared/api/GET";
 import { TypeStatus } from "@/shared/api/models";
 import { getAccessToken } from "@/shared/utils/getAccessToken";
 import  { SetStateAction, useCallback } from "react";
+import axios from "axios";
 
 
 export type TypeSuggestion = {
@@ -27,22 +28,29 @@ const useFetchYears = ({setFilteredSuggestions, fromEmpty, setFromEmpty, setFetc
       
       let error = false
 
-      const responses = await GET<TypeSuggestion[]>({
-        endpoint: "/citys",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-          'Access-Control-Allow-Origin' : '*',
-        },  
-        params: {
-          name: value,
-          country_code : "RU"
-        },
-        onReject : () => {
-          error = true
-        }
-      });
+      let dataResponses = null;
+      let responses = null;
 
+      try{
+        dataResponses = await axios.get('/api/citys',
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+              'Access-Control-Allow-Origin' : '*',
+            },
+            params: {
+              name: value,
+              country_code : "RU"
+            },
+          }
+        )
+        responses = dataResponses.data;
+      }
+      catch(e){
+        console.warn(e);
+        error = true;
+      }
       console.log(value)
 
       if (!error){
