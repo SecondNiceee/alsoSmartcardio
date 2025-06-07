@@ -4,6 +4,7 @@ import { TypeStatus } from "@/shared/api/models";
 import { getAccessToken } from "@/shared/utils/getAccessToken";
 import  { SetStateAction, useCallback } from "react";
 import axios from "axios";
+import retryOperation from "@/shared/utils/retryOperation";
 
 
 export type TypeSuggestion = {
@@ -30,7 +31,7 @@ const useFetchYears = ({setFilteredSuggestions, fromEmpty, setFromEmpty, setFetc
 
       console.warn("Хэй хэй")
 
-      const responses = await GET<TypeSuggestion[]>({
+      const responses = await retryOperation(() => GET<TypeSuggestion[]>({
         endpoint: "/citys",
         headers: {
           "Content-Type": "application/json",
@@ -44,7 +45,7 @@ const useFetchYears = ({setFilteredSuggestions, fromEmpty, setFromEmpty, setFetc
         onReject : () => {
           error = true
         }
-      });
+      }) );
 
 
 
