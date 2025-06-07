@@ -1,36 +1,34 @@
-import { HOST } from '@/shared/config/constants';
-import { NextApiRequest, NextApiResponse } from 'next';
-
-type QueryParams = Record<string, string | string[]>;
+import { HOST } from "@/shared/config/constants";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { method } = req;
-  const requestBody = req.body;
   const queryParams: QueryParams = req.query as QueryParams;
+  console.log('Method:', method);
+  console.log('Query params:', queryParams);
 
   const headers = Object.fromEntries(
     Object.entries(req.headers).map(([key, value]) => [key, String(value)])
   );
+  console.log('Headers:', headers);
 
   try {
-    const response = await fetch(
-      `${HOST}/v2/location/suggest/cities${Object.keys(queryParams).length ? `?${new URLSearchParams(queryParams as Record<string, string>)}` : ''}`,
-      {
-        method: method,
-        headers: {
-          'Content-Type': 'application/json',
-          ...headers,
-        },
-      }
-    );
+    const url = `${HOST}/v2/location/suggest/cities${Object.keys(queryParams).length ? `?${new URLSearchParams(queryParams as Record<string, string>)}` : ''}`;
+    console.log('Fetching URL:', url);
 
+    const response = await fetch(url, {
+      method: method,
+      headers: {
+        'Content-Type': 'application/json',
+        ...headers,
+      },
+    });
 
-    // Логирование ответа для отладки
-
+    console.log('Response status:', response.status);
 
     if (!response.ok) {
-      const error = await response.json().catch(() => {})
-      throw new Error(`HTTP error! status: ${error}`);
+      const errorData = await response.json().catch(() => ({}));
+      console.log('API Error Response:', errorData);
+      throw new Error(`HTTP error! status: ${response.status}, data: ${JSON.stringify(errorData)}`);
     }
 
     const contentType = response.headers.get('content-type');
@@ -41,9 +39,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const text = await response.text();
       res.status(200).send(text);
     }
-  } catch (error) {
-    res.status(500).json({ error: {error} });
+  } catch (error: any) {
+    console.error('Handler Error:', error.message || error);
+    res.status(500).json({ error: error.message || 'Internal Server Error' });
   }
 }
-
-
