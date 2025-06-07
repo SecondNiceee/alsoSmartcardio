@@ -28,6 +28,7 @@ const useFetchYears = ({setFilteredSuggestions, fromEmpty, setFromEmpty, setFetc
       
       let error = false
 
+      console.warn("Хэй хэй")
 
       const responses = await GET<TypeSuggestion[]>({
         endpoint: "/citys",
@@ -45,9 +46,7 @@ const useFetchYears = ({setFilteredSuggestions, fromEmpty, setFromEmpty, setFetc
         }
       });
 
-      console.warn("Хэй хэй")
 
-      console.log(responses)
 
       if (!error){
         setFetchStatus("fulfilled")

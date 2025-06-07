@@ -15,6 +15,7 @@ export const GET = async <T>({
   signal,
   onReject = () => {}
 }: IGet): Promise<T> => {
+  console.warn("Вызов GET")
   try {
     // Проверка, что endpoint начинается с /
     if (!endpoint.startsWith('/')) {
