@@ -7,7 +7,7 @@ import LayoutBuyingPopup from "@/widgets/BuyingPopup/ui/LayoutBuyingPopup";
 import { LayoutCart } from "@/widgets/Cart";
 import "../styles/_index.scss"
 import Head from "next/head";
-import ServerStartApp from "@/features/Home/ServerStartApp";
+import StartApp from "@/features/Home/StartApp";
 
  
 
@@ -111,7 +111,7 @@ export default function RootLayout({
       >
 
         <ReduxProvider>
-          <ServerStartApp />
+           <StartApp  />
           {children}
           <LayoutCart />
           <LayoutBuyingPopup />

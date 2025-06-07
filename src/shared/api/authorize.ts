@@ -12,7 +12,6 @@ export default async function authorize() {
         data: {}
     })
       
-
     if (response) {
       return response.access_token;
     }
