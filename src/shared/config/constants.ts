@@ -1,6 +1,6 @@
 export const account =  "AspzAH1jl0Wxlw6YJ9ASM2hzFE87aItX"
 export const password = "vjzAtB3r0Nr22f7KbHqeeU0PRCCmDf3B"
-export const HOST = "https://api.cdek.ru"
+export const HOST = "https://lk.smartcardio.ru/cdek"
 export const emailTransporterName = "col1596321@gmail.com"
 export const emailTransporterPassword = "11559966332211kkKK"
 export const PROMOCODE = "SMARTDOCTOR"

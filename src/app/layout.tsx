@@ -1,19 +1,20 @@
 import { Metadata } from "next";
 import React from "react";
 import { Raleway } from "next/font/google";
-import { Inter } from "next/font/google";
-import ReduxProvider from "../shared/providers/ReduxProvider";
+import { Inter } from "next/font/google"
 import LayoutBuyingPopup from "@/widgets/BuyingPopup/ui/LayoutBuyingPopup";
 import { LayoutCart } from "@/widgets/Cart";
 import "../styles/_index.scss"
 import Head from "next/head";
 import StartApp from "@/features/Home/StartApp";
-
+import { RevealObserverProvider } from "@/shared/providers/RevealProvider/RevealProvider";
+import TelegramProvider from "@/shared/providers/TelegramProvider/TelegramProvider";
+import TelegramPopup from "@/features/Telegram/TelegramPopup";
+import ReduxProvider from "@/shared/providers/ReduxProvider/ReduxProvider";
+import { AlertProvider } from "@/shared/providers/AlertProvider/AlertProvider";
  
 
 const inter = Inter({ variable: "--font4", subsets: ["cyrillic"] });
-
-
 const yandexMetrikaScript = `
 (function(m,e,t,r,i,k,a){
   m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -111,10 +112,19 @@ export default function RootLayout({
       >
 
         <ReduxProvider>
-           <StartApp  />
-          {children}
-          <LayoutCart />
-          <LayoutBuyingPopup />
+        <AlertProvider>
+          <RevealObserverProvider>
+            <TelegramProvider>
+              
+              <StartApp  />
+              {children}
+              
+              <LayoutCart />
+              <TelegramPopup />
+              <LayoutBuyingPopup />
+            </TelegramProvider>
+          </RevealObserverProvider>
+          </AlertProvider>
         </ReduxProvider>
 
 

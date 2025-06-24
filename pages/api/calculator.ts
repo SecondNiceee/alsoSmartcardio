@@ -1,5 +1,6 @@
 import { HOST } from '@/shared/config/constants';
 import { NextApiRequest, NextApiResponse } from 'next';
+import { readToken } from '../../src/shared/utils/secureStorage';
 
 type QueryParams = Record<string, string | string[]>;
 
@@ -13,6 +14,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   );
 
   try {
+    const payload = await readToken();
+    let token = null;
+    if (payload)
+       token = payload.access_token;
+    
     const response = await fetch(
       `${HOST}/v2/calculator/tariff${Object.keys(queryParams).length ? `?${new URLSearchParams(queryParams as Record<string, string>)}` : ''}`,
       {
@@ -20,6 +26,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         body: JSON.stringify(requestBody),
         headers: {
           ...headers,
+          Authorization: `Bearer ${token}`,
         },
       }
     );

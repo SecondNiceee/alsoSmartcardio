@@ -1,20 +1,10 @@
 // pages/api/oauth/token.ts
+import { account, HOST, password } from '@/shared/config/constants'
+import { saveToken } from '../../src/shared/utils/secureStorage';
 
-import { HOST, account, password } from '@/shared/config/constants';
-import { NextApiRequest, NextApiResponse } from 'next';
+let refreshInProgress = false
 
-let cachedToken: string | null = null;
-let tokenExpiryTime: number = 0;
-
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const now = Date.now();
-
-  if (cachedToken && now < tokenExpiryTime) {
-    return res.status(200).json({ access_token: cachedToken });
-  }
-
-  try {
-
+async function fetchNewToken(): Promise<{ access_token: string; expires_in?: number }> {
     const searchParams = new URLSearchParams({
       grant_type: 'client_credentials',
       client_id: account,
@@ -29,26 +19,38 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       body: JSON.stringify({}), 
     });
 
-    if (!response.ok) {
-        let errorMessage = `OAuth error: ${response.status} ${response.statusText}`;
-        res.status(response.status).json(errorMessage);
-
-    }
-
-    const data = await response.json();
-
-    if (!data.access_token) {
-      throw new Error('No access_token in OAuth2 response');
-    }
-
-    // Обновляем кэш
-    cachedToken = data.access_token;
-    const expiresInMs = (data.expires_in || 3600) * 1000; // по умолчанию 1 час
-    tokenExpiryTime = now + expiresInMs;
-
-    res.status(200).json({ access_token: cachedToken });
-  } catch (error) {
-    console.error('Error fetching token:', error);
-    res.status(500).json({ error: 'Failed to get access token' });
+  if (!response.ok) {
+    throw new Error(`OAuth error: ${response.status} ${response.statusText}`)
   }
+  return await response.json()
+}
+
+export async function startTokenRefreshLoop() {
+  if (refreshInProgress) return
+  refreshInProgress = true
+
+  const maxRetries = 3
+  let attempt = 0
+  let success = false
+
+  while (attempt < maxRetries && !success) {
+    attempt++
+    try {
+      const data = await fetchNewToken()
+      const expiresInMs = 1800 * 1000 // 30 минут
+      await saveToken(data.access_token, expiresInMs)
+      console.log('Token updated and saved to file')
+      success = true
+    } catch (err) {
+      console.warn(`Attempt ${attempt} failed to refresh token:`, err)
+      if (attempt < maxRetries) {
+        await new Promise(resolve => setTimeout(resolve, 1000 * 60 * 5)) // ждём 5 минут перед повтором
+      } else {
+        console.error('Max retry attempts reached. Giving up.')
+      }
+    }
+  }
+
+  refreshInProgress = false
+  setTimeout(startTokenRefreshLoop, 1000 * 60 * 30) // каждые 30 минут
 }

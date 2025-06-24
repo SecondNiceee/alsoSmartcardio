@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import "./styles/_index.scss";
 import dynamic from 'next/dynamic';
@@ -5,8 +6,10 @@ import dynamic from 'next/dynamic';
 import Smartcardio from './sections/Smartcardio';
 import Downloads from './sections/Downloads';
 import Recognition from './sections/Recognition';
-import ForWhom from './sections/ForWhom';
+// import ForWhom from './sections/ForWhom';
 import ForWhomTwo from './sections/ForWhomTwo';
+import Generation from './sections/Generation';
+import TelegramBotSection from './sections/TelegramBotSection';
 // import LayoutCookiePopup from '@/widgets/CookiePopup/LayoutCookiePopup';
 
 
@@ -47,9 +50,12 @@ export const Home = () => {
                 <Recognition />
                 <HowOrder />
                 <SmartcardioSlider />   
+                <Advantages />
                 <Feedbacks />
                 <Recomendation />
-                <Advantages />
+                <Generation />
+                <TelegramBotSection />
+                {/* <Advantages /> */}
                 <Sertifications />
                 <FooterOrder />
                 <Contacts />

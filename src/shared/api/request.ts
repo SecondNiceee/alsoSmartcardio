@@ -3,11 +3,12 @@ interface IRequest{
     method : "GET" | "POST" | "DELETE" | "PUT"
     url : string,
     body? : any,
-    queryParams : Record<string, string>,
+    queryParams? : Record<string, string>,
     headers : Record<string, string>,
     withCredentials : boolean
 }
 export const  request = async <T>({body, headers, method, queryParams, url, withCredentials} : IRequest) => {
+    
     let finalUrl = url;
     if (queryParams){
         const search = new URLSearchParams(queryParams).toString();
@@ -15,7 +16,7 @@ export const  request = async <T>({body, headers, method, queryParams, url, with
     }
     const response = await fetch(finalUrl, {
         method,
-        body : (method === "POST" || method === "PUT") ? body : undefined,
+        body : (method === "POST" || method === "PUT") ? JSON.stringify(body)  : undefined,
         headers : headers,
         credentials : withCredentials ? "include" : "same-origin"
     })

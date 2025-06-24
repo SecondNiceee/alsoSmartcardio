@@ -30,8 +30,7 @@ async function postPostmanPoint({code, onReject, token} : IPostPostmanPoint) {
         }, 
         onReject : onReject,
         headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json"
             },  
         })
         return postmatPoint

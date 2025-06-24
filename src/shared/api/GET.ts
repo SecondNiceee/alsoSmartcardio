@@ -25,7 +25,6 @@ export const GET = async <T>({
     // Формирование URL с параметрами
     const queryString = new URLSearchParams(params as Record<string, string>).toString();
     const url = `/api${endpoint}${queryString ? `?${queryString}` : ''}`;
-    console.log(url);
 
     const response = await fetch(url, {
       method: 'GET',

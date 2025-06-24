@@ -33,7 +33,7 @@ const InteractiveSection = () => {
 
                         <InteractiveCardioBlock openZoom={openZoom} />
 
-                        <Image className='interactive__liner-block' width={910} height={927} alt='#' src={"/image/interactiveLinerBlock.svg"} />
+                        <Image className='interactive__liner-block' width={910} height={927} alt='#' src={"/images/interactiveLinerBlock.svg"} />
 
                     </div>
                 </div>

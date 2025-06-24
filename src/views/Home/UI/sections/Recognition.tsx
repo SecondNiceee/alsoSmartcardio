@@ -14,7 +14,7 @@ const Recognition = () => {
         <Reveal character={CHARACTER.UPDOWN}>
           <h2 className="h2 text-black">Интуитивно понятный интерфейс</h2>
         </Reveal>
-        <div className="flex justify-center md:justify-between gap-10 md:flex-row flex-col ">
+        <div className="flex items-center justify-center md:justify-between gap-10 md:flex-row flex-col ">
           <RecognitionImages />
 
           <div
@@ -28,9 +28,9 @@ const Recognition = () => {
             </p>
             <OrderButton
               link={routes.store}
-              className="w-[90%] max-w-[70%] md:max-w-[500px] bg-[#ffffff] py-[11px] md:py-[18px] px-[14px] mx-auto border-solid border-2 scale-hover"
+              className="w-[90%] border-white max-w-[70%] md:max-w-[500px] bg-[#ffffff] py-[11px] md:py-[18px] px-[14px] mx-auto border-solid border-2 scale-hover"
             >
-              <span className="button-p">Заказать</span>
+              <span className="button-p text-white">Заказать</span>
             </OrderButton>
           </div>
         </div>

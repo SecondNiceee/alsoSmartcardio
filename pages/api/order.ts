@@ -1,5 +1,6 @@
 import { HOST } from '@/shared/config/constants';
 import { NextApiRequest, NextApiResponse } from 'next';
+import { readToken } from '../../src/shared/utils/secureStorage';
 
 type QueryParams = Record<string, string | string[]>;
 
@@ -12,19 +13,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     Object.entries(req.headers).map(([key, value]) => [key, String(value)])
   );
 
-
-  console.log(req.body)
-  console.log(JSON.stringify(req.body))
-
-
-
   try {
+
+    const payload = await readToken();
+    let token = null;
+    if (payload)
+       token = payload.access_token;
+
     const response = await fetch(
       `${HOST}/v2/orders${Object.keys(queryParams).length ? `?${new URLSearchParams(queryParams as Record<string, string>)}` : ''}`,
       {
         method: method,
         body: JSON.stringify(requestBody),
         headers: {
+          Authorization: `Bearer ${token}`,
           ...headers,
         },
       }
@@ -35,7 +37,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     if (!response.ok) {
       const data = await response.json();
-      console.log(data.requests[0].errors)
       throw new Error(data.message)
     }
 
@@ -48,7 +49,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       res.status(200).send(text);
     }
   } catch (error) {
-    console.log(error)
     res.status(500).json({ error: 'Internal Server Error' });
   }
 }

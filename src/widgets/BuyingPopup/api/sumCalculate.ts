@@ -33,8 +33,7 @@ export const sumCalculate = async (toLocation : TypeOffice, deliveryName : TypeD
 
     endpoint: "/calculator",
     headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json"
     },
   });
 

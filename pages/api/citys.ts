@@ -1,5 +1,6 @@
 import { HOST } from "@/shared/config/constants";
 import { NextApiRequest, NextApiResponse } from "next";
+import { readToken } from "../../src/shared/utils/secureStorage";
 
 type QueryParams = Record<string, string | string[]>;
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -10,15 +11,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     Object.entries(req.headers).map(([key, value]) => [key, String(value)])
   );
 
-  console.log(headers);
 
   try {
+    const payload = await readToken();
+    let token = null;
+    if (payload)
+       token = payload.access_token;
     const url = `${HOST}/v2/location/suggest/cities${Object.keys(queryParams).length ? `?${new URLSearchParams(queryParams as Record<string, string>)}` : ''}`;
 
     const response = await fetch(url, {
       method: method,
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
         ...headers,
       },
     });

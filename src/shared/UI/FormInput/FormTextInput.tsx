@@ -9,14 +9,15 @@ export interface IFormInput<T extends FieldValues>{
     placeholder? : string,
     maxLength? : number,
     error? : FieldError | undefined,
-    type? : string
+    type? : string,
+    labelClassNames? : string
 }
 
 
-function FormInput<T extends FieldValues>({labelText, name, placeholder, register, error, maxLength, type = "text"} : IFormInput<T>){
+function FormInput<T extends FieldValues>({labelText, name, placeholder, register, error, maxLength, type = "text", labelClassNames} : IFormInput<T>){
     return (
     <div className='flex flex-col gap-2'>
-        {labelText ?  <label className='p text-left' htmlFor={name}>{labelText}</label> : <></>}
+        {labelText ?  <label className={`p text-left ${labelClassNames}`} htmlFor={name}>{labelText}</label> : <></>}
         <input autoComplete='off' spellCheck = {false} maxLength={maxLength} placeholder={placeholder} id={name} className='p-2 p text-left border-black border-solid border-2 rounded-md' {...register(name)} type={type} />
         {error ? <p className='p text-red-500'>{error.message}</p> : <></>}
     </div>

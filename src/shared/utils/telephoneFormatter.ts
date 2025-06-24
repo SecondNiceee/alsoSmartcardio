@@ -5,7 +5,6 @@ export const telephoneFormatter = (phoneNumber: string): string => {
         if (phoneNumber.slice(0, 1) === "+" || phoneNumber.slice(0, 1) === "8" || phoneNumber.slice(0, 1) === "7"){
              cleaned = phoneNumber.slice(1)
         }
-
         if (!cleaned.length){
             return "+7"
         }

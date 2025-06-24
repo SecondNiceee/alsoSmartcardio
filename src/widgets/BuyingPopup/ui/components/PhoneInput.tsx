@@ -6,9 +6,11 @@ import { Control, Controller, FieldValues, Path } from 'react-hook-form';
 
 interface IPhoneInput<T extends FieldValues>{
     control : Control<T>,
-    error : string | undefined
+    error : string | undefined,
+    label?:string,
+    labelClassNames? : string
 }
-function PhoneInput<T extends FieldValues>({control, error} : IPhoneInput<T>){
+function PhoneInput<T extends FieldValues>({control, error, label = "Ваш телефон", labelClassNames} : IPhoneInput<T>){
     return (
         <Controller
         control={control}
@@ -23,8 +25,8 @@ function PhoneInput<T extends FieldValues>({control, error} : IPhoneInput<T>){
           };
           return (
             <div className="flex flex-col gap-2">
-              <label className="p text-left" htmlFor={name}>
-                {"Ваш телефон"}
+              <label className={`p text-left ${labelClassNames}`} htmlFor={name}>
+                {label}
               </label>
               <input
                 {...field}

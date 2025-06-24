@@ -49,9 +49,7 @@ const useOnPickSity = ({setMethodsStatus, setMethods, setOffices, setPostmats} :
 
         setMethodsStatus('fulfilled')
     
-        const settlements = await GET<TypeSettlements[]>({endpoint : "/settlements", headers : {
-            Authorization : `Bearer ${token}`
-        }, params : {
+        const settlements = await GET<TypeSettlements[]>({endpoint : "/settlements", params : {
             code : par
         }})
 

@@ -1,0 +1,30 @@
+.question-title{
+    @apply p text-left font-semibold;
+}
+.quastion-answer{
+    @apply p text-left;
+}
+.custom-corner-border {
+    @apply relative rounded-tr-3xl rounded-bl-3xl;
+}
+.custom-corner-border::before,
+.custom-corner-border::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: inherit;
+    pointer-events: none;
+}
+.custom-corner-border::before {
+    top: 0;
+    right: 0;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+}
+.custom-corner-border::after {
+    bottom: 0;
+    left: 0;
+    border-bottom: 2px solid white;
+    border-left: 2px solid white;
+}

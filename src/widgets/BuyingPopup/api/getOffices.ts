@@ -15,8 +15,7 @@ async function getOffices({region_code, token} : IGetOffices) {
                     // is_handout : "1"
                 },
                 headers : {
-                "Content-Type" : "Application/json",
-                "Authorization" : `Bearer ${token}`,
+                "Content-Type" : "Application/json"
     }})
     return offices
 }

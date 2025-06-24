@@ -42,10 +42,7 @@ export const buyingSchema = z.object({
     FIO: z.string().min(1, "Это поле обязательно"),
     email: z.string({message : "Введите email"}).email({message : "Ваш email невалиден"}),
     phone: z.string({message : "Номер телефона обязетален"}).min(1, {message : "Это поле обязательно"}).refine((value) => {
-      // Удаляем все нецифровые символы
       const cleaned = value.replace(/\D/g, '');
-    
-      // Проверяем, что номер соответствует российскому формату
       return cleaned.length === 11 && cleaned.startsWith('7');
     }, {
       message: "Неверный формат номера телефона.",

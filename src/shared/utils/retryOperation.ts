@@ -1,6 +1,4 @@
 // utils/retryOperation.ts
-
-import authorize from '../api/authorize';
 import { saveAccessToken } from './saveAccesToken';
 
 export default async function retryOperation<T>(
@@ -14,19 +12,6 @@ export default async function retryOperation<T>(
     try {
       return await operation();
     } catch (error: any) {
-
-      console.warn(error);
-
-      const status = error?.response?.status || error.status;
-
-      if (status === 401 || status === 403) {
-        console.warn(status);
-        await authorize().then( (token) => {
-          if (token)
-          saveAccessToken(token);
-        } )
-        continue;
-      }
 
       if (i === retries - 1) throw error;
 

@@ -27,8 +27,7 @@ async function postDeliveryPoint({code, onReject, token} : IPostDeliveryPoint) {
     }, 
     onReject : onReject,
     headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
         },  
     })
     return deliveryPoint

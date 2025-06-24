@@ -54,9 +54,7 @@ const useSubmit = ({handleSubmit, delivceryCity, deliverySumm, cdekComission} : 
             try{
     
               if (data.deliveryMethod === "courier")  {
-
-
-                const response = await POST({
+                await POST({
                     endpoint: "/order",
                     data: {
                         "comment" : data.comment,
@@ -83,12 +81,9 @@ const useSubmit = ({handleSubmit, delivceryCity, deliverySumm, cdekComission} : 
                         }
                     },
                     headers: {
-                      "Content-Type" : "application/json",
-                      Authorization: `Bearer ${token}`,
+                      "Content-Type" : "application/json"
                     },
                   });
-
-                
               }
               else{
                 const response = await POST({
@@ -111,22 +106,18 @@ const useSubmit = ({handleSubmit, delivceryCity, deliverySumm, cdekComission} : 
                       }
                   },
                   headers: {
-                    "Content-Type" : "application/json",
-                    Authorization: `Bearer ${token}`,
+                    "Content-Type" : "application/json"
                   },
                 });
       
               }
-
               goToCongradulation()
-
             }
             catch(error){
               console.warn(error)
               alert("Произошла ошибка, перезагрузите пожалуйста страницу или зайдите позже.")
             }
         });
-
         return onSubmit
 };
 

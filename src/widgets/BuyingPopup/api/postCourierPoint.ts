@@ -26,8 +26,7 @@ async function postCourierPoint({code, onReject, token} : IPostCourierPoint) {
                 ]
             }, 
             headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json"
               },  
               onReject : onReject
             })

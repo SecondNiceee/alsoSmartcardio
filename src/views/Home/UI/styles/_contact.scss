@@ -9,9 +9,12 @@
         flex-direction: column;
         align-items: center;
         height: 100%;
+        gap : 15px;
         width: 100%;
         justify-content: center;
-        
+        @media (max-width : 768px) {
+            gap : 7px
+        }
     }
     .contact-p {
         font-weight: 400;

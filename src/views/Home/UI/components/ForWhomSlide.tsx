@@ -23,7 +23,7 @@ const ForWhomSlide:FC<IForWhomSlide> = ({slide, setResponsePopup, setSliderActiv
                         <span>Связаться с нами</span>
                     </OrderButton>} 
                 </div>
-                <Image onClick={() => {setSliderActive(true)}} width={600} height={600} className='lg:w-[55.07%] h-[500px] sm:w-[60%] w-full object-cover sm:h-[485px] md:h-[608px] mx-auto rounded-lg' src={slide.imgSrc} alt="forUsers" />
+                <Image onClick={() => {setSliderActive(true)}} width={800} height={800} className='lg:w-[55.07%] h-[500px] sm:w-[60%] w-full object-cover sm:h-[485px] md:h-[608px] mx-auto rounded-lg' src={slide.imgSrc} alt="forUsers" />
             </div>
     );
 };

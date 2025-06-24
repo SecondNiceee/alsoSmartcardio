@@ -38,7 +38,7 @@ const ForWhomTwo = () => {
 } , [activeSlideIndex])
 
   return (
-    <section className="section for-whom relative">
+    <section id = "forwhom" className="section for-whom relative">
       <div className="container gap-containerGap p-container flex flex-col">
         <ForWhomTitleSlider  setSliderIndex={setActiveSlideIndex} activeSlideIndex={activeSlideIndex} />
         <div className="flex w-full relative">

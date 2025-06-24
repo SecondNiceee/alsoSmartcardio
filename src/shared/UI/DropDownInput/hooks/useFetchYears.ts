@@ -35,8 +35,6 @@ const useFetchYears = ({setFilteredSuggestions, fromEmpty, setFromEmpty, setFetc
         endpoint: "/citys",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-          'Access-Control-Allow-Origin' : '*',
         },  
         params: {
           name: value,
@@ -59,8 +57,6 @@ const useFetchYears = ({setFilteredSuggestions, fromEmpty, setFromEmpty, setFetc
       if (fromEmpty){
         setFromEmpty(false)
       }
-
-      console.log(responses)
 
       setFilteredSuggestions(responses)
       return responses;
