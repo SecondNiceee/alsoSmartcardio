@@ -13,7 +13,7 @@ export const Accordion:FC<AccordionProps> = ({content = []}) => {
     return (
         <div className="w-[full] mx-auto">
             {content.map(({title, answer}, i) => (
-              <AccordionItem setIsCurrentOpen={setIsCurrentOpen} content = {answer} header = {title} index={i} isCurrentOpen={isCurrentOpen}/>
+              <AccordionItem key={i} setIsCurrentOpen={setIsCurrentOpen} content = {answer} header = {title} index={i} isCurrentOpen={isCurrentOpen}/>
             ))}
         </div>
     )

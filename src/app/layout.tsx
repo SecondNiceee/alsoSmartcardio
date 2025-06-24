@@ -7,7 +7,7 @@ import { LayoutCart } from "@/widgets/Cart";
 import "../styles/_index.scss"
 import Head from "next/head";
 import StartApp from "@/features/Home/StartApp";
-import { RevealObserverProvider } from "@/shared/providers/RevealProvider/RevealProvider";
+
 import TelegramProvider from "@/shared/providers/TelegramProvider/TelegramProvider";
 import TelegramPopup from "@/features/Telegram/TelegramPopup";
 import ReduxProvider from "@/shared/providers/ReduxProvider/ReduxProvider";
@@ -113,17 +113,13 @@ export default function RootLayout({
 
         <ReduxProvider>
         <AlertProvider>
-          <RevealObserverProvider>
             <TelegramProvider>
-              
               <StartApp  />
               {children}
-              
               <LayoutCart />
               <TelegramPopup />
               <LayoutBuyingPopup />
             </TelegramProvider>
-          </RevealObserverProvider>
           </AlertProvider>
         </ReduxProvider>
 

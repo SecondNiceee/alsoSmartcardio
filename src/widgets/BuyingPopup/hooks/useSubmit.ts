@@ -18,8 +18,8 @@ interface IUseSumbit{
 }
 const useSubmit = ({handleSubmit, delivceryCity, deliverySumm, cdekComission} : IUseSumbit) => {
 
-        const goToCongradulation = () => {
-            window.location.href = '/congradulation';
+        const goToCongratulation = () => {
+            window.location.href = '/congratulation';
         };
 
         const cartOrders = useAppSelector( (state) => state.cartSlice.orders )
@@ -35,8 +35,6 @@ const useSubmit = ({handleSubmit, delivceryCity, deliverySumm, cdekComission} : 
           const deviceWithCasePackages = Array.from({length: cartOrders[1].counter} , (order, id) => ({...deiveWithCasePackage, number : `smwc-${id+1}`}))
     
           const packages = [...devicePackages, ...deviceWithCasePackages]
-    
-          const token = getAccessToken();
 
           const address = delivceryCity.split(',')[0] + ' ' + data.address
                   
@@ -111,7 +109,7 @@ const useSubmit = ({handleSubmit, delivceryCity, deliverySumm, cdekComission} : 
                 });
       
               }
-              goToCongradulation()
+              goToCongratulation()
             }
             catch(error){
               console.warn(error)

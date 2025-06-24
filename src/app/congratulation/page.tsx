@@ -1,9 +1,9 @@
 import dynamic from 'next/dynamic';
 import React from 'react';
-const Congradulation = dynamic(() => import("../../views/Congradulation/Congradulation"));
+const Congratulation = dynamic(() => import("../../views/Congratulation/Congratulation"));
 const Page = () => {
     return (
-        <Congradulation />
+        <Congratulation />
     );
 };
 

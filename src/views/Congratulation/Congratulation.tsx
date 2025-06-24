@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Congradulation = () => {
+const Congratulation = () => {
     return (
         <section className='w-[100%] h-[100vh] bg-no-repeat bg-[0] bg-cover bg-[url("/images/congradulation.png")]'>
             <div className="container relative h-[100vh] flex justify-center items-center">
@@ -14,4 +14,4 @@ const Congradulation = () => {
     );
 };
 
-export default Congradulation;
+export default Congratulation;

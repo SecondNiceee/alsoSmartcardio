@@ -13,72 +13,72 @@ interface IReveal extends DivProps{
 } 
 const Reveal:FC<IReveal> = ({children, character, className = "", start, ...props}) => {
 
-    // const [isRendered, setIsRendered] = useState<boolean>(false)
+    const [isRendered, setIsRendered] = useState<boolean>(false)
 
-    // const revealRef = useRef<HTMLDivElement>(null)
+    const revealRef = useRef<HTMLDivElement>(null)
     
 
 
-    // const addFunction = useCallback(() => {
-    //     setIsRendered(true)
+    const addFunction = useCallback(() => {
+        setIsRendered(true)
 
-    //     switch (character){
-    //         case CHARACTER.UPDOWN:{
-    //             revealRef.current?.classList.add("upDown")
-    //             return;
-    //         }
-    //         case CHARACTER.DOWNUP:{
-    //             revealRef.current?.classList.add("downUp")
-    //             return;
-    //         }
-    //         case CHARACTER.LEFT:{
-    //             revealRef.current?.classList.add("left")
-    //             return;
-    //         }
-    //         case CHARACTER.RIGHT:
-    //             revealRef.current?.classList.add("right")
-    //             return;
-    //         default:{
+        switch (character){
+            case CHARACTER.UPDOWN:{
+                revealRef.current?.classList.add("upDown")
+                return;
+            }
+            case CHARACTER.DOWNUP:{
+                revealRef.current?.classList.add("downUp")
+                return;
+            }
+            case CHARACTER.LEFT:{
+                revealRef.current?.classList.add("left")
+                return;
+            }
+            case CHARACTER.RIGHT:
+                revealRef.current?.classList.add("right")
+                return;
+            default:{
 
-    //         }
-    //     }
+            }
+        }
 
-    // } , [character, setIsRendered]) 
+    } , [character, setIsRendered]) 
 
-    // const observerCallback:IntersectionObserverCallback = useCallback((entries) => {
-    //     const firstEntry = entries[0]
-    //     if (firstEntry.isIntersecting){
-    //         addFunction()
-    //     }
-    // } , [addFunction])
+    const observerCallback:IntersectionObserverCallback = useCallback((entries) => {
+        const firstEntry = entries[0]
+        if (firstEntry.isIntersecting){
+            addFunction()
+        }
+    } , [addFunction])
 
-    // useEffect( () => {
+    useEffect( () => {
 
-    //     if (start && !isRendered){
-    //         addFunction()
-    //     }
+        if (start && !isRendered){
+            addFunction()
+        }
 
-    //     if (!isRendered){
-    //         const observer = new IntersectionObserver(observerCallback)
+        if (!isRendered){
+            const observer = new IntersectionObserver(observerCallback)
     
-    //         if (revealRef.current){
-    //             observer.observe(revealRef.current)
-    //         }
-    //         if (start){
-    //             addFunction()
-    //         }
+            if (revealRef.current){
+                observer.observe(revealRef.current)
+            }
+            if (start){
+                addFunction()
+            }
     
-    //         return () => {
-    //             observer.disconnect()
-    //         }
-    //     }
-    // } , [observerCallback, addFunction, isRendered] )
+            return () => {
+                observer.disconnect()
+            }
+        }
+    } , [observerCallback, addFunction, isRendered] )
 
     
 
     return (
-        <div className={`${className}`} {...props}>
-           {children}
+        <div className={`${className} reveal-base`} ref={revealRef} {...props}>
+            {children}
         </div> 
     );
 };
