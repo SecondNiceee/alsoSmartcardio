@@ -77,7 +77,7 @@ const Reveal:FC<IReveal> = ({children, character, className = "", start, ...prop
     
 
     return (
-        <div className={`${className} reveal-base`} {...props}>
+        <div className={`${className}`} {...props}>
            {children}
         </div> 
     );
