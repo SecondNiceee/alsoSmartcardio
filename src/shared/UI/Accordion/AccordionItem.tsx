@@ -10,17 +10,7 @@ interface AccordionItemProps {
 
 export const AccordionItem:FC<AccordionItemProps> = ({setIsCurrentOpen, isCurrentOpen, header, content, index}) => {
     const itemRef = useRef<HTMLDivElement>(null);
-    const [contentHeight, setContentHeight] = useState(0);
     const isOpen = isCurrentOpen === index;
-
-    
-
-    useEffect(() => {
-        if (itemRef.current) {
-            setContentHeight(itemRef.current.scrollHeight);
-        }
-    }, [content]);
-
     return (
         <div className="mb-3 border border-gray-200 rounded-lg overflow-hidden bg-white shadow">
             <button
@@ -36,7 +26,7 @@ export const AccordionItem:FC<AccordionItemProps> = ({setIsCurrentOpen, isCurren
             <div
                 ref={itemRef}
                 style={{
-                    maxHeight: isOpen ? contentHeight : 0,
+                    maxHeight: isOpen ? itemRef.current?.scrollHeight : 0,
                     transition: 'max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                     overflow: 'hidden'
                 }}

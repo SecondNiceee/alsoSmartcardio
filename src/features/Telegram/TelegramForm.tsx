@@ -46,9 +46,11 @@ const TelegramForm = () => {
                         phone : data.phone
                 }
             })
+        
             showAlert("Ваша заявка принята!", "success");
         }
         catch(e){
+            console.log(e);
             showAlert("Ошибка при создании заявки, попробуйте позже", "error");
         }
         setTelegramPopup(false);
