@@ -32,34 +32,25 @@ const TelegramForm = () => {
     const {showAlert} = useAlert();
     
     const onSubmit = handleSubmit(async (data: TTelegramForm) => {
-        const now = Date.now();
-        const lastRequestTime = localStorage.getItem('lastTelegramRequestTime');
+        try{
 
-        if (lastRequestTime) {
-            const timeDiffInMinutes = (now - parseInt(lastRequestTime)) / (1000 * 60);
-            if (timeDiffInMinutes < 5) {
-                showAlert("Вы уже создавали заявку недавно", "error")
-                setTelegramPopup(false);
-                return;
-            }
+            await request({
+                headers : {
+                    "Content-Type": "application/json"
+                },
+                method : "POST",
+                url : "/api/sendmessage",
+                withCredentials : true,
+                    body : {
+                        name : data.username,
+                        phone : data.phone
+                }
+            })
+            showAlert("Ваша заявка принята!", "success");
         }
-        localStorage.setItem('lastTelegramRequestTime', now.toString());
-
-        const response = await request({
-            headers : {
-                "Content-Type": "application/json"
-            },
-            method : "POST",
-            url : "/api/sendmessage",
-            withCredentials : true,
-                body : {
-                    name : data.username,
-                phone : data.phone
-            }
-        })
-        console.log(response);
-
-        showAlert("Ваша заявка принята!", "success");
+        catch(e){
+            showAlert("Ошибка при создании заявки, попробуйте позже", "error");
+        }
         setTelegramPopup(false);
     });
 

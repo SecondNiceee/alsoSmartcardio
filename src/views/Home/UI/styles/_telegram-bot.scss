@@ -28,3 +28,9 @@
     border-bottom: 2px solid white;
     border-left: 2px solid white;
 }
+
+@media (max-width:576px) {
+    .custom-corner-border::before, .custom-corner-border::after {
+        display: none;
+    }
+}

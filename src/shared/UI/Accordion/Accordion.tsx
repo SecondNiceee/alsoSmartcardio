@@ -9,7 +9,6 @@ type AccordionProps = {
 }
 export const Accordion:FC<AccordionProps> = ({content = []}) => {
     const [isCurrentOpen, setIsCurrentOpen] = useState<number | null>(null);
-
     return (
         <div className="w-[full] mx-auto">
             {content.map(({title, answer}, i) => (
@@ -17,4 +16,4 @@ export const Accordion:FC<AccordionProps> = ({content = []}) => {
             ))}
         </div>
     )
-}
+}   
