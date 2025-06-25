@@ -12,7 +12,7 @@ export const frequentQuestions = [
         <p className="quastion-answer !font-semibold">Нет.</p>
         <p className="quastion-answer">
           Приложение <span className="!font-semibold">СмартКардио®</span> уже включает встроенную систему 
-          <span className="!font-semibold">автоматической интерпретации ЭКГ</span> на основе алгоритмов искусственного интеллекта.
+          <span className="!font-semibold"> автоматической интерпретации ЭКГ</span> на основе алгоритмов искусственного интеллекта.
         </p>
         <p className="quastion-answer"> Дополнительных подписок или платных функций <span className="!font-semibold">не требуется.</span></p>
       </div>
@@ -30,10 +30,10 @@ export const frequentQuestions = [
           <span className="!font-semibold">СмартКардио®</span> работает на основе закона
           Эйнтховена. Во время контакта с кожей устройство регистрирует разность
           потенциалов между конечностями (классические отведения I, II, III и
-          усиленные aVR, aVL, aVF).
+          усиленные от конечностей aVR, aVL, aVF).
         </p>
         <p className="quastion-answer">
-          Благодаря использованию <span className="!font-semibold">«сухих» электродов</span> и продуманной схемотехники, регистрация проходит <span className="!font-semibold">без геля, липких электродов или проводов —</span>
+          Благодаря использованию <span className="!font-semibold">«сухих» электродов</span> и продуманной схемотехники, регистрация проходит <span className="!font-semibold">без геля, липких электродов или проводов — </span>
           удобно как в домашних, так и в клинических условиях.
         </p>
 
