@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 export const telegramFormSchema = z.object({
   username: z.string().min(1, 'Пожалуйста, введите ваше имя.'),
-  phone: z.string({message : "Номер телефона обязетален"}).min(1, {message : "Это поле обязательно."}).refine((value) => {
+  phone: z.string({message : "Номер телефона обязатален"}).min(1, {message : "Это поле обязательно."}).refine((value) => {
     const cleaned = value.replace(/\D/g, '');
     return cleaned.length === 11 && cleaned.startsWith('7');
   }, {
