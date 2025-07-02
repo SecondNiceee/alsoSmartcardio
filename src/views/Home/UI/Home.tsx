@@ -4,15 +4,18 @@ import "./styles/_index.scss";
 import dynamic from 'next/dynamic';
 
 import Smartcardio from './sections/Smartcardio';
-import Downloads from './sections/Downloads';
-import Recognition from './sections/Recognition';
+// import Downloads from './sections/Downloads';
+// import Recognition from './sections/Recognition';
 // import ForWhom from './sections/ForWhom';
-import ForWhomTwo from './sections/ForWhomTwo';
-import Generation from './sections/Generation';
+// import ForWhomTwo from './sections/ForWhomTwo';
+// import Generation from './sections/Generation';
 // import LayoutCookiePopup from '@/widgets/CookiePopup/LayoutCookiePopup';
 
 
-
+const Recognition = dynamic( () => import("./sections/Recognition") )
+const Downloads = dynamic( () => import("./sections/Downloads") )
+const ForWhomTwo = dynamic( () => import("./sections/ForWhomTwo") )
+const Generation = dynamic( () => import("./sections/Generation") )
 const InteractiveSection = dynamic(() => import("./sections/InteractiveSection"));
 const Indicators = dynamic( () => import('./sections/Indicators') )
 const Technologys = dynamic( () => import('./sections/Technologys') )
@@ -33,9 +36,7 @@ const LayoutCookiePopup = dynamic( () => import("../../../widgets/CookiePopup/La
 
 export const Home = () => {
     return (
-
         <>
-        
             <Smartcardio />
             <main>
                 <ForWhomTwo />
@@ -59,8 +60,6 @@ export const Home = () => {
             </main>
             <Footer />
             <LayoutCookiePopup />
-        
         </>
-        
     );
 };

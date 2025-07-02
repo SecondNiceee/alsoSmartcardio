@@ -92,7 +92,6 @@ export default function RootLayout({
             ${inter.variable}
             `}
       >
-
         <ReduxProvider>
         <AlertProvider>
             <TelegramProvider>
