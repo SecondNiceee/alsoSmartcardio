@@ -12,29 +12,6 @@ const StartApp:FC = () => {
     useEffect( () => {
         dispatch(setOrdersFromCookie())
     } , [] )
-    useEffect(() => {
-        const setFp = async () => {
-          const fp = await FingerprintJS.load();
-    
-          const { visitorId } = await fp.get();
-
-          let data = { 
-            sc_UserId: getUserId()
-          };
-    
-          fetch("/uid/" + getUserId() + "/fp/" + visitorId, {
-            method: "POST",
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            
-            body: JSON.stringify(data)
-          });
-
-        };
-    
-        setFp();
-      }, []);
 
     return null
 };
