@@ -1,11 +1,9 @@
 import React from "react";
 import Header from "./Header";
-import Reveal from "@/shared/UI/Reveal/Reveal";
 import SmartcardioButtons from "../components/SmartcardioButtons";
 import SmartcardioScrollArrow from "../components/SmartcardioScrollArrow";
-import { CHARACTER } from "@/shared/UI/Reveal/models/CharacterEnum";
-import ResponsiveVideo from "@/shared/UI/ResponsiveVideo/ResponsiveVideo";
 
+import ResponsiveVideo from "@/shared/UI/ResponsiveVideo/ResponsiveVideo";
 
 
 const Smartcardio: React.FC = () => {

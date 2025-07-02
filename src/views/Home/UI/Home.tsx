@@ -1,36 +1,29 @@
-
+'use client'
 import React from 'react';
 import "./styles/_index.scss";
 import dynamic from 'next/dynamic';
 
-import Smartcardio from './sections/Smartcardio';
-// import Downloads from './sections/Downloads';
-// import ForWhom from './sections/ForWhom';
-// import ForWhomTwo from './sections/ForWhomTwo';
-// import Generation from './sections/Generation';
-// import LayoutCookiePopup from '@/widgets/CookiePopup/LayoutCookiePopup';
-
-
-const Recognition = dynamic( () => import("./sections/Recognition") )
-const Downloads = dynamic( () => import("./sections/Downloads") )
-const ForWhomTwo = dynamic( () => import("./sections/ForWhomTwo") )
-const Generation = dynamic( () => import("./sections/Generation") )
-const InteractiveSection = dynamic(() => import("./sections/InteractiveSection"));
-const Indicators = dynamic( () => import('./sections/Indicators') )
-const Technologys = dynamic( () => import('./sections/Technologys') )
-const HowItWorks = dynamic( () => import("./sections/HowItWorks") )
-const Steps = dynamic( () => import("./sections/Steps"))
-const HowOrder = dynamic( () => import("./sections/HowOrder") )
-const SmartcardioSlider = dynamic( () => import("./sections/SmartcardioSlider")  ) 
-const RecorderExamples = dynamic( () => import("./sections/RecorderExamples") ) 
-const Feedbacks = dynamic( () => import("./sections/Feedbacks")  ) 
-const Recomendation = dynamic( () => import("./sections/Recomendation") )
-const Advantages = dynamic( () => import("./sections/Advantages") )
-const Sertifications = dynamic( () => import("./sections/Sertifications") ) 
+const Smartcardio = dynamic( () => import("./sections/Smartcardio"), {ssr: false}  )
+const Recognition = dynamic( () => import("./sections/Recognition"), {ssr: false}  )
+const Downloads = dynamic( () => import("./sections/Downloads"), {ssr: false}  )
+const ForWhomTwo = dynamic( () => import("./sections/ForWhomTwo"), {ssr: false}  )
+const Generation = dynamic( () => import("./sections/Generation"), {ssr: false}  )
+const InteractiveSection = dynamic(() => import("./sections/InteractiveSection"), {ssr: false}  );
+const Indicators = dynamic( () => import('./sections/Indicators'), {ssr: false}  )
+const Technologys = dynamic( () => import('./sections/Technologys'), {ssr: false}  )
+const HowItWorks = dynamic( () => import("./sections/HowItWorks"), {ssr: false}  )
+const Steps = dynamic( () => import("./sections/Steps"), {ssr: false}  )
+const HowOrder = dynamic( () => import("./sections/HowOrder"), {ssr: false}  )
+const SmartcardioSlider = dynamic( () => import("./sections/SmartcardioSlider"), {ssr: false}  ) 
+const RecorderExamples = dynamic( () => import("./sections/RecorderExamples"), {ssr: false}  ) 
+const Feedbacks = dynamic( () => import("./sections/Feedbacks"), {ssr: false}  ) 
+const Recomendation = dynamic( () => import("./sections/Recomendation"), {ssr: false}  )
+const Advantages = dynamic( () => import("./sections/Advantages"), {ssr: false}  )
+const Sertifications = dynamic( () => import("./sections/Sertifications"), {ssr: false}  ) 
 const FooterOrder = dynamic( () => import("./sections/FooterOrder") )
-const Contacts = dynamic( () => import("./sections/Contacts") )
-const Footer = dynamic( () => import("./sections/Footer") )
-const LayoutCookiePopup = dynamic( () => import("../../../widgets/CookiePopup/LayoutCookiePopup") )
+const Contacts = dynamic( () => import("./sections/Contacts"), {ssr: false}  )
+const Footer = dynamic( () => import("./sections/Footer"), {ssr: false}  )
+const LayoutCookiePopup = dynamic( () => import("../../../widgets/CookiePopup/LayoutCookiePopup"), {ssr: false}  )
 
 
 export const Home = () => {
@@ -59,8 +52,6 @@ export const Home = () => {
             </main>
             <Footer />
             <LayoutCookiePopup />
-        
         </>
-        
     );
 };
