@@ -7,7 +7,6 @@ import { Swiper as SwiperInstance } from 'swiper';
 import NextButton, { arrowsType } from '@/shared/UI/NextPrevButtons/NextButton';
 import PrevButton from '@/shared/UI/NextPrevButtons/PrevButton';
 import 'swiper/css/pagination';
-import Image from 'next/image';
 
 
     
@@ -34,7 +33,7 @@ function SliderWrapper<T>({ handleSlideChange = () => {}, renderMap, mainImageCl
     const render = useCallback((src:T, index:number) => {
             return (
                 <SwiperSlide key={index} className={`mx-auto flex justify-center cursor-pointer relative`}>
-                    <Image className={`sm:w-[100%] w-[100%] smartcardio-slider-clamp object-cover rounded-md ${mainImageClassNames}`} alt='#' src={src as string} width={1900} height={1300}  />
+                    <img className={`sm:w-[100%] w-[100%] smartcardio-slider-clamp object-cover rounded-md ${mainImageClassNames}`} alt='#' src={src as string} />
                 </SwiperSlide>
             )
     }, [])

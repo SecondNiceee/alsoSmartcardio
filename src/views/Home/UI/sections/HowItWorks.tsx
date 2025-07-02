@@ -2,7 +2,6 @@
 import { CHARACTER } from '@/shared/UI/Reveal/models/CharacterEnum';
 import Reveal from '@/shared/UI/Reveal/Reveal';
 import Video from '@/shared/UI/Video/Video';
-import Image from 'next/image';
 import React, { useCallback, useEffect, useRef } from 'react';
 
 const HowItWorks = () => {
@@ -31,17 +30,17 @@ const HowItWorks = () => {
 
 
     return (
-        <section ref={observerRef} className='how-it-works'>
+        <section ref={observerRef} className='how-it-works relative'>
             <Reveal character={CHARACTER.DOWNUP} className="container">
                   <header className='how-it-works__header'>
                       Как это работает?
                   </header>
                 
                   <div ref={elementRef} className="how-it-works__main relative z-[100]">
-                      <Video videoClassName='video !z-[100] !relative'  poster = "images/manual.png" controls = {true} className='how-it-works__video !z-[100] !relative' videoName='manual.mp4'  />
+                      <Video videoClassName='video !z-[100] !relative'  poster = "images/manual.webp" controls = {true} className='how-it-works__video !z-[100] !relative' videoName='manual.mp4'  />
                   </div>
-                  <Image className='how-it-works__logo' src={"/images/logo.jpg"} alt='#' width={1200} height={1006} />
-                  <Image className='how-it-works__logo' src={"/images/logo.jpg"} alt='#' width={1200} height={1006} />
+                  <img className='how-it-works__logo' src={"/images/logo.jpg"} alt='#' />
+                  <img className='how-it-works__logo' src={"/images/logo.jpg"} alt='#'  />
 
             </Reveal>
         </section>

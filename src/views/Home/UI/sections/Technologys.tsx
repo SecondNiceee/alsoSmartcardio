@@ -1,7 +1,6 @@
 import Video from "@/shared/UI/Video/Video";
 import React from "react";
 import Reveal from "@/shared/UI/Reveal/Reveal";
-import Image from "next/image";
 import TechnologysStoreLink from "../components/TechnologysStoreLink";
 import { CHARACTER } from "@/shared/UI/Reveal/models/CharacterEnum";
 
@@ -42,7 +41,7 @@ const Technologys = () => {
 
             </div>
 
-            <Image width={755} height={821} src={"/images/videoLiner.svg"} alt="#" className="video-liner" />
+            <img src={"/images/videoLiner.svg"} alt="#" className="video-liner" />
 
           </Reveal>
 

@@ -54,19 +54,19 @@ export const metadata: Metadata = {
     url: "https://smartcardio.ru/",
     images: [
       {
-        url: "/images/smartcardioS1.png",
+        url: "/images/smartcardioS1.webp",
         width: 800,
         height: 600,
         alt: "Smartcardio Device",
       },
       {
-        url: "/images/smartcardioS2.png",
+        url: "/images/smartcardioS2.webp",
         width: 800,
         height: 600,
         alt: "Smartcardio Device",
       },
       {
-        url: "/images/smartcardioS3.png",
+        url: "/images/smartcardioS3.webp",
         width: 800,
         height: 600,
         alt: "Smartcardio Device",
@@ -98,7 +98,7 @@ export default function RootLayout({
         <meta property="og:description" content={"Беспроводной кардиограф, ЭКГ и сатурация без геля и проводов, результат сразу в телефоне, прибор разработан и производится в России"} />
         <meta property="og:type" content={"website"} />
         <meta property="og:url" content={"https://smartcardio.ru/"} />
-        <meta property="og:image" content={"/images/smartcardioS1.png"} />
+        <meta property="og:image" content={"/images/smartcardioS1.webp"} />
         <meta property="og:site_name" content={"Smartcardio"} />
         <meta property="og:locale" content={"ru_RU"} />
         <meta name="robots" content={"index, follow"} />

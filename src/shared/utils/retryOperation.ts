@@ -6,8 +6,6 @@ export default async function retryOperation<T>(
   retries = 10,
   baseDelay = 1000
 ): Promise<T> {
-  console.warn("Вызов чего-то")
-  console.warn("as");
   for (let i = 0; i < retries; i++) {
     try {
       return await operation();

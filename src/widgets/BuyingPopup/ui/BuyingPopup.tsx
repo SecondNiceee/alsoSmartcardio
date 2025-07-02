@@ -25,6 +25,8 @@ import { blockScroll, unBlockScroll } from "@/shared/utils/blockController";
 import useSubmit from "../hooks/useSubmit";
 import { PROMOCODE } from "@/shared/config/constants";
 import SubmitButton from "@/shared/UI/SubmitButton/SubmitButton";
+import PromocodeInput from "./components/PromocodeInput";
+import { TPromocode } from "../model/TPromocode";
 
 interface IBuyingPopup {
   setState: (state:boolean) => void;
@@ -65,13 +67,13 @@ export const BuyingPopup = forwardRef(
       setStartAddOne(true);
     }, [setStartAddOne]);
 
-    const [isPromocodeFind, setPromocode] = useState<boolean>(false)
+    const [isPromocodeFind, setPromocode] = useState<TPromocode | null>(null)
 
     const summ = useMemo(() => {
       let summ = 0;
       cartOrders.forEach((e, i) => (summ += e.price * e.counter));
       if (isPromocodeFind ){
-        summ -= 2250
+        summ -= isPromocodeFind.discountPercent/100 * summ
       }
       return summ;
     }, [cartOrders,isPromocodeFind]);
@@ -91,7 +93,12 @@ export const BuyingPopup = forwardRef(
       watch,
       formState: { errors },
     } = useForm<IForm>({
-      resolver: zodResolver(buyingSchema)
+      resolver: zodResolver(buyingSchema),
+      defaultValues : {
+        address : "",
+        comment : "",
+        promocode : ""
+      }
     });
 
     // const method = watch("deliveryMethod");
@@ -118,7 +125,7 @@ export const BuyingPopup = forwardRef(
       return (deliverySumm + summ) / 100 * 3
     } , [deliverySumm, summ] )
 
-    const onSubmit = useSubmit({delivceryCity : delivceryCity, deliverySumm, handleSubmit, cdekComission})
+    const onSubmit = useSubmit({delivceryCity : delivceryCity, deliverySumm, handleSubmit, cdekComission, isPromocode : isPromocodeFind})
 
     return (
       <form
@@ -190,23 +197,7 @@ export const BuyingPopup = forwardRef(
                 name={"comment"}
               />
 
-              <Controller control={control} name="promocode" render={({field}) => {
-                const {onChange, value} = field
-                const changeHandler:ChangeEventHandler<HTMLInputElement> = (e) => {
-                    const value = e.target.value
-                    console.log(value, PROMOCODE)
-                    if (value === PROMOCODE){
-                      setPromocode(true)
-                    }
-                    onChange(value)
-                }
-                return (
-                <div className='flex flex-col gap-2'>
-                    <label className='p text-left' htmlFor={"promocode"}>{"Промокод"}</label>
-                    <input {...field} onChange={changeHandler} value={value} autoComplete='nope' spellCheck = {false} placeholder={"Введите промокод"} id={"promocode"} className={`p-2 p text-left ${isPromocodeFind ? "border-green-600 border-2" : "border-black"} border-solid border-2 rounded-md`} type={"text"} />
-                </div>
-                )
-              }} />
+              <PromocodeInput isPromocodeFind={isPromocodeFind} control={control} setPromocode={setPromocode} watch={watch} />
 
 
               <BuyingItog

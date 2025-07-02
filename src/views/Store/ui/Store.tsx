@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import React from 'react';
 import { storeOrders } from '../config/StoreOrders';
 import StoreOrder from './components/StoreOrder';
@@ -16,7 +15,7 @@ export const Store = () => {
             <div className="container flex flex-col items-center justify-center">
 
                 <div className='md:w-[30%] sm:w-[40%] w-[50%] aspect-square relative flex-col gap-5 border-black border-2 border-solid flex justify-center items-center white-shadow rounded-[50%] mt-14 mb-14'>
-                    <Image alt='#' width={1600} height={1500} className='w-[50%]' src={"/images/logo.jpg"} />
+                    <img alt='#'className='w-[50%]' src={"/images/logo.jpg"} />
                     <div className='flex flex-col gap-2 items-center'>
 
                         <p className='mid-title leading-none text-gray-500'>SmartCardio</p>

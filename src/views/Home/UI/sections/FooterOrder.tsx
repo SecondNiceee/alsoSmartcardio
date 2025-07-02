@@ -8,7 +8,7 @@ const FooterOrder = () => {
     
     return (
 
-        <section className='section bg-[url("/images/footerBg.png")] relative md:bg-fixed md:bg-bottom bg-center md:bg-auto bg-cover'>
+        <section className='section bg-[url("/images/footerBg.webp")] relative md:bg-fixed md:bg-bottom bg-center md:bg-auto bg-cover'>
             <div className="w-[100%] h-[100%] absolute left-0 top-0 bg-black z-10 opacity-70"></div>
             <div className="container p-container gap-containerGap relative flex flex-col z-20">
                 <h2 className='h2 text-white'>Закажите СмартКардио® уже сегодня</h2>

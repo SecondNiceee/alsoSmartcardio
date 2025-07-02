@@ -10,33 +10,26 @@ import Recognition from './sections/Recognition';
 import ForWhomTwo from './sections/ForWhomTwo';
 import Generation from './sections/Generation';
 import TelegramBotSection from './sections/TelegramBotSection';
+import InteractiveSection from './sections/InteractiveSection';
+import Indicators from './sections/Indicators';
+import Technologys from './sections/Technologys';
+import HowItWorks from './sections/HowItWorks';
+import Steps from './sections/Steps';
+import RecorderExamples from './sections/RecorderExamples';
+import LayoutCookiePopup from '@/widgets/CookiePopup/LayoutCookiePopup';
+import Advantages from './sections/Advantages';
+import Contacts from './sections/Contacts';
+import Feedbacks from './sections/Feedbacks';
+import Footer from './sections/Footer';
+import FooterOrder from './sections/FooterOrder';
+import HowOrder from './sections/HowOrder';
+import Recomendation from './sections/Recomendation';
+import Sertifications from './sections/Sertifications';
+import SmartcardioSlider from './sections/SmartcardioSlider';
 // import LayoutCookiePopup from '@/widgets/CookiePopup/LayoutCookiePopup';
-
-
-
-const InteractiveSection = dynamic(() => import("./sections/InteractiveSection"));
-const Indicators = dynamic( () => import('./sections/Indicators') )
-const Technologys = dynamic( () => import('./sections/Technologys') )
-const HowItWorks = dynamic( () => import("./sections/HowItWorks") )
-const Steps = dynamic( () => import("./sections/Steps"))
-const HowOrder = dynamic( () => import("./sections/HowOrder") )
-const SmartcardioSlider = dynamic( () => import("./sections/SmartcardioSlider")  ) 
-const RecorderExamples = dynamic( () => import("./sections/RecorderExamples") ) 
-const Feedbacks = dynamic( () => import("./sections/Feedbacks")  ) 
-const Recomendation = dynamic( () => import("./sections/Recomendation") )
-const Advantages = dynamic( () => import("./sections/Advantages") )
-const Sertifications = dynamic( () => import("./sections/Sertifications") ) 
-const FooterOrder = dynamic( () => import("./sections/FooterOrder") )
-const Contacts = dynamic( () => import("./sections/Contacts") )
-const Footer = dynamic( () => import("./sections/Footer") )
-const LayoutCookiePopup = dynamic( () => import("../../../widgets/CookiePopup/LayoutCookiePopup") )
-
-
 export const Home = () => {
     return (
-
         <>
-        
             <Smartcardio />
             <main>
                 <ForWhomTwo />

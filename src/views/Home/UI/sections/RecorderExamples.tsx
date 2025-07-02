@@ -2,7 +2,6 @@
 import React, { useCallback, useState } from "react";
 import Slider from "../components/Slider";
 import { SwiperSlide } from "swiper/react";
-import Image from "next/image";
 import { recordersSliders } from "../../config/smarcardioSliderImages";
 import ZoomSlider from "@/shared/UI/ZoomSlider/ZoomSlider";
 import { recorders } from "../../config/recorders";
@@ -21,7 +20,7 @@ const RecorderExamples = () => {
   const renderSmall = useCallback((src:string, index: number) => {
     return (
         <SwiperSlide key={index}  className={`mx-auto small-slide  rounded-sm cursor-pointer`}>
-            <Image className='w-[100%] h-[100%] rounded-sm' alt='#' src={src} width={600} height={600}  />
+            <img className='w-[100%] h-[100%] rounded-sm' alt='#' src={src}  />
         </SwiperSlide>
     )
 }, [activeSlide])

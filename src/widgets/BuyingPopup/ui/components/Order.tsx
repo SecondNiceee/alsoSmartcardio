@@ -1,7 +1,6 @@
 import useOrdersController from '@/features/Orders/addOrderToCart';
 import { TypeOrder } from '@/shared/config/TypeOrder';
 import { formatNumber } from '@/shared/utils/formateNumber';
-import Image from 'next/image';
 import React, { FC } from 'react';
 
 
@@ -32,12 +31,10 @@ const Order:FC<IOrder> = ({order}) => {
           <div
             className="w-[100%] gap-5 rounded-md border-solid  border-black flex items-center justify-between md:p-5"
           >
-            <Image
+            <img
               className="w-[20%] rounded-xl min-w-[90px]"
               alt="#"
               src={order.images[0]}
-              width={200}
-              height={200}
             />
             <div className="flex md:flex-row w-[100%] flex-col md:gap-6 gap-2 items-center md:justify-between ">
               <p dangerouslySetInnerHTML={{__html : order.name}} className="p md:max-w-[120px]"></p>

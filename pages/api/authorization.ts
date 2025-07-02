@@ -1,9 +1,7 @@
 // pages/api/oauth/token.ts
-import { account, HOST, password } from '@/shared/config/constants'
+import { account, HOST, password } from '../../src/shared/config/constants';
 import { saveToken } from '../../src/shared/utils/secureStorage';
-
 let refreshInProgress = false
-
 async function fetchNewToken(): Promise<{ access_token: string; expires_in?: number }> {
     const searchParams = new URLSearchParams({
       grant_type: 'client_credentials',

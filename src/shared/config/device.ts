@@ -2,7 +2,7 @@ import { TypeOrder } from "./TypeOrder";
 
 export const device:TypeOrder = {
     id : 1,
-    images : ["/images/device.png", "/images/hoverDevice.png", "/images/smartcardioS6.png", "/images/smartcardioS8.png", "/images/smartcardioS1.png", "/images/smartcardioS2.png"],
+    images : ["/images/device.webp", "/images/hoverDevice.webp", "/images/smartcardioS6.webp", "/images/smartcardioS8.webp", "/images/smartcardioS1.webp", "/images/smartcardioS2.webp"],
     name : "СмартКардио",
     description : "СмартКардио - первое в мире устройство, регистрирующее одновременно ЭКГ, сатурацию и пульсовую волну без геля и проводов",
     price : 14950,

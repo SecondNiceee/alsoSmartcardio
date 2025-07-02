@@ -24,12 +24,7 @@
     .step__image{
         border-radius: 50%;
         width: 100%;
-        @media (max-width:1024px) {
-            width: 90%;
-        }
-        @media (max-width:850px) {
-            width: 80%;
-        }
+        width: clamp(16.875rem, 10.423rem + 13.44vw, 20rem);
         @media (max-width:768px) {
             width: 50%;
         }

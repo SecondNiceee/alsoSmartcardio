@@ -29,7 +29,6 @@ const useFetchYears = ({setFilteredSuggestions, fromEmpty, setFromEmpty, setFetc
       
       let error = false
 
-      console.warn("Хэй хэй")
 
       const responses = await retryOperation(() => GET<TypeSuggestion[]>({
         endpoint: "/citys",

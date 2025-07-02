@@ -12,16 +12,11 @@ export default async function handler(
   }
 
   try {
-
     // URL целевого сервиса
     const url = `${process.env.TELEGRAM_BACKEND_HOST}/telegram/send-message`;
 
     // Перенаправляем запрос
     const { name, phone } = req.body;
-
-    console.log(name, phone);
-
-    console.log(name, phone);
 
     if (!name || !phone) {
       return res.status(400).json({ error: "Missing name or phone" });
@@ -29,26 +24,28 @@ export default async function handler(
 
     const changedBody = {
       chatId: process.env.CHATID,
-      text: `
-        Имя: ${name}
-        Телефон: ${phone}
+      text: `Имя: ${name}
+Телефон: ${phone}
     `.trim(),
     };
 
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(changedBody),
-    });
+    try{
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body : JSON.stringify(changedBody)
+      })
+      const data = await response.json().catch(() => {});
+      res.status(response.status).json(data); 
+    }
+    catch(e){
+      console.log(e);
+      return res.status(500).json({message : "Не удалось подключиться к серверy", status : 500});
+    }
 
-    // Читаем ответ от целевого сервера
-    const data = await response.json();
-  
 
-    // Возвращаем клиенту
-    res.status(response.status).json(data);
   } catch (error: any) {
     console.log("Proxy Error:", error.message || error);
     res.status(500).json({ error: "Failed to proxy request" });

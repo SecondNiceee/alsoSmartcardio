@@ -6,15 +6,15 @@ export type TypeSteps = {
 export const steps:TypeSteps[] = [
     {
         text : "Нажать кнопку ПУСК<br> в приложении",
-        imagePath : "/images/step3.jpg"
+        imagePath : "/images/step3.webp"
     },
     {
         text : "Взять прибор СмартКардио®",
-        imagePath : "/images/step1.jpg"
+        imagePath : "/images/step1.webp"
     },
     {
         text : "Подождать... всего 30 секунд, пока идет запись",
-        imagePath : "/images/step2.jpg"
+        imagePath : "/images/step2.webp"
     }
 ]
 

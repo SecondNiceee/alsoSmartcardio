@@ -21,10 +21,9 @@ export const  request = async <T>({body, headers, method, queryParams, url, with
         credentials : withCredentials ? "include" : "same-origin"
     })
     if (!response.ok){
-        console.log(response);
         const errorData = await response.json().catch(() => {});
-        console.log(JSON.stringify(errorData));
-        throw JSON.stringify(errorData);
+        console.warn(errorData);
+        throw errorData;
     }
     const data:T = await response.json();
     return data;

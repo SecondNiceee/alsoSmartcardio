@@ -3,7 +3,6 @@ import { TWhoWhomSliderItem } from '../../config/forWhomSlider.config';
 import OrderButton from '@/shared/UI/OrderButton/OrderButton';
 import { routes } from '@/shared/config/routes';
 import "../styles/_for-whom.scss";
-import Image from 'next/image';
 
 interface IForWhomSlide{
     slide : TWhoWhomSliderItem;
@@ -23,7 +22,7 @@ const ForWhomSlide:FC<IForWhomSlide> = ({slide, setResponsePopup, setSliderActiv
                         <span>Связаться с нами</span>
                     </OrderButton>} 
                 </div>
-                <Image onClick={() => {setSliderActive(true)}} width={800} height={800} className='lg:w-[55.07%] h-[500px] sm:w-[60%] w-full object-cover sm:h-[485px] md:h-[608px] mx-auto rounded-lg' src={slide.imgSrc} alt="forUsers" />
+                <img onClick={() => {setSliderActive(true)}} className='lg:w-[55.07%] h-[500px] sm:w-[60%] w-full object-cover sm:h-[485px] md:h-[608px] mx-auto rounded-lg' src={slide.imgSrc} alt="forUsers" />
             </div>
     );
 };

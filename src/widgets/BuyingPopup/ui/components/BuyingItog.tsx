@@ -1,12 +1,13 @@
 import { formatNumber } from '@/shared/utils/formateNumber';
 import React, { FC } from 'react';
+import { TPromocode } from '../../model/TPromocode';
 
 interface IBuyintItog{
     summ : number,
     deliverySumm : number,
     deliveryCity : string,
     address : string,
-    isPromocode : boolean
+    isPromocode : null | TPromocode
 }
 const BuyingItog:FC<IBuyintItog> = ({deliveryCity, deliverySumm, summ, address, isPromocode}) => {
     return (

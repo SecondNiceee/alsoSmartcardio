@@ -10,7 +10,6 @@ import NextButton from '../NextPrevButtons/NextButton';
 import PrevButton from '../NextPrevButtons/PrevButton';
 import { CSSTransition } from 'react-transition-group';
 import { blockScroll, unBlockScroll } from '@/shared/utils/blockController';
-import Image from 'next/image';
 
 export interface IZoomSliderProps<T> {
     slides: T[];
@@ -33,7 +32,7 @@ function ZoomSlider<T>({slides, closeZoom,initialSlide , mainSwiperRef, zoomStat
     const render = useCallback( (src:T, index:number) => {
         return (
             <SwiperSlide key={index} className='mx-auto flex justify-center'>
-                <Image className= {`w-fit h-[100vh] object-contain ${imagesClassNames}`} alt='#' src={src as string} width={1900} height={1300}  />
+                <img className= {`w-fit h-[100vh] object-contain ${imagesClassNames}`} alt='#' src={src as string}  />
             </SwiperSlide>
         )
     }, [] ) 

@@ -33,7 +33,7 @@ const TelegramForm = () => {
     
     const onSubmit = handleSubmit(async (data: TTelegramForm) => {
         try{
-
+            
             await request({
                 headers : {
                     "Content-Type": "application/json"
@@ -46,7 +46,6 @@ const TelegramForm = () => {
                         phone : data.phone
                 }
             })
-        
             showAlert("Ваша заявка принята!", "success");
         }
         catch(e){

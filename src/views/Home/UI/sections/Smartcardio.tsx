@@ -26,7 +26,7 @@ const Smartcardio: React.FC = () => {
       } videoName="smartcardio.mp4"  className="smartcardio__video" />
 
       
-      {/* <Video controlsList="nodownload" playsInline = {true} autoPlay = {true} muted = {true} loop = {true} darkOpacity = {0.5} className={"smartcardio__video hidden md:block"} poster={"/images/smartcardioStart.png"}  videoName={"smartcardio.mp4"} /> */}
+      {/* <Video controlsList="nodownload" playsInline = {true} autoPlay = {true} muted = {true} loop = {true} darkOpacity = {0.5} className={"smartcardio__video hidden md:block"} poster={"/images/smartcardioStart"}  videoName={"smartcardio.mp4"} /> */}
       <Header />
       <section className="smartcardio">
         <div className="container">

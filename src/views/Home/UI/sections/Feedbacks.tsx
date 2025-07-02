@@ -2,7 +2,6 @@
 import React from "react";
 import Slider from "../components/Slider";
 import { feedbacks } from "../../config/feedbacks";
-import Image from "next/image";
 import Reveal from "@/shared/UI/Reveal/Reveal";
 import ZoomSlider from "@/shared/UI/ZoomSlider/ZoomSlider"; 
 import useDefaultSwiper from "../../../../shared/hooks/useDefaultSwiper";
@@ -20,9 +19,7 @@ const Feedbacks = () => {
     <section className="section">
       {/* <div className="green-shadow absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] border-2 border-solid border-black"></div> */}
       <div className="container gap-containerGap p-container flex flex-col relative">
-        <Image
-          width={755}
-          height={821}
+        <img
           src={"/images/videoLiner.svg"}
           alt="#"
           className="absolute blur-[100px] left-[50%] top-[50%]  translate-x-[-50%] translate-y-[-50%] "

@@ -1,6 +1,5 @@
 import React, { FC, useMemo } from 'react';
 import { TypeOrder } from '../../config/howOrderItems';
-import Image from 'next/image';
 import Reveal from '@/shared/UI/Reveal/Reveal';
 import { CHARACTER } from '@/shared/UI/Reveal/models/CharacterEnum';
 
@@ -25,7 +24,7 @@ const HowOrderItem:FC<TypeOrder & indexType> = ({h, imageSrc, p, index}) => {
     } , [index])
     return (
         <Reveal character={revealCase} className="how-order__item bg-white black-shadow">
-            <Image className='how-order__item-img !icon-height !w-auto' src={imageSrc} alt='#' width={100} height={100} />
+            <img className='how-order__item-img !icon-height !w-auto' src={imageSrc} alt='#'  />
             <div className="how-order__tblock">
                 <h4 className='how-order__item-h !sub-title'>{h}</h4>
                 <p dangerouslySetInnerHTML={{__html : p}} className='how-order__item-p'></p>

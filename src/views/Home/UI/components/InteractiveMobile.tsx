@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import React, { FC } from 'react';
 import InteractiveButtons from './InteractiveButtons';
 
@@ -12,7 +11,7 @@ const InteractiveMobile:FC<IInteractiveMobile> = ({openZoom}) => {
         <div className="container">
             <div className="interactive__m-main relative z-30 bg-white">
                 <InteractiveButtons openZoom={openZoom} />
-                <Image className='interactive__m-image' alt='#' width={400} height={400} src={"/images/interactive.png"} />
+                <img className='interactive__m-image' alt='#' src={"/images/interactive.webp"} />
             </div>
         </div>
         

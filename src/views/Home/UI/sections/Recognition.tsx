@@ -1,7 +1,6 @@
 "use client";
 import { CHARACTER } from "@/shared/UI/Reveal/models/CharacterEnum";
 import Reveal from "@/shared/UI/Reveal/Reveal";
-import Image from "next/image";
 import React from "react";
 import RecognitionImages from "../components/RecognitionImages";
 import OrderButton from "@/shared/UI/OrderButton/OrderButton";
