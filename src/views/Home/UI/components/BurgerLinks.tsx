@@ -1,5 +1,4 @@
-
-import React, { FC, SetStateAction } from 'react';
+import React, { FC } from 'react';
 import { headerNavs } from '../../config';
 import OrderButton from '@/shared/UI/OrderButton/OrderButton';
 import Link from 'next/link';
@@ -7,9 +6,8 @@ import { routes } from '@/shared/config/routes';
 
 interface IBurgerLinks{
     isActive : boolean,
-    setMenuOpen : React.Dispatch<SetStateAction<boolean>>
 }
-const BurgerLinks:FC<IBurgerLinks> = ({isActive, setMenuOpen}) => {
+const BurgerLinks:FC<IBurgerLinks> = ({isActive}) => {
     return (
         <nav className={`header__burger-menu ${isActive ? "active" : ""}`}>
             {headerNavs.map( (headerNav, i) => {

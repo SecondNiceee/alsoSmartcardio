@@ -3,10 +3,9 @@ import { TypeOffice } from "../model/TypeOffice";
 
 interface IGetOffices{
     region_code : number,
-    token : string | null,
 
 }
-async function getPostmats({region_code, token} : IGetOffices) {
+async function getPostmats({region_code} : IGetOffices) {
 
     const postmat = await GET<TypeOffice[]>({endpoint : "/offices", params : {
                     type : "POSTAMAT",

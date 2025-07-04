@@ -13,3 +13,4 @@ export const RecorderItem = React.memo(({index, text, activeSlide, changeSlide} 
         </div>
     )
 })
+RecorderItem.displayName = "RecorderItem"

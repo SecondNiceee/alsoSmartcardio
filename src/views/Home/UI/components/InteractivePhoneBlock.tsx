@@ -2,7 +2,6 @@
 import React, { useRef } from 'react';
 import OrderButton from '@/shared/UI/OrderButton/OrderButton';
 import dynamic from 'next/dynamic';
-import { openPdfInNewTab } from '@/shared/utils/openPdfInNewTab';
 import { openInstruction } from '../../utils/openInstruction';
 const InteractiveLottie = dynamic(() => import("./InteractiveLottie"), {
     ssr: false
@@ -41,3 +40,4 @@ const InteractivePhoneBlock = () => {
 };
 
 export default React.memo(InteractivePhoneBlock);
+InteractivePhoneBlock.displayName = "InteractivePhoneBlock"

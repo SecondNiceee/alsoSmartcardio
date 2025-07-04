@@ -1,4 +1,4 @@
-import React, { FC, SetStateAction, useEffect, useState } from 'react';
+import React, { SetStateAction, useCallback, useEffect } from 'react';
 import "../styles/deliever.css"
 import { TypedeliveryMethod } from '../../model/TypeDeliveryMethod';
 import { getDaysString } from '../../utils/getDayString';
@@ -19,7 +19,7 @@ function DeliveryMethods<T extends FieldValues>({methods, control, setDeliveryMe
 
             const {onChange, value} = field
 
-            const changeHandler = (value:TypeDeliveryMethodString) => () => {
+            const changeHandler = useCallback((value:TypeDeliveryMethodString) => () => {
                 setDeliveryMethodString(value)
                 onChange(value)
                 switch(value){
@@ -38,7 +38,9 @@ function DeliveryMethods<T extends FieldValues>({methods, control, setDeliveryMe
                     default:{
                     }
                 }
-            }
+            }, [onChange]);
+
+            // eslint-disable-next-line react-hooks/rules-of-hooks
             useEffect( () => {
                 if (!methods[0].errors){
                     changeHandler("deliveryPoint")()
@@ -53,7 +55,7 @@ function DeliveryMethods<T extends FieldValues>({methods, control, setDeliveryMe
                         }
                     }
                 }
-            } , [methods] )
+            } , [ changeHandler] )
 
             return (
             <>

@@ -3,11 +3,10 @@ import { TypedeliveryMethod } from "../model/TypeDeliveryMethod"
 import { fromLocation } from "@/shared/config/fromLocation"
 
 interface IPostCourierPoint{
-    token : string | null,
     onReject : () => void,
     code : number
 }
-async function postCourierPoint({code, onReject, token} : IPostCourierPoint) {
+async function postCourierPoint({code, onReject} : IPostCourierPoint) {
     const response = await POST<TypedeliveryMethod>({endpoint : "/calculator", data : {
                 type : "1",
                 currency : "1",

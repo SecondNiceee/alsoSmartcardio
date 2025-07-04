@@ -37,3 +37,4 @@ const ForWhomMainSlider = forwardRef<SwiperRef, IForWhomMainSlider>(({onSlideCha
 } );
 
 export default ForWhomMainSlider as (props : IForWhomMainSlider & React.RefAttributes<SwiperRef>) => JSX.Element;
+ForWhomMainSlider.displayName = "ForWhomMainSlider"

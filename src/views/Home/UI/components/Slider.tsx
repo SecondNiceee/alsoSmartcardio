@@ -36,7 +36,7 @@ function SliderWrapper<T>({ handleSlideChange = () => {}, renderMap, mainImageCl
                     <img className={`sm:w-[100%] w-[100%] smartcardio-slider-clamp object-cover rounded-md ${mainImageClassNames}`} alt='#' src={src as string} />
                 </SwiperSlide>
             )
-    }, [])
+    }, [mainImageClassNames])
 
     
     return (

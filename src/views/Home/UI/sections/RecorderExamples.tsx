@@ -1,5 +1,5 @@
 'use client'
-import React, { useCallback, useState } from "react";
+import { useCallback } from "react";
 import Slider from "../components/Slider";
 import { SwiperSlide } from "swiper/react";
 import { recordersSliders } from "../../config/smarcardioSliderImages";
@@ -23,7 +23,7 @@ const RecorderExamples = () => {
             <img className='w-[100%] h-[100%] rounded-sm' alt='#' src={src}  />
         </SwiperSlide>
     )
-}, [activeSlide])
+}, [])
   return (
     <section className="section">
       <div className="container gap-containerGap p-container flex flex-col">

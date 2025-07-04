@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between gap-[15px]">
           <div className="flex flex-col">
             <p className="p text-[15px] text-[#d1d1d1] text-center md:text-left">
-              ООО "АРИТМЕД"
+              ООО &quot;АРИТМЕД&quot;
             </p>
             <p className="p text-[15px] text-[#d1d1d1] text-center md:text-left">
               ОГРН 1227700287330

@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState, useEffect } from 'react';
+import React, { FC, useRef } from 'react';
 
 interface AccordionItemProps { 
     setIsCurrentOpen : React.Dispatch<React.SetStateAction<number | null>>;

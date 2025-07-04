@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../styles/_for-whom.scss";
 import NextButton from "@/shared/UI/NextPrevButtons/NextButton";
 import ForWhomMainSlider from "../components/ForWhomMainSlider";

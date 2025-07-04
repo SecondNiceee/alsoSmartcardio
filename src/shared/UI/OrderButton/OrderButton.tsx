@@ -1,6 +1,6 @@
 "use client";
 
-import React, { CSSProperties, FC, ReactNode } from "react";
+import React, { CSSProperties, ReactNode } from "react";
 import cl from "./OrderButton.module.scss";
 import Link from "next/link";
 

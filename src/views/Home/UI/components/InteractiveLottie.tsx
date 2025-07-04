@@ -22,3 +22,4 @@ const InteractiveLottie = forwardRef<HTMLDivElement, DivProps>((props, ref) => {
 });
 
 export default React.memo(InteractiveLottie);
+InteractiveLottie.displayName = "InteractiveLottie"

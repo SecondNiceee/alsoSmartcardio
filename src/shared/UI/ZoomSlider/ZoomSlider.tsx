@@ -1,5 +1,5 @@
 'use client'
-import React, { ReactNode, useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 import "swiper/css";
 import "./zoomSlider.scss";
@@ -23,7 +23,11 @@ export interface IZoomSliderProps<T> {
 function ZoomSlider<T>({slides, closeZoom,initialSlide , mainSwiperRef, zoomState, imagesClassNames}: IZoomSliderProps<T> ) {
     
     useEffect( () => {
-        zoomState ? blockScroll() : unBlockScroll()
+        if (zoomState){ 
+            blockScroll()
+        } else {
+            unBlockScroll()
+        }
     } , [zoomState] )
 
 
@@ -35,7 +39,7 @@ function ZoomSlider<T>({slides, closeZoom,initialSlide , mainSwiperRef, zoomStat
                 <img className= {`w-fit h-[100vh] object-contain ${imagesClassNames}`} alt='#' src={src as string}  />
             </SwiperSlide>
         )
-    }, [] ) 
+    }, [imagesClassNames] ) 
 
     const changeSlider = (swiper : SwiperType) => {
         if (mainSwiperRef){

@@ -1,5 +1,5 @@
 import Cross from "@/shared/UI/ZoomSlider/Cross";
-import React, { FC, SetStateAction } from "react";
+import React, { FC } from "react";
 
 interface ICloseButton {
   setPopup: (state:boolean) => void;

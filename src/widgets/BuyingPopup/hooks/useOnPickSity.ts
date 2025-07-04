@@ -1,5 +1,4 @@
 import { TypeStatus } from '@/shared/api/models';
-import { getAccessToken } from '@/shared/utils/getAccessToken';
 import React, { SetStateAction, useCallback } from 'react';
 import { TypedeliveryMethod } from '../model/TypeDeliveryMethod';
 import postCourierPoint from '../api/postCourierPoint';
@@ -24,23 +23,21 @@ const useOnPickSity = ({setMethodsStatus, setMethods, setOffices, setPostmats} :
 
     const onPick = useCallback( async (par : number) => {
 
-        const token = getAccessToken()
-
         setMethodsStatus("pending")
 
         let error = false
 
         const deliveryPoint = await postDeliveryPoint({code : par,onReject : () => {setMethodsStatus("rejected")
             error = true
-        }, token : token}) 
+        }}) 
 
         const postmatPoint = await postPostmanPoint({code : par, 
             onReject : () => {
-            error = true}, token : token })
+            error = true}})
 
         const courierPoint = await postCourierPoint({code : par, onReject : () => {
             error = true
-          } , token : token})
+          } })
 
 
         if (courierPoint && postmatPoint && deliveryPoint){
@@ -55,9 +52,9 @@ const useOnPickSity = ({setMethodsStatus, setMethods, setOffices, setPostmats} :
 
         const settlementsCode = settlements ? settlements[0].region_code : 0
 
-        const offices = await getOffices({region_code : settlementsCode, token : token})
+        const offices = await getOffices({region_code : settlementsCode})
 
-        const postmats = await getPostmats({region_code : settlementsCode, token : token})
+        const postmats = await getPostmats({region_code : settlementsCode})
 
 
         if (postmats && offices){
@@ -76,7 +73,7 @@ const useOnPickSity = ({setMethodsStatus, setMethods, setOffices, setPostmats} :
             setMethodsStatus("rejected")
         }
 
-    } , [setMethods, setMethodsStatus] )
+    } , [setMethods, setMethodsStatus, setOffices, setPostmats] )
 
     return onPick
 };

@@ -1,6 +1,6 @@
 import CityChoicer from "@/shared/UI/DropDownInput/CityChoicer";
 import React, { SetStateAction, useEffect, useMemo, useState } from "react";
-import { Control, FieldError, FieldValues, Path } from "react-hook-form";
+import { Control, FieldValues, Path } from "react-hook-form";
 import NoDeliveryMethods from "./NoDeliveryMethods";
 import NoSelectedCity from "./NoSelectedCity";
 import { TypeStatus } from "@/shared/api/models";
@@ -77,7 +77,7 @@ function Delivery<T extends FieldValues>({
   useEffect(() => {
     setDeliveryPoint(null);
     setDeliveryInputValue("");
-  }, [deliveryMethodString]);
+  }, [deliveryMethodString, setDeliveryInputValue]);
 
 
   return (

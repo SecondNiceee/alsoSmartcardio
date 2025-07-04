@@ -1,15 +1,12 @@
 import { POST } from "@/shared/api/POST"
 import { TypedeliveryMethod } from "../model/TypeDeliveryMethod"
 import { fromLocation } from "@/shared/config/fromLocation"
-import { SetStateAction } from "react"
-import { TypeStatus } from "@/shared/api/models"
 
 interface IPostPostmanPoint{
     code : number,
     onReject : () => void,
-    token : string | null,
 }
-async function postPostmanPoint({code, onReject, token} : IPostPostmanPoint) {
+async function postPostmanPoint({code, onReject} : IPostPostmanPoint) {
     
         const postmatPoint = await POST<TypedeliveryMethod>({endpoint : "/calculator", data : {
             type : "1",

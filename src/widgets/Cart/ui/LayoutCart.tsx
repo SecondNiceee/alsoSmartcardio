@@ -25,7 +25,7 @@ export const LayoutCart = () => {
         else{
             dispatch(setCartButton(true))
         }
-    } , [ordersCounter] )
+    } , [ordersCounter, dispatch] )
 
     return (
         <CSSTransition

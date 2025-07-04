@@ -1,5 +1,4 @@
 'use client'
-import React from "react";
 import Slider from "../components/Slider";
 import { feedbacks } from "../../config/feedbacks";
 import Reveal from "@/shared/UI/Reveal/Reveal";
@@ -12,7 +11,7 @@ const Feedbacks = () => {
 
   const {activeSlide, handleSlideChange, swiperRef} = useDefaultSwiper()
 
-  const {closeZoom , zoomRef, zoomSlider, setZoomSlider} = useZoomSwiper()
+  const {closeZoom , zoomSlider, setZoomSlider} = useZoomSwiper()
 
 
   return (

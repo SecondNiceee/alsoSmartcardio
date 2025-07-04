@@ -6,7 +6,6 @@ type QueryParams = Record<string, string | string[]>;
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { method } = req;
-  const requestBody = req.body;
   const queryParams: QueryParams = req.query as QueryParams;
 
   const headers = Object.fromEntries(

@@ -1,5 +1,4 @@
 'use client'
-import React from "react";
 import { smartardioSliderImage } from "../../config/smarcardioSliderImages";
 import OrderButton from "@/shared/UI/OrderButton/OrderButton";
 
@@ -9,24 +8,19 @@ import Reveal from "@/shared/UI/Reveal/Reveal";
 import Slider from "../components/Slider";
 import useDefaultSwiper from "../../../../shared/hooks/useDefaultSwiper";
 import useZoomSwiper from "../../../../shared/hooks/useZoomSwiper";
-import { useAppDispatch } from "@/shared/models/reduxHooks";
-import { setCartPopup } from "@/entities/cart/model/cartSlice";
 import { CHARACTER } from "@/shared/UI/Reveal/models/CharacterEnum";
 import { routes } from "@/shared/config/routes";
 
 
 const SmartcardioSlider = () => {
 
-  // const dispatch = useAppDispatch()
   
   const {activeSlide, handleSlideChange, swiperRef} = useDefaultSwiper()
 
   const {closeZoom , zoomSlider, setZoomSlider} = useZoomSwiper()
 
 
-  // const buttonHandler = () => {
-  //   dispatch(setCartPopup(true))
-  // };
+
 
   return (
     <section id = "smartcardio-slider" className="smartcardio-slider relative">

@@ -4,8 +4,7 @@ import useDefaultSwiper from '@/shared/hooks/useDefaultSwiper';
 import useZoomSwiper from '@/shared/hooks/useZoomSwiper';
 import ZoomSlider from '@/shared/UI/ZoomSlider/ZoomSlider';
 import Slider from '@/views/Home/UI/components/Slider';
-import { getStoreOrderById } from '@/widgets/BuyingPopup/utils/getStoreOrderById';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 interface IProductSlider{
     storeOrder : TypeOrder

@@ -1,13 +1,13 @@
 'use client'
 import { setCartPopup } from '@/entities/cart/model/cartSlice';
 import { useAppDispatch} from '@/shared/models/reduxHooks';
-import React, { FC, forwardRef, LegacyRef } from 'react';
+import React from 'react';
 
 
 interface ICart{
     ordersCounter : number
 }
-export const Cart = forwardRef(({ordersCounter} : ICart, ref : LegacyRef<HTMLInputElement>) => {
+export const Cart = ({ordersCounter} : ICart) => {
 
     const dispatch = useAppDispatch()
 
@@ -29,5 +29,5 @@ export const Cart = forwardRef(({ordersCounter} : ICart, ref : LegacyRef<HTMLInp
             </div>
         </>
     );
-});
-
+}
+Cart.displayName = "Cart";

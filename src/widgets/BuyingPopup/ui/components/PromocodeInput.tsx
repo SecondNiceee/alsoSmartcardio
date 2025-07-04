@@ -1,16 +1,15 @@
 import { request } from '@/shared/api/request';
-import React, { ChangeEventHandler, FC, SetStateAction, useEffect } from 'react';
-import { Control, Controller, FieldValues, Path, UseFormWatch, useWatch } from 'react-hook-form';
+import React, { ChangeEventHandler, SetStateAction, useEffect } from 'react';
+import { Control, Controller, FieldValues, Path, useWatch } from 'react-hook-form';
 import { TPromocode } from '../../model/TPromocode';
 
 interface IPromocodeInput<T extends FieldValues>{
     control : Control<T>,
-    watch : UseFormWatch<T>,
     setPromocode : React.Dispatch<SetStateAction<TPromocode | null>>,
     isPromocodeFind : TPromocode | null
     
 }
-export default function PromocodeInput<T extends FieldValues>({control, watch, setPromocode, isPromocodeFind} : IPromocodeInput<T>) {
+export default function PromocodeInput<T extends FieldValues>({control , setPromocode, isPromocodeFind} : IPromocodeInput<T>) {
     const promocodeValue = useWatch({control, name : "promocode" as Path<T>} );
     useEffect( () => {
         if (!promocodeValue) {

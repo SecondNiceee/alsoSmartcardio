@@ -16,7 +16,7 @@ const CookiePopup:FC<ICookiePopup> = ({setCookieAccepted}) => {
             })
         }
         getButtonHandler()
-    } , [] )
+    } , [setCookieAccepted] )
 
     return (
         <div className='flex fixed bg-[#000000] black-shadow rounded-2xl right-[15px] bottom-[15px] p-5 z-50 flex-col gap-3 items-center justify-center'>

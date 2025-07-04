@@ -1,5 +1,5 @@
 // pages/api/sendEmail.ts
-import { emailPassword, emailRecipient, emailTransporterName, emailTransporterPassword, emailUser } from '@/shared/config/constants';
+import { emailPassword, emailRecipient, emailUser } from '@/shared/config/constants';
 import { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
 
@@ -16,7 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { message }: EmailRequestBody = req.body;
     console.log("Пришел сюда")
     // Настройки транспорта (например, для Gmail)
-    let transporter = nodemailer.createTransport({
+    const transporter = nodemailer.createTransport({
       service: "Mail.ru",
       auth: {
         user: emailUser, // Ваш email
@@ -24,7 +24,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       },
     });
 
-    let mailOptions = {
+    const mailOptions = {
       from: emailUser,
       to: emailRecipient,
       subject: 'New Message',
@@ -32,7 +32,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     };
 
     // Отправка email
-    transporter.sendMail(mailOptions, async (error, info) => {
+    transporter.sendMail(mailOptions, async (error) => {
       if (error) {
         console.log(error.message)
         return res.status(500).json({ error: error.message });

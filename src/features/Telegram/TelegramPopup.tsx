@@ -11,7 +11,7 @@ const TelegramPopup = () => {
     const {isTelegramPopup, setTelegramPopup} = useTelegramPopup();
     const closePopup = useCallback(() => {
         setTelegramPopup(false);
-    },[])
+    },[setTelegramPopup])
     return (
         <CSSTransition nodeRef={popupRef} in = {isTelegramPopup} classNames={"zoom"} unmountOnExit mountOnEnter  timeout={{
             enter : 50,

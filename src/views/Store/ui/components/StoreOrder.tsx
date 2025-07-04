@@ -1,18 +1,17 @@
 'use client'
 import { addOrder, removeAllOrders, setCartPopup } from '@/entities/cart/model/cartSlice';
-import { useAppDispatch, useAppSelector } from '@/shared/models/reduxHooks';
+import { useAppDispatch } from '@/shared/models/reduxHooks';
 import React, { FC } from 'react';
 
 type IStoreOrder = {
     image : string,
     name : string,
     price : number,
-    description : string,
     hoverImage : string,
     id : number
 }
 
-const StoreOrder:FC<IStoreOrder> = ({description, name, price, image, hoverImage, id}) => {
+const StoreOrder:FC<IStoreOrder> = ({name, price, image, hoverImage, id}) => {
 
     const dispatch = useAppDispatch();
     const clickHandler = () => {

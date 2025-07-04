@@ -8,7 +8,7 @@ function Slides<T>({slides, render} : ISlides<T>){
         <>
             {slides.map((slide, index) => {
                 return (
-                <div className="image">
+                <div key={index} className="image">
                     {render(slide, index)}
                 </div>
                 )

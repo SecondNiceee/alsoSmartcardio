@@ -1,5 +1,4 @@
-import { debounce } from "lodash";
-import React, { SetStateAction, useCallback, useState } from "react";
+import React, { SetStateAction, useState } from "react";
 import {
   Control,
   Controller,
@@ -11,6 +10,7 @@ import useFetchYears, { TypeSuggestion } from "./hooks/useFetchYears";
 import Loader from "../Loader/Loader";
 import { TypeStatus } from "@/shared/api/models";
 import CitySuggestionList from "./CitySuggestionList";
+import useDebounce from "@/shared/hooks/useDebounce";
 
 interface IDropDownInput<T extends FieldValues> {
   name: Path<T>;
@@ -58,18 +58,15 @@ function CityChoicer<T extends FieldValues>({
           setFetchStatus,
         });
 
-        const debouncedFetchCitys = useCallback(
-          debounce((value) => {
-            fetchYears(value);
-          }, 300),
-          [fetchYears]
+        const debouncedFetchCitys = useDebounce(
+          {delay : 300, func : fetchYears}
         );
 
         const onClick =
           (
             suggestion: TypeSuggestion
           ): React.MouseEventHandler<HTMLLIElement> =>
-          (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+          () => {
             setIsCityPicked(true);
             onChange(suggestion.code);
             onPickFunction(suggestion.code);
@@ -82,7 +79,7 @@ function CityChoicer<T extends FieldValues>({
           (
             suggestion: TypeSuggestion
           ): React.TouchEventHandler<HTMLLIElement> =>
-          (e: React.TouchEvent<HTMLLIElement>) => {
+          () => {
             setIsCityPicked(true);
             onChange(suggestion.code);
             onPickFunction(suggestion.code);

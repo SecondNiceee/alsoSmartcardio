@@ -5,9 +5,8 @@ import { fromLocation } from "@/shared/config/fromLocation"
 interface IPostDeliveryPoint{
     code : number,
     onReject : () => void,
-    token : string | null
 }
-async function postDeliveryPoint({code, onReject, token} : IPostDeliveryPoint) {
+async function postDeliveryPoint({code, onReject} : IPostDeliveryPoint) {
     const deliveryPoint = await POST<TypedeliveryMethod>({endpoint : "/calculator", data : {
         type : "1",
         currency : "1",

@@ -1,6 +1,6 @@
 'use client'
 import ZoomSlider from '@/shared/UI/ZoomSlider/ZoomSlider';
-import React, { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { sertificateConfig } from '../../config/sertificatesConfig';
 import useZoomSwiper from '../../../../shared/hooks/useZoomSwiper';
 import Sertificate from '../components/Sertificate';

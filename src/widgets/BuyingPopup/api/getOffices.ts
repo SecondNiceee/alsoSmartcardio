@@ -3,10 +3,9 @@ import { TypeOffice } from "../model/TypeOffice";
 
 interface IGetOffices{
     region_code : number,
-    token : string | null,
 
 }
-async function getOffices({region_code, token} : IGetOffices) {
+async function getOffices({region_code} : IGetOffices) {
 
     const offices = await GET<TypeOffice[]>({endpoint : "/offices", params : {
                     type : "PVZ",

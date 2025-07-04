@@ -1,6 +1,5 @@
 import { POST } from "@/shared/api/POST";
 import { fromLocation } from "@/shared/config/fromLocation";
-import { getAccessToken } from "@/shared/utils/getAccessToken";
 import { TypeOffice } from "../model/TypeOffice";
 import { TypeDeliverName } from "@/shared/models/TypeDeliverName";
 import { deliverCode } from "@/shared/config/deliverCode.config";
@@ -9,10 +8,6 @@ import { TypedeliveryMethod } from "../model/TypeDeliveryMethod";
 
 
 export const sumCalculate = async (toLocation : TypeOffice, deliveryName : TypeDeliverName) => {
-
-  const token = getAccessToken();
-
-
 
   const response = await POST<TypedeliveryMethod>({
     data : {

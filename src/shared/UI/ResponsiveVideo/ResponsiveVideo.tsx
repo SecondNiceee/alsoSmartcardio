@@ -5,15 +5,13 @@ type VideoProps = JSX.IntrinsicElements["video"]
 interface IResponsiveVideo {
     videoName : string,
     className : string,
-    imageWidth : number,
-    imageHeight : number,
     videoProps : VideoProps,
     darkOpacity? : number,
     imageLoading? : "eager" | "lazy" ,
     posterMedim : string,
     posterSmall : string
 }
-const ResponsiveVideo:FC<IResponsiveVideo> = ({  videoName, className, imageHeight, imageWidth, videoProps, darkOpacity = 0, imageLoading, posterMedim, posterSmall }) => {
+const ResponsiveVideo:FC<IResponsiveVideo> = ({  videoName, className, videoProps, darkOpacity = 0, imageLoading, posterMedim, posterSmall }) => {
 
   return (
     <div className={className}>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { TypeDeliveryMethodString } from '../model/TypeDeliveryMethodString';
 import { TypeOffice } from '../model/TypeOffice';
 import { TypeDeliverName } from '@/shared/models/TypeDeliverName';

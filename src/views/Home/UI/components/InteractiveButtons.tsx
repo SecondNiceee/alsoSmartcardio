@@ -2,7 +2,6 @@
 import OrderButton from "@/shared/UI/OrderButton/OrderButton";
 import React, { FC } from "react";
 import { IInteractiveMobile } from "./InteractiveMobile";
-import { openPdfInNewTab } from "@/shared/utils/openPdfInNewTab";
 import { openInstruction } from "../../utils/openInstruction";
 
 const InteractiveButtons:FC<IInteractiveMobile> = ({openZoom}) => {

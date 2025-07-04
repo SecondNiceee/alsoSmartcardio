@@ -33,7 +33,7 @@ const ResponsePopup = forwardRef(({setPopup}: IResponsePopup, ref: Ref<HTMLFormE
 
   const onSubmit = handleSubmit( async (data : IResponseForm) => {
     setPopup(false)
-    const response = await POST({endpoint : "/sendemail", data : {
+     await POST({endpoint : "/sendemail", data : {
       message: `
         <div style="font-family: Inter, sans-serif;">
           <h2>Это отзыв на Smartcardio</h2>
@@ -90,4 +90,5 @@ const ResponsePopup = forwardRef(({setPopup}: IResponsePopup, ref: Ref<HTMLFormE
   );
 });
 
+ResponsePopup.displayName = 'ResponsePopup';
 export default ResponsePopup;

@@ -9,7 +9,7 @@ const useHideCartButton = () => {
     return () => {
       dispatch(setCartButton(true));
     };
-  }, []);
+  }, [dispatch]);
 };
 
 export default useHideCartButton;

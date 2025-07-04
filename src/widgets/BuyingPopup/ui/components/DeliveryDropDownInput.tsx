@@ -36,6 +36,7 @@ function DelivertDropDownInput<T extends FieldValues>({
   
 }: IDeliveryPointInput<T>) {
   return (
+    
     <Controller
       name={name}
       control={control}
@@ -51,7 +52,7 @@ function DelivertDropDownInput<T extends FieldValues>({
             );
           }
           return null;
-        }, [inputValue, deliveryPoints]);
+        }, []);
 
         const onInputFocus = () => {
           setShowSuggestion(true);

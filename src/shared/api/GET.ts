@@ -1,4 +1,4 @@
-import { CustomHeaders, DataType, ParamsType } from "./models";
+import { CustomHeaders, ParamsType } from "./models";
 
 interface IGet {
   endpoint: string;

@@ -1,9 +1,6 @@
-import { endpoints } from "@/shared/api/endpoints";
 import { GET } from "@/shared/api/GET";
 import { TypeStatus } from "@/shared/api/models";
-import { getAccessToken } from "@/shared/utils/getAccessToken";
 import  { SetStateAction, useCallback } from "react";
-import axios from "axios";
 import retryOperation from "@/shared/utils/retryOperation";
 
 
@@ -22,9 +19,7 @@ interface IuseFetchYears{
 }
 const useFetchYears = ({setFilteredSuggestions, fromEmpty, setFromEmpty, setFetchStatus} : IuseFetchYears ) => {
   const fetchYears = useCallback(async (value: string) => {
-      
-      const token = getAccessToken();
-
+    
       setFetchStatus("pending")
       
       let error = false
@@ -60,7 +55,7 @@ const useFetchYears = ({setFilteredSuggestions, fromEmpty, setFromEmpty, setFetc
       setFilteredSuggestions(responses)
       return responses;
       
-  }, [fromEmpty, setFromEmpty]);
+  }, [fromEmpty, setFromEmpty, setFetchStatus, setFilteredSuggestions]);
   return fetchYears
 };
 

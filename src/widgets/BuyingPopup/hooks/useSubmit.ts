@@ -1,18 +1,13 @@
-import { device } from '@/shared/config/device';
 import React from 'react';
 import { IForm } from '../ui/BuyingPopup';
 import { SubmitErrorHandler, SubmitHandler } from 'react-hook-form';
-import { deviceWithCase } from '@/shared/config/deviceWithCase';
-import { useAppSelector } from '@/shared/models/reduxHooks';
-import { getAccessToken } from '@/shared/utils/getAccessToken';
 import { deliverCode } from '@/shared/config/deliverCode.config';
 import { POST } from '@/shared/api/POST';
 import { getDevicePackage } from '../utils/getDevicePackage';
 import { getDeviceWithPackage } from '../utils/getDeviceWithCasePackage';
 import { TPromocode } from '../model/TPromocode';
-import axios from 'axios';
-import { request } from '@/shared/api/request';
 import { implementPromoSales } from '../api/implementPromoSales.client';
+import { useAppSelector } from '@/shared/models/reduxHooks';
 
 interface IUseSumbit{
     handleSubmit : (onValid: SubmitHandler<IForm>, onInvalid?: SubmitErrorHandler<IForm> | undefined) => (e?: React.BaseSyntheticEvent) => Promise<void>
@@ -35,9 +30,9 @@ const useSubmit = ({handleSubmit, delivceryCity, deliverySumm, cdekComission, is
 
           const deiveWithCasePackage = getDeviceWithPackage(data.comment)
     
-          const devicePackages = Array.from({length : cartOrders[0].counter} , (order,id) => ({...deivcePackage, number : `sm-${id+1}`}))
+          const devicePackages = Array.from({length : cartOrders[0].counter} , (_,id) => ({...deivcePackage, number : `sm-${id+1}`}))
     
-          const deviceWithCasePackages = Array.from({length: cartOrders[1].counter} , (order, id) => ({...deiveWithCasePackage, number : `smwc-${id+1}`}))
+          const deviceWithCasePackages = Array.from({length: cartOrders[1].counter} , (_, id) => ({...deiveWithCasePackage, number : `smwc-${id+1}`}))
     
           const packages = [...devicePackages, ...deviceWithCasePackages]
 
@@ -56,64 +51,64 @@ const useSubmit = ({handleSubmit, delivceryCity, deliverySumm, cdekComission, is
     
             try{
     
-              // if (data.deliveryMethod === "courier")  {
-              //   await POST({
-              //       endpoint: "/order",
-              //       data: {
-              //           "comment" : data.comment,
-              //           type : 1,
-              //           tariff_code : tarrif_code,
-              //           shipment_point : "MSK55",
-              //           value : 0,
-              //           sum : cdekComission,
-              //           to_location : {
-              //               country_code : "RU",
-              //               "address" : address
-              //             },
-              //           delivery_recipient_cost : {
-              //             value : deliverySumm
+              if (data.deliveryMethod === "courier")  {
+                await POST({
+                    endpoint: "/order",
+                    data: {
+                        "comment" : data.comment,
+                        type : 1,
+                        tariff_code : tarrif_code,
+                        shipment_point : "MSK55",
+                        value : 0,
+                        sum : cdekComission,
+                        to_location : {
+                            country_code : "RU",
+                            "address" : address
+                          },
+                        delivery_recipient_cost : {
+                          value : deliverySumm
                           
-              //           },
+                        },
                         
-              //           delivery_point : delivery_code,
-              //           packages : packages,
-              //           recipient : {
-              //             email : data.email,
-              //             name : data.FIO,
-              //             phones : [{number : "+7" + data.phone.slice(1)}]
-              //           }
-              //       },
-              //       headers: {
-              //         "Content-Type" : "application/json"
-              //       },
-              //     });
-              // }
-              // else{
-              //   const response = await POST({
-              //     endpoint: "/order",
-              //     data: {
-              //         "comment" : data.comment,
-              //         type : 1,
-              //         tariff_code : tarrif_code,
-              //         shipment_point : "MSK55",
-              //         value : 0,
-              //         sum : cdekComission,
-              //         delivery_recipient_cost : {
-              //           value : deliverySumm
-              //         },
-              //         delivery_point : delivery_code,
-              //         packages : packages,
-              //         recipient : {
-              //           name : data.FIO,
-              //           phones : [{number : "+7" + data.phone.slice(1)}]
-              //         }
-              //     },
-              //     headers: {
-              //       "Content-Type" : "application/json"
-              //     },
-              //   });
+                        delivery_point : delivery_code,
+                        packages : packages,
+                        recipient : {
+                          email : data.email,
+                          name : data.FIO,
+                          phones : [{number : "+7" + data.phone.slice(1)}]
+                        }
+                    },
+                    headers: {
+                      "Content-Type" : "application/json"
+                    },
+                  });
+              }
+              else{
+                await POST({
+                  endpoint: "/order",
+                  data: {
+                      "comment" : data.comment,
+                      type : 1,
+                      tariff_code : tarrif_code,
+                      shipment_point : "MSK55",
+                      value : 0,
+                      sum : cdekComission,
+                      delivery_recipient_cost : {
+                        value : deliverySumm
+                      },
+                      delivery_point : delivery_code,
+                      packages : packages,
+                      recipient : {
+                        name : data.FIO,
+                        phones : [{number : "+7" + data.phone.slice(1)}]
+                      }
+                  },
+                  headers: {
+                    "Content-Type" : "application/json"
+                  },
+                });
       
-              // }
+              }
               await implementPromoSales(isPromocode);
               goToCongratulation()
             }

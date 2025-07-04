@@ -2,14 +2,13 @@
 import { useAppSelector } from "@/shared/models/reduxHooks";
 import { formatNumber } from "@/shared/utils/formateNumber";
 import React, {
-  ChangeEventHandler,
   ForwardedRef,
   forwardRef,
   useEffect,
   useMemo,
   useState,
 } from "react";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import FormTextInput from "@/shared/UI/FormInput/FormTextInput";
 import Delivery from "./components/Delivery";
 import { TypeDeliveryMethodString } from "../model/TypeDeliveryMethodString";
@@ -23,7 +22,6 @@ import PhoneInput from "./components/PhoneInput";
 import PopupCloseButton from "@/shared/UI/PopupCloseButton/PopupCloseButton";
 import { blockScroll, unBlockScroll } from "@/shared/utils/blockController";
 import useSubmit from "../hooks/useSubmit";
-import { PROMOCODE } from "@/shared/config/constants";
 import SubmitButton from "@/shared/UI/SubmitButton/SubmitButton";
 import PromocodeInput from "./components/PromocodeInput";
 import { TPromocode } from "../model/TPromocode";
@@ -65,13 +63,13 @@ export const BuyingPopup = forwardRef(
         addOrderToCart(1);
       }
       setStartAddOne(true);
-    }, [setStartAddOne]);
+    }, [setStartAddOne, addOrderToCart, cartOrders]);
 
     const [isPromocodeFind, setPromocode] = useState<TPromocode | null>(null)
 
     const summ = useMemo(() => {
       let summ = 0;
-      cartOrders.forEach((e, i) => (summ += e.price * e.counter));
+      cartOrders.forEach((e) => (summ += e.price * e.counter));
       if (isPromocodeFind ){
         summ -= isPromocodeFind.discountPercent/100 * summ
       }
@@ -84,7 +82,7 @@ export const BuyingPopup = forwardRef(
       if (!summ && startAddOne) {
         setState(false);
       }
-    }, [summ, startAddOne]);
+    }, [summ, startAddOne, setState]);
 
     const {
       register,
@@ -218,3 +216,4 @@ export const BuyingPopup = forwardRef(
     );
   }
 );
+BuyingPopup.displayName = "BuyingPopup";
