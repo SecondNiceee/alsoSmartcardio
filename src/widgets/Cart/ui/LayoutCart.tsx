@@ -36,7 +36,7 @@ export const LayoutCart = () => {
         in={isCartShowed}
         nodeRef={popupRef}
       >
-        <Cart ordersCounter={ordersCounter} ref={popupRef} />
+        <Cart ordersCounter={ordersCounter} />
       </CSSTransition>
     );
 };

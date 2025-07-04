@@ -13,7 +13,7 @@ const Smartcardio: React.FC = () => {
 
     <div className="smartcardio-wrapper">
 
-      <ResponsiveVideo darkOpacity={0.5}  imageHeight={300} imageWidth={380} posterSmall="/images/small-start.webp" posterMedim={'/images/smartcardioStart.webp'} videoProps={
+      <ResponsiveVideo darkOpacity={0.5}  posterSmall="/images/small-start.webp" posterMedim={'/images/smartcardioStart.webp'} videoProps={
         {
         controlsList:"nodownload",
         playsInline : true,

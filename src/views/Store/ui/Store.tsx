@@ -35,7 +35,7 @@ export const Store = () => {
                 <div className='grid grid-cols-1 px-5 sm:px-0 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-10 mb-20'>
 
                     {storeOrders.map( (order, i) => 
-                        <StoreOrder id={order.id} hoverImage={order.hoverImage} description={order.description} image={order.images[0]} name={order.name} price={order.price} key={i}  />
+                        <StoreOrder id={order.id} hoverImage={order.hoverImage}  image={order.images[0]} name={order.name} price={order.price} key={i}  />
                     )}
 
                 </div>

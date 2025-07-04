@@ -88,7 +88,6 @@ export const BuyingPopup = forwardRef(
       register,
       control,
       handleSubmit,
-      watch,
       formState: { errors },
     } = useForm<IForm>({
       resolver: zodResolver(buyingSchema),
@@ -195,7 +194,7 @@ export const BuyingPopup = forwardRef(
                 name={"comment"}
               />
 
-              <PromocodeInput isPromocodeFind={isPromocodeFind} control={control} setPromocode={setPromocode} watch={watch} />
+              <PromocodeInput isPromocodeFind={isPromocodeFind} control={control} setPromocode={setPromocode} />
 
 
               <BuyingItog

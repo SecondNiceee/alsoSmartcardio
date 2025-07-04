@@ -37,7 +37,7 @@ const Header = () => {
         
       </div>
 
-      <BurgerLinks setMenuOpen={setMenuOpen} isActive={isMenuOpen} />
+      <BurgerLinks  isActive={isMenuOpen} />
       
     </header>
     </>
