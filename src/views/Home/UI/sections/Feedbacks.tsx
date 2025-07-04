@@ -20,7 +20,7 @@ const Feedbacks = () => {
       <div className="container gap-containerGap p-container flex flex-col relative">
         <img
           src={"/images/videoLiner.svg"}
-          alt="#"
+          alt="ЭКГ"
           className="absolute blur-[100px] left-[50%] top-[50%]  translate-x-[-50%] translate-y-[-50%] "
         />
         <Reveal character={CHARACTER.LEFT}>

@@ -39,8 +39,8 @@ const HowItWorks = () => {
                   <div ref={elementRef} className="how-it-works__main relative z-[100]">
                       <Video videoClassName='video !z-[100] !relative'  poster = "images/manual.webp" controls = {true} className='how-it-works__video !z-[100] !relative' videoName='manual.mp4'  />
                   </div>
-                  <img className='how-it-works__logo' src={"/images/logo.jpg"} alt='#' />
-                  <img className='how-it-works__logo' src={"/images/logo.jpg"} alt='#'  />
+                  <img className='how-it-works__logo' src={"/images/logo.jpg"} alt='ЭКГ' />
+                  <img className='how-it-works__logo' src={"/images/logo.jpg"} alt='Прибор для ЭКГ'  />
 
             </Reveal>
         </section>

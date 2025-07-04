@@ -22,7 +22,7 @@ const ForWhomSlide:FC<IForWhomSlide> = ({slide, setResponsePopup, setSliderActiv
                         <span>Связаться с нами</span>
                     </OrderButton>} 
                 </div>
-                <img onClick={() => {setSliderActive(true)}} className='lg:w-[55.07%] h-[500px] sm:w-[60%] w-full object-cover sm:h-[485px] md:h-[608px] mx-auto rounded-lg' src={slide.imgSrc} alt="forUsers" />
+                <img onClick={() => {setSliderActive(true)}} className='lg:w-[55.07%] h-[500px] sm:w-[60%] w-full object-cover sm:h-[485px] md:h-[608px] mx-auto rounded-lg' src={slide.imgSrc} alt="Прибор для измерения ЭКГ" />
             </div>
     );
 };

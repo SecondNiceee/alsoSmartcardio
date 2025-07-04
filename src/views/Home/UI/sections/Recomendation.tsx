@@ -14,7 +14,7 @@ const Recomendation = () => {
                 <Video videoClassName='rounded-[10px] z-30 relative' className='max-w-[880px] mx-auto relative z-30' controls = {true} videoName='recomendation.mp4'  />
                 <div className='relative'>
 
-                    <img className='absolute hidden lg:block right-[0%] bottom-[20%] w-[25%]' alt='#' src={"/images/blogArrow.svg"} />
+                    <img className='absolute hidden lg:block right-[0%] bottom-[20%] w-[25%]' alt='Смарткардио для измерения ЭКГ' src={"/images/blogArrow.svg"} />
                     
                     <OrderButton externalLink='https://www.youtube.com/@smart_cardio' className='w-[100%] max-w-[70%] md:max-w-[500px] bg-[#ffffff] py-[11px] md:py-[18px] px-[14px] mx-auto border-solid border-2 scale-hover'  >
                         <span className='button-p'>На YouTube канал</span>

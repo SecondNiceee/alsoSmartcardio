@@ -11,7 +11,7 @@ interface IPhoneButton{
 const PhoneButton:FC<IPhoneButton> = ({href, text, imageName, svgItem, className = ""}) => {
     return (
         <a  className={`${cl.phoneButton} ${className}`} href={href} target="_blank" rel="noopener noreferrer">
-            {!svgItem ? <img className={cl.phoneButtonImage} alt='#' src={`images/${imageName}`}  /> : svgItem}
+            {!svgItem ? <img className={cl.phoneButtonImage} alt='Смарткардио - прибор для измерения Экг.' src={`images/${imageName}`}  /> : svgItem}
             <p className={cl.phoneButtonText}>{text}</p>
         </a>
 

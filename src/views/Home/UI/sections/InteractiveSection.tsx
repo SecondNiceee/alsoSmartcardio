@@ -24,17 +24,17 @@ const InteractiveSection = () => {
                 <div className="container">
                     <div className="interactive-wrapper">
 
-                        <img className='interactive__image'  alt='#' src={"/images/interactive.webp"} />
+                        <img className='interactive__image'  alt='Смарткардио' src={"/images/interactive.webp"} />
 
                         <InteractivePhoneBlock />
 
                         <InteractiveCardioBlock openZoom={openZoom} />
 
-                        <img className='interactive__liner-block' alt='#' src={"/images/interactiveLinerBlock.svg"} />
+                        <img className='interactive__liner-block' alt='Смарткардио' src={"/images/interactiveLinerBlock.svg"} />
 
                     </div>
                 </div>
-                <img className='interactive__circle' alt='#' src={"images/interactiveCircle.svg"} />
+                <img className='interactive__circle' alt='ЭКГ' src={"images/interactiveCircle.svg"} />
             </Reveal>
 
             <InteractiveMobile openZoom={openZoom} />

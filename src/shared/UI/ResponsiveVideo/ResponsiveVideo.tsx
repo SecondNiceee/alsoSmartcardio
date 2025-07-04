@@ -18,8 +18,8 @@ const ResponsiveVideo:FC<IResponsiveVideo> = ({  videoName, className, videoProp
 
         <div className={`relative w-[100%] h-[100%] block md:hidden`}>
             <div className={`absolute left-0 top-0 w-[100%] h-[100%] bg-black z-[10]`} style={{opacity : darkOpacity}} />
-            <img  loading = {imageLoading} src={posterMedim} alt='Poster' className={`${className} hidden 2xs:block`} />
-            <img loading = {imageLoading} src={posterSmall} alt='Poster' className={`${className} block 2xs:hidden`}  />
+            <img  loading = {imageLoading} src={posterMedim} alt='Смарткардио - прибор для измерения Экг' className={`${className} hidden 2xs:block`} />
+            <img loading = {imageLoading} src={posterSmall} alt='Смарткардио - прибор для измерения Экг' className={`${className} block 2xs:hidden`}  />
         </div>
         
         <Video  darkOpacity = {darkOpacity} className={`${className} md:block hidden`} poster={posterMedim} {...videoProps} videoName={videoName} />

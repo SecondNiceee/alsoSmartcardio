@@ -36,7 +36,7 @@ function ZoomSlider<T>({slides, closeZoom,initialSlide , mainSwiperRef, zoomStat
     const render = useCallback( (src:T, index:number) => {
         return (
             <SwiperSlide key={index} className='mx-auto flex justify-center'>
-                <img className= {`w-fit h-[100vh] object-contain ${imagesClassNames}`} alt='#' src={src as string}  />
+                <img className= {`w-fit h-[100vh] object-contain ${imagesClassNames}`} alt='ЭКГ' src={src as string}  />
             </SwiperSlide>
         )
     }, [imagesClassNames] ) 

@@ -20,7 +20,7 @@ const RecorderExamples = () => {
   const renderSmall = useCallback((src:string, index: number) => {
     return (
         <SwiperSlide key={index}  className={`mx-auto small-slide  rounded-sm cursor-pointer`}>
-            <img className='w-[100%] h-[100%] rounded-sm' alt='#' src={src}  />
+            <img className='w-[100%] h-[100%] rounded-sm' alt='ЭКГ смарткардио' src={src}  />
         </SwiperSlide>
     )
 }, [])

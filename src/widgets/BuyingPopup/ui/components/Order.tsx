@@ -33,7 +33,7 @@ const Order:FC<IOrder> = ({order}) => {
           >
             <img
               className="w-[20%] rounded-xl min-w-[90px]"
-              alt="#"
+              alt="Прибор для ЭКГ"
               src={order.images[0]}
             />
             <div className="flex md:flex-row w-[100%] flex-col md:gap-6 gap-2 items-center md:justify-between ">

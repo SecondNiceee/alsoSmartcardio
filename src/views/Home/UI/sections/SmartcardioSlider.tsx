@@ -20,13 +20,11 @@ const SmartcardioSlider = () => {
   const {closeZoom , zoomSlider, setZoomSlider} = useZoomSwiper()
 
 
-
-
   return (
     <section id = "smartcardio-slider" className="smartcardio-slider relative">
 
-      <img className="w-[15%] md:block hidden absolute right-[5%] top-[10%] opacity-50 blur-[30px]" src={"/images/logo.jpg"} alt='#' />
-      <img className="left-[5%] md:block hidden bottom-[10%] absolute w-[15%] opacity-50 blur-[30px]" src={"/images/logo.jpg"} alt='#' />
+      <img className="w-[15%] md:block hidden absolute right-[5%] top-[10%] opacity-50 blur-[30px]" src={"/images/logo.jpg"} alt='Измерение экг' />
+      <img className="left-[5%] md:block hidden bottom-[10%] absolute w-[15%] opacity-50 blur-[30px]" src={"/images/logo.jpg"} alt='Смарткардио для ЭКГ' />
 
       <div className="container">
         <Reveal
@@ -49,9 +47,7 @@ const SmartcardioSlider = () => {
                 slidesPerView: 8,
                 spaceBetween: 10,
               }}
-              mainImageClassNames="md:h-[475px] h-[300px]"
               renderMap={smartardioSliderImage}
-              swiperClassNames="w-[75%]"
               ref={swiperRef}
               handleSlideChange={handleSlideChange}
               setZoomSlider={setZoomSlider}

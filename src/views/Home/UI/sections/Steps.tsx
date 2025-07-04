@@ -12,7 +12,7 @@ const Steps = () => {
                     Три шага для оценки <span className='text-[#6cff01] font-bold'>Вашего здоровья</span>
                 </Reveal>
                 <Reveal character={CHARACTER.DOWNUP} className="steps__main">
-                    <img className='steps__arrows' alt='#' src={"/images/stepsArrow.svg"} />
+                    <img className='steps__arrows' alt='ЭКГ' src={"/images/stepsArrow.svg"} />
                     <div className="steps__steps">
                         {steps.map( (e, i) => {
                             return (

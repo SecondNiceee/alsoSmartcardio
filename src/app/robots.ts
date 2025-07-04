@@ -1,11 +1,13 @@
-import type { MetadataRoute } from 'next'
- 
-export default function robots(): MetadataRoute.Robots {
-  return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-    },
-    sitemap: 'https://smartcardio.ru/',
-  }
+import { NextRequest, NextResponse } from 'next/server';
+
+export function GET(req: NextRequest) {
+  return new NextResponse(
+    `User-agent: *\nAllow: /\nSitemap: https://smartcardio.ru/sitemap.xml\n`,
+    {
+      status: 200,
+      headers: {
+        'Content-Type': 'text/plain',
+      },
+    }
+  );
 }

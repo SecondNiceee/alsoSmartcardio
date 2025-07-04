@@ -41,7 +41,7 @@ const Technologys = () => {
 
             </div>
 
-            <img src={"/images/videoLiner.svg"} alt="#" className="video-liner" />
+            <img src={"/images/videoLiner.svg"} alt="Прибор для измерения экг" className="video-liner" />
 
           </Reveal>
 
