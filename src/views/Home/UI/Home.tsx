@@ -2,11 +2,11 @@
 import React from 'react';
 import "./styles/_index.scss";
 import dynamic from 'next/dynamic';
+import Smartcardio from './sections/Smartcardio';
+import ForWhomTwo from './sections/ForWhomTwo';
 
-const Smartcardio = dynamic( () => import("./sections/Smartcardio"), {ssr: false}  )
 const Recognition = dynamic( () => import("./sections/Recognition"), {ssr: false}  )
 const Downloads = dynamic( () => import("./sections/Downloads"), {ssr: false}  )
-const ForWhomTwo = dynamic( () => import("./sections/ForWhomTwo"), {ssr: false}  )
 const Generation = dynamic( () => import("./sections/Generation"), {ssr: false}  )
 const InteractiveSection = dynamic(() => import("./sections/InteractiveSection"), {ssr: false}  );
 const Indicators = dynamic( () => import('./sections/Indicators'), {ssr: false}  )
