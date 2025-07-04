@@ -49,7 +49,9 @@ const SmartcardioSlider = () => {
                 slidesPerView: 8,
                 spaceBetween: 10,
               }}
+              mainImageClassNames="md:h-[475px] h-[300px]"
               renderMap={smartardioSliderImage}
+              swiperClassNames="w-[75%]"
               ref={swiperRef}
               handleSlideChange={handleSlideChange}
               setZoomSlider={setZoomSlider}
