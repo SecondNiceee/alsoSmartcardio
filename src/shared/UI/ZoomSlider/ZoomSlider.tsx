@@ -4,12 +4,12 @@ import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 import "swiper/css";
 import "./zoomSlider.scss";
 import Cross from './Cross';
-import { Navigation } from 'swiper/modules';
 import {Swiper as SwiperType} from 'swiper';
 import NextButton from '../NextPrevButtons/NextButton';
 import PrevButton from '../NextPrevButtons/PrevButton';
 import { CSSTransition } from 'react-transition-group';
 import { blockScroll, unBlockScroll } from '@/shared/utils/blockController';
+import { Navigation } from 'swiper/modules';
 
 export interface IZoomSliderProps<T> {
     slides: T[];
@@ -36,7 +36,13 @@ function ZoomSlider<T>({slides, closeZoom,initialSlide , mainSwiperRef, zoomStat
     const render = useCallback( (src:T, index:number) => {
         return (
             <SwiperSlide key={index} className='mx-auto flex justify-center'>
-                <img className= {`w-fit h-[100vh] object-contain ${imagesClassNames}`} alt='ЭКГ' src={src as string}  />
+                <img
+                  className={`swiper-lazy w-fit h-[100vh] object-contain ${imagesClassNames}`}
+                  alt='ЭКГ'
+                  data-src={src as string}
+                  loading="lazy"
+                />
+                <div className="swiper-lazy-preloader"></div>
             </SwiperSlide>
         )
     }, [imagesClassNames] ) 
@@ -71,10 +77,11 @@ function ZoomSlider<T>({slides, closeZoom,initialSlide , mainSwiperRef, zoomStat
 
                 <PrevButton arrowType='circle' className='prev-zoom' />
 
-                <Swiper onSlideChange={changeSlider}  initialSlide={initialSlide} modules={[Navigation]} loop = {true}  navigation = {{
+                <Swiper  onSlideChange={changeSlider}   initialSlide={initialSlide} modules={[Navigation]}  loop = {true}  navigation = {{
                     prevEl : '.prev-zoom',
                     nextEl : '.next-zoom'
-                }} >
+                }}
+                >
 
                 {slides.map((slide, index) => {
                 return (
