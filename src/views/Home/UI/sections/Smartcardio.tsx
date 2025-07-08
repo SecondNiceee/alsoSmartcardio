@@ -1,11 +1,11 @@
 import React from "react";
-import Header from "./Header";
 import SmartcardioButtons from "../components/SmartcardioButtons";
 import SmartcardioScrollArrow from "../components/SmartcardioScrollArrow";
 
 import ResponsiveVideo from "@/shared/UI/ResponsiveVideo/ResponsiveVideo";
+import dynamic from "next/dynamic";
 
-
+const Header = dynamic(() => import("./Header"));
 const Smartcardio: React.FC = () => {
   return (
 

@@ -1,24 +1,10 @@
 'use client'
-import React, { useEffect, useState } from "react";
+import React from "react";
 import OrderButton from "@/shared/UI/OrderButton/OrderButton";
 import { routes } from "@/shared/config/routes";
+import { scrollToForWhom } from "../../utils/scrollToForWhom";
 
 const SmartcardioButtons = () => {
-  const [scrollToForWhom, setScrollToForWhom] = useState(() => () => {});
-
-
-  useEffect(() => {
-    const importScrollToDownloads = async () => {
-      const { scrollToForWhom } = await import('../../utils/scrollToForWhom');
-      setScrollToForWhom(() => scrollToForWhom);
-    };
-    importScrollToDownloads();
-  }, []);
-
-  // const orderFunction = () => {  
-  //   dispath(setCartPopup(true));
-  // };
-
   return (
     <>
       <OrderButton

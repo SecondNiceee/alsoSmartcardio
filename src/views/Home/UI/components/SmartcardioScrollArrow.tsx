@@ -1,20 +1,11 @@
 'use client'
-import React, { useEffect, useState } from 'react';
+import { scrollToForWhom } from '../../utils/scrollToForWhom';
 import { ScrollArrow } from './ScrollArrow';
 
 const SmartcardioScrollArrow = () => {
-    const [scrollToDownloads, setScrollToDownloads] = useState(() => () => {});
-
-    useEffect(() => {
-    const importScrollToDownloads = async () => {
-        const { scrollToDownloads } = await import('../../utils/scrollToDownloads');
-        setScrollToDownloads(() => scrollToDownloads);
-    };
-    importScrollToDownloads();
-    }, []);
     return (
         <ScrollArrow
-        onClick={scrollToDownloads}
+        onClick={scrollToForWhom}
         className="smartcardio-arrow"
       />
     );
