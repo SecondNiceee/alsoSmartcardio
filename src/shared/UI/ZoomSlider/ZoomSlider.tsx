@@ -21,7 +21,7 @@ export interface IZoomSliderProps {
     imagesClassNames? : string
 }
 
-function ZoomSlider<T>({slides, closeZoom,initialSlide , mainSwiperRef, zoomState, imagesClassNames}: IZoomSliderProps ) {
+function ZoomSlider({slides, closeZoom,initialSlide , mainSwiperRef, zoomState, imagesClassNames}: IZoomSliderProps ) {
     
     useEffect( () => {
         if (zoomState){ 
