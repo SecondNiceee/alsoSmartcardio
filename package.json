@@ -3,7 +3,6 @@
   "version": "1.1.0",
   "private": true,
   "scripts": {
-    "prebuild" : "./resize.ps1",
     "dev": "ts-node server.ts",
     "build": "next build",
     "start": "NODE_ENV=production ts-node server.ts",
