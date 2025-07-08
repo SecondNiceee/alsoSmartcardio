@@ -6,7 +6,11 @@
     "dev": "ts-node server.ts",
     "build": "next build",
     "start": "NODE_ENV=production ts-node server.ts",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prebuild": "npm run resize",
+    "resize:win": "pwsh ./resize-fixed.ps1",
+    "resize:linux": "sh ./resize-linux.sh",
+    "resize": "cross-env-shell 'if [ \"$OS\" = \"Windows_NT\" ]; then pwsh ./resize-fixed.ps1; else sh ./resize-linux.sh; fi'"
   },
   "dependencies": {
     "@fingerprintjs/fingerprintjs": "^4.5.1",
