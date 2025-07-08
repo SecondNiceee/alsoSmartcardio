@@ -10,6 +10,7 @@ import useZoomSwiper from "../../../../shared/hooks/useZoomSwiper";
 import useDefaultSwiper from "../../../../shared/hooks/useDefaultSwiper";
 import { RecorderItem } from "../components/RecorderItem";
 import { CHARACTER } from "@/shared/UI/Reveal/models/CharacterEnum";
+import { createImageResolution } from "@/shared/utils/createImageResolution";
 
 const RecorderExamples = () => {
 
@@ -20,9 +21,10 @@ const RecorderExamples = () => {
   const renderSmall = useCallback((src:string, index: number) => {
     return (
         <SwiperSlide key={index}  className={`mx-auto small-slide  rounded-sm cursor-pointer`}>
-            <img className='w-[100%] h-[100%] rounded-sm' alt='ЭКГ смарткардио' src={src}  />
+            <img loading="lazy" className='w-[100%] h-[100%] rounded-sm' alt='ЭКГ смарткардио' src={createImageResolution(src, 576)}  />           
         </SwiperSlide>
     )
+
 }, [])
   return (
     <section className="section">

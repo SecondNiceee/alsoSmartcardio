@@ -11,7 +11,11 @@ const InteractiveMobile:FC<IInteractiveMobile> = ({openZoom}) => {
         <div className="container">
             <div className="interactive__m-main relative z-30 bg-white">
                 <InteractiveButtons openZoom={openZoom} />
-                <img className='interactive__m-image' alt='ЭКГ' src={"/images/interactive.webp"} />
+                <picture>
+                    <source media='(max-width:576px)' srcSet='/images/interactive-768px.webp' />
+                    <source media='(max-width:1024px)' srcSet='/images/interactive-1024px.webp' />
+                    <img loading='lazy' className='interactive__m-image' alt='ЭКГ' src={"/images/interactive-1440px.webp"} />
+                </picture>
             </div>
         </div>
         

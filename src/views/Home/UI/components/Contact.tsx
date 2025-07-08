@@ -8,7 +8,7 @@ const Contact:FC<IContact> = ({contact}) => {
     return (
         <a href={contact.link} className='contact rounded-md' target='_blank' rel='noopener noreferred'>
             <div className="contact-tblock">
-                <img  alt='Измерение ЭКГ' className={`relative z-40 md:w-[50px] sm:w-[30px] w-[25px] `} src={contact.iconSvg} />
+                <img  loading='lazy'  alt='Измерение ЭКГ' className={`relative z-40 md:w-[50px] sm:w-[30px] w-[25px] `} src={contact.iconSvg} />
                 <p className='contact-p'>{contact.name}</p>
             </div>
         <div className= {`black-block rounded-md`}></div>

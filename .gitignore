@@ -30,7 +30,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# env files (can opt-in for commiting if needed)
+# env files (can opt-in for committing if needed)
 .env*
 
 # vercel
@@ -39,5 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# images
+public/images/*-[0-9]*px.webp
+public/images/*-[0-9]*px.png
+public/images/*-[0-9]*px.jpg
+public/images/*-[0-9]*px.jpeg
 
 .vercel

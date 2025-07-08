@@ -1,10 +1,7 @@
 "use client";
-
 import React, { CSSProperties, ReactNode } from "react";
 import cl from "./OrderButton.module.scss";
 import Link from "next/link";
-
-
 
 type TypeAProps = JSX.IntrinsicElements["a"]
 

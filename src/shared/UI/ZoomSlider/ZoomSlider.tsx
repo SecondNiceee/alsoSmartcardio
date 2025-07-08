@@ -10,9 +10,10 @@ import PrevButton from '../NextPrevButtons/PrevButton';
 import { CSSTransition } from 'react-transition-group';
 import { blockScroll, unBlockScroll } from '@/shared/utils/blockController';
 import { Navigation } from 'swiper/modules';
+import { createImageResolution } from '@/shared/utils/createImageResolution';
 
-export interface IZoomSliderProps<T> {
-    slides: T[];
+export interface IZoomSliderProps {
+    slides: string[];
     closeZoom : () => void,
     initialSlide : number,
     mainSwiperRef? : React.MutableRefObject<SwiperRef | null>
@@ -20,7 +21,7 @@ export interface IZoomSliderProps<T> {
     imagesClassNames? : string
 }
 
-function ZoomSlider<T>({slides, closeZoom,initialSlide , mainSwiperRef, zoomState, imagesClassNames}: IZoomSliderProps<T> ) {
+function ZoomSlider<T>({slides, closeZoom,initialSlide , mainSwiperRef, zoomState, imagesClassNames}: IZoomSliderProps ) {
     
     useEffect( () => {
         if (zoomState){ 
@@ -33,15 +34,19 @@ function ZoomSlider<T>({slides, closeZoom,initialSlide , mainSwiperRef, zoomStat
 
     const ref = useRef(null)
 
-    const render = useCallback( (src:T, index:number) => {
+    const render = useCallback( (src:string, index:number) => {
         return (
             <SwiperSlide key={index} className='mx-auto flex justify-center'>
-                <img
-                  className={`swiper-lazy w-fit h-[100vh] object-contain ${imagesClassNames}`}
-                  alt='ЭКГ'
-                  data-src={src as string}
-                  loading="lazy"
-                />
+                <picture>
+                    <source media='(max-width:576px)' srcSet={createImageResolution(src, 768)} />
+                    <source media='(max-width:1024px)' srcSet={createImageResolution(src, 1024)} />
+                    <img
+                        className={`swiper-lazy w-fit h-[100vh] object-contain ${imagesClassNames}`}
+                        alt='ЭКГ'
+                        data-src={createImageResolution(src, 1440)}
+                    loading="lazy"
+                    />
+                </picture>
                 <div className="swiper-lazy-preloader"></div>
             </SwiperSlide>
         )
@@ -68,7 +73,6 @@ function ZoomSlider<T>({slides, closeZoom,initialSlide , mainSwiperRef, zoomStat
             <div  className="slider-container">
                 <div onClick={closeZoom} className="trigger-area"/>
             
-                
                 <div onClick={closeZoom} className="circle close-button">
                     <Cross/>
                 </div>
@@ -97,4 +101,4 @@ function ZoomSlider<T>({slides, closeZoom,initialSlide , mainSwiperRef, zoomStat
     );
 };
 
-export default React.memo(ZoomSlider) as <T>(props: IZoomSliderProps<T>) => JSX.Element;
+export default React.memo(ZoomSlider) as (props: IZoomSliderProps) => JSX.Element;

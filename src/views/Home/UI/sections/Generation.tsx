@@ -16,7 +16,16 @@ const Generation = () => {
 
                 <Reveal character={CHARACTER.LEFT} className="relative">
                     <div className="w-full left-1/2 -translate-x-1/2 max-w-[880px] h-full blur-3xl opacity-10 absolute  bg-[#5100FD] "/>
-                    <img  alt="Измерение ЭКГ" className='max-w-[880px] rounded-2xl w-full object-cover h-[300px] sm:h-[400px] md:h-[500px] mx-auto relative z-30'  src={"/images/generation.webp"}  />
+                    <picture className="block">
+                        <source media="(max-width: 576px)" srcSet="/images/generation-576px.webp" />
+                        <source media="(max-width: 1024px)" srcSet="/images/generation-1024px.webp" />
+                        <img
+                            loading="lazy"
+                            className="max-w-[880px] rounded-2xl w-full object-cover h-[300px] sm:h-[400px] md:h-[500px] mx-auto relative z-30"
+                            src="/images/generation-1440px.webp"
+                            alt="Измерение ЭКГ"
+                        />
+                    </picture>
                 </Reveal>
 
                 <Reveal character={CHARACTER.RIGHT} className='relative'>

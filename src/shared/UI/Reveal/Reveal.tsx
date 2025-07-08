@@ -17,8 +17,6 @@ const Reveal:FC<IReveal> = ({children, character, className = "", start, ...prop
 
     const revealRef = useRef<HTMLDivElement>(null)
     
-
-
     const addFunction = useCallback(() => {
         setIsRendered(true)
 

@@ -32,7 +32,7 @@ const revealProperty = (id : number ) => {
 const Advantage:FC<IAdvantage> = ({header, img, p, id}) => {
     return (
         <Reveal character={revealProperty(id)} className={`flex w-[100%] gap-[15px] md:gap-[35px] flex-col items-center relative z-30 ${isBlack(id) ? "bg-black black-shadow" : "bg-white white-shadow"}  p-[20px] rounded-[20px]`}>
-            <img className='!icon-height w-auto' alt='Смарткардио прибор для ЭКГ' src={img}    />
+            <img loading='lazy' className='!icon-height w-auto' alt='Смарткардио прибор для ЭКГ' src={img}    />
             <div className='flex flex-col items-center'>
                 <header className={`sub-title ${isBlack(id) ? "text-white !font-extrabold" : "text-black"} font-semibold`}>{header}</header>
                 <p dangerouslySetInnerHTML={{ __html: p }} className={`p ${isBlack(id) ? "text-white" : "text-black"}`}></p>

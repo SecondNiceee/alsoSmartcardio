@@ -23,10 +23,7 @@ const Order:FC<IOrder> = ({order}) => {
       removeAllOrdersFromCart(id)
     }
 
-    
-
-  
-
+ 
     return (
           <div
             className="w-[100%] gap-5 rounded-md border-solid  border-black flex items-center justify-between md:p-5"

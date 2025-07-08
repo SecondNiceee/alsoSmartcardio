@@ -13,7 +13,11 @@ const Sertificate:FC<ISertificate> = ({imagePath, id, setInitialSlide, openZoom}
     }, [openZoom, setInitialSlide])
     return (
         <div onClick={changeSlide(id)} className='w-[100%] cursor-pointer hover:translate-y-[-20px] transition-transform duration-300'>
-            <img className='w-[100%] border-2 border-solid border-black rounded-md' alt='ЭКГ' src={imagePath}  />
+            <picture>
+                <source media='(max-width:576px)' srcSet={`${imagePath}-768px.webp`} />
+                <source media='(max-width:1024px)' srcSet={`${imagePath}-1024px.webp`} />
+                <img loading='lazy' className='w-[100%] border-2 border-solid border-black rounded-md' alt='ЭКГ' src={`${imagePath}-1440px.webp`}  />
+            </picture>
         </div>
     );
 };

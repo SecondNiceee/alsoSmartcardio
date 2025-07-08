@@ -8,11 +8,15 @@ const FooterOrder = () => {
     
     return (
 
-        <section className='section bg-[url("/images/footerBg.webp")] relative md:bg-fixed md:bg-bottom bg-center md:bg-auto bg-cover'>
+        <section className='section relative bg-cover bg-center md:bg-fixed md:bg-bottom md:bg-auto
+            bg-[url("/images/footerBg-576px.webp")] 
+            sm:bg-[url("/images/footerBg-768px.webp")] 
+            md:bg-[url("/images/footerBg-1024px.webp")] 
+            lg:bg-[url("/images/footerBg-1440px.webp")]'>
             <div className="w-[100%] h-[100%] absolute left-0 top-0 bg-black z-10 opacity-70"></div>
             <div className="container p-container gap-containerGap relative flex flex-col z-20">
                 <h2 className='h2 text-white'>Закажите СмартКардио® уже сегодня</h2>
-                <div className="!mid-title text-ali text-white">
+                <div className="!mid-title  text-white">
                     <span className='italic'>«Врачи лечат болезни, а здоровье и долголетие нужно добывать самому.» - </span>
                     Врач, учёный, сердечно-сосудистый хирург Николай Михайлович Амосов.
                 </div>

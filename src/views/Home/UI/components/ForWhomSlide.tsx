@@ -3,6 +3,7 @@ import { TWhoWhomSliderItem } from '../../config/forWhomSlider.config';
 import OrderButton from '@/shared/UI/OrderButton/OrderButton';
 import { routes } from '@/shared/config/routes';
 import "../styles/_for-whom.scss";
+import { createImageResolution } from '@/shared/utils/createImageResolution';
 
 interface IForWhomSlide{
     slide : TWhoWhomSliderItem;
@@ -22,7 +23,11 @@ const ForWhomSlide:FC<IForWhomSlide> = ({slide, setResponsePopup, setSliderActiv
                         <span>Связаться с нами</span>
                     </OrderButton>} 
                 </div>
-                <img onClick={() => {setSliderActive(true)}} className='lg:w-[55.07%] h-[500px] sm:w-[60%] w-full object-cover sm:h-[485px] md:h-[608px] mx-auto rounded-lg' src={slide.imgSrc} alt="Прибор для измерения ЭКГ" />
+                <picture className='block'>
+                    <source media='(max-width:768px)' srcSet={createImageResolution(slide.imgSrc, 768)} />
+                    <source media='(max-width:1024px)' srcSet={createImageResolution(slide.imgSrc, 1024)} />
+                    <img loading='lazy' onClick={() => {setSliderActive(true)}} className='lg:w-[55.07%] h-[500px] sm:w-[60%] w-full object-cover sm:h-[485px] md:h-[608px] mx-auto rounded-lg' src={createImageResolution(slide.imgSrc, 1440)} alt="Прибор для измерения ЭКГ" />
+                </picture>
             </div>
     );
 };

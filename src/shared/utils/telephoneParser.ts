@@ -10,8 +10,6 @@ export const telephoneParser = (formattedPhoneNumber: string): string => {
 
             return '+' + formattedPhoneNumber.replace(/\D/g, '')
         }
-
-
     }
 
     lastLength = formattedPhoneNumber.replace(/\D/g, '').length
