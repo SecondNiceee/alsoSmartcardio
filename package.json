@@ -10,7 +10,7 @@
     "prebuild": "npm run resize",
     "resize:win": "pwsh ./resize-fixed.ps1",
     "resize:linux": "sh ./resize-linux.sh",
-    "resize": "cross-env-shell 'if [ \"$OS\" = \"Windows_NT\" ]; then pwsh ./resize-fixed.ps1; else sh ./resize-linux.sh; fi'"
+    "resize": "node resize.js"
   },
   "dependencies": {
     "@fingerprintjs/fingerprintjs": "^4.5.1",
@@ -46,6 +46,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.4.20",
+    "cross-env": "^7.0.3",
     "eslint": "9.30.1",
     "eslint-config-next": "15.3.4",
     "postcss": "^8.4.49",
