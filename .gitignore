@@ -40,7 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-images
+#images
 public/images/*-[0-9]*px.webp
 public/images/*-[0-9]*px.png
 public/images/*-[0-9]*px.jpg
